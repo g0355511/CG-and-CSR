@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 3 Who Oversees the Overseers? — Boards, Independent Directors, and Committees</title>
+<style>
+:root{--fg:#1a1a1a;--muted:#5b6b7a;--accent:#2c5f8a;--border:#c9d4de;--card:#f4f7fa}
+body{font-family:"Noto Serif TC","Source Han Serif TC","PMingLiU",serif;
+     max-width:920px;margin:2.5rem auto;padding:0 1.6rem;line-height:1.8;
+     color:var(--fg);background:#fff}
+h1{font-size:1.9rem;line-height:1.4;border-bottom:3px solid var(--accent);padding-bottom:.5rem}
+h2{font-size:1.5rem;color:var(--accent);border-bottom:2px solid var(--accent);
+   padding-bottom:.3rem;margin-top:2.4rem}
+h3{font-size:1.15rem;color:var(--accent);margin-top:1.8rem}
+h4{font-size:1.02rem;margin-top:1.3rem}
+blockquote{background:var(--card);border-left:4px solid var(--accent);
+           padding:.7rem 1.1rem;margin:1rem 0;color:#33475b}
+hr{border:none;border-top:1px solid var(--border);margin:2rem 0}
+a{color:#1a5fb4;text-decoration:none;border-bottom:1px dotted #1a5fb4;word-break:break-all}
+a:hover{text-decoration:underline}
+table{border-collapse:collapse;width:100%;margin:1.1rem 0;font-size:.93rem}
+th,td{border:1px solid var(--border);padding:.5rem .65rem;text-align:left;vertical-align:top}
+th{background:#eef3f8}
+ul,ol{margin:.5rem 0 .5rem 1.5rem;padding-left:.6rem}
+li{margin:.28rem 0}
+ul ul,ul ol,ol ul,ol ol{margin-top:.3rem;margin-left:1.1rem}
+ul{list-style-type:disc}
+ul ul{list-style-type:circle}
+ul ul ul{list-style-type:square}
+ol{list-style-type:decimal}
+ol ol{list-style-type:lower-alpha}
+ol ol ol{list-style-type:lower-roman}
+strong{color:#a83232}
+em{color:#2c5f8a}
+code{background:#f0f2f5;padding:.1rem .35rem;border-radius:3px;font-size:.9em}
+.refs p{margin:.15rem 0 .85rem;padding-left:1.6rem;text-indent:-1.6rem}
+.refs{margin-top:.5rem}
+@media print{body{max-width:none;margin:0}a{color:var(--fg)}}
+</style>
+</head>
+<body>
+<h1>Chapter 3 Who Oversees the Overseers? — Boards, Independent Directors, and Committees</h1>
+<blockquote>
+<p><strong>Core Question: Under the system of separated ownership and control, the board of directors, as the core mechanism of corporate governance, should be accountable to whom? Shareholders, employees, the state, or a broader set of stakeholders? Can the board truly exercise oversight? Are independent directors truly independent? How do boards operate across countries?</strong></p>
+<p><strong>Chapter Positioning Note</strong>: Chapter 2 provided the background on ownership structure. This chapter focuses on the core oversight mechanism under dispersed ownership — the board of directors — while contrasting it with the governance logic of the concentrated-ownership setting. Under a system of separated ownership and control, who oversees management? What are the board's strengths and limitations?</p>
+</blockquote>
+<h2>Opening Case: The Boeing 737 MAX Crisis — The Extreme of Board Oversight Failure</h2>
+<p>On March 10, 2019, Ethiopian Airlines Flight 302 crashed, killing all 157 people on board. It was the second 737 MAX crash in five months — in October 2018, Indonesian Lion Air Flight 610 had crashed, killing 189 people.</p>
+<p>The common culprit in both accidents was an automated system called MCAS. Under certain conditions, this system would automatically push the nose down, and pilots neither knew it existed nor knew how to disable it.</p>
+<p>Even more infuriating: <strong>Before the accidents, Boeing's board had never received a dedicated briefing on MCAS safety risks — management's regular reports did not include product safety information, and the board was only exposed to safety information "passively and sporadically."</strong></p>
+<p>The board responded, but too late: in October 2019, Boeing's board separated the roles of Chairman and CEO, appointing the independent director Calhoun as non-executive Chairman so that CEO Muilenburg could focus on product safety; in December 2019, the board further removed CEO Muilenburg, with Calhoun taking over as CEO and another independent director, Kellner, becoming non-executive Chairman. These "locking the stable door after the horse has bolted" measures could not bring back the 346 lives lost.</p>
+<p>Investigations by the U.S. Congress and aviation regulators pointed to the same conclusion:</p>
+<blockquote>
+<p>"The 737 MAX crashes were not caused by a single failure, technical error, or management misjudgment, but by the tragic accumulation of a series of erroneous technical assumptions by Boeing engineers, insufficient transparency on the part of Boeing management, and extremely inadequate oversight by the Federal Aviation Administration (FAA)." (U.S. House Committee on Transportation and Infrastructure, 2020)</p>
+</blockquote>
+<p>Board-level failures are documented in the report of the FAA Expert Review Panel (2020), commissioned by the Federal Aviation Administration (FAA), and in the Delaware Court of Chancery decision <em>In re The Boeing Company Derivative Litigation</em> (2021): Boeing's board had <strong>no committee assigned responsibility for aircraft safety</strong>, and every committee charter was "completely silent" on safety; management's regular reports to the board did not include product safety information, and the board was only exposed to safety information "passively and sporadically." In other words, the board did not proactively and critically scrutinize safety risks, but passively accepted management's version.</p>
+<p><strong>The core questions this case raises:</strong></p>
+<ul>
+<li>What is the board's function? How should it oversee management?</li>
+<li>When management "does not report" important risks, how can the board find out?</li>
+<li>Are independent directors truly independent, or are they merely management's "rubber stamp"?</li>
+<li>How do boards operate across countries? Why can some boards oversee effectively while others cannot?</li>
+</ul>
+<hr />
+<p><strong>Learning Objectives:</strong></p>
+<ol>
+<li>Understand the dilemma of direct shareholder oversight under dispersed ownership, and why the board is necessary (Section 1)</li>
+<li>Examine to whom the board should be accountable: shareholder primacy vs. stakeholder theory, and the four roles and four types of role conflict (Section 2)</li>
+<li>Using CEO pay decoupled from performance as an example, analyze the specific mechanisms of board failure (Section 3)</li>
+<li>Analyze the independent director system as an effort to improve oversight, and its limitations (Section 4)</li>
+<li>Understand the division of labor and operation of committees (Section 5)</li>
+<li>Understand the benefits and controversies of board diversity, and compare board operating models across countries (Section 6)</li>
+</ol>
+<blockquote>
+<p><strong>Core Questions and Learning Objectives:</strong></p>
+<ul>
+<li>What is the board's function? How should it oversee management? → Objectives 1, 2</li>
+<li>Why do boards fail? → Objective 3</li>
+<li>Are independent directors truly independent? → Objective 4</li>
+<li>How do boards operate across countries? → Objective 6</li>
+</ul>
+</blockquote>
+<hr />
+<h2>Section 1: Why Do We Need a Board? — The Oversight Dilemma Under Dispersed Ownership</h2>
+<blockquote>
+<p><strong>Bridge from the previous chapter</strong>: Chapter 2 showed that different ownership structures require different oversight mechanisms. In firms with concentrated ownership, large shareholders can directly exercise shareholder rights to oversee management; but in listed companies with dispersed ownership, shareholders cannot oversee directly. This chapter focuses on the core oversight mechanism under dispersed ownership — the board — while contrasting it with the governance logic of concentrated ownership.</p>
+</blockquote>
+<p>The core question of corporate governance is: <strong>How do shareholders (principals) ensure that managers (agents) act in shareholders' interests?</strong> One intuitive answer: why not have shareholders oversee managers directly?</p>
+<h3>A. The Dispersed-Ownership Scenario: The Dilemma of Direct Shareholder Oversight</h3>
+<p>In listed companies with dispersed ownership, direct shareholder oversight is almost infeasible:</p>
+<table>
+<thead>
+<tr>
+<th>Difficulty</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Dispersed ownership</strong></td>
+<td>Modern listed companies have large numbers of shareholders, each holding a very small stake, without sufficient incentive or capacity to oversee</td>
+</tr>
+<tr>
+<td><strong>The free-rider problem</strong></td>
+<td>Small shareholders have no incentive to oversee — the cost of oversight is borne by the individual, while the benefits are shared by all shareholders</td>
+</tr>
+<tr>
+<td><strong>Information asymmetry</strong></td>
+<td>Shareholders do not participate in day-to-day operations and cannot obtain sufficient information to oversee</td>
+</tr>
+<tr>
+<td><strong>Professional capability</strong></td>
+<td>Oversight requires specialized knowledge that ordinary shareholders may lack</td>
+</tr>
+<tr>
+<td><strong>The collective action problem</strong></td>
+<td>Shareholders find it difficult to coordinate and act in unison</td>
+</tr>
+</tbody>
+</table>
+<p>Shareholders therefore delegate oversight authority to the board, which exercises oversight on shareholders' behalf. <strong>The board becomes the shareholders' "agent."</strong></p>
+<p>But this raises a new problem:</p>
+<blockquote>
+<p><strong>The board is also an agent — who oversees the board?</strong></p>
+</blockquote>
+<p>This is the core question of this chapter: <strong>"Who oversees the overseers?"</strong> This chapter examines the board's roles, the independence of independent directors, the division of labor among committees, and the controversy over CEO pay in order to answer it.</p>
+<h3>B. The Concentrated-Ownership Scenario: Advantages and Risks of Large-Shareholder Oversight</h3>
+<p>In firms with concentrated ownership (such as family businesses in Taiwan or Korean chaebols), large shareholders have both the incentive and the capacity to oversee management directly:</p>
+<p><strong>Advantages:</strong></p>
+<ul>
+<li><strong>Strong oversight capacity</strong>: Large shareholders hold high stakes and have the incentive to invest resources in overseeing management</li>
+<li><strong>Easy access to information</strong>: Large shareholders can obtain information through board seats and internal relationships</li>
+<li><strong>High decision-making efficiency</strong>: Large shareholders can intervene directly in operating decisions, reducing agency costs</li>
+</ul>
+<p><strong>Risks:</strong></p>
+<ul>
+<li><strong>Agency problems between large and small shareholders</strong>: Large shareholders may harm small shareholders through tunneling, related-party transactions, and similar means (see Chapter 2 in detail)</li>
+<li><strong>Insufficient board independence</strong>: Board members are mostly nominated by the large shareholder, weakening the oversight function</li>
+<li><strong>"The manager is the owner"</strong>: The large shareholder simultaneously serves as Chairman or General Manager, making it difficult for the checks and balances among the shareholders' meeting, the board, and the supervisor to function</li>
+</ul>
+<p><strong>Key Insight:</strong> Whether ownership is concentrated or dispersed, some form of oversight mechanism is needed. Under dispersed ownership, the board becomes the core oversight mechanism; under concentrated ownership, large shareholders oversee directly, but mechanisms are needed to guard against abuse of power by large shareholders. This chapter focuses on the board mechanism under dispersed ownership, but contrasts it with the concentrated-ownership setting where appropriate.</p>
+<p>💭 <strong>Think About It</strong>: Which setting do you think poses the more serious corporate governance problem — concentrated or dispersed ownership? Why?</p>
+<hr />
+<h2>Section 2: To Whom Is the Board Accountable, and What Roles Does It Play? — Four Theories and Role Conflicts</h2>
+<h3>A. To Whom Should the Board Be Accountable? — Shareholder Primacy vs. Stakeholder Theory</h3>
+<p>Is the board merely the shareholders' agent? The literature on corporate governance offers two polar views:</p>
+<p><strong>1. Shareholder Primacy</strong></p>
+<ul>
+<li><strong>View:</strong> The board is merely the shareholders' agent and should take shareholder wealth maximization as its sole objective</li>
+<li><strong>Representative figures:</strong> Milton Friedman (1970), Jensen &amp; Meckling (1976)</li>
+<li><strong>Criticism:</strong> This view ignores the company's impact on society and may lead to externalities (such as environmental pollution and labor exploitation)</li>
+</ul>
+<p><strong>2. Stakeholder Theory</strong></p>
+<ul>
+<li><strong>View:</strong> The board should be accountable to all stakeholders (employees, customers, suppliers, communities, the environment), not just shareholders</li>
+<li><strong>Representative figure:</strong> R. Edward Freeman (1984)</li>
+<li><strong>Criticism:</strong> This view may lead to vague board objectives that are difficult to measure</li>
+</ul>
+<p><strong>Key Insight:</strong> These two poles are not an "either/or" question. Board practices in each country fall at different points on the spectrum, depending on that country's history, institutional environment, and ownership structure.</p>
+<blockquote>
+<p><strong>Note on this chapter's interpretation:</strong> The "accountability spectrum" is an analytical framework proposed by this chapter based on observation of regulations and cases in various countries; it is not the original claim of the literature.</p>
+</blockquote>
+<p>For example:</p>
+<ul>
+<li><strong>Delaware, United States</strong>: Leans toward shareholder primacy, with the board centered on shareholder interests</li>
+<li><strong>Germany</strong>: Leans toward employee stakeholders; the law requires employee representatives to sit on the supervisory board</li>
+<li><strong>Japan</strong>: Leans toward creditor stakeholders; main banks and cross-shareholdings are important oversight mechanisms</li>
+<li><strong>Taiwan</strong>: Leans toward shareholder primacy, but is gradually expanding the range of parties to whom the board should be accountable (for example, Corporate Governance 3.0 requires attention to stakeholders)</li>
+</ul>
+<p><strong>Practice in Each Country:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Country</th>
+<th>Primary Party to Whom the Board Is Accountable</th>
+<th>Regulatory Basis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>| United States | Shareholders | Delaware General Corporation Law |
+| Germany | Shareholders and employees | Co-determination (Mitbestimmung) |
+| Japan | Shareholders, employees, creditors | Companies Act |
+| China | State/Party, shareholders | Company Law |
+| Taiwan | Shareholders (but gradually expanding) | Company Act, Securities and Exchange Act |</p>
+<h3>B. What Does the Board Do? — Four Roles and Role Conflicts</h3>
+<p>In a classic review in the <em>Journal of Economic Literature</em>, Adams, Hermalin, and Weisbach (2010) summarized the board's roles as the dual functions of "monitoring" and "strategic advice," and pointed out a fundamental tension between the two. This chapter goes further, using four theoretical bases to explain the board's four roles.</p>
+<p><strong>1. The Monitoring Role — Agency Theory</strong></p>
+<p>The core assumption of agency theory (Jensen &amp; Meckling, 1976) is: under a system of separated ownership and control, managers (agents) pursue their own interests rather than the interests of shareholders (principals). Agency costs include monitoring costs, bonding costs, and residual loss.</p>
+<p><strong>Implication for the board:</strong> The board's primary task is to reduce agency costs. Agency theory makes clear that the board can "fire the agent" — appointing and removing the CEO is the core mechanism for reducing agency costs.</p>
+<p><strong>Two functions under the monitoring role:</strong> The implications of agency theory for the board can be further divided into two functions of a different nature:</p>
+<ul>
+<li><strong>Monitoring function</strong>: Continuous oversight of management's decisions and operating performance, for example reviewing quarterly reports and supervising internal control and internal audit.</li>
+<li><strong>Senior personnel gatekeeping function</strong>: Making periodic decisions on the appointment, removal, compensation, and succession of the CEO and senior executives, for example the deliberations of the nominating committee and the compensation committee.</li>
+</ul>
+<p>Both originate from agency theory, but they operate in different committees and on different time scales. Therefore, even though both belong to the "monitoring role," tension can still arise between them (see Subsection C of this section).</p>
+<p>📌 <strong>Illustration</strong>: In 2018, the SEC sued Elon Musk for securities fraud, and Tesla's board was questioned for being unable to oversee the CEO independently. The final settlement required Musk to resign as Chairman, to be replaced by an independent director, and strengthened the board's oversight of the CEO.</p>
+<p><strong>2. The Advisory Role — Stewardship Theory</strong></p>
+<p>The core assumption of stewardship theory (Davis et al., 1997) is: managers are essentially "stewards" who place organizational interests ahead of personal interests, because serving the organization brings intrinsic satisfaction. Unlike agency theory's assumption that "people act opportunistically," stewardship theory holds that "people contribute."</p>
+<p><strong>Implication for the board:</strong> If managers are trustworthy stewards, the board's role is no longer that of a "monitor" but that of a "helper." Davis et al. (1997) explicitly state that stewardship theory supports a board design of "empower rather than control" — the board should empower management rather than control it.</p>
+<p>📌 <strong>Illustration</strong>: Patagonia founder Yvon Chouinard placed the company's ownership in a trust dedicated to environmental purposes; the board and management jointly formulated a long-term "Earth First" strategy, embodying the stewardship spirit — the board is a strategic partner, not an adversary. Apple's board works closely with Tim Cook to advance supply-chain decarbonization and product recycling strategies.</p>
+<p><strong>3. The Resource Provider Role — Resource Dependence Theory</strong></p>
+<p>Resource dependence theory (Pfeffer &amp; Salancik, 1978) holds that one function of the board is to bring the external resources the company needs into the company. Board members, by virtue of their networks, expertise, and reputation, connect the company with capital, talent, and political resources.</p>
+<p><strong>4. The Institutional Follower Role — Institutional Theory</strong></p>
+<p>Institutional theory (DiMaggio &amp; Powell, 1983) holds that organizations follow the norms and expectations of their institutional environment in order to achieve "legitimacy." The board's establishment of audit committees and compensation committees is partly a response to the requirements of regulations and corporate governance codes, rather than purely a monitoring need.</p>
+<h3>C. Tensions Among the Roles</h3>
+<p>When the board simultaneously plays multiple roles, the following conflicts may arise:</p>
+<ul>
+<li><strong>Advisor vs. monitor</strong>: If the board actively participates in strategy formulation, it becomes difficult to objectively assess the strategy's success — because if the strategy fails, the board bears responsibility too (it is judging itself).</li>
+<li><strong>Monitor vs. resource provider</strong>: If board members also bring resources to the company, they may be hesitant when overseeing (it is hard to bite the hand that feeds you).</li>
+<li><strong>Monitor vs. institutional follower</strong>: If the board merely follows institutional requirements rather than engaging in substantive oversight, formalistic rather than substantive oversight may result.</li>
+<li><strong>Monitor vs. senior personnel gatekeeper</strong>: Although both oversight and personnel gatekeeping belong to functions under the "monitoring role," one is continuous oversight and the other is periodic appointment and compensation decisions. When the board must evaluate a CEO it appointed itself, rigorous evaluation amounts to admitting "we chose the wrong person" — and so internal tension can arise between appointment and oversight.</li>
+</ul>
+<p>📌 <strong>Illustration (advisor vs. monitor)</strong>: Boeing's board and its CEO jointly formulated the rapid-development strategy for the 737 MAX, but when safety concerns arose about the MCAS system, the board did not require management to reassess the strategy, but instead endorsed it. The result was two crashes and 346 deaths.</p>
+<p>📌 <strong>Illustration (monitor vs. senior personnel gatekeeper)</strong>: The Wells Fargo fake-accounts scandal (2016) — the object of the board's oversight was precisely the CEO the board itself had appointed. The board only acted when millions of fake accounts had been exposed, precisely because admitting oversight failure amounts to admitting it chose the wrong person. The full case discussion appears in Section 3.</p>
+<p>💭 <strong>Think About It</strong>: If you were an independent director of Boeing and discovered that a strategy you had endorsed might pose safety problems, how would you handle it?</p>
+<hr />
+<h2>Section 3: Evidence of Board Failure: CEO Pay Decoupled from Performance</h2>
+<blockquote>
+<p><strong>Role of this section</strong>: To present, through concrete cases, the mechanisms of board oversight failure, as motivation for the improvement measures that follow (Sections 4 through 6).</p>
+</blockquote>
+<h3>A. The Phenomenon: How Pay Becomes Decoupled from Performance</h3>
+<p>Agency theory holds that pay should be linked to performance so that the CEO's interests align with shareholders'. In practice, however, pay decoupled from performance is a common phenomenon:</p>
+<p><strong>1. Pay levels far exceeding performance</strong></p>
+<ul>
+<li>In 2025, the average total compensation of S&amp;P 500 CEOs reached $22.8 million, a ratio to median employee pay of <strong>312:1</strong>; in 2024 the figures were $18.9 million and <strong>285:1</strong>, and in 2023 $17.7 million and <strong>268:1</strong>. (AFL-CIO, 2024, 2026)</li>
+<li>The pay ratio rises year by year, drawing social attention to wealth inequality.</li>
+<li>Note: The 312:1 figure for 2025 above is the average <strong>excluding Tesla CEO Musk alone</strong>; if Musk is included (his 2025 compensation was 2,522,203 times the median Tesla employee's pay), the S&amp;P 500 average jumps to <strong>5,387:1</strong>. (AFL-CIO, 2026)</li>
+</ul>
+<p><strong>2. "Pay for Failure"</strong></p>
+<ul>
+<li>Some CEOs receive high compensation even when company performance is poor</li>
+<li>The introduction of clawback provisions</li>
+</ul>
+<p><strong>3. Insufficient pay transparency</strong></p>
+<ul>
+<li>The U.S. SEC requires companies to disclose the ratio of CEO pay to median employee pay</li>
+<li>Shareholders' "Say on Pay" votes</li>
+<li>Taiwan also requires listed companies to disclose director and manager compensation</li>
+</ul>
+<h3>B. The Mechanism: Managerial Power Theory</h3>
+<p>In <em>Pay without Performance</em>, Bebchuk and Fried (2004) proposed "managerial power theory," systematically explaining why boards fail:</p>
+<p><strong>Core proposition:</strong> The CEO may use his or her power to influence pay-setting, resulting in pay decoupled from performance.</p>
+<p><strong>Channels through which the CEO influences pay:</strong></p>
+<ul>
+<li><strong>Composition of the compensation committee</strong>: The CEO can recommend "friendly" independent directors for the compensation committee</li>
+<li><strong>Selection of compensation consultants</strong>: The CEO can hire consultants friendly to management</li>
+<li><strong>Information control</strong>: The CEO can control the information provided to the compensation committee</li>
+</ul>
+<p><strong>Academic controversy and criticism:</strong></p>
+<p>Managerial power theory is not uncontroversial in academia. The following points deserve attention:</p>
+<ul>
+<li><strong>The market-competition view</strong>: Some scholars (e.g., Murphy, 2013) argue that excessive CEO pay is mainly the result of market competition rather than "capture." In markets with scarce talent, companies must pay high salaries to attract and retain excellent managers.</li>
+<li><strong>Insufficient evidence</strong>: Some studies (e.g., Edmans et al., 2017) find that the relationship between CEO pay and performance is not as weak as Bebchuk and Fried (2004) describe. In fact, many CEOs' pay is significantly positively correlated with company stock prices.</li>
+<li><strong>The endogeneity problem</strong>: The relationship between pay and performance may be endogenous — companies that perform better can afford to pay higher compensation in the first place, rather than high pay causing high performance.</li>
+</ul>
+<p>📌 <strong>Illustration</strong>: Apple's Tim Cook received approximately $99 million in compensation in 2023, but Apple's stock price rose about 1,000% during his tenure. Does this represent pay linked to performance, or the result of market competition?</p>
+<h3>C. Case: The Tesla/Musk Trillion-Dollar Pay Package</h3>
+<p>In November 2025, Tesla shareholders approved an "unprecedented" compensation package with 75% of the vote: Musk can receive stock incentives worth approximately $1 trillion over the next 10 years, provided Tesla reaches a market capitalization of $8.5 trillion and achieves a series of operational milestones — cumulative delivery of 20 million vehicles, 10 million FSD subscriptions, 1 million Optimus robots, 1 million robotaxis in commercial operation, and adjusted EBITDA of $400 billion (based on the milestones in Tesla's 2025 proxy statement).</p>
+<p>Yale School of Management professor Jeffrey Sonnenfeld criticized: "The performance thresholds are illusional and delusional." (Sonnenfeld &amp; Henriques, 2025)</p>
+<p><strong>The specific mechanisms of board failure this case exposes:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Failure Mechanism</th>
+<th>Manifestation in the Tesla Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Insufficient independence of the compensation committee</strong></td>
+<td>Several directors with close ties to Musk (such as Kimbal Musk and James Murdoch) participated in the decision</td>
+</tr>
+<tr>
+<td><strong>Information asymmetry</strong></td>
+<td>Do shareholders fully understand the true value of the compensation package?</td>
+</tr>
+<tr>
+<td><strong>Design of performance metrics</strong></td>
+<td>Seemingly strict, but are they "impossible targets" or "inevitable targets"?</td>
+</tr>
+<tr>
+<td><strong>Shareholders' oversight capacity</strong></td>
+<td>Do shareholders fully understand the true value of the compensation package?</td>
+</tr>
+</tbody>
+</table>
+<h3>D. Further Evidence: The Wells Fargo Fake-Accounts Scandal</h3>
+<p>In 2016, Wells Fargo was exposed for employees opening millions of fake accounts without customer consent. The board was only forced to admit "oversight failure" after the scandal broke.</p>
+<p><strong>The failure mechanisms in the Wells Fargo case:</strong></p>
+<ul>
+<li>The board had actively supported CEO Stumpf's strategic direction</li>
+<li>Only when the scandal broke was the board forced to admit "oversight failure"</li>
+<li>This shows that the board may lower its oversight standards in order to avoid admitting "we chose the wrong person" — this tension between "monitor vs. senior personnel gatekeeper" was discussed in Section 2</li>
+</ul>
+<p><strong>Key Insight:</strong> The Tesla and Wells Fargo cases show that the mechanisms of board failure may include:</p>
+<ol>
+<li><strong>Capture of the compensation committee</strong>: The CEO influences the composition and decisions of the compensation committee</li>
+<li><strong>Information asymmetry</strong>: The board cannot obtain sufficient information to oversee</li>
+<li><strong>Psychological pressure</strong>: The board may lower its oversight standards in order to avoid admitting "we chose the wrong person"</li>
+</ol>
+<p>💭 <strong>Think About It</strong>: How do you think CEO compensation should be designed to ensure it is linked to "real economic results"?</p>
+<hr />
+<h2>Section 4: Independent Directors: Efforts and Limits in Improving Oversight</h2>
+<blockquote>
+<p><strong>Role of this section</strong>: In response to the board failure revealed in Section 3, countries have attempted to improve oversight through the independent director system. This section explains the design and functions of that system, and why it is "partially effective" but cannot fully resolve failure.</p>
+</blockquote>
+<h3>A. Directors' Duties: Duty of Loyalty and Duty of Care</h3>
+<p>To understand the design of the independent director system, one must first understand the duties directors bear under the law. Article 23, Paragraph 1 of Taiwan's Company Act provides: "The responsible person of a company shall faithfully conduct business and exercise the due care of a good administrator; if this is violated and the company suffers damage, the responsible person shall be liable for compensation." Directors' duties can thus be divided into two levels:</p>
+<ul>
+<li><strong>Duty of Loyalty</strong>: A director shall place the company's interests first and shall not use his or her position as a director to seek his or her own interests or those of a third party at the expense of the company. When a director has a conflict of interest with the company, the specific requirement of the duty of loyalty is <strong>disclosure and recusal</strong> — a director shall explain the material content of a conflict of interest to the board with respect to a motion involving his or her own interest; if it may be harmful to the company's interests, the director may not participate in the discussion or vote (Article 206 of the Company Act).</li>
+<li><strong>Duty of Care</strong>: A director shall handle the company's affairs with the care of a good administrator. This is an objective, abstract negligence standard: the test is not "how hard this director subjectively tried," but "whether a person with comparable knowledge and experience and good faith would have acted this way under the general notion of the transaction."</li>
+</ul>
+<p><strong>Why do the two not overlap?</strong> Because the object of examination differs: the duty of loyalty asks "are your motives and interests consistent with the company's," while the duty of care asks "was your decision-making process careful enough." A director may be completely clean (no conflict of interest at all) yet violate the duty of care by approving a transaction without reading the financial statements.</p>
+<p><strong>The purpose of the independence requirement</strong>: The independent director system requires independence precisely in order to ensure that these two duties can be fulfilled — if a director has significant ties to the company or a large shareholder, it is hard to expect him or her to fulfill the duty of loyalty when a conflict arises; if a director is close to management, it is hard to expect him or her to objectively scrutinize the information management provides.</p>
+<h3>B. Definition and Qualifications of Independent Directors</h3>
+<p>An independent director is a director who has no significant relationship with the company and can exercise authority independently.</p>
+<p>The Taiwan Stock Exchange's qualification requirements for independent directors include:</p>
+<p><strong>Positive qualifications:</strong></p>
+<ul>
+<li>Possessing professional knowledge and management capability</li>
+<li>Having previously worked in a related industry or academic institution is preferred</li>
+</ul>
+<p><strong>Negative qualifications (a person may not fall under any of the following):</strong></p>
+<ul>
+<li>Being an employee, director, or supervisor of the company or its affiliated enterprises</li>
+<li>The person, his or her spouse, minor children, or natural-person shareholders holding shares in another's name, holding 1% or more of the company's total issued shares, or ranking among the top ten shareholders</li>
+<li>Being a shareholder holding 5% or more of the company's total issued shares, or the spouse, a relative within the second degree of kinship, or a lineal relative within the third degree of kinship of a shareholder ranking among the top five</li>
+<li>Being a director, supervisor, manager, or shareholder holding 5% or more of a specific company or organization having financial or business dealings with the company</li>
+<li>Being a professional providing audit services to the company or its affiliated enterprises, or having received cumulative remuneration exceeding NT$500,000 in the most recent two years for business, legal, financial, or accounting services</li>
+<li>Having any other relationship with the company that may affect his or her independence</li>
+</ul>
+<p>(Legal basis: Financial Supervisory Commission, <em>Regulations Governing the Establishment of Independent Directors by Public Companies and the Matters They Shall Follow</em>, Article 3; independent directors shall also be nominated under the candidate-nomination system of Article 192-1 of the Company Act and elected by the shareholders' meeting from the list of candidates.)</p>
+<h3>C. Functions of Independent Directors</h3>
+<p>Research by Wang, Xie, and Zhu (2015) in the <em>Journal of Financial and Quantitative Analysis</em> found that independent directors with industry expertise can oversee management more effectively. Specific functions include:</p>
+<p><strong>1. Monitoring function</strong>: Overseeing management and reducing agency problems</p>
+<ul>
+<li>Reviewing the reliability of financial reporting</li>
+<li>Gatekeeping related-party transactions</li>
+<li>Evaluating internal control systems</li>
+</ul>
+<p><strong>2. Advisory function</strong>: Providing professional opinions and external perspectives</p>
+<ul>
+<li>Assisting the board in formulating strategy</li>
+<li>Providing industry expertise</li>
+<li>Connecting external resources</li>
+</ul>
+<p><strong>3. Gatekeeping function</strong>: Gatekeeping within specific committees</p>
+<ul>
+<li>Reviewing senior executive compensation in the compensation committee</li>
+<li>Overseeing financial reporting and internal control in the audit committee</li>
+<li>Reviewing director candidates in the nominating committee</li>
+</ul>
+<h3>D. Challenges of the Independent Director System — "Independent Yet Not Independent"</h3>
+<p>Although regulations require independent directors to be "independent," in practice many independent directors face the following challenges:</p>
+<p><strong>1. The independence problem</strong></p>
+<p>The "independence" of independent directors is often formal rather than substantive in practice — there is a gap between the "independence" required by regulation and the "independence" in actual operation.</p>
+<ul>
+<li><strong>Hidden relationships</strong>: An independent director may have hidden ties to the company or a large shareholder. For example, the independent director may be a college classmate of the Chairman, or may have been introduced to the position through the Chairman.</li>
+<li><strong>Compensation dependence</strong>: An independent director's compensation is paid by the company, which may affect his or her independence. If an independent director's annual fee is $2 million, would he or she dare to strongly oppose the Chairman in a board meeting?</li>
+<li><strong>Psychological pressure</strong>: When all the directors raise their hands in approval, would you, as an independent director, dare to vote against?</li>
+</ul>
+<p>📌 <strong>Illustration</strong>: In the Tesla/Musk pay case, the 2018 compensation package was approved by the compensation committee and the full board "following legal procedures," but was challenged for lacking substantive independence because several directors with close ties to Musk (such as Kimbal Musk and James Murdoch) participated in the decision; in 2024 the Delaware Court of Chancery ultimately invalidated the approximately $55 billion package due to procedural defects (see Section 3).</p>
+<p><strong>2. Information asymmetry</strong></p>
+<ul>
+<li>Independent directors are usually not full-time and have limited knowledge of the company's operations</li>
+<li>Information comes mainly from management and may be incomplete or biased</li>
+<li>Independent directors have limited time and energy</li>
+</ul>
+<p>📌 <strong>Illustration</strong>: In the Boeing case, independent directors were not adequately informed of the design defects of the MCAS system during the development of the 737 MAX (see the opening case).</p>
+<p><strong>3. Effectiveness problems</strong></p>
+<ul>
+<li>Some independent directors are merely a "rubber stamp," lacking substantive oversight</li>
+<li>Independent directors' professional capability may be insufficient</li>
+<li>Independent directors' attendance rates and levels of engagement vary</li>
+</ul>
+<p><strong>4. Legal liability and incentives</strong></p>
+<ul>
+<li>The legal liability independent directors face is disproportionate to their compensation</li>
+<li>This may reduce the willingness of talented individuals to serve as independent directors</li>
+</ul>
+<h3>E. How to Ensure the Independence of Independent Directors?</h3>
+<p><strong>1. Transparency of the nomination and election process</strong></p>
+<ul>
+<li>Nominating director candidates through an independent nominating committee</li>
+<li>Avoiding the Chairman or a large shareholder monopolizing nomination rights</li>
+<li>Candidates should disclose all their relationships with the company</li>
+</ul>
+<p><strong>2. Rationalization of the compensation system</strong></p>
+<ul>
+<li>Independent directors' compensation should not be too high (which would create dependence) or too low (which would remove incentives)</li>
+<li>Compensation should be mainly a fixed fee and should not be linked to company performance (which would compromise independence)</li>
+</ul>
+<p><strong>3. Independent channels for obtaining information</strong></p>
+<ul>
+<li>Independent directors should have the right to contact internal audit and external auditors directly</li>
+<li>Independent directors should have the right to retain external consultants</li>
+</ul>
+<p><strong>4. Board evaluation and removal mechanisms</strong></p>
+<ul>
+<li>Regularly evaluating the independence and effectiveness of independent directors</li>
+<li>Initiating removal procedures for unfit independent directors</li>
+</ul>
+<p><strong>5. Clarification of legal liability</strong></p>
+<ul>
+<li>Clarifying the scope of independent directors' legal liability</li>
+<li>Providing liability insurance for independent directors</li>
+</ul>
+<h3>F. Limits of the Independent Director System</h3>
+<p>Although the independent director system is "partially effective," it cannot fully resolve board failure:</p>
+<table>
+<thead>
+<tr>
+<th>Limit</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Formal independence ≠ substantive independence</strong></td>
+<td>There is a gap between the "independence" required by regulation and the "independence" in actual operation</td>
+</tr>
+<tr>
+<td><strong>Information asymmetry</strong></td>
+<td>Independent directors cannot obtain sufficient information to oversee</td>
+</tr>
+<tr>
+<td><strong>The capture problem</strong></td>
+<td>Independent directors may still be "captured" by the CEO or a large shareholder</td>
+</tr>
+<tr>
+<td><strong>The collective action problem</strong></td>
+<td>Independent directors find it difficult to coordinate and act in unison</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Key Insight:</strong> The independent director system is an "effort to improve oversight," but it cannot fully resolve the fundamental question of "who oversees the overseers."</p>
+<p>💭 <strong>Think About It</strong>: Do you think independent directors are truly independent? If you were an independent director, how would you ensure your own independence?</p>
+<hr />
+<h2>Section 5: Division of Labor and Operation of Committees — What Do Audit, Compensation, and Nominating Committees Each Do?</h2>
+<blockquote>
+<p><strong>Role of this section</strong>: Beyond the independent director system, the division of labor among committees is another attempt at improvement. This section explains how committees enhance oversight effectiveness, and why they still cannot fully resolve failure.</p>
+</blockquote>
+<h3>A. Functions of Committees</h3>
+<p>To improve the board's operating effectiveness, many companies establish specialized committees so that the board can discuss and oversee specific issues in greater depth. A literature review by DeFond and Zhang (2014) shows that the independence of the audit committee is positively associated with the quality of financial reporting, but correlation does not equal causation.</p>
+<p>The advantages of committees are:</p>
+<ul>
+<li><strong>Specialization</strong>: Committee members possess specific expertise and can review issues in greater depth</li>
+<li><strong>Efficiency</strong>: The board need not spend large amounts of time on details; the committee can review first and then report to the board</li>
+<li><strong>Independence</strong>: Committees can be composed of independent directors, enhancing the independence of oversight</li>
+</ul>
+<h3>B. Major Types of Committees</h3>
+<p><strong>1. Audit Committee</strong></p>
+<p>A large body of research shows that the independence of the audit committee is <strong>positively associated</strong> with the quality of financial reporting; DeFond and Zhang (2014) also summarize this type of evidence in their literature review. It should be noted that correlation does not equal causation — companies with better governance are simply more likely to have an independent audit committee in the first place (the endogeneity problem).</p>
+<ul>
+<li><strong>Main function</strong>: Overseeing financial reporting, internal control, and external audit</li>
+<li><strong>Composition</strong>: Composed of all independent directors, with at least one member possessing accounting or financial expertise</li>
+<li><strong>Meeting frequency</strong>: Usually once per quarter, in step with the board; some companies (such as in the financial sector) may meet monthly</li>
+<li><strong>Independence requirements</strong>: Composed of all independent directors, with independence governed by the <em>Regulations Governing the Establishment of Independent Directors by Public Companies and the Matters They Shall Follow</em>; the same independent director may also participate in the compensation committee as provided (see Subsection E of this section)</li>
+<li><strong>Duties</strong>:<ul>
+<li>Reviewing financial statements</li>
+<li>Appointing and removing the attesting CPA</li>
+<li>Reviewing internal control systems</li>
+<li>Reviewing material related-party transactions</li>
+<li>Reviewing the acquisition or disposal of assets</li>
+<li>Supervising the internal audit function</li>
+<li>Handling whistleblower complaints</li>
+</ul>
+</li>
+</ul>
+<p>📌 <strong>Illustration</strong>: If a company plans to acquire assets of the Chairman's personal company at a price above market value, the audit committee should review the reasonableness of the transaction and report its assessment to the board.</p>
+<p>📌 <strong>Illustration</strong>: In the Toshiba case, the audit committee failed to detect a systematic, seven-year fraud spanning multiple divisions, showing the audit committee's insufficient independence and expertise (Toshiba Independent Investigation Committee, 2015).</p>
+<p><strong>2. Compensation / Remuneration Committee</strong></p>
+<ul>
+<li><strong>Main function</strong>: Formulating and reviewing the compensation of senior executives and directors</li>
+<li><strong>Composition</strong>: Composed of independent directors or external experts; members may not have a familial relationship or a significant financial interest relationship with the CEO or management</li>
+<li><strong>Independence requirements</strong>: Compensation committee members should be independent of management and should not simultaneously serve on the audit committee (required in some countries)</li>
+<li><strong>Duties</strong>:<ul>
+<li>Formulating compensation policy</li>
+<li>Reviewing the compensation of the CEO and senior executives</li>
+<li>Reviewing employee compensation systems</li>
+<li>Reviewing employee stock option plans</li>
+<li>Ensuring compensation is linked to long-term performance</li>
+<li>Regularly evaluating the independence of compensation consultants</li>
+</ul>
+</li>
+</ul>
+<p>📌 <strong>Illustration</strong>: In the Tesla/Musk 2018 compensation case, the package was approved by the compensation committee and the full board "following legal procedures," but was challenged for lacking substantive independence because several directors with close ties to Musk participated in the decision (see Section 3).</p>
+<p>📌 <strong>Illustration</strong>: In Tesla's 2025 compensation case, the independence of the compensation committee again became the focus. Board Chair Robyn Denholm warned shareholders that if the compensation package were rejected, Musk might leave Tesla — raising questions about whether the compensation committee was truly independent.</p>
+<p><strong>3. Nominating Committee</strong></p>
+<ul>
+<li><strong>Main function</strong>: Reviewing director and senior executive candidates</li>
+<li><strong>Duties</strong>:<ul>
+<li>Establishing qualification standards for director candidates</li>
+<li>Searching for and reviewing director candidates</li>
+<li>Evaluating board composition and effectiveness</li>
+<li>Planning director succession</li>
+</ul>
+</li>
+</ul>
+<p>📌 <strong>Illustration</strong>: When a company needs to find a new independent director, the nominating committee should search for candidates independently, rather than having the Chairman or a large shareholder recommend them.</p>
+<p><strong>4. Risk Management Committee</strong></p>
+<ul>
+<li><strong>Main function</strong>: Overseeing the various risks the company faces</li>
+<li><strong>Duties</strong>:<ul>
+<li>Formulating risk management policy</li>
+<li>Overseeing risk management mechanisms</li>
+<li>Reviewing material risk events</li>
+<li>Ensuring risk management is consistent with strategy</li>
+</ul>
+</li>
+</ul>
+<p>📌 <strong>Illustration</strong>: In the Boeing case, the board did not proactively and critically scrutinize MCAS safety risks, showing the insufficiency of the risk management function (see the opening case).</p>
+<p><strong>5. ESG / Sustainability Committee</strong></p>
+<ul>
+<li><strong>Main function</strong>: Overseeing the company's environmental, social, and governance issues</li>
+<li><strong>Duties</strong>:<ul>
+<li>Formulating sustainability strategies</li>
+<li>Overseeing the achievement of ESG targets</li>
+<li>Reviewing sustainability reports</li>
+<li>Managing stakeholder relationships</li>
+</ul>
+</li>
+</ul>
+<h3>C. Operational Effectiveness of Committees</h3>
+<p>The operational effectiveness of a committee depends on the following factors:</p>
+<ol>
+<li><strong>Independence</strong>: Committee members should be independent and free from management influence</li>
+<li><strong>Expertise</strong>: Committee members should possess relevant professional knowledge</li>
+<li><strong>Time commitment</strong>: The committee should have sufficient time to discuss issues in depth</li>
+<li><strong>Access to information</strong>: The committee should be able to obtain sufficient and timely information</li>
+<li><strong>Clear authority and responsibility</strong>: The committee's scope of duties should be clearly defined</li>
+</ol>
+<h3>D. Limits of the Committee System</h3>
+<p>Although the committee system is "partially effective," it cannot fully resolve board failure:</p>
+<table>
+<thead>
+<tr>
+<th>Limit</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Committees may still be captured</strong></td>
+<td>The compensation committee may be "captured" by the CEO (see Section 3)</td>
+</tr>
+<tr>
+<td><strong>Formalistic oversight</strong></td>
+<td>Committees may merely follow institutional requirements rather than engage in substantive oversight</td>
+</tr>
+<tr>
+<td><strong>Information asymmetry</strong></td>
+<td>Committees cannot obtain sufficient information to oversee</td>
+</tr>
+<tr>
+<td><strong>Overlapping authority</strong></td>
+<td>Overlap or ambiguity in authority may arise among committees</td>
+</tr>
+</tbody>
+</table>
+<h3>E. Taiwan's "Dual-Track Design": Partly Mandatory, Partly Voluntary</h3>
+<p>The committee types introduced above implicitly assume that "companies decide for themselves which committees to establish." But Taiwan's regulatory framework is not like that; it is a "partly mandatory, partly voluntary" dual-track design:</p>
+<table>
+<thead>
+<tr>
+<th>Committee</th>
+<th>Taiwan Regulation</th>
+<th>Legal Basis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Audit committee</td>
+<td>Listed companies shall establish one (as an alternative to the supervisor); composed of <strong>all independent directors</strong>, with no fewer than three members, one of whom serves as convener and at least one of whom possesses accounting or financial expertise</td>
+<td>Article 14-4, Paragraph 2 of the Securities and Exchange Act; Article 4 of the <em>Regulations Governing the Exercise of Powers by Audit Committees of Public Companies</em></td>
+</tr>
+<tr>
+<td>Compensation and remuneration committee</td>
+<td>Listed companies <strong>shall</strong> establish one; with no fewer than three members; at least one independent director participates, and an independent director serves as convener; the exchange's best-practice points further require that <strong>a majority of members be independent directors</strong></td>
+<td>Article 14-6, Paragraph 1 of the Securities and Exchange Act; Articles 4 and 8 of the <em>Regulations Governing the Establishment and Exercise of Powers of Compensation and Remuneration Committees by Companies Listed on TWSE or TPEx</em>; Article 12 of the <em>TWSE Best Practice Points for Board Establishment and Exercise of Powers of Listed Companies</em></td>
+</tr>
+<tr>
+<td>Nominating, risk management, sustainability, and other committees</td>
+<td>May be established <strong>voluntarily</strong>; organizational regulations shall be adopted and approved by board resolution</td>
+<td>Article 9 of the <em>TWSE Best Practice Points for Board Establishment and Exercise of Powers of Listed Companies</em></td>
+</tr>
+</tbody>
+</table>
+<p>This design has two implications worth noting:</p>
+<p><strong>1. The mandatory scope is narrower than common practice in the U.S. and U.K.</strong></p>
+<p>The boards of large U.S. and U.K. companies usually have audit, compensation, and nominating committees, while Taiwan's mandatory scope covers only the audit and compensation committees. The nominating committee remains voluntary to this day; although the Financial Supervisory Commission's "Corporate Governance 3.0" has included it in the corporate governance evaluation indicators and promoted its establishment, it is still not legally mandatory. (Financial Supervisory Commission, 2021)</p>
+<p><strong>2. Mandating the establishment of compensation committees at the statutory level is a rare design in Taiwan</strong></p>
+<p>Lin (2012) points out that in advanced countries, requirements for compensation committees are mostly outside the statutory level. Taiwan's use of statute to mandate that all listed companies establish one, and to require that members possess professional qualifications and independence, is a relatively rare design. He also cautions that for small public companies, whether the cost of establishing and operating committees is too high remains to be observed.</p>
+<p>Therefore, the answer to the question "can the committee system be replicated in Taiwan" depends on which committee is meant: the audit and compensation committees already have legal mandates, so the focus is on <strong>substantive operation</strong> rather than whether they are established; the nominating, risk management, and sustainability committees do not yet have the same institutional incentives, and formal establishment cannot guarantee function.</p>
+<p><strong>Key Insight:</strong> The committee system is an "effort to improve oversight," but it cannot fully resolve the fundamental question of "who oversees the overseers." Taiwan's dual-track design further illustrates: the "existence" of a committee can be mandated by law, but the "effectiveness" of a committee depends on its substantive operation.</p>
+<p>💭 <strong>Think About It</strong>: Among the audit committee, the compensation committee, and the nominating committee, which do you think is the most important? Why? Would Taiwan's classification of the nominating committee as voluntary affect oversight effectiveness?</p>
+<hr />
+<h2>Section 6: Board Diversity and International Comparison</h2>
+<blockquote>
+<p><strong>Role of this section</strong>: Beyond independent directors and committees, board diversity is also regarded as a mechanism for improving oversight. This section explains the benefits and controversies of diversity and compares board operating models across countries.</p>
+</blockquote>
+<h3>A. Benefits and Controversies of Board Diversity</h3>
+<p>Board diversity refers to the diverse composition of board members in terms of gender, professional background, age, nationality, and other dimensions. In recent years, board diversity has become an important issue in corporate governance reform.</p>
+<p><strong>1. Gender diversity</strong></p>
+<p>A meta-analysis by Sierra-Morán et al. (2024) found that board gender diversity is positively associated with firms' innovation capability, but its association with financial performance is weaker and less consistent. After compiling 203 studies from 2019–2024, Charas and Gaskin (2025) concluded that the findings are mostly "correlational" rather than causal, and focus on the "gender diversity → financial performance" association.</p>
+<p><strong>2. Professional diversity</strong></p>
+<p>Directors with different professional backgrounds can bring diverse perspectives to the board and improve decision quality. Research by Wang, Xie, and Zhu (2015) found that independent directors with industry expertise can oversee management more effectively.</p>
+<p><strong>3. Age and tenure diversity</strong></p>
+<p>Younger directors may bring new perspectives and technological sensitivity, while senior directors provide experience and networks. Directors with excessively long tenure may be too close to management, affecting their independence.</p>
+<p>💭 <strong>Think About It</strong>: Do you think board diversity necessarily improves corporate governance effectiveness? Why?</p>
+<h3>B. Comparison of Board Practices Across Countries</h3>
+<p>Board structures and functions vary considerably across countries. Hopt and Leyens (2021) compare board structures and governance strategies in the U.S., U.K., and Germany; the OECD's <em>G20/OECD Principles of Corporate Governance</em> (2023) compiles the core functions common to all countries, including reviewing and guiding corporate strategy, overseeing material capital expenditures and mergers and acquisitions, and allocating a sufficient number of independent directors to matters where conflicts of interest may arise — such as the appropriateness of financial reporting, related-party transactions, and the nomination and compensation of directors and key executives.</p>
+<p><strong>1. United States: Shareholder primacy</strong></p>
+<p>The U.S. board is centered on shareholder interests, emphasizing the proportion and function of independent directors. The Delaware General Corporation Law gives the board broad latitude for business judgment.</p>
+<p><strong>2. Germany: Co-determination</strong></p>
+<p>Germany has a two-tier board system: the shareholders' meeting elects the supervisory board (Aufsichtsrat), and the supervisory board appoints the management board (Vorstand). Shareholder representatives and employee representatives each hold half of the supervisory board, embodying "co-determination" (Mitbestimmung).</p>
+<p><strong>3. Japan: Main banks and cross-shareholdings</strong></p>
+<p>Japanese boards have traditionally been dominated by inside directors, with the main bank and cross-shareholdings serving as important external oversight mechanisms. In recent years, Japan has promoted the independent director system and corporate governance codes.</p>
+<p><strong>4. Family control in East Asia</strong></p>
+<p>Research by Claessens, Djankov, and Lang (2000) found that listed companies in East Asian countries (including Taiwan, South Korea, Japan, and Southeast Asia) generally exhibit family control. The agency problem in family-controlled firms is mainly the conflict between "large shareholders vs. small shareholders," rather than "shareholders vs. management."</p>
+<p><strong>5. Norway: Mandatory female director quotas</strong></p>
+<p>Ahern and Dittmar (2012) studied the effects of Norway's 2003 legislation requiring that at least 40% of listed company board members be women. The study found that the legislation did not significantly increase firm value and may have had a negative effect on some companies.</p>
+<p>💭 <strong>Think About It</strong>: Which country's board operating model do you think Taiwan's most closely resembles? Why?</p>
+<h3>C. The Development of Board Diversity in Taiwan</h3>
+<p>Taiwan's corporate governance evaluation has been promoted since 2014, gradually incorporating board diversity indicators. The Financial Supervisory Commission's "Corporate Governance 3.0" further requires listed companies to disclose their board diversity policies and targets.</p>
+<p><strong>The current state of board diversity in Taiwan:</strong></p>
+<ul>
+<li>The proportion of female directors has risen year by year, but there remains a gap from international standards</li>
+<li>The proportion of independent directors has gradually increased (the statutory floor under the Securities and Exchange Act is one-fifth of board seats; the Financial Supervisory Commission's "Corporate Governance 3.0" promotes reaching one-third)</li>
+<li>Professional background diversity is gradually receiving more attention</li>
+</ul>
+<h3>D. Limits of Board Diversity</h3>
+<p>Although board diversity is "partially effective," it cannot fully resolve board failure:</p>
+<table>
+<thead>
+<tr>
+<th>Limit</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Diversity ≠ independence</strong></td>
+<td>Diversity cannot guarantee the board's independence</td>
+</tr>
+<tr>
+<td><strong>Formalism</strong></td>
+<td>"Formal diversity" may arise instead of "substantive diversity"</td>
+</tr>
+<tr>
+<td><strong>Inconsistent evidence</strong></td>
+<td>The association between diversity and financial performance is weaker and less consistent</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Key Insight:</strong> Board diversity is an "effort to improve oversight," but it cannot fully resolve the fundamental question of "who oversees the overseers."</p>
+<p>💭 <strong>Think About It</strong>: Do you think Taiwan should legislate a mandatory quota for female directors? Why?</p>
+<hr />
+<h2>Summary</h2>
+<p><strong>Key Points:</strong></p>
+<ol>
+<li>Under dispersed ownership, direct shareholder oversight is almost infeasible, and the board becomes the shareholders' "agent" — but "who oversees the overseers" becomes the core question. Under concentrated ownership, large shareholders can oversee directly, but may harm small shareholders.</li>
+<li>There are two views on to whom the board should be accountable — shareholder primacy and stakeholder theory — and practices differ across countries. The board is built on four theoretical bases — agency theory, stewardship theory, resource dependence theory, and institutional theory — and plays four roles: monitor, strategic advisor, resource provider, and institutional follower. Under the monitoring role there are two functions: "monitoring" and "senior personnel gatekeeping." Four types of conflict exist among these roles: advisor vs. monitor (judging oneself), monitor vs. resource provider (it is hard to bite the hand that feeds you), monitor vs. institutional follower (formal oversight vs. substantive oversight), and monitor vs. senior personnel gatekeeper (evaluating the person one appointed).</li>
+<li><strong>Concrete evidence of board failure</strong>: CEO pay decoupled from performance (the Tesla/Musk case, the Wells Fargo case) shows that boards may fail because the compensation committee is captured, because of information asymmetry, and because of psychological pressure. Managerial power theory provides a theoretical explanation of the failure.</li>
+<li><strong>Efforts to improve oversight</strong>: The independent director system, the division of labor among committees, and board diversity are all mechanisms for improving board effectiveness, but they are "partially effective" and cannot fully resolve the fundamental question of "who oversees the overseers."</li>
+<li>Board diversity (gender, professional background, age) and board operating models across countries (the United States, Germany, Japan, East Asian family control) each have their own characteristics, and Taiwan continues to promote the development of board diversity.</li>
+</ol>
+<p><strong>Key Terms:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>English</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Duty of loyalty</td>
+<td>Duty of Loyalty</td>
+<td>The obligation of a director to place the company's interests first and not to seek personal gain by virtue of his or her position as a director</td>
+</tr>
+<tr>
+<td>Duty of care</td>
+<td>Duty of Care</td>
+<td>The obligation of a director to handle the company's affairs with the care of a good administrator</td>
+</tr>
+<tr>
+<td>Independent director</td>
+<td>Independent Director</td>
+<td>A director who has no significant relationship with the company and can exercise authority independently</td>
+</tr>
+<tr>
+<td>Monitor</td>
+<td>Monitor</td>
+<td>Overseeing the performance of management</td>
+</tr>
+<tr>
+<td>Senior personnel authority</td>
+<td>Senior Personnel Authority</td>
+<td>Making decisions on the appointment, removal, compensation, and succession of senior executives</td>
+</tr>
+<tr>
+<td>Strategic advisor</td>
+<td>Strategic Advisor</td>
+<td>Providing professional and external perspectives to assist management in formulating strategy</td>
+</tr>
+<tr>
+<td>Resource provider</td>
+<td>Resource Provider</td>
+<td>Bringing resources to the company through networks and expertise</td>
+</tr>
+<tr>
+<td>Institutional follower</td>
+<td>Institutional Follower</td>
+<td>Following the norms and expectations of the institutional environment in establishing committees and processes</td>
+</tr>
+<tr>
+<td>Audit committee</td>
+<td>Audit Committee</td>
+<td>A board committee that oversees financial reporting and internal control</td>
+</tr>
+<tr>
+<td>Compensation committee</td>
+<td>Compensation Committee</td>
+<td>A board committee that formulates and reviews senior executive compensation</td>
+</tr>
+<tr>
+<td>Stock options</td>
+<td>Stock Options</td>
+<td>The right to purchase company stock at a specified price</td>
+</tr>
+<tr>
+<td>Board diversity</td>
+<td>Board Diversity</td>
+<td>The diverse composition of board members in terms of gender, professional background, age, and other dimensions</td>
+</tr>
+<tr>
+<td>Clawback</td>
+<td>Clawback</td>
+<td>A mechanism for recovering compensation already paid under specified conditions</td>
+</tr>
+<tr>
+<td>Managerial power theory</td>
+<td>Managerial Power Theory</td>
+<td>The theory that the CEO may use his or her power to influence pay-setting</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>References</h2>
+<p>This chapter is based on the following academic literature and practical reports:</p>
+<hr />
+<p><strong>Adams, R. B., Hermalin, B. E., &amp; Weisbach, M. S. (2010).</strong> The role of boards of directors in corporate governance: A conceptual framework and survey. <em>Journal of Economic Literature, 48</em>(1), 58–107. <a href="https://doi.org/10.1257/jel.48.1.58">https://doi.org/10.1257/jel.48.1.58</a></p>
+<p><strong>AFL-CIO. (2024).</strong> <em>2024 Executive Paywatch.</em> AFL-CIO. <a href="https://aflcio.org/paywatch-2024">https://aflcio.org/paywatch-2024</a></p>
+<p><strong>AFL-CIO. (2026).</strong> <em>2026 Executive Paywatch.</em> AFL-CIO. <a href="https://aflcio.org/paywatch">https://aflcio.org/paywatch</a></p>
+<p><strong>Ahern, K. R., &amp; Dittmar, A. (2012).</strong> The changing of the boards: The impact on firm valuation of mandated female board representation. <em>Quarterly Journal of Economics, 127</em>(1), 137–197. <a href="https://doi.org/10.1093/qje/qjr049">https://doi.org/10.1093/qje/qjr049</a></p>
+<p><strong>Bebchuk, L. A., &amp; Fried, J. M. (2004).</strong> <em>Pay without performance: The unfulfilled promise of executive compensation.</em> Harvard University Press.</p>
+<p><strong>Charas, S., &amp; Gaskin, J. (2025).</strong> <em>The impact of board diversity on corporate performance: A review of current literature 2019–2024.</em> The Purpose Collective. <a href="https://assets.noviams.com/novi-file-uploads/tpc/The_Impact_of_Board_Diversity_on_Corporate_Performance_-_revised_final_draft_-4-14-2025.pdf">https://assets.noviams.com/novi-file-uploads/tpc/The_Impact_of_Board_Diversity_on_Corporate_Performance_-_revised_final_draft_-4-14-2025.pdf</a></p>
+<p><strong>Claessens, S., Djankov, S., &amp; Lang, L. H. P. (2000).</strong> The separation of ownership and control in East Asian corporations. <em>Journal of Financial Economics, 58</em>(1-2), 81–112. <a href="https://doi.org/10.1016/S0304-405X(00)00067-2">https://doi.org/10.1016/S0304-405X(00)00067-2</a></p>
+<p><strong>Davis, J. H., Schoorman, F. D., &amp; Donaldson, L. (1997).</strong> Toward a stewardship theory of management. <em>Academy of Management Review, 22</em>(1), 20–47. <a href="https://doi.org/10.5465/amr.1997.9707180258">https://doi.org/10.5465/amr.1997.9707180258</a></p>
+<p><strong>DeFond, M., &amp; Zhang, J. (2014).</strong> A review of archival auditing research. <em>Journal of Accounting and Economics, 58</em>(2-3), 275–326. <a href="https://doi.org/10.1016/j.jacceco.2014.09.002">https://doi.org/10.1016/j.jacceco.2014.09.002</a></p>
+<p><strong>DiMaggio, P. J., &amp; Powell, W. W. (1983).</strong> The iron cage revisited: Institutional isomorphism and collective rationality in organizational fields. <em>American Sociological Review, 48</em>(2), 147–160. <a href="https://doi.org/10.2307/2095101">https://doi.org/10.2307/2095101</a></p>
+<p><strong>Edmans, A., Gabaix, X., &amp; Jenter, D. (2017).</strong> Executive compensation: A survey of theory and evidence. <em>Handbook of Corporate Economics, 1</em>, 385–539. <a href="https://doi.org/10.1016/bs.hecg.2017.11.010">https://doi.org/10.1016/bs.hecg.2017.11.010</a></p>
+<p><strong>FAA Expert Review Panel. (2020).</strong> <em>Boeing 737 MAX – Final Report.</em> Federal Aviation Administration.</p>
+<p><strong>Freeman, R. E. (1984).</strong> Strategic management: A stakeholder approach. Pitman.</p>
+<p><strong>Friedman, M. (1970, September 13).</strong> The social responsibility of business is to increase its profits. <em>The New York Times Magazine</em>, 32–33, 122–126.</p>
+<p><strong>Hopt, K. J., &amp; Leyens, P. C. (2021, April 12).</strong> The structure of the board of directors: Boards and governance strategies in the US, the UK and Germany. <em>Harvard Law School Forum on Corporate Governance.</em> <a href="https://corpgov.law.harvard.edu/2021/04/12/the-structure-of-the-board-of-directors-boards-and-governance-strategies-in-the-us-the-uk-and-germany/">https://corpgov.law.harvard.edu/2021/04/12/the-structure-of-the-board-of-directors-boards-and-governance-strategies-in-the-us-the-uk-and-germany/</a></p>
+<p><strong>In re The Boeing Company Derivative Litigation, C.A. No. 2021-0145 (Del. Ch. 2021).</strong></p>
+<p><strong>Jensen, M. C., &amp; Meckling, W. H. (1976).</strong> Theory of the firm: Managerial behavior, agency costs and ownership structure. <em>Journal of Financial Economics, 3</em>(4), 305–360. <a href="https://doi.org/10.1016/0304-405X(76)90026-X">https://doi.org/10.1016/0304-405X(76)90026-X</a></p>
+<p><strong>Lin, K.-C. (2012).</strong> Starting from the mandatory establishment of compensation committees [In Chinese]. <em>Angle Monthly Law Journal, 202</em>, 22–37.</p>
+<p><strong>Murphy, K. J. (2013).</strong> Executive compensation: Where we are, and how we got there. <em>Handbook of the Economics of Finance, 2</em>, 211–356. <a href="https://doi.org/10.1016/B978-0-444-53594-8.00004-5">https://doi.org/10.1016/B978-0-444-53594-8.00004-5</a></p>
+<p><strong>OECD. (2023).</strong> <em>G20/OECD Principles of Corporate Governance.</em> OECD Publishing. <a href="https://doi.org/10.1787/ed750b30-en">https://doi.org/10.1787/ed750b30-en</a></p>
+<p><strong>Pfeffer, J., &amp; Salancik, G. R. (1978).</strong> <em>The external control of organizations: A resource dependence perspective.</em> Harper &amp; Row.</p>
+<p><strong>Sierra-Morán, J., Cabeza-García, L., González-Álvarez, N., &amp; Botella, J. (2024).</strong> The board of directors and firm innovation: A meta-analytical review. <em>Business Research Quarterly, 27</em>(2), 182–207. <a href="https://doi.org/10.1177/23409444211039856">https://doi.org/10.1177/23409444211039856</a></p>
+<p><strong>Sonnenfeld, J. A., &amp; Henriques, S. (2025, September 5).</strong> Elon Musk's trillion-dollar pay package is just bad corporate governance. <em>Yale Insights.</em> <a href="https://insights.som.yale.edu/insights/elon-musks-trillion-dollar-pay-package-is-just-bad-corporate-governance">https://insights.som.yale.edu/insights/elon-musks-trillion-dollar-pay-package-is-just-bad-corporate-governance</a></p>
+<p><strong>Toshiba Independent Investigation Committee. (2015).</strong> <em>Toshiba Investigation Report.</em> Toshiba Corporation. <a href="https://www.global.toshiba/content/dam/toshiba/migration/corp/irAssets/about/ir/en/news/20150725_1.pdf">https://www.global.toshiba/content/dam/toshiba/migration/corp/irAssets/about/ir/en/news/20150725_1.pdf</a></p>
+<p><strong>U.S. House Committee on Transportation and Infrastructure. (2020, November 18).</strong> <em>The Design, Development, &amp; Certification of the Boeing 737 MAX.</em> <a href="https://transportation.house.gov/">https://transportation.house.gov/</a></p>
+<p><strong>Wang, C., Xie, J., &amp; Zhu, W. (2015).</strong> Industry expertise of independent directors and board monitoring. <em>Journal of Financial and Quantitative Analysis, 50</em>(5), 929–962. <a href="https://doi.org/10.1017/S0022109015000459">https://doi.org/10.1017/S0022109015000459</a></p>
+<p><strong>Financial Supervisory Commission. (2021).</strong> <em>Corporate Governance 3.0 — Sustainability Roadmap.</em> Financial Supervisory Commission. <a href="https://www.sfb.gov.tw/ch/home.jsp?id=992&parentpath=0%2C8%2C882%2C884">https://www.sfb.gov.tw/ch/home.jsp?id=992&parentpath=0%2C8%2C882%2C884</a></p>
+<hr />
+<p><em>The statutes and regulations cited in this chapter (the Regulations Governing the Establishment of Independent Directors by Public Companies and the Matters They Shall Follow; the Regulations Governing the Exercise of Powers by Audit Committees of Public Companies; the Regulations Governing the Establishment and Exercise of Powers of Compensation and Remuneration Committees by Companies Listed on TWSE or TPEx; and the TWSE Best Practice Points for Board Establishment and Exercise of Powers of Listed Companies) are cited by name in the text and are not listed separately as APA entries.</em></p>
+<h2>Exercises</h2>
+<h3>Multiple Choice</h3>
+<ol>
+<li>
+<p>The duty of loyalty of a director means:</p>
+<ul>
+<li>(A) Attending board meetings on time</li>
+<li>(B) Placing the company's interests first and not seeking personal gain</li>
+<li>(C) Possessing professional knowledge</li>
+<li>(D) Holding company shares</li>
+</ul>
+</li>
+<li>
+<p>The main function of the audit committee is:</p>
+<ul>
+<li>(A) Formulating company strategy</li>
+<li>(B) Overseeing financial reporting, internal control, and external audit</li>
+<li>(C) Reviewing CEO compensation</li>
+<li>(D) Nominating director candidates</li>
+</ul>
+</li>
+<li>
+<p>Managerial power theory holds that the channels through which the CEO influences pay-setting do NOT include:</p>
+<ul>
+<li>(A) Recommending "friendly" independent directors for the compensation committee</li>
+<li>(B) Hiring compensation consultants friendly to management</li>
+<li>(C) Controlling the information provided to the compensation committee</li>
+<li>(D) Directly determining his or her own compensation amount</li>
+</ul>
+</li>
+<li>
+<p>The benefits of board diversity do NOT include:</p>
+<ul>
+<li>(A) Improving decision quality</li>
+<li>(B) Improving oversight effectiveness</li>
+<li>(C) Reducing company operating costs</li>
+<li>(D) Enhancing innovation capability</li>
+</ul>
+</li>
+<li>
+<p>Under Article 14-2, Paragraph 1 of the Securities and Exchange Act, for a public company required by the competent authority to establish independent directors, the number of independent directors may not be less than what fraction of board seats?</p>
+<ul>
+<li>(A) One-half</li>
+<li>(B) One-third</li>
+<li>(C) One-quarter</li>
+<li>(D) One-fifth</li>
+</ul>
+</li>
+</ol>
+<h3>Essay Questions</h3>
+<ol>
+<li>
+<p>Explain the four roles of the board of directors, and analyze the role conflicts that may arise in practice.</p>
+</li>
+<li>
+<p>What challenges does the independent director system face? Propose improvement suggestions.</p>
+</li>
+<li>
+<p>How should a CEO compensation system be designed to effectively incentivize the CEO to create value for shareholders?</p>
+</li>
+<li>
+<p>Compare the functions of the audit committee, the compensation committee, and the nominating committee, and explain how they enhance corporate governance effectiveness.</p>
+</li>
+<li>
+<p>Using the Boeing case as an example, explain the causes and consequences of board oversight failure.</p>
+</li>
+<li>
+<p>Explain the controversies surrounding "managerial power theory," and propose other theories explaining CEO compensation.</p>
+</li>
+<li>
+<p>Compare the views of "shareholder primacy" and "stakeholder theory," and explain how these two views affect the operation of the board.</p>
+</li>
+</ol>
+<h3>Scenario Questions</h3>
+<p><strong>Scenario</strong>: You are an independent director of a Taiwan listed company. The company has recently received an acquisition proposal worth NT$12 billion. The CEO states that it will greatly enhance company value, but some shareholders are concerned that the acquisition price is too high.</p>
+<p><strong>Questions</strong>:</p>
+<ol>
+<li>Which important concepts from this chapter does this scenario involve? (Hint: list at least three)</li>
+<li>How would you respond to management's proposal? What information would you need to make a decision?</li>
+<li>In this situation, do you think the board's role should be to "support management" or to "challenge management"? Why?</li>
+</ol>
+<h3>Case Question: The Toshiba Accounting Fraud Scandal (2015)</h3>
+<p><strong>Company Background</strong></p>
+<p>Toshiba was founded in 1875 and is one of Japan's largest integrated electronics manufacturers, with products spanning nuclear power, power systems, medical equipment, semiconductors, and consumer electronics. In 2014 it had revenue of approximately ¥6.5 trillion (approximately NT$1.9 trillion) and more than 200,000 employees, and was listed on the Tokyo Stock Exchange.</p>
+<p><strong>Course of Events</strong></p>
+<p>In 2015, Toshiba employees blew the whistle on problems in the financial statements; the company immediately established an "Independent Investigation Committee" (whose members included external lawyers and other experts) to conduct an investigation.</p>
+<p>The investigation committee published its findings in July 2015: over the seven years from 2008 to 2014, Toshiba had overstated operating profit by approximately ¥151.8 billion (approximately US$1.2 billion, approximately NT$40 billion), an amount roughly equivalent to three to four tenths of its actual profit. The fraud techniques included:</p>
+<ul>
+<li><strong>Premature revenue recognition</strong>: Recognizing revenue before contracts were completed</li>
+<li><strong>Deferred expense recognition</strong>: Deferring current-period expenses to later periods</li>
+<li><strong>Inventory valuation manipulation</strong>: Overstating inventory values to reduce cost of goods sold</li>
+<li><strong>Manipulation of project progress</strong>: Overstating the progress of long-term contracts to recognize revenue prematurely</li>
+</ul>
+<p>The investigation report noted that the fraud was not confined to a single division, but spanned multiple business divisions (called "companies"), and was carried out systematically "with the participation of management at the company level."</p>
+<p><strong>The Board's Responsibility</strong></p>
+<p>The investigation report specifically noted:</p>
+<blockquote>
+<p>The investigation committee noted that although Toshiba had adopted a "committee-based company" structure (including an audit committee and a remuneration committee), the audit committee had long failed to exercise a substantive oversight function; senior management <strong>knowingly tolerated "deliberate overstatement of current-period profit and deferred recognition of expenses and losses,"</strong> showing serious failure of internal governance and oversight mechanisms.</p>
+</blockquote>
+<p>The investigation also found that Toshiba's board had not established effective oversight of the feasibility of profit targets and the risk of fraud; internal control mechanisms such as the audit committee had failed to detect a systematic overstatement spanning multiple business divisions and seven years in a timely manner; and several independent directors had close ties to management, showing insufficient independence.</p>
+<p><strong>Consequences</strong></p>
+<ul>
+<li><strong>Resignations of senior management</strong>: President and CEO Hisao Tanaka, former CEO and advisor Atsutoshi Nishida, and several other senior executives and directors (approximately 8–9 people) resigned; Chairman Masashi Muromachi became acting CEO</li>
+<li><strong>Share price hit</strong>: After the news broke, the share price continued to decline, and market capitalization shrank substantially in subsequent years</li>
+<li><strong>Business restructuring</strong>: Layoffs and the sale of businesses such as semiconductors, initiating major restructuring</li>
+<li><strong>Reputation and regulation</strong>: Corporate governance reputation was severely damaged; Japan's Finance Minister Taro Aso publicly criticized the company, and investors and the market reacted harshly</li>
+<li><strong>Legal action</strong>: Investors filed lawsuits seeking compensation from the individuals involved in the fraud</li>
+</ul>
+<p><strong>Corporate Governance Lessons</strong></p>
+<table>
+<thead>
+<tr>
+<th>Issue</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>The limitations of independent directors</strong></td>
+<td>Toshiba had four independent directors (exceeding the regulatory requirement), but most lacked financial expertise and had close ties to management</td>
+</tr>
+<tr>
+<td><strong>Audit committee failure</strong></td>
+<td>The audit committee failed to detect a systematic, seven-year fraud spanning multiple divisions</td>
+</tr>
+<tr>
+<td><strong>Corporate culture problems</strong></td>
+<td>Toshiba's corporate culture was one in which "superiors may not be questioned"; management set unrealistic profit targets, and lower-level employees were forced to commit fraud</td>
+</tr>
+<tr>
+<td><strong>Formal vs. substantive</strong></td>
+<td>Toshiba formally complied with corporate governance codes (it had independent directors and committees), but substantively the oversight function failed</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Questions</strong>:</p>
+<ol>
+<li>Which agency problems does this case involve? Explain the reasons.</li>
+<li>Which of Toshiba's governance mechanisms do you think failed? Why?</li>
+<li>If you were an independent director of Toshiba, how would you prevent a similar event from occurring?</li>
+<li>The Toshiba case shows that "formally complying with corporate governance codes" does not equal "substantively effective oversight." How do you think the board's "substantive independence" should be ensured?</li>
+</ol>
+<blockquote>
+<p><strong>Bridge to the next chapter</strong>: This chapter established the board as a tool for overseeing management. But oversight requires information — how does the board know whether management is honest? Chapter 4 examines the information basis required for oversight: information disclosure, financial reporting, and external audit.</p>
+</blockquote>
+<hr />
+<h2>Closing Case: Nestlé's Double Standard in Infant Formula — The Governance Dilemma of Multinational Operations</h2>
+<blockquote>
+<p><strong>Core Question: Does board diversity help oversee the governance challenges of multinational operations?</strong></p>
+</blockquote>
+<h3>Case Summary</h3>
+<p>Nestlé was founded in 1866 and is the world's largest food and beverage company. In April 2024, the Swiss NGO Public Eye published an investigation finding that infant foods sold by Nestlé in Asia, Africa, and Latin America (Nido milk powder and Cerelac cereals) contained added sugar or honey, while the same products in the European market did not.</p>
+<p>The WHO recommends that no sugar be added to infant foods for children under two, but Nestlé stated that "all products comply with local regulations." In November 2025, Reuters continued to report that the problem still existed in African markets.</p>
+<p>This case exposes the governance dilemma of multinational operations: when "legal" and "ethical" conflict, which standard should a company follow?</p>
+<h3>Discussion Questions</h3>
+<ol>
+<li>
+<p><strong>The role of independent directors</strong>: If you were an independent director of Nestlé, how would you respond to this double-standard issue? Would you support "following local regulations" or "following WHO guidelines"?</p>
+</li>
+<li>
+<p><strong>Board diversity</strong>: If Nestlé's board included directors from Africa or Asia, would the situation be different? What effect do you think the board's "nationality diversity" has on governance?</p>
+</li>
+<li>
+<p><strong>Cross-case comparison</strong>: Compare with the opening Boeing case — how do the two cases differ in "information asymmetry"? Boeing was "management concealing from the board," while Nestlé was "the company concealing from consumers." Which type of information asymmetry do you think is more serious?</p>
+</li>
+<li>
+<p><strong>The CSR bottom line</strong>: Nestlé argues that it "complies with local regulations," but the WHO holds that "legal is not the same as right." Do you think the bottom line of CSR should be "legal" or "ethical"? Analyze using the CSR theories in Chapter 6.</p>
+</li>
+<li>
+<p><strong>Board oversight</strong>: If you were a member of Nestlé's board, how would you ensure consistent product standards across different markets? What role should the board play?</p>
+</li>
+</ol>
+<h3>Case References</h3>
+<ul>
+<li>Public Eye. (2024). <em>How Nestlé gets children hooked on sugar in lower-income countries.</em> <a href="https://stories.publiceye.ch/nestle-babies">https://stories.publiceye.ch/nestle-babies</a></li>
+<li>The Guardian. (2024, April 17). Nestlé adds sugar to infant milk sold in poorer countries, report finds. <a href="https://www.theguardian.com/global-development/2024/apr/17/nestle-adds-sugar-to-infant-milk-sold-in-poorer-countries-report-finds">https://www.theguardian.com/global-development/2024/apr/17/nestle-adds-sugar-to-infant-milk-sold-in-poorer-countries-report-finds</a></li>
+<li>Reuters. (2025, November 18). NGO accuses Nestlé of higher added sugar in baby products sold in Africa. <a href="https://www.reuters.com/sustainability/boards-policy-regulation/ngo-accuses-nestle-higher-added-sugar-baby-products-sold-africa-2025-11-18">https://www.reuters.com/sustainability/boards-policy-regulation/ngo-accuses-nestle-higher-added-sugar-baby-products-sold-africa-2025-11-18</a></li>
+</ul>
+</body>
+</html>
