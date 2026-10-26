@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 4 How Do We Know the Truth? — Information Disclosure and Audit</title>
+<style>
+:root{--fg:#1a1a1a;--muted:#5b6b7a;--accent:#2c5f8a;--border:#c9d4de;--card:#f4f7fa}
+body{font-family:"Noto Serif TC","Source Han Serif TC","PMingLiU",serif;
+     max-width:920px;margin:2.5rem auto;padding:0 1.6rem;line-height:1.8;
+     color:var(--fg);background:#fff}
+h1{font-size:1.9rem;line-height:1.4;border-bottom:3px solid var(--accent);padding-bottom:.5rem}
+h2{font-size:1.5rem;color:var(--accent);border-bottom:2px solid var(--accent);
+   padding-bottom:.3rem;margin-top:2.4rem}
+h3{font-size:1.15rem;color:var(--accent);margin-top:1.8rem}
+h4{font-size:1.02rem;margin-top:1.3rem}
+blockquote{background:var(--card);border-left:4px solid var(--accent);
+           padding:.7rem 1.1rem;margin:1rem 0;color:#33475b}
+hr{border:none;border-top:1px solid var(--border);margin:2rem 0}
+a{color:#1a5fb4;text-decoration:none;border-bottom:1px dotted #1a5fb4;word-break:break-all}
+a:hover{text-decoration:underline}
+table{border-collapse:collapse;width:100%;margin:1.1rem 0;font-size:.93rem}
+th,td{border:1px solid var(--border);padding:.5rem .65rem;text-align:left;vertical-align:top}
+th{background:#eef3f8}
+ul,ol{margin:.5rem 0 .5rem 1.5rem;padding-left:.6rem}
+li{margin:.28rem 0}
+ul ul,ul ol,ol ul,ol ol{margin-top:.3rem;margin-left:1.1rem}
+ul{list-style-type:disc}
+ul ul{list-style-type:circle}
+ul ul ul{list-style-type:square}
+ol{list-style-type:decimal}
+ol ol{list-style-type:lower-alpha}
+ol ol ol{list-style-type:lower-roman}
+strong{color:#a83232}
+em{color:#2c5f8a}
+code{background:#f0f2f5;padding:.1rem .35rem;border-radius:3px;font-size:.9em}
+.refs p{margin:.15rem 0 .85rem;padding-left:1.6rem;text-indent:-1.6rem}
+.refs{margin-top:.5rem}
+@media print{body{max-width:none;margin:0}a{color:var(--fg)}}
+</style>
+</head>
+<body>
+<h1>Chapter 4 How Do We Know the Truth? — Information Disclosure and Audit</h1>
+<h2>Opening Case: The Toshiba Accounting Fraud — Why Didn't the Audit Committee Detect It?</h2>
+<p>In July 2015, the Toshiba Independent Investigation Committee published its investigation report: between 2008 and 2014, Toshiba had overstated its profits by ¥151.8 billion (approximately NT$40 billion), across multiple business divisions, carried out systematically with the participation of management at the corporate level (Toshiba Independent Investigation Committee, 2015).</p>
+<p>At the time, Toshiba had four independent directors (exceeding the legally required two), and had established an audit committee, a compensation committee, and a nominating committee. But the investigation report found:</p>
+<blockquote>
+<p>"The audit committee failed to detect the financial fraud; its oversight function was effectively inoperative. The board's culture was one of 'endorsement' rather than 'questioning.'"</p>
+</blockquote>
+<p>More shocking still: Toshiba's auditor issued an "unmodified opinion" (formerly called an unqualified opinion) — that is, concluded that the financial statements "presented fairly" — for seven consecutive years.</p>
+<p><strong>The core questions this case raises, and the scope of this chapter.</strong></p>
+<p><strong>Core Questions:</strong></p>
+<ol>
+<li><strong>How can shareholders and investors ensure that the "truth" they see is real?</strong> Why didn't Toshiba's audit committee detect it — was it a lack of professional competence, or a lack of independence?</li>
+<li><strong>Why can external audit fail?</strong> Why did the auditor issue an "unmodified opinion" for seven consecutive years — was it an audit-technique problem, or an independence problem?</li>
+<li><strong>If even the "professional gatekeepers" cannot be trusted, what can we still believe?</strong></li>
+</ol>
+<p><strong>Chapter Positioning Note:</strong> Chapter 3 established the board of directors as the instrument for overseeing management. But oversight requires information — how can a board know whether management is being honest? This chapter shifts the focus from "who oversees" to "whether the information oversight relies on can be trusted," examining the informational foundation oversight requires: information disclosure, financial reporting, and external audit. The scope of disclosure is now expanding from financial to sustainability, and whether the language and verification mechanisms designed for financial reports still apply is addressed in Section 4.</p>
+<hr />
+<p><strong>Learning Objectives:</strong></p>
+<ol>
+<li>Understand how information asymmetry harms investors and markets (Section 1)</li>
+<li>Master the basic principles of financial reporting, the verification mechanisms, and internal control (Section 2)</li>
+<li>Analyze why external audit fails and how independence is maintained (Section 3)</li>
+<li>Compare sustainability reports with financial reports (Section 4)</li>
+</ol>
+<hr />
+<h2>Section 1: How Information Asymmetry Harms Investors and Markets</h2>
+<p>When shareholders cannot directly oversee management, they can only rely on information the company discloses — and whether that information is true determines whether markets can function. This section explains where information asymmetry comes from and what it causes.</p>
+<h3>A. The Nature of Information Asymmetry</h3>
+<p>Information asymmetry refers to a situation in which the two parties to a transaction differ in the amount or quality of information they hold. In capital markets, management possesses detailed information about the company's operations, while outside shareholders and investors can only learn about the company's condition through information the company voluntarily discloses.</p>
+<p>Healy and Palepu (2001) divide the sources of information asymmetry into three:</p>
+<p><strong>1. The advantage of internal information</strong></p>
+<p>Management works in the company every day and knows its true operating condition — including undisclosed R&amp;D progress, pending litigation, and the risk of customer attrition. This information may affect the share price, but outside investors have no way of knowing it.</p>
+<p><strong>2. Disclosure costs and strategic considerations</strong></p>
+<p>Disclosing information carries costs (preparing reports, legal and advisory fees), and excessive disclosure may leak competitive secrets. Management therefore chooses what to disclose "strategically" — disclosing only good news and concealing bad news.</p>
+<p><strong>3. The threshold of information interpretation</strong></p>
+<p>Even when a company discloses information, outside investors may not be able to interpret it correctly. Complex derivatives, related-party transactions, and contingent liabilities, for example, require professional knowledge to understand their risk.</p>
+<h3>B. The Consequences of Information Asymmetry</h3>
+<p><strong>1. Adverse Selection</strong></p>
+<p>When investors cannot distinguish "good companies" from "bad companies," they are only willing to invest at an "average price." This causes the share prices of good companies to be under-estimated and those of bad companies to be over-estimated — ultimately, good companies exit the market and only bad companies remain (Akerlof, 1970).</p>
+<p>📌 <strong>Illustration</strong>: If investors cannot tell whether a company's financial statements are true, they will demand a higher risk premium (rate of return), which raises the cost of capital for all companies — including honest ones.</p>
+<p><strong>2. Moral Hazard</strong></p>
+<p>When management's behaviour is hard to observe, they may pursue their own interests rather than shareholders'. For example, management may engage in "empire-building" acquisitions (expanding the company to raise their own pay) rather than creating shareholder value.</p>
+<p><strong>3. Declining Market Liquidity</strong></p>
+<p>When investors lose confidence in a company's information, the bid-ask spread widens and transaction costs rise; investors then trade less, causing market liquidity to fall and share-price volatility to increase. <strong>The key point is that falling liquidity is a market-level consequence — it harms not only companies whose information is opaque, but also companies whose information is transparent, because investors can no longer tell the two apart</strong> (Akerlof, 1970).</p>
+<h3>C. Mechanisms for Resolving Information Asymmetry</h3>
+<p>Mechanisms for resolving information asymmetry can be divided into <strong>two layers</strong> — <strong>internal company mechanisms</strong> (ensuring information is correct when it is produced) and <strong>market mechanisms</strong> (ensuring information is correctly interpreted and verified after it is disclosed) — <strong>plus a backstop: legal liability</strong>, which makes the first two layers actually effective.</p>
+<p><strong>(A) Internal company mechanisms</strong></p>
+<table>
+<thead>
+<tr>
+<th>Mechanism</th>
+<th>Function</th>
+<th>Limitation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Internal control</strong></td>
+<td>Ensuring the reliability of financial reporting and compliance with laws and regulations (the five COSO components; see Section 2, Part D)</td>
+<td>Designed and executed by the company itself; independence is limited</td>
+</tr>
+<tr>
+<td><strong>Internal audit</strong></td>
+<td>Independently assessing risk management and governance processes within internal control (see Section 2, Part C)</td>
+<td>Salaries are set by management</td>
+</tr>
+</tbody>
+</table>
+<p><strong>(B) Market mechanisms</strong></p>
+<table>
+<thead>
+<tr>
+<th>Mechanism</th>
+<th>Function</th>
+<th>Limitation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Mandatory disclosure</strong></td>
+<td>Law requires companies to disclose financial information periodically</td>
+<td>Only ensures a "minimum standard"; cannot guarantee "truth"</td>
+</tr>
+<tr>
+<td><strong>External audit</strong></td>
+<td>Independent accountants verify the reliability of the financial statements</td>
+<td>Independence may be questioned (see Section 3)</td>
+</tr>
+<tr>
+<td><strong>Credit rating</strong></td>
+<td>Rating agencies assess a company's credit risk</td>
+<td>Rating agencies are paid by the company — a conflict of interest</td>
+</tr>
+<tr>
+<td><strong>Analysts</strong></td>
+<td>Professional analysts research companies and publish reports</td>
+<td>Analysts may come under "pressure" to publish optimistic reports</td>
+</tr>
+<tr>
+<td><strong>Media and whistleblowers</strong></td>
+<td>Expose corporate misconduct</td>
+<td>Depends on luck; not an institutionalised mechanism</td>
+</tr>
+</tbody>
+</table>
+<p><strong>(C) The backstop: legal liability</strong></p>
+<p>For the two kinds of mechanism above to work, there must be a backstop that makes "lying costly" — <strong>legal liability for false financial reporting</strong> (see Section 3, Part D). Without legal liability, disclosure and audit merely delay the discovery of lies.</p>
+<p><strong>Key Insight:</strong> Each of the mechanisms above has its own defects, and <strong>none of them works alone</strong>:</p>
+<ul>
+<li>Mandatory disclosure ensures that "information exists," but not that it is "true" — Toshiba's financial statements were formally fully compliant, yet profits were overstated by tens of billions</li>
+<li>External audit ensures "information quality," but its independence may be eroded</li>
+<li>Ratings and analysts have conflicts of interest</li>
+<li>Media and whistleblowers depend on individual cases</li>
+</ul>
+<p>Resolving information asymmetry therefore requires a <strong>three-layer combination</strong>: <strong>mandatory disclosure (information exists) + external audit (information quality) + legal liability (lying is costly)</strong>.</p>
+<p>💭 <strong>Think About It</strong>: Which mechanism do you think most effectively resolves information asymmetry? Why?</p>
+<hr />
+<h2>Section 2: What Are the Basic Principles of Financial Reporting? Who Verifies It? Who Is Responsible?</h2>
+<p>To judge whether information is true, one must first know what information looks like and by what rules it is produced. Financial statements are prepared by management under accounting standards — <strong>standards are both the language of communication and the space in which management's discretion and fraud can operate</strong>. This section first examines the composition and principles of financial statements, and then who verifies them.</p>
+<h3>A. The Components of Financial Statements</h3>
+<p>A complete set of financial statements includes:</p>
+<p><strong>1. Balance Sheet</strong>: reflects the company's financial position on a specific date (Assets = Liabilities + Equity)</p>
+<p><strong>2. Income Statement</strong>: reflects the company's operating performance over a specific period (Revenue - Expenses = Net Income)</p>
+<p><strong>3. Cash Flow Statement</strong>: reflects the company's cash inflows and outflows over a specific period</p>
+<p><strong>4. Statement of Changes in Equity</strong>: reflects changes in equity over a specific period</p>
+<p><strong>5. Notes</strong>: supplementary explanations to the financial statements, including accounting policies, significant estimates, related-party transactions, and so on</p>
+<p>📌 <strong>Illustration</strong>: Each of the five statements has a different "vulnerability to manipulation" — the Toshiba fraud illustrates exactly the first two:</p>
+<table>
+<thead>
+<tr>
+<th>Statement</th>
+<th>Focus of attention</th>
+<th>Why it matters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Balance Sheet</td>
+<td>Financial condition at a point in time</td>
+<td>Toshiba <strong>overstated inventory</strong>, directly inflating assets</td>
+</tr>
+<tr>
+<td>Income Statement</td>
+<td>Performance over a period</td>
+<td>Toshiba <strong>recognised revenue early and deferred expenses</strong>, inflating operating profit</td>
+</tr>
+<tr>
+<td>Cash Flow Statement</td>
+<td>Actual cash flows</td>
+<td><strong>The hardest to manipulate using accounting estimates</strong> — fraudsters often show their hand here</td>
+</tr>
+<tr>
+<td>Statement of Changes in Equity</td>
+<td>Changes in equity</td>
+<td>Reflects profit distribution and changes in share capital</td>
+</tr>
+<tr>
+<td>Notes</td>
+<td>Accounting policies and significant estimates</td>
+<td><strong>The clues to fraud are often hidden in the notes</strong> — the assumptions behind estimates and their changes are all here</td>
+</tr>
+</tbody>
+</table>
+<h3>B. The Basic Principles of Financial Reporting</h3>
+<p><strong>1. Accrual Basis</strong>: transactions should be recognised when they occur, not when cash is received or paid. This makes the statements better reflect economic substance, but it also gives management room to "manipulate" (for example, recognising revenue early or deferring expenses).</p>
+<p><strong>2. Going Concern</strong>: assumes the company will continue in operation. If the company faces a risk of failure, this must be disclosed in the statements.</p>
+<p><strong>3. Materiality</strong>: material information should be disclosed separately, while immaterial information may be aggregated. But the judgement of what is "material" depends on management's discretion.</p>
+<p><strong>4. Conservatism</strong>: under conditions of uncertainty, the treatment that is more conservative toward assets and income should be chosen. In practice, however, management may violate conservatism (for example, overstating assets and understating liabilities).</p>
+<p><strong>The Relationship Between These Principles and Fraud</strong></p>
+<p>The four principles above are neutral accounting rules, but at the same time they define the <strong>space in which management "can lie legally."</strong> Toshiba's methods of fraud were precisely the result of pushing these principles to their limits:</p>
+<table>
+<thead>
+<tr>
+<th>Toshiba's method</th>
+<th>Principle used</th>
+<th>The problem</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Recognising revenue early</strong></td>
+<td>Accrual basis</td>
+<td>Revenue recognised before the transaction was complete</td>
+</tr>
+<tr>
+<td><strong>Deferring expenses</strong></td>
+<td>Accrual basis</td>
+<td>Current-period expenses deferred to later periods, beautifying current-period profit and loss</td>
+</tr>
+<tr>
+<td><strong>Manipulating inventory valuation</strong></td>
+<td>Materiality / accounting estimates</td>
+<td>Overstating inventory to reduce cost of goods sold</td>
+</tr>
+<tr>
+<td><strong>Manipulating project progress</strong></td>
+<td>Materiality</td>
+<td>Overstating progress on long-term contracts, thereby recognising revenue early</td>
+</tr>
+</tbody>
+</table>
+<p>This table answers two questions at once: why these principles matter, and why they are dangerous — <strong>without cases, principles are merely material to memorise; with cases, principles become tools of judgement.</strong></p>
+<h3>C. Who Verifies Financial Reporting?</h3>
+<p><strong>1. Internal Audit</strong></p>
+<p>Internal audit is an independent assessment unit within the company, responsible for assessing the effectiveness of risk management, internal control, and governance processes. Internal audit reports directly to the audit committee.</p>
+<p>But internal audit's independence is limited — they are company employees, and their salaries are set by management.</p>
+<p><strong>2. External Audit</strong></p>
+<p>External audit is performed by an independent accounting firm, which audits the company's financial statements and expresses an opinion on whether they present fairly.</p>
+<p>Types of audit opinion:</p>
+<table>
+<thead>
+<tr>
+<th>Type of opinion</th>
+<th>Meaning</th>
+<th>Impact on investors</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Unmodified opinion</strong></td>
+<td>The financial statements present fairly in all material respects</td>
+<td>The statements are credible</td>
+</tr>
+<tr>
+<td><strong>Qualified opinion</strong></td>
+<td>Except for specific matters, the financial statements present fairly</td>
+<td>Specific matters may be problematic</td>
+</tr>
+<tr>
+<td><strong>Adverse opinion</strong></td>
+<td>The financial statements do not present fairly</td>
+<td>The statements are not credible</td>
+</tr>
+<tr>
+<td><strong>Disclaimer of opinion</strong></td>
+<td>The accountant is unable to obtain sufficient appropriate audit evidence</td>
+<td>Insufficient information to judge</td>
+</tr>
+</tbody>
+</table>
+<p>📌 <strong>Illustration</strong>: In the Toshiba case, the auditor issued an "unmodified opinion" for seven consecutive years, yet the financial statements in fact contained massive fraud — <strong>which shows that opinion types are merely a classification of conclusions, not a measure of the strength of assurance</strong>.</p>
+<p><strong>So where does the problem lie?</strong> The clue is this: the auditor's fees are paid by the company being audited, while the object of the audit is precisely the party paying the fees. This structural contradiction is the key to understanding external audit, and it is the main axis of the next section — <strong>why external audit can fail, and how the system tries to maintain independence</strong>.</p>
+<p>💭 <strong>Think About It</strong>: Do you think the "independence" of external audit can ever be called into question? Why?</p>
+<hr />
+<h3>D. Internal Control and Management's Responsibility</h3>
+<p>Financial statements are prepared by management — therefore, <strong>the first line of defence for the correctness of financial reporting is not external audit, but the company's own internal control</strong>. The two are in fact two sides of the same thing: internal control is the system established <em>internally</em> by the company (this part), while external audit is the <em>external</em> professional verification (see Section 2, Part C, and Section 3). When the system fails, external verification can only investigate within the time and scope that remain.</p>
+<p><strong>1. Internal Control</strong></p>
+<p>Internal control is a system designed by a company to provide reasonable assurance regarding the effectiveness and efficiency of operations, the reliability of financial reporting, and compliance with applicable laws and regulations. The most widely cited framework is the "Internal Control – Integrated Framework" of the U.S. COSO (Committee of Sponsoring Organizations of the Treadway Commission, 2013), which comprises five interrelated components:</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Control environment</strong></td>
+<td>The company's integrity and ethical values, board oversight, and assignment of authority and responsibility</td>
+</tr>
+<tr>
+<td><strong>Risk assessment</strong></td>
+<td>Identifying and analysing risks to achieving objectives</td>
+</tr>
+<tr>
+<td><strong>Control activities</strong></td>
+<td>Policies and procedures ensuring management's directives are carried out (such as authorisation, review, and reconciliation)</td>
+</tr>
+<tr>
+<td><strong>Information and communication</strong></td>
+<td>Obtaining and exchanging the information needed to achieve objectives</td>
+</tr>
+<tr>
+<td><strong>Monitoring activities</strong></td>
+<td>Assessing the quality of internal control and correcting deficiencies</td>
+</tr>
+</tbody>
+</table>
+<p><strong>2. Management's Responsibility</strong></p>
+<p>Precisely because the financial statements are prepared by management, the law and the standards impose on management the primary responsibility to "prepare and ensure their correctness":</p>
+<ul>
+<li><strong>U.S. Sarbanes-Oxley Act §302</strong>: the CEO and CFO must certify in writing the correctness of financial reports</li>
+<li><strong>U.S. Sarbanes-Oxley Act §404</strong>: management must assess and issue a statement on internal control, which is then audited by the external accountant (attestation)</li>
+<li><strong>Taiwan</strong>: the <em>Regulations Governing Establishment of Internal Control Systems by Public Companies</em> require companies to establish internal control systems and to issue an "Internal Control System Statement" in their annual reports, with a project review report issued by an accountant</li>
+</ul>
+<p><strong>3. Who Is Responsible for What? — The Lines of Defence</strong></p>
+<p>The correctness of financial reporting is not the responsibility of any single unit, but a chain of division of labour:</p>
+<table>
+<thead>
+<tr>
+<th>Line</th>
+<th>Responsible party</th>
+<th>Responsibility</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>First line: accountability</strong></td>
+<td>Management (CEO / CFO)</td>
+<td>Bears <strong>primary responsibility</strong> for the correctness of the financial statements, and <strong>establishes</strong> the internal control system</td>
+</tr>
+<tr>
+<td><strong>Second line: executing controls</strong></td>
+<td>Business units</td>
+<td>Execute control activities — authorisation, review, reconciliation, and segregation of asset custody from record-keeping</td>
+</tr>
+<tr>
+<td><strong>Third line: independent assessment</strong></td>
+<td>Internal audit</td>
+<td><strong>Assesses</strong> whether internal control is operating effectively and reports to the audit committee (see Section 2, Part C)</td>
+</tr>
+<tr>
+<td><strong>Fourth line: external verification</strong></td>
+<td>External accountant</td>
+<td>Audits the financial statements and (under SOX §404) audits the internal control statement issued by management</td>
+</tr>
+</tbody>
+</table>
+<p>📌 <strong>Common Misconception</strong>: internal audit is <strong>not</strong> the "executor" of internal control. What executes control activities are the business units; internal audit's role is to <strong>independently assess</strong> whether those controls are effective — if internal audit executed the controls itself, it could not objectively assess itself.</p>
+<p><strong>Key Insight:</strong> Internal control is the first line of defence; external audit is the second. If the first line fails, even the best accountant can only investigate within the remaining time and sampling scope — Toshiba's internal control failure let the fraud continue for seven years, which is the best example.</p>
+<hr />
+<h2>Section 3: Why Can External Audit Fail? How Is Independence Maintained?</h2>
+<p>The overview above covered both internal and external verification mechanisms, but <strong>external audit deserves a full section of examination</strong> — because it is the only verification mechanism that simultaneously possesses <strong>legal compulsion, execution by a licensed professional, and legal liability</strong>. The most important mechanism deserves the strictest scrutiny.</p>
+<p>It can only work if it is independent — yet in practice independence is constantly threatened. This section analyses those threats, the mechanisms for maintaining independence, and the limits of audit itself.</p>
+<h3>A. Threats to Audit Independence</h3>
+<p>DeFond and Zhang (2014) find that audit independence faces the following threats:</p>
+<p><strong>1. Self-Interest Threat</strong></p>
+<p>The accountant has a financial interest in the client. For example, an accounting firm may provide both audit and non-audit services (consulting, tax); non-audit revenue may exceed audit revenue, making the accountant "unwilling" to offend the client.</p>
+<p>📌 <strong>Illustration</strong>: In the Enron case, Arthur Andersen collected both substantial audit fees and consulting fees. When Enron's financial problems surfaced, Arthur Andersen chose to "accommodate" Enron's accounting treatment rather than insist on independence. In the end, Arthur Andersen was prosecuted for destroying audit working papers, and the Big Five accounting firms became the Big Four.</p>
+<p><strong>2. Self-review Threat</strong></p>
+<p>The accountant audits work performed by the accountant or by non-audit services. For example, if a firm designs a company's internal control system and then audits the effectiveness of that system, a self-review threat arises.</p>
+<p><strong>3. Familiarity Threat</strong></p>
+<p>The accountant becomes too close to the client. For example, an audit partner who has served the same client for more than ten years may develop a personal relationship with management that affects independence.</p>
+<p><strong>4. Intimidation Threat</strong></p>
+<p>The client puts pressure on the accountant. For example, the client implies: "if you issue a qualified opinion, we will change firms."</p>
+<h3>B. Mechanisms for Maintaining Independence</h3>
+<table>
+<thead>
+<tr>
+<th>Mechanism</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Audit partner rotation</strong></td>
+<td>Periodic replacement of the audit partner, avoiding the familiarity threat</td>
+</tr>
+<tr>
+<td><strong>Limiting non-audit services</strong></td>
+<td>Limiting a firm's simultaneous provision of audit and non-audit services</td>
+</tr>
+<tr>
+<td><strong>Transparency of audit fees</strong></td>
+<td>Requiring companies to disclose the amounts of audit and non-audit fees</td>
+</tr>
+<tr>
+<td><strong>Appointment by the audit committee</strong></td>
+<td>The audit committee, composed of independent directors, appoints and oversees the accountant</td>
+</tr>
+<tr>
+<td><strong>Peer review</strong></td>
+<td>Periodic review of audit quality by another firm</td>
+</tr>
+</tbody>
+</table>
+<h3>C. The Limits of Audit</h3>
+<p>Even if the accountant possesses independence, audit still has its limits:</p>
+<ol>
+<li><strong>Sampling</strong>: accountants usually audit only some transactions, not all of them</li>
+<li><strong>Management fraud</strong>: if management colludes in fraud (for example, by falsifying documents or concealing information), the accountant may not detect it</li>
+<li><strong>Uncertainty of accounting estimates</strong>: many accounting items involve significant estimates (for example, asset impairment and provision recognition), and the accountant finds it difficult to judge whether the estimates are reasonable</li>
+<li><strong>Time pressure</strong>: audit work is subject to time limits; it cannot investigate indefinitely</li>
+</ol>
+<p>💭 <strong>Think About It</strong>: Do you think audit independence can ever be fully achieved? Why?</p>
+<hr />
+<h3>D. Legal Liability for False Financial Reporting</h3>
+<p>Why is legal liability necessary? Because <strong>verification mechanisms can only "detect" falsity, they cannot "prevent" it</strong> — if lies carry no cost, the promise of disclosure is not credible. The function of legal liability is "deterrence."</p>
+<p><strong>1. Taiwan's Provisions (the Securities and Exchange Act)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Article</th>
+<th>Content</th>
+<th>Type of liability</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Article 20, Paragraph 1</strong></td>
+<td>The content of financial statements and financial business documents must not be false</td>
+<td>Civil and criminal</td>
+</tr>
+<tr>
+<td><strong>Article 20-1</strong></td>
+<td>The principal contents of prospectuses and financial reports must not be false</td>
+<td>Civil compensation</td>
+</tr>
+<tr>
+<td><strong>Article 174</strong></td>
+<td>Criminal liability for false financial reports and similar acts</td>
+<td>Criminal (imprisonment and fines)</td>
+</tr>
+</tbody>
+</table>
+<p>The responsible persons of a juridical person and related personnel bear joint and several civil liability, and investors may also seek compensation through class action.</p>
+<p><strong>2. The United States' Provisions (Sarbanes-Oxley Act, 2002)</strong></p>
+<p>The structure of liability in the United States differs from Taiwan's: apart from the criminal liability of §906, the rest is largely enforced by the SEC through administrative means — the legislature entrusted the work of "preventing falsity" to the regulator, rather than directly to the courts.</p>
+<table>
+<thead>
+<tr>
+<th>Provision</th>
+<th>Content</th>
+<th>Type of liability</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>§302</strong></td>
+<td>The CEO/CFO's responsibility to certify financial reports in writing</td>
+<td>Administrative/civil (SEC enforcement); one who certifies knowingly also bears criminal liability (§906)</td>
+</tr>
+<tr>
+<td><strong>§404</strong></td>
+<td>Management's responsibility to assess and state internal control</td>
+<td>Administrative/civil (SEC enforcement)</td>
+</tr>
+<tr>
+<td><strong>§906</strong></td>
+<td>Criminal liability for certifying while knowing the financial report to be false</td>
+<td>Criminal (imprisonment of up to 20 years and fines)</td>
+</tr>
+<tr>
+<td><strong>Dodd-Frank Act §922</strong></td>
+<td>Whistleblower protection and whistleblower awards</td>
+<td>Protection and incentive mechanism (not a company's liability)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>3. The Three Functions of Legal Liability</strong></p>
+<ul>
+<li><strong>Compensation</strong>: compensating harmed investors</li>
+<li><strong>Deterrence</strong>: raising the cost of lying</li>
+<li><strong>Signalling</strong>: declaring to the market the "consequences of falsity"</li>
+</ul>
+<p>📌 <strong>Illustration</strong>: In the Enron case, Arthur Andersen was prosecuted for destroying audit working papers (see Section 3, Part A) and ultimately dissolved — this was not only a punishment, but a warning to the entire auditing profession.</p>
+<p><strong>Key Insight:</strong> Legal liability makes "disclosure" a "costly promise." Without legal liability, verification mechanisms merely delay the discovery of lies.</p>
+<hr />
+<h2>Section 4: How Do Sustainability Reports Differ from Financial Reports?</h2>
+<p>Everything above has centred on financial reports. But financial reports answer the question "how much did the company earn" — they do not tell you how much carbon dioxide the company emits or what the labour conditions in its supply chain are. When investors and society began demanding this kind of information, the scope of disclosure expanded from the financial to the environmental and social, and the sustainability report was born.</p>
+<p><strong>What Is a Sustainability Report?</strong> It is a non-financial report prepared by a company on three dimensions — Environmental, Social, and Governance, together known as ESG — describing what the company "has done for the environment and society," not merely "how much money it earned." Its content covers three dimensions:</p>
+<ul>
+<li><strong>Environmental</strong>: carbon emissions, energy use, water resources, waste, biodiversity</li>
+<li><strong>Social</strong>: employee labour conditions, supply-chain responsibility, community engagement, customer protection</li>
+<li><strong>Governance</strong>: board operations, integrity and anti-corruption, risk management, human rights due diligence</li>
+</ul>
+<p>Its difference from financial reports lies not only in format, but in the <strong>nature of the information</strong>: financial reports are quantitative, backward-looking financial information; sustainability reports contain both quantitative and qualitative information, looking back at the past and forward to the future.</p>
+<p>The question is: can the language and verification mechanisms designed for financial reports simply be applied? <strong>New areas of disclosure give rise to new forms of greenwashing.</strong> This section compares the two, and identifies the challenges unique to sustainability reports.</p>
+<h3>A. Financial Reports vs. Sustainability Reports</h3>
+<table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>Financial reports</th>
+<th>Sustainability reports</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Purpose</strong></td>
+<td>Reflecting financial performance and financial position</td>
+<td>Reflecting environmental, social, and governance (ESG) performance</td>
+</tr>
+<tr>
+<td><strong>Mandatory nature</strong></td>
+<td>Mandatory (required by law)</td>
+<td>Partly mandatory, partly voluntary (fully mandatory for Taiwan's listed companies from 2025)</td>
+</tr>
+<tr>
+<td><strong>Basis of preparation</strong></td>
+<td>IFRS (International Financial Reporting Standards)</td>
+<td>GRI, SASB, TCFD, ISSB, and others (multiple frameworks coexist)</td>
+</tr>
+<tr>
+<td><strong>Assurance / audit requirement</strong></td>
+<td>Mandatory external audit (reasonable assurance)</td>
+<td>Mostly "assurance," and mainly limited assurance (see Part B)</td>
+</tr>
+<tr>
+<td><strong>Primary users</strong></td>
+<td>Investors and creditors</td>
+<td>All stakeholders (employees, customers, communities, NGOs, and so on)</td>
+</tr>
+<tr>
+<td><strong>Definition of materiality</strong></td>
+<td>Financial materiality</td>
+<td>Financial materiality (ISSB) or double materiality (ESRS; see Part E)</td>
+</tr>
+<tr>
+<td><strong>Time orientation</strong></td>
+<td>Historical information (past performance)</td>
+<td>Historical + future (future targets and risk assessments)</td>
+</tr>
+<tr>
+<td><strong>Degree of quantification</strong></td>
+<td>Highly quantified</td>
+<td>Partly quantified, partly qualitative</td>
+</tr>
+</tbody>
+</table>
+<h3>B. The Level of Assurance: Differences from Financial Audit</h3>
+<p>One of the most fundamental differences between sustainability reports and financial reports is the <strong>level of assurance</strong>. Financial statements are subject to "audit," while sustainability reports are currently mostly subject to "assurance" — the two provide different levels of assurance.</p>
+<p>To understand the difference, two things must be grasped first: how much <strong>commitment the verifier is willing to give regarding the correctness of the information</strong> (the level of assurance), and <strong>how he writes that commitment out</strong> (the form of the conclusion).</p>
+<p><strong>1. Reasonable Assurance — used for financial statements</strong></p>
+<ul>
+<li><strong>Meaning</strong>: the verifier has performed sufficient audit procedures to support a positive conclusion — "no material falsity detected."</li>
+<li><strong>Form of conclusion</strong>: <strong>positive assurance</strong>. The verifier states directly: "In our opinion, the financial statements present fairly, in all material respects, in accordance with …"</li>
+<li><strong>Procedures</strong>: the verifier must understand and test internal control, then perform substantive audit procedures — confirmations, physical counts, document verification, and evaluation of accounting estimates.</li>
+<li><strong>Cost</strong>: high cost and long duration, because it demands evidence sufficient to support a positive conclusion.</li>
+</ul>
+<p><strong>2. Limited Assurance — what sustainability reports mostly use</strong></p>
+<ul>
+<li><strong>Meaning</strong>: the verifier performs fewer procedures and can only support "nothing suspicious has been detected"; it <strong>cannot</strong> support "the information is correct."</li>
+<li><strong>Form of conclusion</strong>: <strong>negative assurance</strong>. The verifier states: "Based on our review, nothing has come to our attention that causes us to believe that the information has not been prepared in accordance with …"</li>
+<li><strong>Procedures</strong>: mainly enquiry and analytical procedures, with relatively little substantive verification.</li>
+<li><strong>Key difference</strong>: "<strong>we have detected no problem</strong>" <strong>is not the same as</strong> "<strong>there is no problem</strong>" — it only means that under a limited scope of procedures, nothing suspicious was observed.</li>
+</ul>
+<p><strong>3. Comparison of the Two Levels</strong></p>
+<table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>Reasonable assurance (audit)</th>
+<th>Limited assurance (review / assurance)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Form of conclusion</strong></td>
+<td>Positive assurance: "In our opinion … presents fairly"</td>
+<td>Negative assurance: "We have detected nothing … that is false"</td>
+</tr>
+<tr>
+<td><strong>Evidence required</strong></td>
+<td>Sufficient and appropriate, enough to support a positive conclusion</td>
+<td>Only needs to support "nothing suspicious detected"</td>
+</tr>
+<tr>
+<td><strong>Audit procedures</strong></td>
+<td>Tests of control + substantive procedures (confirmations, counts, document verification)</td>
+<td>Mainly enquiry and analytical procedures</td>
+</tr>
+<tr>
+<td><strong>Scope</strong></td>
+<td>Comprehensive and systematic, covering all material items</td>
+<td>Limited scope, focused on material matters</td>
+</tr>
+<tr>
+<td><strong>Cost</strong></td>
+<td>High — many procedures, long duration</td>
+<td>Low — few procedures, fast</td>
+</tr>
+<tr>
+<td><strong>When used</strong></td>
+<td>Legally mandatory (financial statements)</td>
+<td>Mostly voluntary or partially mandatory (sustainability)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>4. Why Sustainability Reports Can Mostly Only Achieve Limited Assurance</strong></p>
+<ul>
+<li><strong>Cost</strong>: reasonable assurance requires a large volume of substantive procedures; if a company is unwilling to pay high assurance fees, it can only settle for less.</li>
+<li><strong>Nature of the evidence</strong>: much sustainability data has no independent source against which it can be verified — labour conditions at suppliers, carbon emissions upstream in the value chain, all lack documents that can be checked.</li>
+<li><strong>Feasibility</strong>: reasonable assurance requires evidence sufficient to support a positive conclusion, but qualitative statements (for example, "we value our employees") simply cannot be verified in that way.</li>
+</ul>
+<p>📌 <strong>Illustration</strong>: Taiwan's listed companies are required to obtain assurance for their sustainability reports, but most is limited assurance, whereas financial statements are subject to mandatory audit (reasonable assurance). The two are not comparable — the level of assurance provided by limited assurance is far lower than that of audit.</p>
+<p><strong>Key Insight:</strong> Every set of sustainability figures in a report must be distinguishable as either "a figure that has been subject to reasonable assurance" or "a figure that has not been substantively verified." A carbon-emission figure in a limited-assurance report and an audited figure in the financial statements differ enormously in their level of assurance — <strong>yet the two may look exactly the same on the page</strong>.</p>
+<h3>C. Challenges of Sustainability Reports</h3>
+<p><strong>1. The Absence of a Unified Standard</strong></p>
+<p>Multiple sustainability reporting frameworks currently coexist (GRI, SASB, TCFD, ISSB, and others), and companies can choose the framework most favourable to themselves, making cross-company comparison difficult.</p>
+<p>📌 <strong>Illustration</strong>: One company uses the GRI framework to disclose its carbon-emission data, another uses SASB; the definitions and scope of their data may differ, so they cannot be directly compared.</p>
+<p>The coexistence of frameworks will not last forever: if a single globally common standard emerges, this difficulty may be resolved. Such a unification effort is already under way; see Part D.</p>
+<p><strong>2. Uneven Data Quality</strong></p>
+<p>The quality of sustainability data is usually lower than that of financial data. For example, carbon-emission data may rely on "estimates" rather than actual measurement, and supply-chain data may rely on "self-reporting" rather than independent verification.</p>
+<p><strong>3. The Risk of Greenwashing</strong></p>
+<p>A company may exaggerate its environmental performance in a sustainability report, or selectively disclose positive information while concealing negative information.</p>
+<p>📌 <strong>Illustration</strong>: In 2025, DWS (the asset-management arm of Deutsche Bank) was fined €25 million by German prosecutors for exaggerating its ESG marketing — claiming to be an "ESG leader" when in fact only a small portion of its assets were managed to strict ESG standards (full discussion in the closing case of this chapter).</p>
+<p>There is also a more fundamental form of selective disclosure: <strong>certain issues do not fall within the definition of "material" at all, and therefore need not be disclosed</strong> — that is not "disclosed but false," it is "never disclosed in the first place." This is what determines the <strong>scope</strong> of disclosure; see Part E.</p>
+<h3>D. The ISSB's Unification Effort and Its Four Pillars</h3>
+<p>The absence of a unified standard noted above is the most difficult problem for sustainability reports — companies each choose their own framework, and data cannot be compared. The International Sustainability Standards Board (ISSB) is attempting to resolve this difficulty in one stroke: in 2023 it issued IFRS S1 (general sustainability disclosures) and IFRS S2 (climate disclosures), aiming to become the global unified standard for sustainability reporting. Its structure derives from the original TCFD and is divided into four pillars:</p>
+<table>
+<thead>
+<tr>
+<th>Pillar</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Governance</strong></td>
+<td>The governance processes and controls for overseeing sustainability-related risks and opportunities</td>
+</tr>
+<tr>
+<td><strong>Strategy</strong></td>
+<td>The impact of sustainability-related risks and opportunities on the business model, strategy, and financial planning</td>
+</tr>
+<tr>
+<td><strong>Risk management</strong></td>
+<td>The processes for identifying, assessing, and managing sustainability-related risks</td>
+</tr>
+<tr>
+<td><strong>Metrics and targets</strong></td>
+<td>The metrics and targets for tracking sustainability-related risks and opportunities (including greenhouse-gas emissions)</td>
+</tr>
+</tbody>
+</table>
+<p>As of 2026, Nigeria (from 2024), Chile (from 2026), Brazil and other countries have made ISSB standards mandatory; Mexico began applying them from fiscal year 2025 and submitted its first report in 2026. Taiwan plans to adopt them in three stages from fiscal year 2026: in 2026, companies with capital of NT$10 billion or more; in 2027, extending to companies with capital between NT$5 billion and NT$10 billion; in 2028, applying to all remaining listed companies. (Financial Supervisory Commission, 2023)</p>
+<h3>E. Double Materiality</h3>
+<p>Beyond language and verification, the two have an even more fundamental difference — <strong>the definition of "material" differs</strong>. This is not a technical detail; it <strong>determines what a company discloses at all</strong>:</p>
+<ul>
+<li>If we ask only "will this affect the company's profits," how much carbon dioxide the company emits, and what the labour conditions in its supply chain are, may be omitted entirely</li>
+<li>If we also ask "what impact does the company have on the environment and society," the scope of disclosure is entirely different</li>
+</ul>
+<p>In other words, this definition determines <strong>whose interests count</strong> — only investors, or also those affected by the company's activities:</p>
+<table>
+<thead>
+<tr>
+<th>Type of materiality</th>
+<th>Definition</th>
+<th>Primary users</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Financial materiality</strong></td>
+<td>The impact of a sustainability issue on "the company's financial performance"</td>
+<td>Investors and creditors</td>
+</tr>
+<tr>
+<td><strong>Impact materiality</strong></td>
+<td>The impact of the company's activities on "the environment and society"</td>
+<td>Employees, communities, NGOs, and regulators</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>ISSB (IFRS S1 / S2)</strong>: takes "financial materiality" as primary — because its primary users are investors</li>
+<li><strong>EU ESRS (CSRD)</strong>: adopts "double materiality" — assessing both financial materiality and impact materiality</li>
+</ul>
+<p><strong>Key Insight:</strong> Which definition of materiality is adopted determines "what a company discloses" — under pure financial materiality, the company's impact on society and the environment may go entirely undisclosed. <strong>This is also the more fundamental root of "greenwashing" in Part C: the problem is not only that disclosure is false, but that it never happens at all.</strong></p>
+<p>💭 <strong>Think About It</strong>: Should the materiality of a sustainability report be based primarily on "financial materiality" or on "impact materiality"? Why?</p>
+<hr />
+<h2>Summary</h2>
+<p><strong>The Essence of This Chapter:</strong></p>
+<p>Information asymmetry is an inherent problem of capital markets, and <strong>no single mechanism can resolve it alone</strong>. Disclosure ensures that information exists, audit ensures that information is of quality, and legal liability ensures that lying is costly — if any one of the three is missing, the mechanisms can be circumvented. Toshiba's financial statements were formally fully compliant and its external audit issued unmodified opinions year after year, yet profits were still overstated by tens of billions — the best proof of this.</p>
+<p><strong>Answers to the Three Core Questions:</strong></p>
+<ol>
+<li><strong>How can we ensure that the "truth" is real?</strong> Through a combination of three mechanisms — mandatory disclosure, external audit, and legal liability. The three depend on one another; none can stand alone.</li>
+<li><strong>Why can external audit fail?</strong> Independence is constantly threatened in practice (self-interest, self-review, familiarity, intimidation), and even when independence is intact, sampling, fraud, the uncertainty of estimates, and time pressure still constitute the limits of audit. <strong>Audit provides reasonable assurance, not a guarantee.</strong></li>
+<li><strong>As disclosure expands to sustainability, can the language and verification still be applied?</strong> Not yet. Sustainability reports lack a unified standard, their data quality is uneven, and their level of assurance is lower than audit; moreover, the definition of "material" is itself an unresolved choice — <strong>which is precisely the focus of the next round of institutional competition.</strong></li>
+</ol>
+<p><strong>Key Terms:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>English</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Information asymmetry</td>
+<td>Information Asymmetry</td>
+<td>A situation in which the two parties to a transaction differ in the amount or quality of information they hold</td>
+</tr>
+<tr>
+<td>Adverse selection</td>
+<td>Adverse Selection</td>
+<td>A phenomenon in which information asymmetry drives good products out of the market and leaves bad ones</td>
+</tr>
+<tr>
+<td>Moral hazard</td>
+<td>Moral Hazard</td>
+<td>A situation in which one party to a transaction, after the contract is signed, acts to the detriment of the other party</td>
+</tr>
+<tr>
+<td>External audit</td>
+<td>External Audit</td>
+<td>An audit of the financial statements by an independent accounting firm</td>
+</tr>
+<tr>
+<td>Internal audit</td>
+<td>Internal Audit</td>
+<td>Independent, objective assurance and consulting activities</td>
+</tr>
+<tr>
+<td>Sustainability report</td>
+<td>Sustainability Report</td>
+<td>A company's disclosure of its policies, strategies, targets, and performance on environmental, social, and governance dimensions</td>
+</tr>
+<tr>
+<td>Greenwashing</td>
+<td>Greenwashing</td>
+<td>Exaggerating or fabricating sustainability performance</td>
+</tr>
+<tr>
+<td>Assurance</td>
+<td>Assurance</td>
+<td>The level of assurance given regarding the quality of information (lower than audit)</td>
+</tr>
+<tr>
+<td>Accountant</td>
+<td>Certified Public Accountant (CPA)</td>
+<td>A professional who performs audits of financial statements; the term used in Taiwan. "Auditor" is the usage in mainland China and Japan</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>References</h2>
+<p>This chapter draws principally on the following academic literature and practitioner reports:</p>
+<p><strong>Akerlof, G. A. (1970).</strong> The market for "lemons": Quality uncertainty and the market mechanism. <em>Quarterly Journal of Economics, 84</em>(3), 488–500. <a href="https://doi.org/10.2307/1879431">https://doi.org/10.2307/1879431</a></p>
+<p><strong>Committee of Sponsoring Organizations of the Treadway Commission (COSO). (2013).</strong> <em>Internal control – integrated framework.</em> COSO. <a href="https://www.coso.org/internal-control">https://www.coso.org/internal-control</a></p>
+<p><strong>DeFond, M., &amp; Zhang, J. (2014).</strong> A review of archival auditing research. <em>Journal of Accounting and Economics, 58</em>(2-3), 275–326. <a href="https://doi.org/10.1016/j.jacceco.2014.09.002">https://doi.org/10.1016/j.jacceco.2014.09.002</a></p>
+<p><strong>Healy, P. M., &amp; Palepu, K. G. (2001).</strong> Information asymmetry, corporate disclosure, and the capital markets: A review of the empirical disclosure literature. <em>Journal of Accounting and Economics, 31</em>(1-3), 405–440. <a href="https://doi.org/10.1016/S0165-4101(01)00018-0">https://doi.org/10.1016/S0165-4101(01)00018-0</a></p>
+<p><strong>ISSB. (2023).</strong> <em>IFRS S1 General Requirements for Disclosure of Sustainability-related Financial Information.</em> IFRS Foundation. <a href="https://www.ifrs.org/issued-standards/ifrs-sustainability-standards-navigator/ifrs-s1-general-requirements/">https://www.ifrs.org/issued-standards/ifrs-sustainability-standards-navigator/ifrs-s1-general-requirements/</a></p>
+<p><strong>ISSB. (2023).</strong> <em>IFRS S2 Climate-related Disclosures.</em> IFRS Foundation. <a href="https://www.ifrs.org/issued-standards/ifrs-sustainability-standards-navigator/ifrs-s2-climate-related-disclosures/">https://www.ifrs.org/issued-standards/ifrs-sustainability-standards-navigator/ifrs-s2-climate-related-disclosures/</a></p>
+<p><strong>Sarbanes-Oxley Act of 2002, Pub. L. No. 107-204, §§302, 404, 906.</strong></p>
+<p><strong>Toshiba Independent Investigation Committee. (2015).</strong> <em>Investigation Report.</em> Toshiba Corporation. <a href="https://www.global.toshiba/content/dam/toshiba/migration/corp/irAssets/about/ir/en/news/20150725_1.pdf">https://www.global.toshiba/content/dam/toshiba/migration/corp/irAssets/about/ir/en/news/20150725_1.pdf</a></p>
+<p><strong>Financial Supervisory Commission. (2023).</strong> Blueprint for Taiwan's adoption of the IFRS sustainability disclosure standards [In Chinese]. Financial Supervisory Commission. <a href="https://www.fsc.gov.tw/ch/home.jsp?id=96&parentpath=0%2C2&mcustomize=news_view.jsp&dataserno=202308170002&dtable=News">https://www.fsc.gov.tw/ch/home.jsp?id=96&parentpath=0%2C2&mcustomize=news_view.jsp&dataserno=202308170002&dtable=News</a></p>
+<hr />
+<p><strong>Regulatory and Policy Reference Resources</strong> (for readers' reference and verification)</p>
+<p><em>Taiwan</em></p>
+<ul>
+<li>Financial Supervisory Commission. (2023). Blueprint for Taiwan's adoption of the IFRS sustainability disclosure standards [In Chinese]. <a href="https://www.fsc.gov.tw/ch/home.jsp?id=96&parentpath=0%2C2&mcustomize=news_view.jsp&dataserno=202308170002&dtable=News">https://www.fsc.gov.tw/ch/home.jsp?id=96&parentpath=0%2C2&mcustomize=news_view.jsp&dataserno=202308170002&dtable=News</a></li>
+<li>Financial Supervisory Commission. (2023). Sustainable Development Action Plan for Listed Companies (2023) [In Chinese]. Corporate Governance Centre, Taiwan Stock Exchange Corporation. <a href="https://cgc.twse.com.tw/responsibilityPlan/listCh">https://cgc.twse.com.tw/responsibilityPlan/listCh</a></li>
+<li><em>Securities and Exchange Act</em> (Article 20, Article 20-1, and Article 174 address liability for false financial reporting). <a href="https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=G0400001">https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=G0400001</a></li>
+<li><em>Regulations Governing Establishment of Internal Control Systems by Public Companies</em> [In Chinese]. <a href="https://law.fsc.gov.tw/LawContent.aspx?id=FL021141">https://law.fsc.gov.tw/LawContent.aspx?id=FL021141</a></li>
+<li><em>Regulations Governing the Establishment of Independent Directors by Public Companies and the Matters to Be Complied With</em> [In Chinese]. <a href="https://law.fsc.gov.tw/LawContent.aspx?id=FL038791">https://law.fsc.gov.tw/LawContent.aspx?id=FL038791</a></li>
+<li><em>Regulations Governing the Exercise of Powers by Audit Committees of Public Companies</em> [In Chinese]. <a href="https://law.fsc.gov.tw/LawContent.aspx?id=FL038790">https://law.fsc.gov.tw/LawContent.aspx?id=FL038790</a></li>
+</ul>
+<p><em>International</em></p>
+<ul>
+<li>IFRS Foundation. (2023). <em>IFRS S1 General Requirements for Disclosure of Sustainability-related Financial Information</em> / <em>IFRS S2 Climate-related Disclosures</em>. <a href="https://www.ifrs.org/issued-standards/ifrs-sustainability-standards-navigator/">https://www.ifrs.org/issued-standards/ifrs-sustainability-standards-navigator/</a></li>
+<li>European Commission. (2024). <em>Corporate Sustainability Reporting Directive (CSRD) / European Sustainability Reporting Standards (ESRS)</em>. <a href="https://finance.ec.europa.eu/financial-markets/company-reporting-and-auditing/company-reporting/corporate-sustainability-reporting_en">https://finance.ec.europa.eu/financial-markets/company-reporting-and-auditing/company-reporting/corporate-sustainability-reporting_en</a></li>
+<li>U.S. Securities and Exchange Commission. (2024). <em>The Enhancement and Standardization of Climate-Related Disclosures for Investors</em> (Release No. 33-11275). <a href="https://www.sec.gov/rules-regulations/2024/03/s7-10-22">https://www.sec.gov/rules-regulations/2024/03/s7-10-22</a></li>
+<li>Committee of Sponsoring Organizations of the Treadway Commission (COSO). (2013). <em>Internal Control – Integrated Framework</em>. <a href="https://www.coso.org/internal-control">https://www.coso.org/internal-control</a></li>
+<li>Sarbanes-Oxley Act of 2002, Pub. L. No. 107-204, §§302, 404, 906.</li>
+</ul>
+<p><em>All regulations and policy documents cited in this chapter provide reference links in the "Regulatory and Policy Reference Resources" above; the Sarbanes-Oxley Act is a U.S. statute and is cited by name.</em></p>
+<h2>Exercises</h2>
+<h3>Multiple Choice</h3>
+<ol>
+<li>
+<p>Which of the following is NOT a consequence of information asymmetry?</p>
+<ul>
+<li>(A) Adverse selection</li>
+<li>(B) Moral hazard</li>
+<li>(C) Increasing market liquidity</li>
+<li>(D) Higher cost of capital</li>
+</ul>
+</li>
+<li>
+<p>Among the financial statements, the one reflecting a company's financial position on a specific date is:</p>
+<ul>
+<li>(A) Income statement</li>
+<li>(B) Balance sheet</li>
+<li>(C) Cash flow statement</li>
+<li>(D) Statement of changes in equity</li>
+</ul>
+</li>
+<li>
+<p>After auditing the financial statements, the accountant concludes that "except for specific matters, the financial statements present fairly." This is called:</p>
+<ul>
+<li>(A) Unmodified opinion</li>
+<li>(B) Qualified opinion</li>
+<li>(C) Adverse opinion</li>
+<li>(D) Disclaimer of opinion</li>
+</ul>
+</li>
+<li>
+<p>Which of the following is NOT a threat to audit independence?</p>
+<ul>
+<li>(A) Self-interest threat</li>
+<li>(B) Self-review threat</li>
+<li>(C) Justice threat</li>
+<li>(D) Intimidation threat</li>
+</ul>
+</li>
+<li>
+<p>The year in which Taiwan's listed companies became fully required to prepare sustainability reports is:</p>
+<ul>
+<li>(A) 2023</li>
+<li>(B) 2024</li>
+<li>(C) 2025</li>
+<li>(D) 2027</li>
+</ul>
+</li>
+</ol>
+<h3>Essay Questions</h3>
+<ol>
+<li>
+<p>Explain the sources and consequences of information asymmetry, and analyse the mechanisms for resolving information asymmetry.</p>
+</li>
+<li>
+<p>Why can external audit fail? Illustrate with the Toshiba case or the Enron case.</p>
+</li>
+<li>
+<p>Compare the differences between financial reports and sustainability reports, and explain the challenges sustainability reports face.</p>
+</li>
+<li>
+<p>Do you think sustainability reports should be subject to mandatory audit in the same way as financial reports? Why?</p>
+</li>
+</ol>
+<h3>Scenario Questions</h3>
+<p><strong>Scenario</strong>: You are an independent director of a Taiwan listed company. The company has recently been reported in the media: the carbon-emission data in its sustainability report differs significantly from its actual emissions. The media questions whether the company is "greenwashing."</p>
+<p><strong>Questions</strong>:</p>
+<ol>
+<li>Which important concepts from this chapter does this scenario involve? (Hint: list at least three)</li>
+<li>How would you respond to the media's questioning? What kind of investigation would you demand?</li>
+<li>How do you think the company should improve the quality of its sustainability report?</li>
+</ol>
+<h2>Closing Case: DWS Greenwashing — The Truth of Information Disclosure and the Audit Challenges of ESG Data</h2>
+<blockquote>
+<p><strong>Core Question: When the scope of disclosure extends beyond financial reports, who verifies it?</strong></p>
+</blockquote>
+<h3>Case Summary</h3>
+<p>DWS Group is the asset-management arm of Deutsche Bank, headquartered in Frankfurt, Germany, and one of Europe's largest asset managers, with approximately €800 billion in assets under management in 2020.</p>
+<p><strong>The Course of Events</strong></p>
+<p>In 2020, DWS claimed in its annual report that half of its assets (approximately €400 billion) were invested using ESG standards. But in 2021, its former Chief Sustainability Officer, Desiree Fixler, reported to the German financial regulator BaFin that DWS had exaggerated its ESG investment scale — in reality, only a small portion of its assets were genuinely managed to strict ESG standards. Fixler was subsequently dismissed, and she then complained to the U.S. Securities and Exchange Commission (SEC) and the German regulators.</p>
+<p>In May 2022, German police searched DWS's headquarters and Deutsche Bank's offices, investigating whether "prospectus fraud" was involved.</p>
+<p>In 2023, the SEC reached a settlement with DWS: without <strong>admitting or denying</strong> the SEC's findings, DWS agreed to pay a penalty of <strong>$19 million</strong> over its misleading statements about its ESG investment process between 2018 and 2021 (the same order separately imposed $6 million for anti-money-laundering failures, making $25 million in total).</p>
+<p>In April 2025, the Frankfurt Public Prosecutor's Office imposed a harsher penalty: DWS was fined €25 million for exaggerating its ESG marketing. In a statement, DWS said: "We acknowledge that in the past our marketing was sometimes too enthusiastic."</p>
+<p><strong>What This Teaches Us About Information Disclosure</strong></p>
+<table>
+<thead>
+<tr>
+<th>Issue</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>The gap between disclosure and truth</strong></td>
+<td>DWS's disclosure "complied with" its internal methodology, but the methodology itself was far too loose</td>
+</tr>
+<tr>
+<td><strong>The role of the whistleblower</strong></td>
+<td>Fixler, the former Chief Sustainability Officer, was dismissed after reporting, showing the importance of whistleblower protection</td>
+</tr>
+<tr>
+<td><strong>The regulators' response</strong></td>
+<td>Both the SEC and the German prosecutors penalised DWS — but was the fine sufficient?</td>
+</tr>
+<tr>
+<td><strong>Verification of sustainability data</strong></td>
+<td>The DWS case shows that verification mechanisms for sustainability data are still inadequate</td>
+</tr>
+</tbody>
+</table>
+<p>The table sets out four dimensions, but they point to a single conclusion: <strong>as the scope of disclosure extends to sustainability, verification mechanisms must be upgraded along with it</strong> — regulators' scrutiny of ESG disclosure has shifted from "informing" to "verifying."</p>
+<h3>Discussion Questions</h3>
+<ol>
+<li>
+<p><strong>Comparing information quality</strong>: How does DWS's "greenwashing" differ from Toshiba's "financial fraud"? Which is harder to detect? Which does more harm to investors?</p>
+</li>
+<li>
+<p><strong>Information asymmetry and verification mechanisms</strong>: Compared with the Toshiba case at the beginning of the chapter, how do the two cases differ in their "information asymmetry" and "audit/verification" mechanisms? Toshiba was "management concealing from the board"; DWS was "the company concealing from investors." Why did Toshiba's external accountant not detect the fraud, while DWS's "greenwashing" was detected? Which kind of information asymmetry do you think is more serious?</p>
+</li>
+<li>
+<p><strong>The role of the independent director</strong>: If you were an independent director of DWS, how would you respond to Fixler's report? Would you support "following the company's internal methodology" or "following strict ESG standards"?</p>
+</li>
+<li>
+<p><strong>The truth of sustainability data</strong>: The DWS case shows that the "disclosure" in a sustainability report can itself be manipulated. How do you think the truth of sustainability data should be ensured? What kind of verification mechanism would you demand?</p>
+</li>
+<li>
+<p><strong>The limits of the ISSB</strong>: Do you think the ISSB's unified standards can resolve the greenwashing problem? Why?</p>
+</li>
+</ol>
+<h3>Case References</h3>
+<ul>
+<li>U.S. Securities and Exchange Commission. (2023). <em>Deutsche Bank subsidiary DWS to pay $25 million for anti-money laundering violations and misstatements regarding ESG investments</em> (Release No. 2023-194). <a href="https://www.sec.gov/newsroom/press-releases/2023-194">https://www.sec.gov/newsroom/press-releases/2023-194</a></li>
+<li>Frankfurt Public Prosecutor's Office. (2025, April). <em>Fine against DWS for greenwashing.</em></li>
+<li>ESG Today. (2025). <em>Deutsche Bank's DWS fined $27 million for greenwashing.</em> <a href="https://www.esgtoday.com/deutsche-banks-dws-fined-27-million-for-greenwashing">https://www.esgtoday.com/deutsche-banks-dws-fined-27-million-for-greenwashing</a></li>
+</ul>
+<blockquote>
+<p><strong>Bridge to the next chapter</strong>: This chapter examined the information on which oversight relies. Chapter 5 will extend the object of accountability from shareholders to all stakeholders — information disclosure is not only a right of shareholders, but a right of all stakeholders.</p>
+</blockquote>
+</body>
+</html>
