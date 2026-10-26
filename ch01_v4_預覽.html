@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第1章 公司治理是什麼？——權力、責任與問責</title>
+<style>
+:root{--fg:#1a1a1a;--muted:#5b6b7a;--accent:#2c5f8a;--border:#c9d4de;--card:#f4f7fa}
+body{font-family:"Noto Serif TC","Source Han Serif TC","PMingLiU",serif;
+     max-width:920px;margin:2.5rem auto;padding:0 1.6rem;line-height:1.8;
+     color:var(--fg);background:#fff}
+h1{font-size:1.9rem;line-height:1.4;border-bottom:3px solid var(--accent);padding-bottom:.5rem}
+h2{font-size:1.5rem;color:var(--accent);border-bottom:2px solid var(--accent);
+   padding-bottom:.3rem;margin-top:2.4rem}
+h3{font-size:1.15rem;color:var(--accent);margin-top:1.8rem}
+h4{font-size:1.02rem;margin-top:1.3rem}
+blockquote{background:var(--card);border-left:4px solid var(--accent);
+           padding:.7rem 1.1rem;margin:1rem 0;color:#33475b}
+hr{border:none;border-top:1px solid var(--border);margin:2rem 0}
+a{color:#1a5fb4;text-decoration:none;border-bottom:1px dotted #1a5fb4;word-break:break-all}
+a:hover{text-decoration:underline}
+table{border-collapse:collapse;width:100%;margin:1.1rem 0;font-size:.93rem}
+th,td{border:1px solid var(--border);padding:.5rem .65rem;text-align:left;vertical-align:top}
+th{background:#eef3f8}
+ul,ol{margin:.5rem 0 .5rem 1.5rem;padding-left:.6rem}
+li{margin:.28rem 0}
+ul ul,ul ol,ol ul,ol ol{margin-top:.3rem;margin-left:1.1rem}
+ul{list-style-type:disc}
+ul ul{list-style-type:circle}
+ul ul ul{list-style-type:square}
+ol{list-style-type:decimal}
+ol ol{list-style-type:lower-alpha}
+ol ol ol{list-style-type:lower-roman}
+strong{color:#a83232}
+em{color:#2c5f8a}
+code{background:#f0f2f5;padding:.1rem .35rem;border-radius:3px;font-size:.9em}
+.refs p{margin:.15rem 0 .85rem;padding-left:1.6rem;text-indent:-1.6rem}
+.refs{margin-top:.5rem}
+@media print{body{max-width:none;margin:0}a{color:var(--fg)}}
+</style>
+</head>
+<body>
+<h1>第1章 公司治理是什麼？——權力、責任與問責</h1>
+<blockquote>
+<p><strong>核心主線：公司治理的本質是「問責」——在權力分離的制度下，確保做決策的人為決策後果負責。</strong></p>
+</blockquote>
+<hr />
+<h2>章首個案：Tesla 董事會與 Elon Musk 的兆元薪酬</h2>
+<p>2025年11月6日，特斯拉（Tesla）股東通過了一項空前絕後的薪酬方案：如果 Elon Musk 能在未來十年內帶領公司達到8.5兆美元市值、交付2,000萬輛車、100萬個機器人、100萬輛機器人計程車，並且EBITDA達到4,000億美元，他將獲得價值約1兆美元（約新台幣30兆元）的股票選擇權。</p>
+<p>耶魯大學教授 Lucian Bebchuk 曾擔任德拉瓦州 Musk 薪酬訴訟的專家證人，長期批評這類安排的治理風險——巨額薪酬方案往往反映董事會受到經理人的影響，而非單純的績效誘因（Bebchuk &amp; Kastiel, 2026）。這個方案的績效門檻極高（要 Tesla 成為 8.5 兆美元的企業），但即使達成，1兆美元是否「合理」，仍是問號。</p>
+<p><strong>這個案例帶出了幾個根本問題：</strong></p>
+<ul>
+<li>公司的「控制權」到底在誰手上？是CEO、董事會、還是股東？</li>
+<li>如果CEO同時是大股東（Musk 持有 Tesla 約13%股份），他如何影響薪酬方案的設計？</li>
+<li>董事會為什麼會通過一個看似「不可能達成」但金額離譜的方案？</li>
+</ul>
+<blockquote>
+<p><strong>📌 本章定位說明：</strong> Tesla 薪酬案同時涉及「董事會獨立性」（第3章）與「薪酬與績效脫鉤」（第3.4節）等技術層次。本章僅聚焦一個根本問題：<strong>什麼是公司治理的邊界？</strong> 薪酬制度屬於董事會的監督技術，但它也牽涉到「公司為誰存在」的價值判斷——這是第6章以後的課題。本章先回答第一個層次——CG 這套制度「本質上」在管什麼。</p>
+</blockquote>
+<hr />
+<p><strong>學習目標：</strong></p>
+<ol>
+<li>了解公司治理與公司管理的差異，以及公司治理的核心問題（第一節）</li>
+<li>分析股東為何需要制度監督經營者，以及代理問題的本質（第二節）</li>
+<li>評估公司治理是否只服務股東，或必須回應所有利害關係人（第三節）</li>
+<li>比較台灣與其他國家的治理模式差異（第四節）</li>
+</ol>
+<hr />
+<h2>第一節 公司治理和公司管理有什麼不同？</h2>
+<p>想像你開了一家餐廳，但太忙了無法親自經營，於是請了一位經理人來管理。你希望餐廳賺錢，但經理人可能更關心自己的薪水、工作輕鬆程度，甚至可能偷偷把好食材帶回家。你們之間的利益不一致，這就是「代理問題」。</p>
+<p><strong>公司治理</strong> 就是一套制度安排，用來回答以下問題：</p>
+<table>
+<thead>
+<tr>
+<th>問題</th>
+<th>公司管理</th>
+<th>公司治理</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>誰決定方向？</td>
+<td>管理階層</td>
+<td>董事會（代表股東）</td>
+</tr>
+<tr>
+<td>誰監督執行？</td>
+<td>董事會</td>
+<td>股東、市場、監理機關</td>
+</tr>
+<tr>
+<td>如何確保不濫權？</td>
+<td>內部控制制度</td>
+<td>董事會監督 + 外部審計 + 資訊揭露</td>
+</tr>
+<tr>
+<td>時間取向？</td>
+<td>中短期營運</td>
+<td>長期策略與風險</td>
+</tr>
+<tr>
+<td>成功指標？</td>
+<td>營運效率</td>
+<td>問責機制是否有效</td>
+</tr>
+</tbody>
+</table>
+<p>用一句話區分：<strong>公司治理決定「公司要往哪裡去」以及「誰來監督方向是否正確」；公司管理則負責「如何到達目的地」。</strong></p>
+<blockquote>
+<p><em>本表整理自 Tricker, B. (1994). International Corporate Governance: Text, Readings and Cases. Prentice Hall. 關於 "directed and managed" 的分類；並參考 Tricker, B. (2025). Corporate Governance: Principles, Policies, and Practices (5th ed.). Oxford University Press. 對治理本質的進一步論述。</em></p>
+</blockquote>
+<p>一家公司可能「管理得很好」（效率高、成本低）但「治理很差」（缺乏監督、資訊不透明）。安隆就是經典例子——它的能源交易業務管理得非常出色，但治理機制完全失靈。</p>
+<h3>一、OECD 的定義</h3>
+<p>經濟合作暨發展組織（OECD, 2023）對公司治理的定義最廣為引用：</p>
+<blockquote>
+<p>「公司治理是指導和控制公司的一套制度。公司治理規定了公司各參與者（董事會、管理階層、股東、債權人、審計者等）之間的權利與責任分配，並提供了公司目標設定、達成目標的手段以及績效監督的框架。」</p>
+</blockquote>
+<p>這個定義有幾個關鍵詞：</p>
+<p><strong>制度安排</strong>：公司治理不是單一法規，而是由法律、規章、契約、慣例等組成的制度體系。就像一場球賽需要規則、裁判、球員協議等多重機制才能順利進行。</p>
+<p><strong>多方參與</strong>：不只是股東和管理階層，還包括董事會、債權人、審計者等。每一方都扮演不同的角色，彼此制衡。</p>
+<p><strong>權利與責任</strong>：明確界定誰有什麼權利、該負什麼責任。權責不清是許多公司治理問題的根源。</p>
+<p><strong>目標與監督</strong>：不僅要設定目標，還要有監督機制確保目標達成。沒有監督的目標只是願望。</p>
+<h3>二、Shleifer 與 Vishny 的定義</h3>
+<p>Shleifer 與 Vishny（1997）從「出資者」的角度定義公司治理：</p>
+<blockquote>
+<p>「公司治理處理的是出資者確保獲得其投資回報的方式。」</p>
+</blockquote>
+<p>這個定義更直接：公司治理的核心問題是——<strong>出資的錢如何被保護？</strong> 股東把錢交給公司，管理階層會不會亂用？萬一亂用了，誰來阻止？</p>
+<h3>三、為何需要一個新的定義？</h3>
+<p>上述兩個定義各有其貢獻，但也各有其局限：</p>
+<p>OECD的「<strong>制度安排</strong>」描述了CG的「形式」（它是什麼），但未觸及「本質」（它為何存在）。知道「制度」是什麼，不等於理解「制度要解決什麼問題」。</p>
+<p>Shleifer &amp; Vishny的「<strong>出資者保護</strong>」指出了CG的「目的」（保護出資者），但過於狹隘——它無法解釋為何現代CG也要求對員工、環境、社會負責。如果CG只是為了保護出資者，那員工罷工、環境汙染、產品安全都不需要CG理會。</p>
+<p>我們提出「問責」作為CG的本質，是因為：</p>
+<ol>
+<li><strong>包容性</strong>：問責可以涵蓋「對股東負責」和「對利害關係人負責」兩種觀點。無論狹義還是廣義，問責都是共通的核心。</li>
+<li><strong>動態性</strong>：問責不只是「防止壞事」（控制），還要求「為後果負責」（獎懲）。控制是靜態的，問責是動態的。</li>
+<li><strong>可操作性</strong>：問責可以分解為「預防、追究、校正」三種機制，為後續章節提供分析框架。</li>
+</ol>
+<p>以「問責」作為公司治理本質的觀點，植根於經典治理文獻。Cadbury (1992) 在其劃時代的 Cadbury Report 中，將治理界定為「指導與控制公司的制度」，並強調其核心在於確保董事會對股東負責——這開啟了現代公司治理的問責傳統。Keay 與 Loughrey (2015) 更明確地主張，問責是治理不可或缺的要素，偏離問責原則將削弱治理的合法性。Tricker (1994) 則從治理與管理區分的角度指出，治理的核心功能是「監督與問責」，而非日常營運決策——這與本教材「問責作為治理本質」的立場高度一致。</p>
+<h3>四、我們的主張：問責是治理的本質</h3>
+<p>綜合以上定義，我們提出一個更簡潔的定義：</p>
+<blockquote>
+<p><strong>公司治理的本質是「問責」——在權力分離的制度下，確保做決策的人為決策後果負責。</strong></p>
+</blockquote>
+<p>這個定義有三個關鍵詞：</p>
+<p><strong>權力分離</strong>：在現代企業中，所有權（股東）與經營權（管理階層）通常是分離的。股東出錢，但經營者決定怎麼花。這種分離是效率的來源（專業經營），但也創造了「代理問題」（利益不一致）。</p>
+<p><strong>問責</strong>：治理的核心不是「控制」，而是「問責」。控制的目標是「不要犯錯」；問責的目標是「為後果負責」。問責比控制更積極——它不只是防止壞事發生，還要求好事被獎賞、壞事被追究。</p>
+<p><strong>決策與後果的連結</strong>：治理要求做決策的人（或他們的代表）為決策的後果負責。如果決策成功，決策者應獲得獎賞；如果決策失敗，決策者應承擔後果。</p>
+<h3>五、問責的實現：三種機制</h3>
+<p>問責並非抽象概念。其實現依賴三種相輔相成的機制：</p>
+<table>
+<thead>
+<tr>
+<th>機制</th>
+<th>時間方向</th>
+<th>功能</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>預防</strong></td>
+<td>事前</td>
+<td>降低犯錯機率</td>
+<td>董事會監督、資訊透明、內部控制</td>
+</tr>
+<tr>
+<td><strong>追究</strong></td>
+<td>事後</td>
+<td>確認責任歸屬</td>
+<td>審計問咎、薪酬追回、董事罷免</td>
+</tr>
+<tr>
+<td><strong>校正</strong></td>
+<td>事後</td>
+<td>修正制度缺陷</td>
+<td>準則修訂、治理評鑑、法規更新</td>
+</tr>
+</tbody>
+</table>
+<p>OECD 定義中的「指導」對應「預防」機制——透過目標設定與策略引導，降低決策錯誤的風險。因此，「問責」作為本教材主線，並不排除「指導」功能，而是將指導視為問責的預防性工具。</p>
+<h3>六、公司治理的範圍：從狹義到廣義</h3>
+<p><strong>狹義觀點</strong>：公司治理主要處理股東與管理階層之間的代理問題，核心是確保經營者為股東利益服務。這種觀點在英美法系國家（如美國、英國）尤其盛行，強調「股東至上」（Shareholder Primacy）。</p>
+<p><strong>廣義觀點</strong>：公司治理涵蓋所有利害關係人之間的關係，包括股東、員工、客戶、供應商、社區、政府等。這種觀點在大陸法系國家（如德國、日本，即歐陸法系）較為普遍，重視「利害關係人」（Stakeholder）的平衡。</p>
+<p><strong>為何這個區別重要？</strong> 因為它直接影響公司的決策方向。狹義觀點下的公司可能更注重短期股價表現；廣義觀點下的公司則需要平衡各方利益，追求長期永續經營。</p>
+<p>💭 <strong>想一想</strong>：在你印象中，有哪些公司曾經發生過嚴重的治理問題？你認為那些問題的根本原因是什麼？</p>
+<hr />
+<h2>第二節 為什麼股東需要一套制度來監督經營者？</h2>
+<h3>一、代理問題：所有權與經營權分離的必然產物</h3>
+<p>代理問題（Agency Problem）是公司治理理論的基石。這個概念最早由 Jensen 和 Meckling（1976）系統性提出。</p>
+<p><strong>核心情境</strong>：想像你開了一間餐廳，但你太忙了無法親自經營，於是請了一位經理人來管理。你希望餐廳賺錢，但經理人可能更關心自己的薪水、工作輕鬆程度，甚至可能偷偷把好食材帶回家。你們之間的利益不一致，這就是代理問題。</p>
+<p><strong>關鍵概念解釋</strong>：</p>
+<ul>
+<li><strong>委託人（Principal）</strong>：出資者，也就是股東。把錢交給別人代為經營。</li>
+<li><strong>代理人（Agent）</strong>：受託經營者，也就是管理階層。接受委託來管理公司。</li>
+<li><strong>資訊不對稱（Information Asymmetry）</strong>：代理人掌握更多公司營運的詳細資訊，委託人難以完全了解。</li>
+<li><strong>目標不一致</strong>：委託人希望公司價值最大化，代理人可能追求自己的利益（更高的薪酬、更輕鬆的工作、更大的權力）。</li>
+</ul>
+<p>在現代企業中，代理問題更加複雜，主要分為三種類型（<strong>詳情請見第2章第一節</strong>）：</p>
+<p><strong>第一類代理問題：股東 vs. 管理階層</strong></p>
+<p>這是最經典的代理問題。股東（委託人）希望公司價值最大化，但管理階層（代理人）可能追求自己的利益。</p>
+<p>例如：</p>
+<ul>
+<li><strong>道德風險（Moral Hazard）</strong>：管理階層可能不努力工作，或者過度冒險</li>
+<li><strong>逆選擇（Adverse Selection）</strong>：股東在選任管理階層時，可能無法完全了解其真實能力</li>
+<li><strong>案例</strong>：2008年金融海嘯前，許多華爾街銀行的高階主管發放高額獎金鼓勵短期獲利，忽視了長期風險，最終導致系統性危機</li>
+</ul>
+<p><strong>第二類代理問題：大股東 vs. 小股東</strong></p>
+<p>大股東可能利用控制權謀取私利，損害小股東權益。這在家族控制的企業中尤其常見：</p>
+<ul>
+<li><strong>利益輸送（Tunneling）</strong>：大股東透過關係人交易、高價採購低價出售等方式，將公司資源轉移給自己或關聯企業</li>
+<li><strong>案例</strong>：台灣部分家族企業透過複雜的集團內交易，將上市公司資源轉移至未上市的家族控股公司</li>
+</ul>
+<p><strong>第三類衝突：股東與其他利害關係人的利益衝突</strong></p>
+<p>股東與其他資本提供者（如債權人）的風險偏好不同，可能導致利益衝突：</p>
+<ul>
+<li>股東偏好高風險高報酬的投資（因為他們享有剩餘請求權）</li>
+<li>債權人只希望公司能按時還本付息（因為他們不分享超額利潤）</li>
+<li><strong>資產替換問題</strong>：股東可能在取得債務資金後，將資金投入比債權人預期更風險的計畫</li>
+<li><strong>關鍵區別</strong>：前兩類是「委託-代理」關係，第三類是不同資本提供者之間的風險分配衝突</li>
+</ul>
+<h3>二、代理成本：解決問題的代價</h3>
+<p>代理問題會產生代理成本（Agency Costs），主要包括三個部分：</p>
+<p><strong>監督成本（Monitoring Costs）</strong>：股東為監督管理階層所花費的成本。例如：聘請外部會計師事務所進行審計的費用、董事會運作的成本、設置內部控制制度的成本。</p>
+<p><strong>約束成本（Bonding Costs）</strong>：管理階層為取得股東信任而承擔的成本。例如：管理階層自願接受績效考核、主動揭露財務資訊、放棄某些可能損及股東利益的投資機會。</p>
+<p><strong>剩餘損失（Residual Loss）</strong>：即使有監督和約束，代理問題仍無法完全消除所造成的損失。這是因為：</p>
+<ul>
+<li>監督和約束不可能完美</li>
+<li>資訊不對稱永遠存在</li>
+<li>人的自利動機無法完全消除</li>
+</ul>
+<p><strong>📊 數字例子</strong>：假設一家上市公司的代理成本總額為1,000萬元，其中監督成本300萬元（審計費用、董事會運作等）、約束成本200萬元（績效考核制度、資訊揭露等）、剩餘損失500萬元（因代理問題導致的投資效率損失）。這1,000萬元就是「所有權與經營權分離」的代價。</p>
+<h3>三、解決代理問題的機制</h3>
+<p><strong>內部機制（公司內部的制度安排）</strong>：</p>
+<ul>
+<li><strong>董事會監督</strong>：由股東選出的董事會代表股東監督管理階層</li>
+<li><strong>管理階層薪酬激勵</strong>：如股票選擇權，讓管理階層的利益與股東一致</li>
+<li><strong>股權結構設計</strong>：如經營者持股，讓經營者同時是所有者</li>
+<li><strong>內部控制制度</strong>：確保財務報導的可靠性和營運的合規性</li>
+</ul>
+<p><strong>外部機制（來自公司外部的監督力量）</strong>：</p>
+<ul>
+<li><strong>市場競爭壓力</strong>：產品市場競爭、經理人市場競爭、資本市場競爭</li>
+<li><strong>外部審計</strong>：獨立會計師事務所驗證財務報表的可靠性</li>
+<li><strong>法規與監理</strong>：證券交易法、金融監理機關的監督</li>
+<li><strong>併購市場</strong>：經營不善的公司可能被收購，管理階層面臨被替換的壓力</li>
+<li><strong>機構投資人的積極參與</strong>：大型機構投資人透過投票權和對話影響公司決策</li>
+</ul>
+<p><strong>為何需要這麼多機制？</strong> 因為沒有任何單一機制能夠完美解決代理問題。各種機制之間是互補關係——當內部機制較弱時，外部機制可以補強；當外部法律環境不完善時，內部機制可以發揮替代作用。</p>
+<p>💭 <strong>想一想</strong>：如果你是一家上市公司的<strong>獨立董事</strong> （不在公司擔任執行職務，主要負責監督管理階層），你會如何監督管理階層？你認為最大的挑戰是什麼？</p>
+<hr />
+<h2>第三節 公司治理只服務股東，還是必須回應所有人？</h2>
+<h3>一、從股東至上到利害關係人：核心分歧</h3>
+<p>傳統的公司治理理論以「股東至上」（Shareholder Primacy）為核心，認為公司的唯一目標就是為股東創造最大價值。這種觀點的代表人物是諾貝爾經濟學獎得主傅利曼（Milton Friedman），他在1970年發表於《紐約時報》的著名文章中寫道：「企業的社會責任就是增加利潤。」</p>
+<p>然而，Freeman（1984）提出的「利害關係人理論」（Stakeholder Theory）挑戰了這個觀點。他認為，公司不應該只為股東服務，而應該考慮所有受公司決策影響、或能夠影響公司決策的個人和團體。</p>
+<h3>二、我們的主張：問責對象的擴張</h3>
+<p>在本教材中，我們採取以下立場：</p>
+<p><strong>公司治理的「核心」問責對象是股東</strong>——因為股東是公司的出資者，也是最終的風險承擔者（在公司清算時，股東的受償順序在最後）。</p>
+<p><strong>但公司治理的「完整」問責對象應擴張到所有利害關係人</strong>——因為公司的決策對員工、客戶、社區、環境都有深遠影響。</p>
+<p><strong>CSR 是問責對象的「質性擴張」</strong>——不只是從股東擴張到更多對象（量變），而是從「財務責任」擴張到「社會與環境責任」（質變）。ESG 是 CSR 的現代語言，用來「說清楚」這些擴張的責任。</p>
+<h3>三、多層次問責架構</h3>
+<p>問責對象可以用多層次架構理解。<strong>下圖顯示問責機制的層次，而非重要性排序</strong>——環境與未來世代的問責（如碳定價、氣候訴訟）可能比股東問責更難實現，但同等重要：</p>
+<table>
+<thead>
+<tr>
+<th>層次</th>
+<th>對象</th>
+<th>問責機制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>層次一</strong></td>
+<td>股東（最終風險承擔者）</td>
+<td>董事會監督、股東會投票、股價表現</td>
+</tr>
+<tr>
+<td><strong>層次二</strong></td>
+<td>直接契約關係者：員工、客戶、供應商、債權人</td>
+<td>勞工法規、消費者保護、契約管理</td>
+</tr>
+<tr>
+<td><strong>層次三</strong></td>
+<td>間接受影響者：社區、政府、環境</td>
+<td>環境法規、碳定價、ESG 揭露</td>
+</tr>
+<tr>
+<td><strong>層次四</strong></td>
+<td>長期永續：未來世代、生態系統</td>
+<td>氣候政策、生物多樣性公約</td>
+</tr>
+</tbody>
+</table>
+<p>💭 <strong>想一想</strong>：你認為一家「只為股東服務」的公司，長期來說能夠永續經營嗎？為什麼？</p>
+<blockquote>
+<p><strong>📌 後續章節預告：</strong> 本章僅指出「問責對象應擴張」的立場。<strong>第五章將深入討論：誰是利害關係人？如何管理利害關係人關係？CSR 與 CG 的具體區別是什麼？</strong></p>
+</blockquote>
+<h3>四、理論橋接：四理論視角下的問責對象擴張</h3>
+<p>本節提出「問責對象應從股東擴張至所有利害關係人」的立場。這一立場並非憑空而來，而是建立在四大治理理論的互補之上：</p>
+<p><strong>代理理論</strong>（Agency Theory）提醒我們，公司治理的原始問題是股東與管理階層之間的利益衝突；但若只停留在「股東vs.管理階層」的雙人舞，便忽略了其他利害關係人同樣面臨資訊不對稱與利益被侵害的風險。</p>
+<p><strong>管家理論</strong>（Stewardship Theory）則提供了另一幅圖像：管理階層並非必然自利，在適當制度環境下，他們可以、也願意為更廣泛的目標服務。這為「問責對象擴張」提供了行為基礎——如果經營者能夠成為所有利害關係人的「管家」，那麼治理機制便不應只為股東而設計。</p>
+<p><strong>資源依賴理論</strong>（Resource Dependence Theory）進一步指出，企業生存依賴於多方資源供給者（員工、供應商、政府、社區等），治理機制必須反映這種依賴關係，否則企業將失去關鍵資源。</p>
+<p><strong>制度理論</strong>（Institutional Theory）則從外部環境解釋為何問責對象必然擴張：法規、社會規範、專業期待等制度壓力，驅使企業回應更廣泛的社會期望。</p>
+<p>這四種理論共同支撐了本教材的核心主張：問責對象的擴張不是道德呼籲，而是理論必然。<strong>第三章將深入探討董事會如何在實務中回應這四理論的挑戰，並分析不同治理機制如何將抽象的「問責」轉化為可操作的制度設計。</strong></p>
+<hr />
+<h2>第四節 台灣的治理模式和其他國家有什麼不同？</h2>
+<h3>一、全球主要公司治理模式</h3>
+<p>全球主要存在以下幾種公司治理模式，各有其歷史、文化和制度背景。<strong>本節對三種治理模式的綜合描述，主要參考 La Porta, Lopez-de-Silanes, &amp; Shleifer（1999）的股權結構比較、Shleifer &amp; Vishny（1997）的治理模式回顧，以及 OECD（2023）的最新原則。</strong></p>
+<p><strong>1. 英美模式（Anglo-American Model）</strong></p>
+<ul>
+<li><strong>特徵</strong>：股權分散、強調股東權益、活躍的併購市場</li>
+<li><strong>代表國家</strong>：美國、英國、加拿大、澳洲</li>
+<li><strong>優點</strong>：市場機制有效、資訊透明度高、投資人保護較佳</li>
+<li><strong>缺點</strong>：短期主義（過度關注季度財報）、管理階層權力過大</li>
+<li><strong>2025年最新動態</strong>：美國SEC持續強化ESG揭露要求，機構投資人積極參與公司治理（PwC, 2025; Russell Reynolds, 2025）</li>
+<li><strong>對台灣企業的啟示</strong>：台灣企業若想吸引外資，需要提升資訊透明度和股東權益保護</li>
+</ul>
+<p><strong>2. 德日模式（German-Japanese Model）</strong></p>
+<ul>
+<li><strong>特徵</strong>：股權集中、銀行和企業交叉持股、重視員工參與</li>
+<li><strong>代表國家</strong>：德國、日本</li>
+<li><strong>優點</strong>：長期導向、勞資關係穩定、銀行監督功能強</li>
+<li><strong>缺點</strong>：資訊透明度較低、小股東權益易被忽視</li>
+<li><strong>2025年最新動態</strong>：德國持續推動供應鏈盡職調查法（LkSG）（German Federal Government, 2023），日本推動公司治理準則改革（Japan Exchange Group, 2023）</li>
+<li><strong>對台灣企業的啟示</strong>：台灣企業可以參考德國的勞工共同決定制，提升員工參與</li>
+</ul>
+<p><strong>3. 家族控制模式（Family-Controlled Model）</strong></p>
+<ul>
+<li><strong>特徵</strong>：家族掌握控制權、所有權與經營權高度重疊</li>
+<li><strong>代表國家/地區</strong>：東亞、東南亞、拉丁美洲、南歐</li>
+<li><strong>優點</strong>：決策效率高、長期承諾、家族聲譽約束</li>
+<li><strong>缺點</strong>：大股東與小股東的代理問題嚴重、傳承風險</li>
+<li><strong>2025年最新動態</strong>：東亞各國持續推動公司治理改革，強化獨立董事和審計委員會職能（OECD, 2025）</li>
+<li><strong>對台灣企業的啟示</strong>：台灣家族企業需要特別注意大股東與小股東的代理問題，強化獨立董事職能</li>
+</ul>
+<h3>二、家族主導的混合特徵</h3>
+<p>台灣本質上屬於家族控制模式——家族掌握控制權、所有權與經營權高度重疊，與東亞、東南亞、拉丁美洲、南歐等家族控制模式地區並無不同。然而，台灣的家族控制模式具有兩個獨特性：</p>
+<ol>
+<li><strong>高外資持股比率（43.1%，2024年底）</strong>：遠高於一般家族控制導向的經濟體，意味台灣家族企業面臨來自國際機構投資人的強力監督。</li>
+<li><strong>強制ESG揭露</strong>：2025年起，公司治理評鑑轉型為ESG評鑑，上市櫃公司全面編製永續報告書，逐步接軌IFRS永續揭露準則（金融監督管理委員會, 2021）。這使台灣成為全球少數強制要求永續報告的家族控制經濟體。</li>
+</ol>
+<p><strong>台灣的股權結構特徵（家族控制普遍、外資持股比率高）將在第2章第一節深入分析。</strong></p>
+<h3>三、台灣 vs. 全球對照</h3>
+<p>以下表格呈現台灣與主要國家的治理指標對照。<strong>所有數據皆註明具體來源與年份，以便讀者驗證。</strong></p>
+<table>
+<thead>
+<tr>
+<th>指標</th>
+<th>台灣</th>
+<th>日本</th>
+<th>韓國</th>
+<th>美國</th>
+<th>歐盟</th>
+<th>數據來源</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>家族控制公司佔比</td>
+<td>76%（2001年，Yeh et al.）</td>
+<td>~10%（股權分散）</td>
+<td>~50%（財閥體系）</td>
+<td>&lt;30%（股權分散）</td>
+<td>~40%（歐陸家族）</td>
+<td>Yeh et al., 2001; OECD, 2023</td>
+</tr>
+<tr>
+<td>外資持股比率</td>
+<td>43.1%（2024年底）</td>
+<td>約30%</td>
+<td>約35%</td>
+<td>約15%</td>
+<td>約20-30%</td>
+<td>US Dept of State, 2025</td>
+</tr>
+<tr>
+<td>女性董事比例</td>
+<td>20.68%（2024年，上市公司）</td>
+<td>11.4%（2023年）</td>
+<td>4.5%（2023年）</td>
+<td>32.6%（2023年）</td>
+<td>30.2%（2023年），目標40%（2026）</td>
+<td>TWSE, 2025; EU, 2022; MSCI, 2024</td>
+</tr>
+<tr>
+<td>永續報告書申報率</td>
+<td>99%（2025年，強制）</td>
+<td>~80%（自願為主）</td>
+<td>~60%（自願為主）</td>
+<td>~90%（S&amp;P 500自願）</td>
+<td>2024年起CSRD強制分階段適用</td>
+<td>TWSE, 2025; EU, 2022</td>
+</tr>
+<tr>
+<td>強制ESG揭露</td>
+<td>是（2025年起全面強制）</td>
+<td>自願為主</td>
+<td>自願為主</td>
+<td>部分強制（SEC氣候規則）</td>
+<td>是（CSRD, 2024起）</td>
+<td>TWSE, 2025; EU, 2022</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>📌 數據註記：</strong> </p>
+<ul>
+<li>家族控制比率引用 Yeh et al.（2001）的研究，原始數據為76%。該數據已25年未更新，2026年可能需要重新調查。日本數據參考 OECD（2023）股權結構報告；韓國財閥體系參考 Korea Fair Trade Commission 數據。</li>
+<li>外資持股比率：台灣43.1%為所有外資合計（US Dept of State, 2025），非單一外資控制。日本、韓國、美國、歐盟數據為概估，詳細比較請參閱各 OECD 與央行統計。</li>
+<li>女性董事比例引用 TWSE（2025）公司治理評鑑報告、EU（2022）性別平衡指令、MSCI（2024）Women on Boards報告。</li>
+<li>永續報告書申報率：台灣99%為2025年全體上市櫃公司之實際申報率（TWSE, 2025），強制申報覆蓋率已近100%。歐盟CSRD於2024年起分階段適用，受規範大型企業申報率接近100%，惟中小型企業尚未全面納入。日本、韓國仍以自願為主，涵蓋率約80%與60%。美國目前僅SEC氣候揭露規則適用於部分大型公司，S&amp;P 500自願申報率約90%。</li>
+<li>強制ESG揭露：台灣2025年起全面強制（TWSE, 2025）。歐盟CSRD 2024年起分階段強制（EU, 2022）。</li>
+</ul>
+</blockquote>
+<p>💭 <strong>想一想</strong>：你認為台灣的公司治理模式最接近哪一種？這種模式有哪些優勢和挑戰？</p>
+<hr />
+<h2>本章小結</h2>
+<p><strong>核心要點：</strong></p>
+<ol>
+<li>公司治理是一套制度安排，規範公司內部各方的權利與責任，確保公司能夠公平、透明、有效率地運作。</li>
+<li><strong>公司治理的本質是「問責」</strong>——在權力分離的制度下，確保做決策的人為決策後果負責。問責的實現依賴三種機制：預防（監督與透明）、追究（任免與懲戒）、校正（制度修正）。</li>
+<li>代理問題是所有權與經營權分離的必然產物，會產生監督成本、約束成本和剩餘損失。</li>
+<li>全球存在英美、德日、家族控制等不同治理模式，台灣具有獨特的混合特徵。</li>
+</ol>
+<p><strong>關鍵術語：</strong></p>
+<table>
+<thead>
+<tr>
+<th>術語</th>
+<th>英文</th>
+<th>定義</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>公司治理</td>
+<td>Corporate Governance</td>
+<td>指導和控制公司的一套制度安排，規範公司內部各方的權利與責任</td>
+<td>董事會監督管理階層、股東會選舉董事</td>
+</tr>
+<tr>
+<td>代理問題</td>
+<td>Agency Problem</td>
+<td>委託人與代理人之間因目標不一致和資訊不對稱而產生的問題</td>
+<td>管理階層追求高薪而非股東價值最大化</td>
+</tr>
+<tr>
+<td>代理成本</td>
+<td>Agency Costs</td>
+<td>為解決代理問題所產生的監督成本、約束成本和剩餘損失</td>
+<td>審計費用、績效考核制度、投資效率損失</td>
+</tr>
+<tr>
+<td>利害關係人</td>
+<td>Stakeholder</td>
+<td>受公司決策影響或能影響公司決策的個人或團體</td>
+<td>股東、員工、客戶、供應商、社區</td>
+</tr>
+<tr>
+<td>股東至上</td>
+<td>Shareholder Primacy</td>
+<td>認為公司應以股東價值最大化為唯一目標的觀點</td>
+<td>Friedman：企業的責任就是增加利潤</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>參考文獻</h2><div class="refs">
+<p>本章內容主要依據以下學術文獻與實務報告：
+<strong>Bebchuk, L. A., &amp; Kastiel, K. (2026, July 7).</strong> Even fervent Musk fans should worry about the SpaceX governance risks. <em>ProMarket.</em> <a href="https://www.promarket.org/2026/07/07/even-fervent-musk-fans-should-worry-about-the-spacex-governance-risks/">https://www.promarket.org/2026/07/07/even-fervent-musk-fans-should-worry-about-the-spacex-governance-risks/</a></p>
+<p><strong>Cadbury, A. (1992).</strong> <em>Report of the Committee on the Financial Aspects of Corporate Governance.</em> Gee &amp; Co.
+<strong>Freeman, R. E. (1984).</strong> <em>Strategic management: A stakeholder approach.</em> Pitman.
+<strong>Friedman, M. (1970, September 13).</strong> The social responsibility of business is to increase its profits. <em>The New York Times Magazine.</em>
+<strong>Jensen, M. C., &amp; Meckling, W. H. (1976).</strong> Theory of the firm: Managerial behavior, agency costs and ownership structure. <em>Journal of Financial Economics, 3</em>(4), 305–360. <a href="https://doi.org/10.1016/0304-405X(76)90026-X">https://doi.org/10.1016/0304-405X(76)90026-X</a>
+<strong>Keay, A., &amp; Loughrey, J. (2015).</strong> The framework for board accountability in corporate governance. <em>Legal Studies, 35</em>(2), 252–279.
+<strong>OECD. (2023).</strong> <em>G20/OECD Principles of Corporate Governance.</em> OECD Publishing. <a href="https://www.oecd.org/en/publications/2023/09/g20-oecd-principles-of-corporate-governance-2023_60836fcb/full-report.html">https://www.oecd.org/en/publications/2023/09/g20-oecd-principles-of-corporate-governance-2023_60836fcb/full-report.html</a>
+<strong>Shleifer, A., &amp; Vishny, R. W. (1997).</strong> A survey of corporate governance. <em>Journal of Finance, 52</em>(2), 737–783. <a href="https://doi.org/10.1111/j.1540-6261.1997.tb04820.x">https://doi.org/10.1111/j.1540-6261.1997.tb04820.x</a>
+<strong>Taiwan Stock Exchange Corporation (TWSE). (2025).</strong> <em>2025 Guide to Investing in Taiwan.</em> <a href="https://www.twse.com.tw/en/about/company/guide.html">https://www.twse.com.tw/en/about/company/guide.html</a>
+<strong>Taiwan Stock Exchange Corporation (TWSE). (2025).</strong> <em>Market Insights: International Development Trends and Market Outlook for ESG Products.</em> <a href="https://www.twse.com.tw/market_insights/en/detail/8a8216d69e6379f4019e7309b5220092">https://www.twse.com.tw/market_insights/en/detail/8a8216d69e6379f4019e7309b5220092</a>
+<strong>Taiwan Stock Exchange Corporation (TWSE). (2025).</strong> <em>Corporate Governance Evaluation System — 2024 Evaluation Results.</em> <a href="https://cgc.twse.com.tw/evaluationCorp/listEn">https://cgc.twse.com.tw/evaluationCorp/listEn</a>
+<strong>Tricker, B. (1994).</strong> <em>International Corporate Governance: Text, Cases, and Readings.</em> Prentice Hall.
+<strong>Tricker, B. (2025).</strong> <em>Corporate Governance: Principles, Policies, and Practices</em> (5th ed.). Oxford University Press.
+<strong>US Department of State. (2025).</strong> <em>2025 Investment Climate Statements: Taiwan.</em> <a href="https://www.state.gov/reports/2025-investment-climate-statements/taiwan">https://www.state.gov/reports/2025-investment-climate-statements/taiwan</a>
+<strong>Yeh, Y. H., Lee, T. S., &amp; Woidtke, T. (2001).</strong> Family control and corporate governance: Evidence from Taiwan. <em>International Review of Finance, 2</em>(1-2), 21–48. <a href="https://doi.org/10.1111/1468-2443.00014">https://doi.org/10.1111/1468-2443.00014</a></p>
+<hr />
+</div><h2>習題</h2>
+<h3>選擇題</h3>
+<ol>
+<li>
+<p>下列關於公司治理的敘述，何者正確？</p>
+<ul>
+<li>(A) 公司治理等同於公司管理</li>
+<li>(B) 公司治理只關注股東權益</li>
+<li>(C) 公司治理是一套制度安排，規範公司內部各方的權利與責任</li>
+<li>(D) 公司治理只適用於公開發行公司</li>
+</ul>
+</li>
+<li>
+<p>代理問題產生的根本原因是：</p>
+<ul>
+<li>(A) 公司規模太大</li>
+<li>(B) 所有權與經營權分離，以及委託人與代理人之間的目標不一致和資訊不對稱</li>
+<li>(C) 法律規定不完善</li>
+<li>(D) 市場競爭不足</li>
+</ul>
+</li>
+<li>
+<p>下列何者不屬於代理成本？</p>
+<ul>
+<li>(A) 監督成本</li>
+<li>(B) 約束成本</li>
+<li>(C) 剩餘損失</li>
+<li>(D) 生產成本</li>
+</ul>
+</li>
+<li>
+<p>利害關係人理論主張：</p>
+<ul>
+<li>(A) 公司應以股東價值最大化為唯一目標</li>
+<li>(B) 公司應平衡所有利害關係人的利益</li>
+<li>(C) 公司只需對員工負責</li>
+<li>(D) 公司只需對客戶負責</li>
+</ul>
+</li>
+<li>
+<p>台灣上市櫃公司中，家族控制的公司佔比約為：</p>
+<ul>
+<li>(A) &lt;30%</li>
+<li>(B) 30-50%</li>
+<li>(C) ~76%（2001年數據，亟需更新）</li>
+<li>(D) &gt;90%</li>
+</ul>
+</li>
+</ol>
+<h3>問答題</h3>
+<ol>
+<li>
+<p>請說明問責的三種實現機制（預防、追究、校正），並各舉一個公司治理的例子。</p>
+</li>
+<li>
+<p>比較股東至上理論與利害關係人理論的差異，並論述在當代社會中，哪種觀點更適合現代企業。</p>
+</li>
+<li>
+<p>請分析台灣公司治理制度的特殊性，並說明其優勢與挑戰。</p>
+</li>
+<li>
+<p>內部治理機制與外部治理機制如何互補？請以安隆事件為例說明。</p>
+</li>
+<li>
+<p>為什麼資訊透明是公司治理的前提？請以Tesla/Musk薪酬案為例說明。</p>
+</li>
+</ol>
+<h3>情境題</h3>
+<p><strong>情境</strong>：你是一家台灣上市櫃公司的獨立董事。公司最近收到一筆120億元的收購提案，CEO表示這將大幅提升公司價值，但部分股東擔心收購價格過高。</p>
+<p><strong>問題</strong>：</p>
+<ol>
+<li>這個情境涉及本章哪些重要概念？（提示：至少列出三個）</li>
+<li>你會如何回應管理階層的建議？你需要什麼資訊來做出決策？</li>
+<li>你認為在這種情況下，董事會的角色應該是「支持管理階層」還是「質疑管理階層」？為什麼？</li>
+</ol>
+<hr />
+<h2>章尾個案：Enron 治理失靈的系統性問題——二十年後的啟示</h2>
+<blockquote>
+<p><strong>核心問題：公司治理是一套制度安排，確保權力不被濫用。當制度全面失靈時，個人的道德瑕疵就會放大為系統性的災難。</strong></p>
+</blockquote>
+<h3>個案摘要</h3>
+<p>安隆（Enron）成立於1985年，從一家天然氣管道公司發展為全球最大的能源交易商之一。2000年營收超過1,000億美元，六次獲選《財雜誌》「最受推崇公司」。2001年12月，安隆申請破產保護——當時美國歷史上最大的破產案。</p>
+<p>調查發現：(1) 管理階層利用「特殊目的實體」（SPE）隱瞞債務、虛增利潤；(2) 董事會監督失效，允許利益衝突的交易；(3) 外部審計（安達信事務所）同時提供審計與諮詢服務，違反獨立性；(4) 分析師持續推薦買入，儘管財務狀況惡化。</p>
+<h3>跨章連結</h3>
+<table>
+<thead>
+<tr>
+<th>章節</th>
+<th>對應問題</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第3章 董事會監督</td>
+<td>董事會為何未質疑管理階層的會計手法？</td>
+</tr>
+<tr>
+<td>第4章 資訊揭露與審計</td>
+<td>外部審計為何失靈？</td>
+</tr>
+<tr>
+<td>第6章 CSR 與漂綠</td>
+<td>安隆以「創新企業」自居是否為一種漂綠？</td>
+</tr>
+<tr>
+<td>第10章 吹哨者保護</td>
+<td>吹哨者 Watkins 的警告為何未被採納？</td>
+</tr>
+</tbody>
+</table>
+<h3>討論問題</h3>
+<ol>
+<li>
+<p><strong>系統分析</strong>：安隆的治理失靈涉及哪些機制？請從董事會、審計、資訊揭露、薪酬激勵四方面分析。</p>
+</li>
+<li>
+<p><strong>預防機制</strong>：如果今天在貴公司，如何透過「預防—追究—校正」三機制避免類似事件？</p>
+</li>
+<li>
+<p><strong>跨案比較</strong>：與章首的Tesla/Musk案比較，兩個案例的「治理失靈」有何相似與相異？</p>
+</li>
+<li>
+<p><strong>理論驗證</strong>：安隆案是否支持代理理論的「自利假設」？還是管家理論更能解釋某些行為？</p>
+</li>
+</ol>
+<h3>主要參考文獻</h3>
+<ul>
+<li>McLean, B., &amp; Elkind, P. (2003). <em>The smartest guys in the room: The amazing rise and scandalous fall of Enron.</em> Portfolio.</li>
+<li>Healy, P. M., &amp; Palepu, K. G. (2003). The fall of Enron. <em>Journal of Economic Perspectives, 17</em>(2), 3–26. <a href="https://doi.org/10.1257/089533003765888403">https://doi.org/10.1257/089533003765888403</a></li>
+<li>Harvard Law School Forum. (2021). <em>Twenty years later: The lasting lessons of Enron.</em> <a href="https://corpgov.law.harvard.edu/2021/04/05/twenty-years-later-the-lasting-lessons-of-enron">https://corpgov.law.harvard.edu/2021/04/05/twenty-years-later-the-lasting-lessons-of-enron</a></li>
+</ul>
+</body>
+</html>
