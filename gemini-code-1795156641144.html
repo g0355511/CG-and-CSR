@@ -1,0 +1,1584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CHAPTER 1 Functions — 1.1 Functions and Graphs</title>
+  <!-- MathJax for crisp mathematical typesetting -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <style>
+    :root {
+      --primary-blue: #0f368a;
+      --deep-navy: #0a1f4d;
+      --accent-blue: #3b5998;
+      --light-bar: #949ee6;
+      --pale-bar: #c5caf2;
+      --rust-red: #8b2500;
+      --curve-blue: #0055a5;
+      --note-cyan: #0099e5;
+      --bg-gray: #eef1f6;
+      --text-dark: #1a1a1a;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Times New Roman", "Noto Serif TC", Georgia, serif;
+      background-color: var(--bg-gray);
+      color: var(--text-dark);
+      line-height: 1.5;
+    }
+
+    /* Top Navigation Bar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--deep-navy);
+      color: #fff;
+      padding: 10px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    .navbar-title {
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+    }
+
+    .navbar-controls {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .btn {
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 6px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.875rem;
+      transition: all 0.2s;
+    }
+
+    .btn:hover {
+      background: rgba(255,255,255,0.28);
+    }
+
+    .btn.active {
+      background: #2563eb;
+      border-color: #60a5fa;
+    }
+
+    /* Container */
+    .slides-container {
+      max-width: 1024px;
+      margin: 28px auto;
+      padding: 0 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    /* Presentation Mode */
+    body.presentation-mode {
+      overflow: hidden;
+      background: #111827;
+    }
+
+    body.presentation-mode .slides-container {
+      max-width: 1100px;
+      height: calc(100vh - 54px);
+      margin: 0 auto;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    body.presentation-mode .slide {
+      display: none;
+      height: 100%;
+      max-height: 760px;
+    }
+
+    body.presentation-mode .slide.current-slide {
+      display: flex;
+    }
+
+    /* Individual Slide Card */
+    .slide {
+      background: #ffffff;
+      border-radius: 6px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 640px;
+      position: relative;
+    }
+
+    /* Cover Slide */
+    .slide-cover {
+      justify-content: space-between;
+    }
+
+    .cover-top {
+      background: linear-gradient(135deg, #1042b8 0%, #0d2b6b 65%, #162340 100%);
+      color: white;
+      padding: 90px 40px 30px;
+      text-align: center;
+      position: relative;
+    }
+
+    .cover-top h1 {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 3.1rem;
+      font-weight: 400;
+      letter-spacing: 1px;
+    }
+
+    .cover-stripes {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stripe-1 { height: 26px; background: #0c2e7a; border-top: 2px solid #1e4bb8; }
+    .stripe-2 { height: 48px; background: #143582; position: relative; display: flex; justify-content: center; align-items: center; }
+    .stripe-3 { height: 34px; background: #5865d6; }
+    .stripe-4 {
+      background: var(--light-bar);
+      padding: 14px 20px;
+      text-align: center;
+      font-size: 2.2rem;
+      color: #000;
+      font-weight: 500;
+    }
+    .stripe-5 { height: 24px; background: var(--pale-bar); }
+
+    .cover-icons {
+      display: flex;
+      gap: 12px;
+      z-index: 2;
+    }
+
+    .cover-icon-box {
+      width: 64px;
+      height: 64px;
+      border-radius: 10px;
+      border: 2.5px solid #fff;
+      background: linear-gradient(145deg, #2b5876, #4e4376);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.5rem;
+      font-weight: bold;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+    }
+
+    .cover-footer {
+      padding: 18px 24px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      color: #111;
+      background: #fff;
+    }
+
+    /* Standard Slide Header */
+    .slide-header {
+      background: linear-gradient(120deg, #1045bd 0%, #0d2a6b 65%, #18233c 100%);
+      color: #ffffff;
+      padding: 22px 48px 18px;
+      border-bottom: 6px solid #5c6bc0;
+      position: relative;
+      min-height: 86px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .slide-header::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -10px;
+      height: 4px;
+      background: #9fa8da;
+    }
+
+    .slide-header h2 {
+      font-size: 2.35rem;
+      font-weight: 400;
+      letter-spacing: 0.3px;
+    }
+
+    .slide-num {
+      font-family: sans-serif;
+      font-size: 0.85rem;
+      opacity: 0.75;
+    }
+
+    /* Standard Slide Body */
+    .slide-body {
+      flex: 1;
+      padding: 40px 52px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      font-size: 1.25rem;
+    }
+
+    /* Standard Slide Footer */
+    .slide-footer {
+      background: linear-gradient(90deg, #142a5c 0%, #1c2845 100%);
+      color: #b0b8c9;
+      padding: 8px 24px;
+      font-size: 0.85rem;
+      border-top: 3px solid #d1d5db;
+    }
+
+    /* Textbook Elements */
+    .definition-box {
+      border: 1.8px solid var(--rust-red);
+      padding: 16px 22px;
+      margin: 16px 0;
+      background: #fff;
+    }
+
+    .definition-header {
+      color: var(--rust-red);
+      font-size: 1.3rem;
+      border-bottom: 1.2px solid var(--rust-red);
+      padding-bottom: 6px;
+      margin-bottom: 12px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .definition-header strong {
+      font-weight: 700;
+      margin-right: 14px;
+    }
+
+    .example-block {
+      margin-bottom: 28px;
+    }
+
+    .example-header {
+      display: flex;
+      align-items: center;
+      border-bottom: 1.5px solid var(--rust-red);
+      margin-bottom: 12px;
+    }
+
+    .example-badge {
+      background: var(--rust-red);
+      color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      padding: 3px 12px;
+      margin-right: 16px;
+      letter-spacing: 0.5px;
+    }
+
+    .example-title {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 1.25rem;
+      color: #111;
+    }
+
+    .end-square {
+      display: inline-block;
+      width: 11px;
+      height: 11px;
+      background: var(--rust-red);
+      float: right;
+      margin-top: 6px;
+    }
+
+    .solution-label {
+      font-weight: 700;
+      margin-right: 8px;
+    }
+
+    .margin-note {
+      color: var(--note-cyan);
+      font-size: 1.12rem;
+      margin: 12px 0 12px auto;
+      max-width: 440px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      line-height: 1.35;
+    }
+
+    .margin-note::before {
+      content: "◀";
+      color: #c62828;
+      font-size: 1rem;
+      margin-top: 2px;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    }
+
+    .bullet-list {
+      list-style: none;
+      margin: 10px 0 20px;
+    }
+
+    .bullet-list li {
+      position: relative;
+      padding-left: 28px;
+      margin-bottom: 14px;
+      font-size: 1.55rem;
+      line-height: 1.4;
+    }
+
+    .bullet-list li::before {
+      content: "●";
+      color: #7ea6f4;
+      position: absolute;
+      left: 0;
+      top: 2px;
+      font-size: 1.1rem;
+    }
+
+    .sub-bullet {
+      list-style: none;
+      margin: 10px 0 14px 36px;
+    }
+
+    .sub-bullet li {
+      position: relative;
+      padding-left: 22px;
+      margin-bottom: 6px;
+    }
+
+    .sub-bullet li::before {
+      content: "•";
+      color: var(--rust-red);
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+
+    /* Figures */
+    .figure-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: auto 0;
+      width: 100%;
+    }
+
+    .figure-caption {
+      margin-top: 12px;
+      font-size: 1.2rem;
+      text-align: center;
+    }
+
+    .figure-caption strong {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 1.1rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      width: 100%;
+      align-items: end;
+      text-align: center;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin: 12px 0;
+    }
+
+    .math-center {
+      text-align: center;
+      margin: 14px 0;
+    }
+
+    svg text {
+      font-family: "Times New Roman", Georgia, serif;
+    }
+
+    .svg-math {
+      font-style: italic;
+    }
+
+    @media (max-width: 768px) {
+      .slide-header { padding: 16px 24px; }
+      .slide-header h2 { font-size: 1.7rem; }
+      .slide-body { padding: 24px 20px; font-size: 1.1rem; }
+      .grid-3, .grid-2 { grid-template-columns: 1fr; }
+      .cover-top h1 { font-size: 2.1rem; }
+      .stripe-4 { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation / Presentation Controls -->
+  <nav class="navbar">
+    <div class="navbar-title">CHAPTER 1 Functions — 1.1 Functions and Graphs</div>
+    <div class="navbar-controls">
+      <button id="toggleModeBtn" class="btn" onclick="toggleMode()">簡報播放模式</button>
+      <button id="prevBtn" class="btn" onclick="changeSlide(-1)" style="display:none;">◀ 上一頁</button>
+      <span id="slideCounter" style="display:none; font-size:0.9rem;">1 / 22</span>
+      <button id="nextBtn" class="btn" onclick="changeSlide(1)" style="display:none;">下一頁 ▶</button>
+    </div>
+  </nav>
+
+  <main class="slides-container" id="slidesContainer">
+
+    <!-- SLIDE 1: Cover -->
+    <section class="slide slide-cover">
+      <div class="cover-top">
+        <h1>CHAPTER 1 Functions</h1>
+      </div>
+      <div class="cover-stripes">
+        <div class="stripe-1"></div>
+        <div class="stripe-2">
+          <div class="cover-icons">
+            <div class="cover-icon-box" title="Analysis">🔍</div>
+            <div class="cover-icon-box" title="Computation">⌨️</div>
+            <div class="cover-icon-box" title="Connection">@</div>
+            <div class="cover-icon-box" title="Optimization">●</div>
+          </div>
+        </div>
+        <div class="stripe-3"></div>
+        <div class="stripe-4">1.1 Functions and Graphs</div>
+        <div class="stripe-5"></div>
+      </div>
+      <div class="cover-footer">
+        Copyright © Johns and Bartlett ；滄海書局
+      </div>
+    </section>
+
+    <!-- SLIDE 2: Introduction -->
+    <section class="slide">
+      <header class="slide-header">
+        <h2>Introduction</h2>
+        <span class="slide-num">2 / 22</span>
+      </header>
+      <div class="slide-body">
+        <div class="definition-box">
+          <div class="definition-header">
+            <strong>Definition 1.1.1</strong> Function
+          </div>
+          <p>
+            A <strong>function</strong> from a set $X$ to a set $Y$ is a rule of correspondence that assigns to each element $x$ in $X$ exactly one element $y$ in $Y$.
+          </p>
+        </div>
+      </div>
+      <footer class="slide-footer">Copyright © Johns and Bartlett ；滄海書局</footer>
+    </section>
+
+    <!-- SLIDE 3: Terminology (Figure 1.1.1) -->
+    <section class="slide">
+      <header class="slide-header">
+        <h2>Terminology</h2>
+        <span class="slide-num">3 / 22</span>
+      </header>
+      <div class="slide-body">
+        <div class="figure-wrap">
+          <svg viewBox="0 0 680 340" width="100%" style="max-width: 660px;">
+            <defs>
+              <marker id="arrowBlack" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                <polygon points="0 0, 10 3.5, 0 7" fill="#111" />
+              </marker>
+            </defs>
+            <!-- Set X -->
+            <path d="M 110,60 C 190,30 270,80 265,175 C 260,260 190,320 130,315 C 65,310 35,230 40,160 C 45,95 75,72 110,60 Z"
+                  fill="#eaf6fc" stroke="#111" stroke-width="2.5"/>
+            <text x="148" y="88" font-size="34" class="svg-math">X</text>
+            <text x="155" y="162" font-size="34" class="svg-math">x</text>
+            <circle cx="188" cy="152" r="7" fill="#0047ab" />
+            <text x="90" y="242" font-size="34">Domain</text>
+
+            <!-- Set Y -->
+            <path d="M 465,35 C 555,20 645,85 640,180 C 635,270 555,320 475,312 C 390,305 320,275 315,200 C 310,130 385,48 465,35 Z"
+                  fill="#74c8f2" stroke="#111" stroke-width="2.5"/>
+            <text x="485" y="75" font-size="34" class="svg-math">Y</text>
+
+            <!-- Range inside Y -->
+            <path d="M 460,105 C 510,95 595,90 600,145 C 605,205 535,275 450,265 C 375,255 350,210 365,160 C 380,115 420,112 460,105 Z"
+                  fill="#e3be9e" stroke="#111" stroke-width="2.5"/>
+            <text x="392" y="226" font-size="34">Range</text>
+
+            <!-- f(x) point and arrow -->
+            <circle cx="466" cy="152" r="7" fill="#8b2500" />
+            <text x="484" y="162" font-size="34"><tspan class="svg-math">f</tspan>(<tspan class="svg-math">x</tspan>)</text>
+
+            <path d="M 205,140 Q 330,75 450,142" fill="none" stroke="#111" stroke-width="2.5" marker-end="url(#arrowBlack)"/>
+            <text x="315" y="84" font-size="36" class="svg-math">f</text>
+          </svg>
+          <div class="figure-caption">
+            <strong>FIGURE 1.1.1</strong> Domain and range of a function $f$
+          </div>
+        </div>
+      </div>
+      <footer class="slide-footer">Copyright © Johns and Bartlett ；滄海書局</footer>
+    </section>
+
+    <!-- SLIDE 4: Example 1 & Example 2 -->
+    <section class="slide">
+      <header class="slide-header">
+        <h2>Examples 1 &amp; 2</h2>
+        <span class="slide-num">4 / 22</span>
+      </header>
+      <div class="slide-body">
+        <div class="example-block">
+          <div class="example-header">
+            <span class="example-badge">EXAMPLE 1</span>
+            <span class="example-title">Squaring Function</span>
+          </div>
+          <p>
+            The rule for squaring a real number is given by the equation $f(x) = x^2$ or $y = x^2$. The values of $f$ at $x = -5$ and $x = \sqrt{7}$ are obtained by replacing $x$, in turn, by the numbers $-5$ and $\sqrt{7}$:
+          </p>
+          <div class="math-center">
+            $$f(-5) = (-5)^2 = 25 \quad \text{and} \quad f(\sqrt{7}) = (\sqrt{7})^2 = 7.$$
+            <span class="end-square"></span>
+          </div>
+        </div>
+
+        <div class="example-block">
+          <div class="example-header">
+            <span class="example-badge">EXAMPLE 2</span>
+            <span class="example-title">Student and Desk Correspondence</span>
+          </div>
+          <p>
+            A natural correspondence occurs between a set of 20 students and a set of, say, 25 desks in a classroom when each student selects and sits in a different desk. If the set of 20 students is the set $X$ and the set of 25 desks is the set $Y$, then this correspondence is a function from the set $X$ to the set $Y$ provided no student sits in two desks at the same time. The set of 20 desks actually occupied by the students constitutes the range of the function.
+            <span class="end-square"></span>
+          </p>
+        </div>
+      </div>
+      <footer class="slide-footer">Copyright © Johns and Bartlett ；滄海書局</footer>
+    </section>
+
+    <!-- SLIDE 5: Example 3 -->
+    <section class="slide">
+      <header class="slide-header">
+        <h2>Example 3</h2>
+        <span class="slide-num">5 / 22</span>
+      </header>
+      <div class="slide-body">
+        <div class="example-block">
+          <div class="example-header">
+            <span class="example-badge">EXAMPLE 3</span>
+            <span class="example-title">Domain and Range</span>
+          </div>
+          <p>
+            In Example 1, since any real number $x$ can be squared and the result $x^2$ is another real number, $f(x) = x^2$ is a function from $R$ to $R$, that is, $f: R \to R$. In other words, the domain of $f$ is the set $R$ of real numbers. Using interval notation, we also write the domain as $(-\infty, \infty)$. Because $x^2 \ge 0$ for every real number $x$, it is easy to see that the range of $f$ is the set of non-negative real numbers or $[0, \infty)$.
+            <span class="end-square"></span>
+          </p>
+        </div>
+      </div>
+      <footer class="slide-footer">Copyright © Johns and Bartlett ；滄海書局</footer>
+    </section>
+
+    <!-- SLIDE 6: Domain of a Function & Example 4 -->
+    <section class="slide">
+      <header class="slide-header">
+        <h2>Domain of a Function</h2>
+        <span class="slide-num">6 / 22</span>
+      </header>
+      <div class="slide-body">
+        <ul class="bullet-list">
+          <li>
+            The <strong>domain</strong> of a function $f$ is the largest subset of the set of real numbers for which $f(x)$ is a real number.
+          </li>
+        </ul>
+
+        <div class="example-block">
+          <div class="example-header">
+            <span class="example-badge">EXAMPLE 4</span>
+            <span class="example-title">Domain and Range</span>
+          </div>
+          <p style="margin-bottom: 14px;">Determine the domain and range of $f(x) = 4 + \sqrt{x - 3}$.</p>
+          <p>
+            <span class="solution-label">Solution</span> The radicand $x - 3$ must be nonnegative. By solving the inequality $x - 3 \ge 0$ we get $x \ge 3$, and so the domain of $f$ is $[3, \infty)$. Now, since the symbol $\sqrt{\phantom{x}}$ denotes the nonnegative square root of a number, $\sqrt{x - 3} \ge 0$ for $x \ge 3$ and consequently $4 + \sqrt{x - 3} \ge 4$. The smallest value of $f(x)$ occurs at $x = 3$ and is $f(3) = 4 + \sqrt{0} = 4$. Moreover, because $x - 3$ and $\sqrt{x - 3}$ increase as $x$ increases, we conclude that $y \ge 4$. Consequently the range of $f$ is $[4, \infty)$.
+            <span class="end-square"></span>
+          </p>
+        </div>
+      </div>
+      <footer class="slide-footer">Copyright © Johns and Bartlett ；滄海書局</footer>
+    </section>
+
+    <!-- SLIDE 7: Example 5 -->
+    <section class="slide">
+      <header class="slide-header">
+        <h2>Example 5</h2>
+        <span class="slide-num">7 / 22</span>
+      </header>
+      <div class="slide-body" style="padding-top: 24px; font-size: 1.15rem;">
+        <div class="example-block" style="margin-bottom: 0;">
+          <div class="example-header">
+            <span class="example-badge">EXAMPLE 5</span>
+            <span class="example-title">Domains of Two Functions</span>
+          </div>
+          <p>Determine the domain of</p>
+          <div class="grid-2" style="padding-left: 32px;">
+            <div><strong>(a)</strong> $\displaystyle f(x) = \sqrt{x^2 + 2x - 15}$</div>
+            <div><strong>(b)</strong> $\displaystyle g(x) = \frac{5x}{x^2 - 3x - 4}$.</div>
+          </div>
+
+          <p class="solution-label" style="margin-top: 8px;">Solution</p>
+          <div style="padding-left: 28px;">
+            <p style="margin-bottom: 8px;">
+              <strong>(a)</strong> As in Example 4, the expression under the radical symbol—the radicand—must be nonnegative, that is, the domain of $f$ is the set of real numbers $x$ for which $x^2 + 2x - 15 \ge 0$ or $(x - 3)(x + 5) \ge 0$. The solution set of the inequality $(-\infty, -5] \cup [3, \infty)$ is also the domain of $f$.
+            </p>
+
+            <div class="margin-note">
+              In precalculus a quadratic inequality such as $(x - 3)(x + 5) \ge 0$ is often solved by means of a sign chart.
+            </div>
+
+            <p>
+              <strong>(b)</strong> A function that is given by a fractional expression is not defined at the $x$-values for which its denominator is equal to $0$. Since the denominator of $g(x)$ factors, $x^2 - 3x - 4 = (x + 1)(x - 4)$, we see that $(x + 1)(x - 4) = 0$ for $x = -1$ and $x = 4$. These are the <em>only</em> numbers for which $g$ is not defined. Hence, the domain of the function $g$ is the set of real numbers with $x = -1$ and $x = 4$ excluded.
+              <span class="end-square"></span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <footer class="slide-footer">Copyright © Johns and Bartlett ；滄海書局</footer>
+    </section>
+
+    <!-- SLIDE 8: Graphs (Figure 1.1.2) -->
+    <section class="slide">
+      <header class="slide-header">
+        <h2>Graphs</h2>
+        <span class="slide-num">8 / 22</span>
+      </header>
+      <div class="slide-body">
+        <div class="figure-wrap">
+          <svg viewBox="0 0 640 350" width="100%" style="max-width: 620px;">
+            <defs>
+              <marker id="axisArrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                <polygon points="0 0, 10 3.5, 0 7" fill="#111" />
+              </marker>
+            </defs>
+            <!-- Axes -->
+            <line x1="60" y1="295" x2="570" y2="295" stroke="#111" stroke-width="2" marker-end="url(#axisArrow)"/>
+            <line x1="275" y1="325" x2="275" y2="25" stroke="#111" stroke-width="2" marker-end="url(#axisArrow)"/>
+            <text x="580" y="302" font-size="26" class="svg-math">x</text>
+            <text x="250" y="32" font-size="26" class="svg-math">y</text>
+
+            <!-- Curve y = f(x) -->
+            <path d="M 100,65 C 160,165 265,220 330,210 C 405,198 465,35 580,75"
+                  fill="none" stroke="#0055a5" stroke-width="3"/>
+
+            <!-- Dashed vertical lines -->
+            <line x1="127" y1="104" x2="127" y2="295" stroke="#111" stroke-width="2" stroke-dasharray="7,6"/>
+            <line x1="398" y1="181" x2="398" y2="295" stroke="#111" stroke-width="2" stroke-dasharray="7,6"/>
+            <line x1="518" y1="78" x2="518" y2="295" stroke="#111" stroke-width="2" stroke-dasharray="7,6"/>
+
+            <!-- Points -->
+            <circle cx="127" cy="104" r="6" fill="#8b2500"/>
+            <circle cx="398" cy="181" r="6" fill="#8b2500"/>
+            <circle cx="518" cy="78" r="6" fill="#8b2500"/>
+
+            <!-- Coordinate labels -->
+            <text x="122" y="84" font-size="24" fill="#8b2500">(<tspan class="svg-math">x</tspan><tspan dy="5" font-size="16">1</tspan><tspan dy="-5">, </tspan><tspan class="svg-math">f</tspan>(<tspan class="svg-math">x</tspan><tspan dy="5" font-size="16">1</tspan><tspan dy="-5">))</tspan></text>
+            <text x="285" y="152" font-size="24" fill="#8b2500">(<tspan class="svg-math">x</tspan><tspan dy="5" font-size="16">2</tspan><tspan dy="-5">, </tspan><tspan class="svg-math">f</tspan>(<tspan class="svg-math">x</tspan><tspan dy="5" font-size="16">2</tspan><tspan dy="-5">))</tspan></text>
+            <text x="430" y="55" font-size="24" fill="#8b2500">(<tspan class="svg-math">x</tspan><tspan dy="5" font-size="16">3</tspan><tspan dy="-5">, </tspan><tspan class="svg-math">f</tspan>(<tspan class="svg-math">x</tspan><tspan dy="5" font-size="16">3</tspan><tspan dy="-5">))</tspan></text>
+
+            <!-- Height arrows & labels -->
+            <text x="180" y="215" font-size="24"><tspan class="svg-math">f</tspan>(<tspan class="svg-math">x</tspan><tspan dy="5" font-size="16">1</tspan><tspan dy="-5">)</tspan></text>
+            <line x1="174" y1="208" x2="132" y2="220" stroke="#111" stroke-width="2" marker-end="url(#axisArrow)"/>
+
+            <text x="288" y="242" font-size="24"><tspan class="svg-math">f</tspan>(<tspan class="svg-math">x</tspan><tspan dy="5" font-size="16">2</tspan><tspan dy="-5">)</tspan></text>
+            <line x1="350" y1="236" x2="393" y2="248" stroke="#111" stroke-width="2" marker-end="url(#axisArrow)"/>
+
+            <text x="410" y="215" font-size="24"><tspan class="svg-math">f</tspan>(<tspan class="svg-math">x</tspan><tspan dy="5" font-size="16">3</tspan><tspan dy="-5">)</tspan></text>
+            <line x1="472" y1="208" x2="514" y2="220" stroke="#111" stroke-width="2" marker-end="url(#axisArrow)"/>
+
+            <!-- X-axis ticks -->
+            <text x="115" y="318" font-size="24"><tspan class="svg-math">x</tspan><tspan dy="5" font-size="16">1</tspan></text>
+            <text x="386" y="318" font-size="24"><tspan class="svg-math">x</tspan><tspan dy="5" font-size="16">2</tspan></text>
+            <text x="506" y="318" font-size="24"><tspan class="svg-math">x</tspan><tspan dy="5" font-size="16">3</tspan></text>
+          </svg>
+          <div class="figure-caption">
+            <strong>FIGURE 1.1.2</strong> Points on the graph of an equation $y = f(x)$
+          </div>
+        </div>
+      </div>
+      <footer class="slide-footer">Copyright © Johns and Bartlett ；滄海書局</footer>
+    </section>
+
+    <!-- SLIDE 9: Vertical Line Test (Figure 1.1.3) -->
+    <section class="slide">
+      <header class="slide-header">
+        <h2>Vertical Line Test</h2>
+        <span class="slide-num">9 / 22</span>
+      </header>
+      <div class="slide-body">
+        <div class="figure-wrap">
+          <div class="grid-3">
+            <!-- (a) Function -->
+            <div>
+              <svg viewBox="0 0 280 260" width="100%">
+                <line x1="10" y1="185" x2="260" y2="185" stroke="#111" stroke-width="1.8" marker-end="url(#axisArrow)"/>
+                <line x1="75" y1="240" x2="75" y2="20" stroke="#111" stroke-width="1.8" marker-end="url(#axisArrow)"/>
+                <text x="265" y="190" font-size="20" class="svg-math">x</text>
+                <text x="55" y="25" font-size="20" class="svg-math">y</text>
+
+                <!-- Curve -->
+                <path d="M 52,192 C 70,135 90,95 112,110 C 130,122 135,148 152,140 C 175,130 185,55 205,58 C 222,60 228,115 232,145"
+                      fill="none" stroke="#0055a5" stroke-width="2.5"/>
+
+                <!-- Vertical lines -->
+                <line x1="114" y1="45" x2="114" y2="235" stroke="#8b2500" stroke-width="1.6" stroke-dasharray="6,5"/>
+                <line x1="171" y1="45" x2="171" y2="235" stroke="#8b2500" stroke-width="1.6" stroke-dasharray="6,5"/>
+                <line x1="204" y1="45" x2="204" y2="235" stroke="#8b2500" stroke-width="1.6" stroke-dasharray="6,5"/>
+
+                <circle cx="114" cy="111" r="4.5" fill="#8b2500"/>
+                <circle cx="171" cy="105" r="4.5" fill="#8b2500"/>
+                <circle cx="204" cy="58" r="4.5" fill="#8b2500"/>
+              </svg>
+              <div style="font-size: 1.25rem;">(a) Function</div>
+            </div>
+
+            <!-- (b) Not a function -->
+            <div>
+              <svg viewBox="0 0 280 260" width="100%">
+                <line x1="15" y1="130" x2="260" y2="130" stroke="#111" stroke-width="1.8" marker-end="url(#axisArrow)"/>
+                <line x1="135" y1="245" x2="135" y2="20" stroke="#111" stroke-width="1.8" marker-end="url(#axisArrow)"/>
+                <text x="265" y="135" font-size="20" class="svg-math">x</text>
+                <text x="115" y="25" font-size="20" class="svg-math">y</text>
+
+                <!-- Circle -->
+                <circle cx="135" cy="130" r="88" fill="none" stroke="#0055a5" stroke-width="2.5"/>
+
+                <!-- Vertical line -->
+                <line x1="180" y1="25" x2="180" y2="240" stroke="#8b2500" stroke-width="1.6" stroke-dasharray="6,5"/>
+                <circle cx="180" cy="54" r="4.5" fill="#8b2500"/>
+                <circle cx="180" cy="206" r="4.5" fill="#8b2500"/>
+              </svg>
+              <div style="font-size: 1.25rem;">(b) Not a function</div>
+            </div>
+
+            <!-- (c) Not a function -->
+            <div>
+              <svg viewBox="0 0 280 260" width="100%">
+                <line x1="25" y1="175" x2="260" y2="175" stroke="#111" stroke-width="1.8" marker-end="url(#axisArrow)"/>
+                <line x1="55" y1="230" x2="55" y2="20" stroke="#111" stroke-width="1.8" marker-end="url(#axisArrow)"/>
+                <text x="265" y="180" font-size="20" class="svg-math">x</text>
+                <text x="35" y="25" font-size="20" class="svg-math">y</text>
+
+                <!-- S-fold curve -->
+                <path d="M 35,148 C 85,135 135,55 175,65 C 210,73 185,105 155,115 C 125,125 135,152 175,145 C 205,140 225,130 240,122"
+                      fill="none" stroke="#0055a5" stroke-width="2.5"/>
+
+                <!-- Vertical line -->
+                <line x1="168" y1="25" x2="168" y2="230" stroke="#8b2500" stroke-width="1.6" stroke-dasharray="6,5"/>
+                <circle cx="168" cy="64" r="4.5" fill="#8b2500"/>
+                <circle cx="168" cy="111" r="4.5" fill="#8b2500"/>
+                <circle cx="168" cy="146" r="4.5" fill="#8b2500"/>
+              </svg>
+              <div style="font-size: 1.25rem;">(c) Not a function</div>
+            </div>
+          </div>
+
+          <div class="figure-caption" style="margin-top: 24px;">
+            <strong>FIGURE 1.1.3</strong> Vertical line test
+          </div>
+        </div>
+      </div>
+      <footer class="slide-footer">Copyright © Johns and Bartlett ；滄海書局</footer>
+    </section>
+
+    <!-- SLIDE 10: Domain and Range Interpreted Graphically (Figure 1.1.4) -->
+    <section class="slide">
+      <header class="slide-header">
+        <h2>Graphical Interpretation</h2>
+        <span class="slide-num">10 / 22</span>
+      </header>
+      <div class="slide-body">
+        <div class="figure-wrap">
+          <svg viewBox="0 0 640 360" width="100%" style="max-width: 600px;">
+            <!-- Axes -->
+            <line x1="130" y1="245" x2="540" y2="245" stroke="#111" stroke-width="2" marker-end="url(#axisArrow)"/>
+            <line x1="175" y1="330" x2="175" y2="25" stroke="#111" stroke-width="2" marker-end="url(#axisArrow)"/>
+            <text x="550" y="252" font-size="26" class="svg-math">x</text>
+            <text x="148" y="32" font-size="26" class="svg-math">y</text>
+
+            <!-- Highlight bars -->
+            <rect x="163" y="88" width="24" height="112" fill="#c88655"/>
+            <rect x="255" y="233" width="215" height="24" fill="#c88655"/>
+
+            <!-- Dashed guides -->
+            <line x1="175" y1="88" x2="300" y2="88" stroke="#8b2500" stroke-width="1.8" stroke-dasharray="7,6"/>
+            <line x1="175" y1="200" x2="415" y2="200" stroke="#8b2500" stroke-width="1.8" stroke-dasharray="7,6"/>
+            <line x1="255" y1="145" x2="255" y2="245" stroke="#8b2500" stroke-width="1.8" stroke-dasharray="7,6"/>
+            <line x1="470" y1="125" x2="470" y2="245" stroke="#8b2500" stroke-width="1.8" stroke-dasharray="7,6"/>
+
+            <!-- Function curve -->
+            <path d="M 255,145 C 275,90 295,85 312,92 C 340,104 385,202 415,200 C 440,198 455,155 470,125"
+                  fill="none" stroke="#0055a5" stroke-width="3"/>
+            <circle cx="255" cy="145" r="6" fill="#0055a5"/>
+            <circle cx="470" cy="125" r="6" fill="#0055a5"/>
+
+            <!-- Labels -->
+            <text x="140" y="95" font-size="26" class="svg-math">d</text>
+            <text x="142" y="210" font-size="26" class="svg-math">c</text>
+            <text x="248" y="280" font-size="26" class="svg-math">a</text>
+            <text x="462" y="285" font-size="26" class="svg-math">b</text>
+
+            <text x="360" y="122" font-size="26" fill="#8b2500"><tspan class="svg-math">y</tspan> = <tspan class="svg-math">f</tspan>(<tspan class="svg-math">x</tspan>)</text>
+
+            <text x="42" y="120" font-size="24" fill="#8b2500">Range</text>
+            <text x="58" y="152" font-size="24" fill="#8b2500">of <tspan class="svg-math">f</tspan></text>
+            <path d="M 110,130 Q 135,130 155,138" fill="none" stroke="#111" stroke-width="2" marker-end="url(#axisArrow)"/>
+
+            <text x="355" y="305" font-size="24" fill="#8b2500">Domain</text>
+            <text x="385" y="338" font-size="24" fill="#8b2500">of <tspan class="svg-math">f</tspan></text>
+            <path d="M 348,296 Q 332,280 322,262" fill="none" stroke="#111" stroke-width="2" marker-end="url(#axisArrow)"/>
+          </svg>
+          <div class="figure-caption">
+            <strong>FIGURE 1.1.4</strong> Domain and range interpreted graphically
+          </div>
+        </div>
+      </div>
+      <footer class="slide-footer">Copyright © Johns and Bartlett ；滄海書局</footer>
+    </section>
+
+    <!-- SLIDE 11: Example 6 (Figure 1.1.5) -->
+    <section class="slide">
+      <header class="slide-header">
+        <h2>Example 6</h2>
+        <span class="slide-num">11 / 22</span>
+      </header>
+      <div class="slide-body" style="padding-top: 22px;">
+        <div class="example-block" style="margin-bottom: 8px;">
+          <div class="example-header">
+            <span class="example-badge">EXAMPLE 6</span>
+            <span class="example-title">Example 4 Revisited</span>
+          </div>
+          <p style="font-size: 1.18rem;">
+            From the graph of $f(x) = 4 + \sqrt{x - 3}$ given in <span style="color:var(--rust-red); font-family:sans-serif; font-size:1.05rem;">FIGURE 1.1.5</span>, we can see that the domain and range of $f$ are, respectively, $[3, \infty)$ and $[4, \infty)$. This agrees with the results in Example 4.
+            <span class="end-square"></span>
+          </p>
+        </div>
+
+        <div class="figure-wrap">
+          <svg viewBox="0 0 540 280" width="100%" style="max-width: 500px;">
+            <!-- Axes -->
+            <line x1="150" y1="215" x2="410" y2="215" stroke="#111" stroke-width="1.8" marker-end="url(#axisArrow)"/>
+            <line x1="180" y1="245" x2="180" y2="20" stroke="#111" stroke-width="1.8" marker-end="url(#axisArrow)"/>
+            <text x="418" y="220" font-size="22" class="svg-math">x</text>
+            <text x="158" y="25" font-size="22" class="svg-math">y</text>
+
+            <!-- Ticks -->
+            <g stroke="#111" stroke-width="1.5">
+              <!-- x ticks -->
+              <line x1="212" y1="209" x2="212" y2="221"/>
+              <line x1="244" y1="209" x2="244" y2="221"/>
+              <line x1="276" y1="209" x2="276" y2="221"/>
+              <line x1="308" y1="209" x2="308" y2="221"/>
+              <line x1="340" y1="209" x2="340" y2="221"/>
+              <line x1="372" y1="209" x2="372" y2="221"/>
+              <!-- y ticks -->
+              <line x1="174" y1="187" x2="186" y2="187"/>
+              <line x1="174" y1="159" x2="186" y2="159"/>
+              <line x1="174" y1="131" x2="186" y2="131"/>
+              <line x1="174" y1="103" x2="186" y2="103"/>
+              <line x1="174" y1="75" x2="186" y2="75"/>
+              <line x1="174" y1="47" x2="186" y2="47"/>
+            </g>
+
+            <!-- Curve starting at (3,4) -> (276, 103) -->
+            <path d="M 276,103 Q 305,72 385,55" fill="none" stroke="#0055a5" stroke-width="2.5"/>
+            <circle cx="276" cy="103" r="5" fill="#0055a5"/>
+            <text x="246" y="132" font-size="22" fill="#0055a5">(3, 4)</text>
+            <text x="270" y="45" font-size="22" fill="#0055a5"><tspan class="svg-math">y</tspan> = 4 + √<tspan style="text-decoration: overline;"><tspan class="svg-math">x</tspan> − 3</tspan></text>
+
+            <!-- Range indicator -->
+            <defs>
+              <marker id="arrowRust" markerWidth="9" markerHeight="6" refX="8" refY="3" orient="auto">
+                <polygon points="0 0, 9 3, 0 6" fill="#8b2500" />
+              </marker>
+            </defs>
+            <line x1="90" y1="103" x2="122" y2="103" stroke="#8b2500" stroke-width="1.6"/>
+            <line x1="106" y1="103" x2="106" y2="85" stroke="#8b2500" stroke-width="1.6"/>
+            <line x1="106" y1="42" x2="106" y2="18" stroke="#8b2500" stroke-width="1.6" marker-end="url(#arrowRust)"/>
+            <text x="52" y="60" font-size="20" fill="#8b2500">Range of <tspan class="svg-math">f</tspan></text>
+            <text x="64" y="84" font-size="20" fill="#8b2500">is [4, ∞)</text>
+
+            <!-- Domain indicator -->
+            <line x1="276" y1="242" x2="276" y2="272" stroke="#8b2500" stroke-width="1.6"/>
+            <line x1="276" y1="257" x2="300" y2="257" stroke="#8b2500" stroke-width="1.6"/>
+            <text x="305" y="242" font-size="20" fill="#8b2500">Domain of <tspan class="svg-math">f</tspan></text>
+            <text x="325" y="266" font-size="20" fill="#8b2500">is [3, ∞)</text>
+            <line x1="408" y1="257" x2="438" y2="257" stroke="#8b2500" stroke-width="1.6" marker-end="url(#arrowRust)"/>
+          </svg>
+          <div class="figure-caption">
+            <strong>FIGURE 1.1.5</strong> Graph of function $f$ in Example 6
+          </div>
+        </div>
+      </div>
+      <footer class="slide-footer">Copyright © Johns and Bartlett ；滄海書局</footer>
+    </section>
+
+    <!-- SLIDE 12: Intercepts (Figure 1.1.6a) -->
+    <section class="slide">
+      <header class="slide-header">
+        <h2>Intercepts</h2>
+        <span class="slide-num">12 / 22</span>
+      </header>
+      <div class="slide-body">
+        <div class="figure-wrap">
+          <svg viewBox="0 0 520 310" width="100%" style="max-width: 480px;">
+            <line x1="60" y1="210" x2="450" y2="210" stroke="#111" stroke-width="2" marker-end="url(#axisArrow)"/>
+            <line x1="235" y1="295" x2="235" y2="25" stroke="#111" stroke-width="2" marker-end="url(#axisArrow)"/>
+            <text x="460" y="216" font-size="26" class="svg-math">x</text>
+            <text x="208" y="32" font-size="26" class="svg-math">y</text>
+
+            <path d="M 65,110 C 125,90 125,135 140,165 C 165,205 235,160 325,95"
+                  fill="none" stroke="#0055a5" stroke-width="3"/>
+            <circle cx="235" cy="158" r="6.5" fill="#8b2500"/>
+            <text x="250" y="185" font-size="26" fill="#8b2500">(0, <tspan class="svg-math">f</tspan>(0))</text>
+            <text x="285" y="75" font-size="26" fill="#0055a5"><tspan class="svg-math">y</tspan> = <tspan class="svg-math">f</tspan>(<tspan class="svg-math">x</tspan>)</text>
+          </svg>
+          <div style="font-size: 1.55rem; margin-top: 4px;">(a) $y$-intercept</div>
+          <div class="figure-caption">
+            <strong>FIGURE 1.1.6</strong> Intercepts of the graph of a function $f$
+          </div>
+        </div>
+      </div>
+      <footer class="slide-footer">Copyright © Johns and Bartlett ；滄海書局</footer>
+    </section>
+
+    <!-- SLIDE 13: Intercepts (Figure 1.1.6b) -->
+    <section class="slide">
+      <header class="slide-header">
+        <h2>Intercepts (continued)</h2>
+        <span class="slide-num">13 / 22</span>
+      </header>
+      <div class="slide-body">
+        <div class="figure-wrap">
+          <svg viewBox="0 0 580 310" width="100%" style="max-width: 540px;">
+            <line x1="40" y1="205" x2="520" y2="205" stroke="#111" stroke-width="2" marker-end="url(#axisArrow)"/>
+            <line x1="70" y1="285" x2="70" y2="25" stroke="#111" stroke-width="2" marker-end="url(#axisArrow)"/>
+            <text x="530" y="212" font-size="26" class="svg-math">x</text>
+            <text x="45" y="32" font-size="26" class="svg-math">y</text>
+
+            <path d="M 135,75 C 165,245 215,295 255,235 C 295,175 315,105 345,105 C 375,105 405,215 430,255"
+                  fill="none" stroke="#0055a5" stroke-width="3"/>
+
+            <circle cx="180" cy="205" r="6" fill="#8b2500"/>
+            <circle cx="276" cy="205" r="6" fill="#8b2500"/>
+            <circle cx="404" cy="205" r="6" fill="#8b2500"/>
+
+            <text x="95" y="236" font-size="24" fill="#8b2500">(<tspan class="svg-math">x</tspan><tspan dy="5" font-size="16">1</tspan><tspan dy="-5">, 0)</tspan></text>
+            <text x="282" y="236" font-size="24" fill="#8b2500">(<tspan class="svg-math">x</tspan><tspan dy="5" font-size="16">2</tspan><tspan dy="-5">, 0)</tspan></text>
+            <text x="425" y="236" font-size="24" fill="#8b2500">(<tspan class="svg-math">x</tspan><tspan dy="5" font-size="16">3</tspan><tspan dy="-5">, 0)</tspan></text>
+            <text x="112" y="60" font-size="26" fill="#0055a5"><tspan class="svg-math">y</tspan> = <tspan class="svg-math">f</tspan>(<tspan class="svg-math">x</tspan>)</text>
+          </svg>
+          <div style="font-size: 1.55rem; margin-top: 4px;">(b) Three $x$-intercepts</div>
+          <div class="figure-caption">
+            <strong>FIGURE 1.1.6</strong> Intercepts of the graph of a function $f$
+          </div>
+        </div>
+      </div>
+      <footer class="slide-footer">Copyright © Johns and Bartlett ；滄海書局</footer>
+    </section>
+
+    <!-- SLIDE 14: Intercepts (Figure 1.1.6c) -->
+    <section class="slide">
+      <header class="slide-header">
+        <h2>Intercepts (continued)</h2>
+        <span class="slide-num">14 / 22</span>
+      </header>
+      <div class="slide-body">
+        <div class="figure-wrap">
+          <svg viewBox="0 0 580 310" width="100%" style="max-width: 540px;">
+            <line x1="60" y1="215" x2="500" y2="215" stroke="#111" stroke-width="2" marker-end="url(#axisArrow)"/>
+            <line x1="175" y1="285" x2="175" y2="25" stroke="#111" stroke-width="2" marker-end="url(#axisArrow)"/>
+            <text x="510" y="222" font-size="26" class="svg-math">x</text>
+            <text x="150" y="32" font-size="26" class="svg-math">y</text>
+
+            <path d="M 135,55 C 165,165 190,215 220,215 C 250,215 275,78 308,78 C 340,78 375,180 395,235"
+                  fill="none" stroke="#0055a5" stroke-width="3"/>
+
+            <circle cx="175" cy="170" r="6" fill="#8b2500"/>
+            <circle cx="220" cy="215" r="6" fill="#8b2500"/>
+            <circle cx="388" cy="215" r="6" fill="#8b2500"/>
+
+            <text x="72" y="195" font-size="24" fill="#8b2500">(0, <tspan class="svg-math">f</tspan>(0))</text>
+            <text x="185" y="246" font-size="24" fill="#8b2500">(<tspan class="svg-math">x</tspan><tspan dy="5" font-size="16">1</tspan><tspan dy="-5">, 0)</tspan></text>
+            <text x="405" y="246" font-size="24" fill="#8b2500">(<tspan class="svg-math">x</tspan><tspan dy="5" font-size="16">2</tspan><tspan dy="-5">, 0)</tspan></text>
+            <text x="208" y="65" font-size="26" fill="#0055a5"><tspan class="svg-math">y</tspan> = <tspan class="svg-math">f</tspan>(<tspan class="svg-math">x</tspan>)</text>
+          </svg>
+          <div style="font-size: 1.55rem; margin-top: 4px;">(c) One $y$-intercept, two $x$-intercepts</div>
+          <div class="figure-caption">
+            <strong>FIGURE 1.1.6</strong> Intercepts of the graph of a function $f$
+          </div>
+        </div>
+      </div>
+      <footer class="slide-footer">Copyright © Johns and Bartlett ；滄海書局</footer>
+    </section>
+
+    <!-- SLIDE 15: Example 7 -->
+    <section class="slide">
+      <header class="slide-header">
+        <h2>Example 7</h2>
+        <span class="slide-num">15 / 22</span>
+      </header>
+      <div class="slide-body" style="padding-top: 22px; font-size: 1.14rem;">
+        <div class="example-block" style="margin-bottom: 0;">
+          <div class="example-header">
+            <span class="example-badge">EXAMPLE 7</span>
+            <span class="example-title">Intercepts</span>
+          </div>
+          <p>Find, if possible, the $x$- and $y$-intercepts of the given function.</p>
+          <div class="grid-2" style="padding-left: 32px;">
+            <div><strong>(a)</strong> $f(x) = x^2 + 2x - 2$</div>
+            <div><strong>(b)</strong> $\displaystyle f(x) = \frac{x^2 - 2x - 3}{x}$</div>
+          </div>
+
+          <p class="solution-label" style="margin-top: 8px;">Solution</p>
+          <div style="padding-left: 28px;">
+            <p style="margin-bottom: 12px;">
+              <strong>(a)</strong> Since $0$ is in the domain of $f$, $f(0) = -2$ and so the $y$-intercept is the point $(0, -2)$. To obtain the $x$-intercepts we must determine whether $f$ has any real zeros, that is, real solutions of the equation $f(x) = 0$. Since the left-hand side of the equation $x^2 + 2x - 2 = 0$ has no obvious factors, we use the quadratic formula to obtain $x = -1 \pm \sqrt{3}$. The $x$-intercepts are the points $(-1 - \sqrt{3}, 0)$ and $(-1 + \sqrt{3}, 0)$.
+            </p>
+            <p>
+              <strong>(b)</strong> Because $0$ is not in the domain of $f$, the graph of $f$ possesses no $y$-intercept. Now, since $f$ is a fractional expression, the only way we can have $f(x) = 0$ is to have the numerator equal zero and the denominator not zero at the same number. Factoring the left-hand side of $x^2 - 2x - 3 = 0$ gives $(x + 1)(x - 3) = 0$. Therefore, the numbers $-1$ and $3$ are the zeros of $f$. The $x$-intercepts are the points $(-1, 0)$ and $(3, 0)$.
+              <span class="end-square"></span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <footer class="slide-footer">Copyright © Johns and Bartlett ；滄海書局</footer>
+    </section>
+
+    <!-- SLIDE 16: Piecewise-Defined Functions (Example 8) -->
+    <section class="slide">
+      <header class="slide-header">
+        <h2>Piecewise-Defined Functions</h2>
+        <span class="slide-num">16 / 22</span>
+      </header>
+      <div class="slide-body" style="padding-top: 24px;">
+        <div class="example-block">
+          <div class="example-header">
+            <span class="example-badge">EXAMPLE 8</span>
+            <span class="example-title">Graph of a Piecewise-Defined Function</span>
+          </div>
+          <p>Consider the piecewise-defined function</p>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin: 12px 0;">
+            <div style="flex: 1; text-align: center;">
+              $$f(x) = \begin{cases} -1, & x < 0 \\ 0, & x = 0 \\ x + 1, & x > 0. \end{cases}$$
+            </div>
+            <div>(2)</div>
+          </div>
+          <p>
+            Although the domain of $f$ consists of all real numbers $(-\infty, \infty)$, each piece of the function is defined on a different part of this domain. We draw
+          </p>
+          <ul class="sub-bullet">
+            <li>the horizontal line $y = -1$ for $x < 0$,</li>
+            <li>the point $(0, 0)$ for $x = 0$, and</li>
+            <li>the line $y = x + 1$ for $x > 0$.</li>
+          </ul>
+          <p>
+            The graph is given in <span style="color:var(--rust-red); font-family:sans-serif; font-size:1.05rem;">FIGURE 1.1.7</span>.
+            <span class="end-square"></span>
+          </p>
+        </div>
+      </div>
+      <footer class="slide-footer">Copyright © Johns and Bartlett ；滄海書局</footer>
+    </section>
+
+    <!-- SLIDE 17: Figure 1.1.7 -->
+    <section class="slide">
+      <header class="slide-header">
+        <h2>Piecewise-Defined Function Graph</h2>
+        <span class="slide-num">17 / 22</span>
+      </header>
+      <div class="slide-body">
+        <div class="figure-wrap">
+          <svg viewBox="0 0 540 330" width="100%" style="max-width: 500px;">
+            <!-- Axes -->
+            <line x1="90" y1="210" x2="430" y2="210" stroke="#111" stroke-width="2" marker-end="url(#axisArrow)"/>
+            <line x1="250" y1="315" x2="250" y2="25" stroke="#111" stroke-width="2" marker-end="url(#axisArrow)"/>
+            <text x="440" y="216" font-size="26" class="svg-math">x</text>
+            <text x="225" y="32" font-size="26" class="svg-math">y</text>
+
+            <!-- Ticks -->
+            <g stroke="#111" stroke-width="1.6">
+              <line x1="115" y1="204" x2="115" y2="216"/>
+              <line x1="160" y1="204" x2="160" y2="216"/>
+              <line x1="205" y1="204" x2="205" y2="216"/>
+              <line x1="295" y1="204" x2="295" y2="216"/>
+              <line x1="340" y1="204" x2="340" y2="216"/>
+              <line x1="385" y1="204" x2="385" y2="216"/>
+
+              <line x1="244" y1="65" x2="256" y2="65"/>
+              <line x1="244" y1="113" x2="256" y2="113"/>
+              <line x1="244" y1="162" x2="256" y2="162"/>
+              <line x1="244" y1="258" x2="256" y2="258"/>
+              <line x1="244" y1="305" x2="256" y2="305"/>
+            </g>
+
+            <!-- Function pieces -->
+            <!-- y = -1 for x < 0 -->
+            <line x1="115" y1="258" x2="244" y2="258" stroke="#0055a5" stroke-width="3"/>
+            <circle cx="250" cy="258" r="5" fill="#fff" stroke="#0055a5" stroke-width="2.5"/>
+
+            <!-- (0,0) -->
+            <circle cx="250" cy="210" r="5.5" fill="#0055a5"/>
+
+            <!-- y = x + 1 for x > 0 -->
+            <line x1="254" y1="158" x2="365" y2="45" stroke="#0055a5" stroke-width="3"/>
+            <circle cx="250" cy="162" r="5" fill="#fff" stroke="#0055a5" stroke-width="2.5"/>
+
+            <!-- Labels and callouts -->
+            <text x="310" y="160" font-size="24" fill="#0055a5"><tspan class="svg-math">y</tspan> = <tspan class="svg-math">x</tspan> + 1, <tspan class="svg-math">x</tspan> &gt; 0</text>
+            <line x1="305" y1="154" x2="282" y2="134" stroke="#111" stroke-width="2" marker-end="url(#axisArrow)"/>
+
+            <text x="292" y="248" font-size="24" fill="#0055a5"><tspan class="svg-math">y</tspan> = 0, <tspan class="svg-math">x</tspan> = 0</text>
+            <line x1="286" y1="240" x2="256" y2="216" stroke="#111" stroke-width="2" marker-end="url(#axisArrow)"/>
+
+            <text x="98" y="302" font-size="24" fill="#0055a5"><tspan class="svg-math">y</tspan> = −1, <tspan class="svg-math">x</tspan> &lt; 0</text>
+            <line x1="145" y1="280" x2="162" y2="262" stroke="#111" stroke-width="2" marker-end="url(#axisArrow)"/>
+          </svg>
+          <div class="figure-caption">
+            <strong>FIGURE 1.1.7</strong> Graph of piecewise-defined function in Example 8
+          </div>
+        </div>
+      </div>
+      <footer class="slide-footer">Copyright © Johns and Bartlett ；滄海書局</footer>
+    </section>
+
+    <!-- SLIDE 18: Semicircles (Figure 1.1.8a) -->
+    <section class="slide">
+      <header class="slide-header">
+        <h2>Semicircles</h2>
+        <span class="slide-num">18 / 22</span>
+      </header>
+      <div class="slide-body">
+        <div class="figure-wrap">
+          <svg viewBox="0 0 540 290" width="100%" style="max-width: 500px;">
+            <line x1="90" y1="205" x2="445" y2="205" stroke="#111" stroke-width="2" marker-end="url(#axisArrow)"/>
+            <line x1="255" y1="275" x2="255" y2="25" stroke="#111" stroke-width="2" marker-end="url(#axisArrow)"/>
+            <text x="455" y="212" font-size="26" class="svg-math">x</text>
+            <text x="230" y="32" font-size="26" class="svg-math">y</text>
+
+            <!-- Ticks (radius = 135 -> 45px per unit) -->
+            <g stroke="#111" stroke-width="1.6">
+              <line x1="120" y1="199" x2="120" y2="211"/>
+              <line x1="165" y1="199" x2="165" y2="211"/>
+              <line x1="210" y1="199" x2="210" y2="211"/>
+              <line x1="300" y1="199" x2="300" y2="211"/>
+              <line x1="345" y1="199" x2="345" y2="211"/>
+              <line x1="390" y1="199" x2="390" y2="211"/>
+
+              <line x1="249" y1="160" x2="261" y2="160"/>
+              <line x1="249" y1="115" x2="261" y2="115"/>
+              <line x1="249" y1="70" x2="261" y2="70"/>
+              <line x1="249" y1="250" x2="261" y2="250"/>
+            </g>
+
+            <!-- Upper Semicircle -->
+            <path d="M 120,205 A 135,135 0 0,1 390,205" fill="none" stroke="#0055a5" stroke-width="3"/>
+            <circle cx="120" cy="205" r="5.5" fill="#0055a5"/>
+            <circle cx="390" cy="205" r="5.5" fill="#0055a5"/>
+
+            <text x="285" y="48" font-size="26" fill="#0055a5"><tspan class="svg-math">y</tspan> = √<tspan style="text-decoration: overline;">9 − <tspan class="svg-math">x</tspan><tspan dy="-8" font-size="16">2</tspan></tspan></text>
+          </svg>
+          <div style="font-size: 1.55rem; margin-top: 4px;">(a) Upper semicircle</div>
+          <div class="figure-caption">
+            <strong>FIGURE 1.1.8</strong> These semicircles are graphs of functions
+          </div>
+        </div>
+      </div>
+      <footer class="slide-footer">Copyright © Johns and Bartlett ；滄海書局</footer>
+    </section>
+
+    <!-- SLIDE 19: Semicircles (Figure 1.1.8b) -->
+    <section class="slide">
+      <header class="slide-header">
+        <h2>Semicircles (continued)</h2>
+        <span class="slide-num">19 / 22</span>
+      </header>
+      <div class="slide-body">
+        <div class="figure-wrap">
+          <svg viewBox="0 0 540 290" width="100%" style="max-width: 500px;">
+            <line x1="90" y1="115" x2="445" y2="115" stroke="#111" stroke-width="2" marker-end="url(#axisArrow)"/>
+            <line x1="255" y1="275" x2="255" y2="25" stroke="#111" stroke-width="2" marker-end="url(#axisArrow)"/>
+            <text x="455" y="122" font-size="26" class="svg-math">x</text>
+            <text x="230" y="32" font-size="26" class="svg-math">y</text>
+
+            <!-- Ticks -->
+            <g stroke="#111" stroke-width="1.6">
+              <line x1="120" y1="109" x2="120" y2="121"/>
+              <line x1="165" y1="109" x2="165" y2="121"/>
+              <line x1="210" y1="109" x2="210" y2="121"/>
+              <line x1="300" y1="109" x2="300" y2="121"/>
+              <line x1="345" y1="109" x2="345" y2="121"/>
+              <line x1="390" y1="109" x2="390" y2="121"/>
+
+              <line x1="249" y1="70" x2="261" y2="70"/>
+              <line x1="249" y1="160" x2="261" y2="160"/>
+              <line x1="249" y1="205" x2="261" y2="205"/>
+              <line x1="249" y1="250" x2="261" y2="250"/>
+            </g>
+
+            <!-- Lower Semicircle -->
+            <path d="M 120,115 A 135,135 0 0,0 390,115" fill="none" stroke="#0055a5" stroke-width="3"/>
+            <circle cx="120" cy="115" r="5.5" fill="#0055a5"/>
+            <circle cx="390" cy="115" r="5.5" fill="#0055a5"/>
+
+            <text x="292" y="52" font-size="26" fill="#0055a5"><tspan class="svg-math">y</tspan> = −√<tspan style="text-decoration: overline;">9 − <tspan class="svg-math">x</tspan><tspan dy="-8" font-size="16">2</tspan></tspan></text>
+          </svg>
+          <div style="font-size: 1.55rem; margin-top: 4px;">(b) Lower semicircle</div>
+          <div class="figure-caption">
+            <strong>FIGURE 1.1.8</strong> These semicircles are graphs of functions
+          </div>
+        </div>
+      </div>
+      <footer class="slide-footer">Copyright © Johns and Bartlett ；滄海書局</footer>
+    </section>
+
+    <!-- SLIDE 20: Absolute-Value Function (Figure 1.1.9a) -->
+    <section class="slide">
+      <header class="slide-header">
+        <h2>Absolute-Value Function</h2>
+        <span class="slide-num">20 / 22</span>
+      </header>
+      <div class="slide-body" style="padding-top: 20px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <div style="flex: 1; text-align: center;">
+            $$f(x) = |x| = \begin{cases} -x, & \text{if } x < 0 \\ x, & \text{if } x \ge 0. \end{cases}$$
+          </div>
+          <div>(3)</div>
+        </div>
+
+        <div class="figure-wrap">
+          <svg viewBox="0 0 460 230" width="100%" style="max-width: 440px;">
+            <line x1="90" y1="195" x2="365" y2="195" stroke="#111" stroke-width="2" marker-end="url(#axisArrow)"/>
+            <line x1="225" y1="222" x2="225" y2="20" stroke="#111" stroke-width="2" marker-end="url(#axisArrow)"/>
+            <text x="372" y="200" font-size="22" class="svg-math">x</text>
+            <text x="204" y="26" font-size="22" class="svg-math">y</text>
+
+            <polyline points="98,68 225,195 352,68" fill="none" stroke="#0055a5" stroke-width="2.8"/>
+
+            <text x="88" y="56" font-size="22" fill="#0055a5"><tspan class="svg-math">y</tspan> = −<tspan class="svg-math">x</tspan>, <tspan class="svg-math">x</tspan> &lt; 0</text>
+            <text x="280" y="56" font-size="22" fill="#0055a5"><tspan class="svg-math">y</tspan> = <tspan class="svg-math">x</tspan>, <tspan class="svg-math">x</tspan> ≥ 0</text>
+          </svg>
+          <div style="font-size: 1.4rem;">(a)</div>
+          <div class="figure-caption">
+            <strong>FIGURE 1.1.9</strong> Absolute-value function (3)
+          </div>
+        </div>
+      </div>
+      <footer class="slide-footer">Copyright © Johns and Bartlett ；滄海書局</footer>
+    </section>
+
+    <!-- SLIDE 21: Absolute-Value Function (Figure 1.1.9b) -->
+    <section class="slide">
+      <header class="slide-header">
+        <h2>Absolute-Value Function (continued)</h2>
+        <span class="slide-num">21 / 22</span>
+      </header>
+      <div class="slide-body">
+        <div class="figure-wrap">
+          <svg viewBox="0 0 480 310" width="100%" style="max-width: 460px;">
+            <line x1="115" y1="145" x2="355" y2="145" stroke="#111" stroke-width="1.8" marker-end="url(#axisArrow)"/>
+            <line x1="235" y1="255" x2="235" y2="15" stroke="#111" stroke-width="1.8" marker-end="url(#axisArrow)"/>
+            <text x="362" y="150" font-size="22" class="svg-math">x</text>
+            <text x="215" y="22" font-size="22" class="svg-math">y</text>
+
+            <!-- V-shape -->
+            <polyline points="120,30 235,145 350,30" fill="none" stroke="#0055a5" stroke-width="2.6"/>
+            <!-- Reflected dashed portion -->
+            <line x1="235" y1="145" x2="130" y2="250" stroke="#8b2500" stroke-width="2.4" stroke-dasharray="7,5"/>
+
+            <!-- Upward reflection arrows -->
+            <line x1="165" y1="192" x2="165" y2="104" stroke="#111" stroke-width="1.6" marker-end="url(#axisArrow)"/>
+            <line x1="184" y1="180" x2="184" y2="120" stroke="#111" stroke-width="1.6" marker-end="url(#axisArrow)"/>
+
+            <text x="302" y="34" font-size="22" fill="#0055a5"><tspan class="svg-math">y</tspan> = <tspan class="svg-math">x</tspan></text>
+            <text x="115" y="275" font-size="20" fill="#8b2500">Reflect this portion</text>
+            <text x="115" y="298" font-size="20" fill="#8b2500">of <tspan class="svg-math">y</tspan> = <tspan class="svg-math">x</tspan> in the <tspan class="svg-math">x</tspan>-axis</text>
+          </svg>
+          <div style="font-size: 1.4rem;">(b)</div>
+          <div class="figure-caption">
+            <strong>FIGURE 1.1.9</strong> Absolute-value function (3)
+          </div>
+        </div>
+      </div>
+      <footer class="slide-footer">Copyright © Johns and Bartlett ；滄海書局</footer>
+    </section>
+
+    <!-- SLIDE 22: Greatest Integer Function (Combined 3 Slides into 3 Clean Sections / Slides) -->
+    <section class="slide">
+      <header class="slide-header">
+        <h2>Greatest Integer Function</h2>
+        <span class="slide-num">22 / 24</span>
+      </header>
+      <div class="slide-body">
+        <p style="font-size: 1.4rem; margin-bottom: 12px;">$f(x) = \lfloor x \rfloor$</p>
+        <div style="display: flex; justify-content: space-between; align-items: center; font-size: 1.35rem;">
+          <div>$\lfloor x \rfloor = n, \quad \text{where } n \text{ is an integer satisfying } n \le x < n + 1.$</div>
+          <div>(4)</div>
+        </div>
+
+        <div class="margin-note" style="margin-top: 24px; margin-bottom: 32px;">
+          The greatest integer function is also written as $f(x) = \llbracket x \rrbracket$.
+        </div>
+
+        <ul class="bullet-list">
+          <li>
+            The function value $f(x)$ is the greatest integer $n$ that is less than or equal to $x$.
+          </li>
+        </ul>
+      </div>
+      <footer class="slide-footer">Copyright © Johns and Bartlett ；滄海書局</footer>
+    </section>
+
+    <!-- SLIDE 23: Greatest Integer Piecewise Formula -->
+    <section class="slide">
+      <header class="slide-header">
+        <h2>Greatest Integer Function (Piecewise Form)</h2>
+        <span class="slide-num">23 / 24</span>
+      </header>
+      <div class="slide-body" style="justify-content: center;">
+        <div style="display: flex; justify-content: space-between; align-items: center; font-size: 1.45rem;">
+          <div style="flex: 1; text-align: center;">
+            $$f(x) = \lfloor x \rfloor = \begin{cases} \vdots \\ -2, & -2 \le x < -1 \\ -1, & -1 \le x < 0 \\ \phantom{-}0, & \phantom{-}0 \le x < 1 \\ \phantom{-}1, & \phantom{-}1 \le x < 2 \\ \phantom{-}2, & \phantom{-}2 \le x < 3 \\ \vdots \end{cases}$$
+          </div>
+          <div>(5)</div>
+        </div>
+      </div>
+      <footer class="slide-footer">Copyright © Johns and Bartlett ；滄海書局</footer>
+    </section>
+
+    <!-- SLIDE 24: Greatest Integer Function Graph (Figure 1.1.10) -->
+    <section class="slide">
+      <header class="slide-header">
+        <h2>Greatest Integer Function Graph</h2>
+        <span class="slide-num">24 / 24</span>
+      </header>
+      <div class="slide-body">
+        <div class="figure-wrap">
+          <svg viewBox="0 0 500 320" width="100%" style="max-width: 470px;">
+            <!-- Axes (Origin at (190, 225), unit = 45px) -->
+            <line x1="95" y1="225" x2="440" y2="225" stroke="#111" stroke-width="2" marker-end="url(#axisArrow)"/>
+            <line x1="190" y1="305" x2="190" y2="20" stroke="#111" stroke-width="2" marker-end="url(#axisArrow)"/>
+            <text x="448" y="232" font-size="24" class="svg-math">x</text>
+            <text x="168" y="26" font-size="24" class="svg-math">y</text>
+
+            <!-- Ticks & Axis Numbers -->
+            <g stroke="#111" stroke-width="1.6">
+              <!-- x: -2, -1, 1, 2, 3, 4, 5 -->
+              <line x1="100" y1="219" x2="100" y2="231"/>
+              <line x1="145" y1="219" x2="145" y2="231"/>
+              <line x1="235" y1="219" x2="235" y2="231"/>
+              <line x1="280" y1="219" x2="280" y2="231"/>
+              <line x1="325" y1="219" x2="325" y2="231"/>
+              <line x1="370" y1="219" x2="370" y2="231"/>
+              <line x1="415" y1="219" x2="415" y2="231"/>
+              <!-- y: -2, -1, 1, 2, 3, 4 -->
+              <line x1="184" y1="270" x2="196" y2="270"/>
+              <line x1="184" y1="180" x2="196" y2="180"/>
+              <line x1="184" y1="135" x2="196" y2="135"/>
+              <line x1="184" y1="90" x2="196" y2="90"/>
+              <line x1="184" y1="45" x2="196" y2="45"/>
+            </g>
+
+            <text x="86" y="252" font-size="20">−2</text>
+            <text x="131" y="252" font-size="20">−1</text>
+            <text x="230" y="252" font-size="20">1</text>
+            <text x="275" y="252" font-size="20">2</text>
+            <text x="320" y="252" font-size="20">3</text>
+            <text x="365" y="252" font-size="20">4</text>
+            <text x="410" y="252" font-size="20">5</text>
+
+            <text x="166" y="187" font-size="20">1</text>
+            <text x="166" y="142" font-size="20">2</text>
+            <text x="166" y="97" font-size="20">3</text>
+            <text x="166" y="52" font-size="20">4</text>
+
+            <!-- Step segments -->
+            <!-- y = -2, [-2, -1) -->
+            <line x1="100" y1="270" x2="140" y2="270" stroke="#0055a5" stroke-width="2.6"/>
+            <circle cx="100" cy="270" r="4.5" fill="#0055a5"/>
+            <circle cx="145" cy="270" r="4.5" fill="#fff" stroke="#0055a5" stroke-width="2.2"/>
+
+            <!-- y = -1, [-1, 0) -->
+            <line x1="145" y1="270" x2="145" y2="270" stroke="none"/>
+            <line x1="145" y1="270" x2="145" y2="270"/>
+            <!-- Correct y = -1 at y=270? Wait: unit=45, y=0 is 225 -> y=-1 is 270, y=-2 is 315. Let's adjust y=-2 to 295 (unit=35) -->
+          </svg>
+          <div class="figure-caption">
+            <strong>FIGURE 1.1.10</strong> Greatest integer function
+          </div>
+        </div>
+      </div>
+      <footer class="slide-footer">Copyright © Johns and Bartlett ；滄海書局</footer>
+    </section>
+
+  </main>
+
+  <script>
+    // Fix SVG 24 exact coordinates cleanly on load
+    (function renderStepGraph() {
+      const lastSvg = document.querySelectorAll('.slide svg')[document.querySelectorAll('.slide svg').length - 1];
+      lastSvg.innerHTML = `
+        <line x1="95" y1="215" x2="440" y2="215" stroke="#111" stroke-width="2" marker-end="url(#axisArrow)"/>
+        <line x1="190" y1="305" x2="190" y2="20" stroke="#111" stroke-width="2" marker-end="url(#axisArrow)"/>
+        <text x="448" y="222" font-size="24" class="svg-math">x</text>
+        <text x="168" y="26" font-size="24" class="svg-math">y</text>
+
+        <g stroke="#111" stroke-width="1.6">
+          <line x1="100" y1="209" x2="100" y2="221"/>
+          <line x1="145" y1="209" x2="145" y2="221"/>
+          <line x1="235" y1="209" x2="235" y2="221"/>
+          <line x1="280" y1="209" x2="280" y2="221"/>
+          <line x1="325" y1="209" x2="325" y2="221"/>
+          <line x1="370" y1="209" x2="370" y2="221"/>
+          <line x1="415" y1="209" x2="415" y2="221"/>
+
+          <line x1="184" y1="285" x2="196" y2="285"/>
+          <line x1="184" y1="250" x2="196" y2="250"/>
+          <line x1="184" y1="180" x2="196" y2="180"/>
+          <line x1="184" y1="145" x2="196" y2="145"/>
+          <line x1="184" y1="110" x2="196" y2="110"/>
+          <line x1="184" y1="75" x2="196" y2="75"/>
+        </g>
+
+        <text x="86" y="242" font-size="20">−2</text>
+        <text x="131" y="242" font-size="20">−1</text>
+        <text x="230" y="242" font-size="20">1</text>
+        <text x="275" y="242" font-size="20">2</text>
+        <text x="320" y="242" font-size="20">3</text>
+        <text x="365" y="242" font-size="20">4</text>
+        <text x="410" y="242" font-size="20">5</text>
+
+        <text x="166" y="187" font-size="20">1</text>
+        <text x="166" y="152" font-size="20">2</text>
+        <text x="166" y="117" font-size="20">3</text>
+        <text x="166" y="82" font-size="20">4</text>
+
+        <text x="255" y="55" font-size="24" fill="#0055a5"><tspan class="svg-math">y</tspan> = ⌊<tspan class="svg-math">x</tspan>⌋</text>
+
+        <!-- Steps (x unit = 45px, y unit = 35px) -->
+        <line x1="100" y1="285" x2="140" y2="285" stroke="#0055a5" stroke-width="2.6"/>
+        <circle cx="100" cy="285" r="4.5" fill="#0055a5"/>
+        <circle cx="145" cy="285" r="4.5" fill="#fff" stroke="#0055a5" stroke-width="2.2"/>
+
+        <line x1="145" y1="250" x2="185" y2="250" stroke="#0055a5" stroke-width="2.6"/>
+        <circle cx="145" cy="250" r="4.5" fill="#0055a5"/>
+        <circle cx="190" cy="250" r="4.5" fill="#fff" stroke="#0055a5" stroke-width="2.2"/>
+
+        <line x1="190" y1="215" x2="230" y2="215" stroke="#0055a5" stroke-width="2.6"/>
+        <circle cx="190" cy="215" r="4.5" fill="#0055a5"/>
+        <circle cx="235" cy="215" r="4.5" fill="#fff" stroke="#0055a5" stroke-width="2.2"/>
+
+        <line x1="235" y1="180" x2="275" y2="180" stroke="#0055a5" stroke-width="2.6"/>
+        <circle cx="235" cy="180" r="4.5" fill="#0055a5"/>
+        <circle cx="280" cy="180" r="4.5" fill="#fff" stroke="#0055a5" stroke-width="2.2"/>
+
+        <line x1="280" y1="145" x2="320" y2="145" stroke="#0055a5" stroke-width="2.6"/>
+        <circle cx="280" cy="145" r="4.5" fill="#0055a5"/>
+        <circle cx="325" cy="145" r="4.5" fill="#fff" stroke="#0055a5" stroke-width="2.2"/>
+
+        <line x1="325" y1="110" x2="365" y2="110" stroke="#0055a5" stroke-width="2.6"/>
+        <circle cx="325" cy="110" r="4.5" fill="#0055a5"/>
+        <circle cx="370" cy="110" r="4.5" fill="#fff" stroke="#0055a5" stroke-width="2.2"/>
+
+        <line x1="370" y1="75" x2="410" y2="75" stroke="#0055a5" stroke-width="2.6"/>
+        <circle cx="370" cy="75" r="4.5" fill="#0055a5"/>
+        <circle cx="415" cy="75" r="4.5" fill="#fff" stroke="#0055a5" stroke-width="2.2"/>
+      `;
+    })();
+
+    // Update slide numbering dynamically
+    const slides = document.querySelectorAll('.slide');
+    slides.forEach((slide, idx) => {
+      const badge = slide.querySelector('.slide-num');
+      if (badge) badge.textContent = `${idx + 1} / ${slides.length}`;
+    });
+
+    let isPresentation = false;
+    let currentIndex = 0;
+
+    function toggleMode() {
+      isPresentation = !isPresentation;
+      document.body.classList.toggle('presentation-mode', isPresentation);
+
+      const toggleBtn = document.getElementById('toggleModeBtn');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const counter = document.getElementById('slideCounter');
+
+      if (isPresentation) {
+        toggleBtn.textContent = '退出簡報模式';
+        toggleBtn.classList.add('active');
+        prevBtn.style.display = 'inline-block';
+        nextBtn.style.display = 'inline-block';
+        counter.style.display = 'inline-block';
+        showSlide(currentIndex);
+      } else {
+        toggleBtn.textContent = '簡報播放模式';
+        toggleBtn.classList.remove('active');
+        prevBtn.style.display = 'none';
+        nextBtn.style.display = 'none';
+        counter.style.display = 'none';
+        slides.forEach(s => s.classList.remove('current-slide'));
+      }
+    }
+
+    function showSlide(index) {
+      if (index < 0) index = 0;
+      if (index >= slides.length) index = slides.length - 1;
+      currentIndex = index;
+
+      slides.forEach((s, i) => {
+        s.classList.toggle('current-slide', i === currentIndex);
+      });
+      document.getElementById('slideCounter').textContent = `${currentIndex + 1} / ${slides.length}`;
+    }
+
+    function changeSlide(step) {
+      showSlide(currentIndex + step);
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (!isPresentation) return;
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+        e.preventDefault();
+        changeSlide(1);
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        e.preventDefault();
+        changeSlide(-1);
+      } else if (e.key === 'Escape') {
+        toggleMode();
+      }
+    });
+  </script>
+</body>
+</html>
