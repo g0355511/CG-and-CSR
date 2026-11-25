@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 5: Stakeholder Theory and Management</title>
+<style>
+:root {
+  color-scheme: light;
+  color: #203246;
+  background: #eaf1f6;
+  font-family: system-ui, "Microsoft JhengHei", sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; padding: clamp(.5rem, 3vw, 2rem); line-height: 1.75; overflow-wrap: normal; word-break: normal; }
+main {
+  max-width: 66rem;
+  margin-inline: auto;
+  padding: clamp(1rem, 4vw, 3rem);
+  background: #fff;
+  border: 1px solid #d6e2ec;
+  border-radius: .8rem;
+}
+h1, h2, h3 { line-height: 1.35; }
+h1 { font-size: clamp(1.65rem, 4vw, 2.65rem); color: #142c41; margin-top: 0; }
+h2 { font-size: clamp(1.28rem, 3vw, 1.8rem); color: #124d68; margin-top: 1.9em; }
+h3 { font-size: clamp(1.08rem, 2vw, 1.3rem); margin-top: 1.6em; color: #1b4b60; }
+p, ul, ol { margin-block: .85em; }
+ul, ol { padding-inline-start: 1.5rem; }
+li + li { margin-top: .4rem; }
+a { color: #075985; text-underline-offset: .17em; overflow-wrap: anywhere; }
+blockquote {
+  margin: 1.2rem 0;
+  padding: .8rem clamp(.75rem, 3vw, 1.25rem);
+  border-inline-start: .26rem solid #247b87;
+  background: #edf7f8;
+  border-radius: .3rem;
+}
+blockquote > :first-child { margin-top: 0; }
+blockquote > :last-child { margin-bottom: 0; }
+hr { border: 0; border-top: 1px solid #d6e2ec; margin-block: 2rem; }
+.table-scroll { margin-block: 1.15rem; max-width: 100%; overflow-x: auto; }
+:focus-visible { outline: 2px solid #075985; outline-offset: 2px; }
+table { border-collapse: collapse; width: 100%; min-width: var(--table-width, 0); table-layout: fixed; font-size: .95rem; }
+th, td { padding: .6rem .75rem; text-align: start; vertical-align: top; border: 1px solid #9eafbe; overflow-wrap: break-word; }
+table :is(th, td):first-child { width: 22%; }
+th { background: #e5f0f6; }
+tbody tr:nth-child(even) { background: #f5f8fa; }
+.references p { margin-block: 1rem; }
+@media (max-width: 480px) {
+  body { padding: 0; }
+  main { border: 0; border-radius: 0; }
+  th, td { padding: .45rem .6rem; }
+}
+@media print {
+  body, main { padding: 0; background: #fff; border: 0; }
+  .table-scroll { overflow: visible; }
+  table { min-width: 0; }
+}
+
+body:has(#chapter-five-reading) {
+  --ch5-navy: #153b5b;
+  --ch5-teal: #08665e;
+  --ch5-line: #7f9bad;
+  --ch5-link: #075985;
+  --ch5-stripe: #eff5f9;
+  --ch5-note: #fff6df;
+  --ch5-note-accent: #98701d;
+  --ch5-case: #eaf4ff;
+  --ch5-case-accent: #306ca5;
+  --ch5-extension: #e8f6ee;
+  --ch5-extension-accent: #287257;
+}
+body:has(#chapter-five-reading) h1 { color: var(--ch5-navy); border-bottom: 3px solid var(--ch5-teal); padding-bottom: .35em; }
+body:has(#chapter-five-reading) h2 { color: var(--ch5-teal); }
+body:has(#chapter-five-reading) h3 { color: var(--ch5-navy); }
+body:has(#chapter-five-reading) hr { border: 0; border-top: 1px solid var(--ch5-line); }
+body:has(#chapter-five-reading) blockquote {
+  background: var(--ch5-note);
+  color: #203246;
+  border-inline-start: .28rem solid var(--ch5-note-accent);
+  border-radius: .35rem;
+  padding: .7rem 1rem;
+  margin-inline: 0;
+}
+body:has(#chapter-five-reading) blockquote:first-of-type {
+  background: var(--ch5-case);
+  border-inline-start-color: var(--ch5-case-accent);
+}
+body:has(#chapter-five-reading) blockquote:last-of-type {
+  background: var(--ch5-extension);
+  border-inline-start-color: var(--ch5-extension-accent);
+}
+body:has(#chapter-five-reading) blockquote > :first-child { margin-top: 0; }
+body:has(#chapter-five-reading) blockquote > :last-child { margin-bottom: 0; }
+body:has(#chapter-five-reading) table { border-collapse: collapse; }
+body:has(#chapter-five-reading) table :is(th, td) { border: 1px solid var(--ch5-line); }
+body:has(#chapter-five-reading) table th { background: var(--ch5-navy); color: #fff; }
+body:has(#chapter-five-reading) table tbody tr:nth-child(even) { background: var(--ch5-stripe); }
+body:has(#chapter-five-reading) a { color: var(--ch5-link); overflow-wrap: anywhere; text-underline-offset: .16em; }
+body:has(#chapter-five-reading) table:not(.table-scroll > table) { display: block; max-width: 100%; overflow-x: auto; }
+body.vscode-dark:has(#chapter-five-reading),
+body.vscode-high-contrast:has(#chapter-five-reading) {
+  --ch5-navy: #9fcaff;
+  --ch5-teal: #85ddd1;
+  --ch5-line: #7892a5;
+  --ch5-link: #8dcfff;
+  --ch5-stripe: #273848;
+}
+body:is(.vscode-dark, .vscode-high-contrast):has(#chapter-five-reading) table th { color: #142c41; }
+body:is(.vscode-dark, .vscode-high-contrast):has(#chapter-five-reading) blockquote a { color: #075985; }
+</style>
+</head>
+<body>
+<main>
+<span id="chapter-five-reading" hidden></span>
+<h1 id="chapter-5-stakeholder-theory-and-management">Chapter 5: Stakeholder Theory and Management</h1>
+<h2 id="opening-case-who-could-have-halted-work-before-the-rana-plaza-collapse">Opening Case: Who Could Have Halted Work Before the Rana Plaza Collapse?</h2>
+<p>On April 24, 2013, the Rana Plaza building near Dhaka, Bangladesh, collapsed. It housed five garment factories. According to the International Labour Organization (ILO), at least 1,132 people died and more than 2,500 were injured (ILO, 2024). When workers notice a possible hazard at work, whom can they tell, and can they leave safely? For brands based overseas, factory safety also depends on whether information from the shop floor reaches someone with the authority to demand corrective action.</p>
+<blockquote>
+<p><strong>Classroom scenario: Two hours until the next shift</strong></p>
+<p>You are an independent director of a Taiwanese clothing brand. The procurement team says a South Asian supplier passed a routine audit last month. Today, a worker sends a photo of a crack in a wall and says factory management has told everyone to report to work as usual. Your company accounts for just 10% of the factory's orders.</p>
+<p><strong>If you could ask the company to do only one thing first, what would it be? Whom would you contact to verify the report?</strong></p>
+<p>Write two sentences and revisit them at the end of the chapter.</p>
+</blockquote>
+<p>Chapter 4 examined how to assess the reliability of corporate disclosures and assurance findings. This chapter starts with the board receiving a photo of a crack. Who would be affected if the factory kept operating or suspended work?</p>
+<p>If operations continue, workers may remain exposed to danger. If work stops, workers' income, factory operations, and the brand's delivery schedule may all be affected. Section 1 starts with this decision to identify the stakeholders and their claims, then considers why managers are more likely to attend to some claims first.</p>
+<p>Section 2 follows workers' observations into the decision-making process through reporting channels or worker representatives. Section 3 returns to the boardroom and asks which requirements must come first when safety, wages, and delivery schedules conflict, and which costs can still be negotiated. Section 4 explains how the factory, the brand, and public authorities can verify reports and act, and what evidence can confirm that conditions have improved. Section 5 takes the same approach outside the factory to examine unusual changes in downstream water quality.</p>
+<hr />
+<h2 id="section-1-who-are-the-stakeholders-and-whose-claims-come-first">Section 1: Who Are the Stakeholders, and Whose Claims Come First?</h2>
+<p>Start by asking who would be affected. Even if only one worker photographed the crack, anyone who might enter the building to work could face the risk of normal operations continuing. If work is suspended, workers' wages, factory operations, and the brand's delivery schedule also need to be considered.</p>
+<h3 id="use-a-decision-to-identify-the-people-affected">1. Use a Decision to Identify the People Affected</h3>
+<p>Freeman (1984) defines stakeholders as individuals or groups that can affect or are affected by the achievement of an organization's objectives. After identifying those affected, find out who holds relevant information and who can change the decision. The possible suspension of work illustrates these three roles.</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table, scroll horizontally if needed" style="--table-width:32rem"><table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Example from the opening scenario</th>
+<th>What should you find out next?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Who bears the consequences?</td>
+<td>Workers face risks from the building and could lose income if work stops. The brand bears the cost of late delivery.</td>
+<td>List the consequences of continuing and suspending production, and identify who bears each one.</td>
+</tr>
+<tr>
+<td>Who has firsthand information?</td>
+<td>Workers can say when and where the crack appeared. The procurement team knows the audit's date and scope.</td>
+<td>Ask workers what they saw and check whether the audit covered the building's structure.</td>
+</tr>
+<tr>
+<td>Who can change the decision?</td>
+<td>Factory management controls on-site operations. The brand can adjust delivery schedules. Whether a public authority can order a shutdown depends on local law.</td>
+<td>Identify who can take action, who can coordinate it, and who must be notified.</td>
+</tr>
+</tbody>
+</table></div>
+<p>The worker who took the photo can say when and where the crack appeared. Others on the same shift could face the risks of continuing work even if they never saw it. The procurement team can establish what the last audit covered. Once you know who is affected and who can provide evidence, consider which claims are likely to get management's attention.</p>
+<h3 id="whom-will-managers-notice-first-the-stakeholder-salience-model">2. Whom Will Managers Notice First? The Stakeholder Salience Model</h3>
+<p>The worker has a photo of the crack, and the procurement manager has last month's audit report. Because the procurement manager has an established reporting channel, the board may see the report first. The stakeholder salience model asks why managers give certain claims priority when several compete for their attention.</p>
+<p>Mitchell et al. (1997) identify three attributes:</p>
+<ol>
+<li>Power: Can the party making the claim influence this decision?</li>
+<li>Legitimacy: Do managers regard the claim as having a reasonable basis?</li>
+<li>Urgency: How important is the claim to the party making it, and how long can it wait?</li>
+</ol>
+<p>Workers have a legitimate claim to safe working conditions. With the next shift about to begin, the warning is also urgent. If workers cannot persuade factory management to act and have no way to bring the brand into the discussion, they have limited power. The model calls this combination the <em>dependent</em> type because workers rely on others with power to advance their claim. If worker representatives reach other buyers and secure a joint inspection, managers may reassess how much influence workers have.</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table, scroll horizontally if needed" style="--table-width:0"><table>
+<thead>
+<tr>
+<th>Attributes perceived by managers</th>
+<th>Stakeholder type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Power</td>
+<td>Dormant</td>
+</tr>
+<tr>
+<td>Legitimacy</td>
+<td>Discretionary</td>
+</tr>
+<tr>
+<td>Urgency</td>
+<td>Demanding</td>
+</tr>
+<tr>
+<td>Power and legitimacy</td>
+<td>Dominant</td>
+</tr>
+<tr>
+<td>Legitimacy and urgency</td>
+<td>Dependent</td>
+</tr>
+<tr>
+<td>Power and urgency</td>
+<td>Dangerous</td>
+</tr>
+<tr>
+<td>Power, legitimacy, and urgency</td>
+<td>Definitive</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>Note.</em> Each row pairs a combination of attributes with a stakeholder type. Mitchell et al. (1997) group the three single-attribute types as <em>latent stakeholders</em>, the three two-attribute types as <em>expectant stakeholders</em>, and those with all three attributes as <em>definitive stakeholders</em>. These labels describe how managers perceive the relationship and claim at a given time.</p>
+<h3 id="whom-should-the-company-respond-to-first">3. Whom Should the Company Respond to First?</h3>
+<p>Use the salience model to understand which warnings are likely to reach a meeting. Then use legal duties, the severity of potential harm, and the consequences of delay to decide what to address first. Procurement has an established reporting channel, while the worker's warning may remain a single message. A credible threat to life still deserves priority, regardless of who has more influence (United Nations, 2011, Principle 24).</p>
+<blockquote>
+<p><strong>Return to the opening scenario</strong></p>
+<p>Mark one piece of information you most want to follow up on, and write down who might bear the risk while you wait for verification.</p>
+</blockquote>
+<blockquote>
+<p><strong>Think it through</strong></p>
+<p>Suppose a union can contact the brand, workers can use a grievance channel without fear of retaliation, or a public authority can intervene immediately. Which of the workers' attributes might change? What would that mean for the priority the company gives to the threat to life?</p>
+</blockquote>
+<h2 id="section-2-how-do-workers-gain-a-voice-in-decisions-germany-and-taiwan">Section 2: How Do Workers Gain a Voice in Decisions? Germany and Taiwan</h2>
+<p>If a worker saw the crack yesterday, whom could they tell? One person may be able to receive a complaint, another to put an issue on a meeting agenda, and another to vote on a governing body. These powers affect how far a warning can travel. The table first compares how worker representatives gain a place in corporate governance in Germany and Taiwan, then the discussion returns to reporting from the factory floor.</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table, scroll horizontally if needed" style="--table-width:32rem"><table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Germany: Employee representatives on supervisory boards</th>
+<th>Taiwan: Labor representatives on boards of state-owned enterprises</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Which companies must reserve seats by law?</td>
+<td>Companies covered by the relevant laws that normally employ more than 500 people generally reserve one-third of supervisory board seats for employees. At companies that normally employ more than 2,000 people and fall under the Codetermination Act, employee and shareholder representatives have equal numbers of seats. Separate rules apply in certain industries (Drittelbeteiligungsgesetz, 2004, §§ 1, 4; Mitbestimmungsgesetz, 1976, §§ 1, 7).</td>
+<td>Article 35 of the State-Owned Enterprise Management Act requires the competent authority to appoint union-nominated representatives to at least one-fifth of director or board member seats representing government-held shares. No equivalent general requirement applies to private companies.</td>
+</tr>
+<tr>
+<td>On which body do representatives serve?</td>
+<td>Employee representatives serve on the supervisory board.</td>
+<td>Union-nominated representatives serve on the board of directors or the governing council.</td>
+</tr>
+<tr>
+<td>How do representatives participate in decisions?</td>
+<td>Employee representatives take part in oversight and voting. Under the Codetermination Act, the supervisory board chair has a second vote in specified tie situations (Mitbestimmungsgesetz, 1976, § 29).</td>
+<td>Labor directors or council members participate in deliberations and vote in accordance with their roles.</td>
+</tr>
+</tbody>
+</table></div>
+<p>A seat on a governing body is one way for workers to participate. Taiwan also provides for labor-management meetings as a forum for consultation (Labor Standards Act, art. 83). For an urgent problem such as the crack, ask whether workers on site can report it directly, who will receive the report immediately, and when it should be escalated.</p>
+<p>When considering whether Taiwan should expand worker participation, look at company size, how representatives are selected, access to information and training, conflicts of interest, and voting rights. Reserved seats, regular reporting, and emergency reporting procedures are all options for governance design. Supply-chain workers also need grievance channels that let them reach the brand or an independent body directly.</p>
+<blockquote>
+<p><strong>Think it through</strong></p>
+<p>Compare a labor-management meeting where workers can propose an agenda item with a labor director who can obtain documents and vote. Which arrangement would better address persistently long working hours? For an imminent hazard, what arrangements would workers need to report it immediately and withdraw to safety?</p>
+</blockquote>
+<p>A reporting channel can bring the problem to the board's attention. Once the board receives the photo, it must decide how to handle the conflict among safety, wages, and delivery schedules.</p>
+<hr />
+<h2 id="section-3-how-should-companies-respond-when-shareholder-and-other-stakeholder-claims-conflict">Section 3: How Should Companies Respond When Shareholder and Other Stakeholder Claims Conflict?</h2>
+<p>Section 1 showed which warnings tend to be overlooked. Now assume the board has seen the photo. What requirements must come first, and what can still be negotiated when the company has to protect workers, fulfill orders, and preserve income during a shutdown?</p>
+<h3 id="the-next-shift-is-about-to-arrive.what-about-the-delivery-deadline">1. The Next Shift Is About to Arrive. What About the Delivery Deadline?</h3>
+<p>Continuing the opening scenario, the brand has received the worker's photo. Procurement estimates that if the factory suspends production, the shipment may miss its deadline. Factory management fears that other buyers will move their orders. The incoming shift does not know that the brand has received the photo, and workers are unsure whether leaving the workplace would affect their wages.</p>
+<p>A shareholder-value perspective draws the board's attention to delays, breach of contract, and operating losses. A stakeholder perspective brings workers' safety and livelihoods into the decision as well. Start by listing the safety and legal requirements that must be met, then compare the remaining options. Who can change the delivery schedule? Who can act on site? Who would bear the cost of a shutdown? Once these questions are clear, the brand can discuss how to share costs, support verification, and make improvements.</p>
+<h3 id="establish-safety-requirements-before-comparing-feasible-options">2. Establish Safety Requirements Before Comparing Feasible Options</h3>
+<ol>
+<li><strong>Address potentially severe and irreversible harm first.</strong> If the warning is credible, the brand should use the means available to it to urge factory management to take interim protective measures. Where necessary, notify the authority that can intervene and arrange independent verification at the same time.</li>
+<li><strong>Compare the costs of options that meet safety and regulatory requirements.</strong> Consider negotiating a later delivery date, splitting the shipment, or adjusting other orders. Clarify how wages and corrective-action costs will be handled. For each option, note who benefits and who bears the cost.</li>
+<li><strong>Specify who will act, when verification must be complete, and what would trigger a review.</strong> The brand's board can direct management to act through procurement and report back. The powers of factory management and public authorities depend on applicable laws and contracts.</li>
+</ol>
+<p>Here, a reasonable first step is to urge the factory to protect workers who may be exposed to danger and request independent verification. Which shipments to delay, how buyers should share costs, and how workers' income should be protected during a shutdown still need to be negotiated. Consider two options: the brand postpones its own deadline, or several buyers jointly agree to adjust theirs. Which option is more likely to help the factory make the necessary improvements? What commitments would make it workable?</p>
+<p>The Boeing 737 MAX case from Chapter 3 raises the same question. When there is pressure to deliver, how can frontline workers get safety warnings into the decision-making process?</p>
+<h3 id="what-can-the-brand-do-after-receiving-a-warning">3. What Can the Brand Do After Receiving a Warning?</h3>
+<p>Suppose the purchasing contract allows the brand to require an independent inspection and a corrective-action plan by a specified deadline when a serious safety concern arises. After receiving the photo, the brand can invoke that provision and coordinate delivery changes to give the factory time to make improvements. If workers have no safe way to report a hazard, how would the brand know when to exercise its right to an inspection?</p>
+<h2 id="section-4-the-supplier-passed-its-audit.what-else-should-the-brand-do">Section 4: The Supplier Passed Its Audit. What Else Should the Brand Do?</h2>
+<p>Section 2 looked at how workers get a warning into the decision-making process. Section 3 considered how a brand can respond once it receives it. At the verification stage, the company still needs to establish what its existing evidence can tell it and how to confirm that improvements have occurred.</p>
+<p>After discussing safety and delivery schedules, the board asks procurement for the audit report. The cover says “Pass.” The annex lists checks of firefighting equipment, escape routes, and a sample of working hours. It does not include a structural inspection. The audit can still provide evidence about the firefighting equipment sampled. To determine whether the crack could endanger the next shift, the board needs different evidence: workers' accounts and an independent structural inspection.</p>
+<h3 id="make-due-diligence-traceable">1. Make Due Diligence Traceable</h3>
+<p>The United Nations Guiding Principles on Business and Human Rights (UNGPs) rest on three pillars: the state's duty to protect human rights, the corporate responsibility to respect human rights, and access to remedy (United Nations, 2011).</p>
+<p>Human rights due diligence (HRDD) helps companies turn a warning into a series of steps they can verify. In the crack scenario, start by interviewing workers and commissioning an independent inspection to assess the impact. Procurement and management can then act, for example by negotiating new delivery dates and assigning responsibility for corrective measures. Track whether defects were repaired and whether an independent reinspection confirmed the repairs. Explain progress in terms workers can understand (United Nations, 2011, Principles 17–21).</p>
+<p>If a company caused or contributed to harm, it should provide for or cooperate in remediation (United Nations, 2011, Principle 22). If harm is directly linked to its operations, products, or services through a business relationship, the company should seek to prevent or mitigate it, for example by using its purchasing relationship to press the supplier for improvements (United Nations, 2011, Principle 13).</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table, scroll horizontally if needed" style="--table-width:42rem"><table>
+<thead>
+<tr>
+<th>People affected and their claims</th>
+<th>Evidence of risk</th>
+<th>Who can act?</th>
+<th>How can improvement be verified?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Workers want safe working conditions.</td>
+<td>Photos of cracks, worker interviews, and an independent structural inspection.</td>
+<td>Factory management addresses conditions on site, the competent authority intervenes as authorized, and the brand adjusts delivery schedules and requests improvements.</td>
+<td>Verify that hazardous areas are out of use, check completed work and independent reinspection findings, and confirm with workers that measures are in place.</td>
+</tr>
+<tr>
+<td>Workers want to report concerns without retaliation.</td>
+<td>Grievance records, shift schedules, payroll data, and anonymous interviews.</td>
+<td>The factory and brand establish confidential reporting and safeguards against retaliation, and involve worker representatives in follow-up.</td>
+<td>Look for pay deductions, transfers, or other adverse treatment. Review how complaints were handled and what complainants reported afterward.</td>
+</tr>
+<tr>
+<td>Injured workers and their families need access to remedy.</td>
+<td>Injury and fatality records, wage records, family needs, and compensation claims.</td>
+<td>Factory management, the brand, and relevant bodies provide or cooperate in remediation according to how each caused or contributed to the harm.</td>
+<td>Publish appropriate aggregate information, track whether compensation reached those entitled to it, and check whether complaints are being resolved.</td>
+</tr>
+</tbody>
+</table></div>
+<p>A supplier code of conduct can incorporate requirements into purchasing. Audits can check a sample of how these requirements are put into practice. Capacity building can help suppliers access the expertise and resources needed to improve. Brands should also review their delivery deadlines, purchase prices, and controls on unauthorized subcontracting. A brand that accounts for only 10% of orders can work with other buyers, engage independent engineers, and adjust orders and delivery schedules within its authority.</p>
+<h3 id="distinguish-international-standards-laws-and-customer-requirements">2. Distinguish International Standards, Laws, and Customer Requirements</h3>
+<p>If a procurement manager receives an audit request from a European customer, three questions help clarify what is expected. What do international standards call for? Is the company directly subject to a law? If it is outside the law's scope, has the customer required cooperation in the contract?</p>
+<ul>
+<li>International standards. The UNGPs provide a framework for identifying, addressing, and remedying adverse human rights impacts (United Nations, 2011).</li>
+<li>Germany's Supply Chain Due Diligence Act (<em>Lieferkettensorgfaltspflichtengesetz</em>, LkSG). The Act passed in 2021 and took effect in 2023. Since 2024, the threshold has been at least 1,000 employees in Germany. The company and establishment criteria must also be considered when determining whether the Act applies (Lieferkettensorgfaltspflichtengesetz, 2021, § 1).</li>
+<li>The European Union's Corporate Sustainability Due Diligence Directive (CSDDD). The Directive entered into force in 2024 and was amended in 2025 and 2026. Under the amended schedule, member states generally must transpose it by July 26, 2028, and apply the relevant measures from July 26, 2029. Some reporting provisions have a separate timeline. Companies can determine their responsibilities by checking the latest text, national transposition measures, and application criteria (European Commission, n.d.).</li>
+</ul>
+<p>A Taiwanese company can first check whether the relevant laws apply to it, then review its customer contracts. Even if it falls below the legal threshold, customers within scope may still require it to identify supplier locations, cooperate with audits, or track corrective actions. Where factories are overseas, the company should also check local labor and occupational safety rules and clarify which actions the brand and factory management can each take.</p>
+<hr />
+<h2 id="section-5-beyond-the-factory-who-bears-the-consequences-of-corporate-decisions">Section 5: Beyond the Factory, Who Bears the Consequences of Corporate Decisions?</h2>
+<p>In Section 4, workers knew what was happening inside the factory. Outside it, downstream residents may be the first to notice a problem. Residents have no purchasing contract and may have no formal reporting channel. This section uses a water-quality dispute to revisit the earlier questions and see how the same approach works for communities and the environment.</p>
+<blockquote>
+<p><strong>Classroom extension | Downstream water quality</strong></p>
+<p>Near the same supplier, downstream residents photograph discolored water at an outfall. Factory management produces a report showing that samples taken last month met the applicable standards. The photo captures the unusual conditions at that moment, but the pollution source remains to be determined. Last month's report reflects the conditions under which those samples were taken.</p>
+<p>To investigate, where and when would you take samples? Whom would you invite to be present?</p>
+</blockquote>
+<p>Downstream residents and people who depend on the river for their livelihoods may suffer harm. The river's water quality and ecosystem are also at risk. Residents can identify when and where they noticed the problem. Public authorities, researchers, and environmental groups can help obtain monitoring data or interpret the evidence.</p>
+<p>When a downstream community bears the cost of pollution and that cost is absent from the price of the product, the result is an <em>environmental externality</em>. A company can establish reporting and grievance channels, commission independent sampling, publish results in accessible language, set deadlines for corrective action, and invite residents to participate in follow-up. Environmental impact assessment, discharge standards, and carbon pricing each apply under different conditions. Chapter 7 examines climate risk and environmental governance in more detail.</p>
+<h2 id="chapter-summary">Chapter Summary</h2>
+<p>Return to the opening decision. If operations continue as usual, the workers entering the building bear the most immediate safety risk. If operations stop, wages, factory operations, and delivery schedules also need to be addressed. After identifying those affected, ask what evidence supports the decision. The worker's photo provides a lead, procurement can check the scope of earlier audits, and engineers can further assess structural safety. A reporting channel helps get this information to decision-makers in time.</p>
+<p>The final step is to put the decision into practice. Factory management can take protective measures on site. The brand can use its contractual rights and purchasing influence to request inspections and coordinate delivery schedules. Public authorities act within their powers under local law. The downstream water-quality case follows the same sequence: identify the residents who may be affected, investigate the source of pollution, and clarify who will make improvements and report back. As a board member, explain who bears the consequences of your decision, what evidence supports it, who will act, and how you will verify improvement.</p>
+<hr />
+<h2 id="closing-case-returning-to-rana-plaza.what-would-justify-resuming-work">Closing Case: Returning to Rana Plaza. What Would Justify Resuming Work?</h2>
+<p>After the Rana Plaza disaster, international brands, retailers, and trade unions signed the legally binding Accord on Fire and Building Safety in Bangladesh. Independent inspections, safety improvements, worker training, and grievance procedures gave the parties clearer ways to verify and track factory safety. The Accord offers a point of comparison. What information might a brand's board receive if workers' warnings went to an independent body empowered to act? (Accord on Fire and Building Safety in Bangladesh, n.d.)</p>
+<p>Continuing the scenario in Section 4, the brand discovers that the audit did not cover the building's structure and arranges an independent investigation. The engineer's preliminary assessment calls for a more detailed inspection. The supplier wants to resume work the next day to fulfill its orders. Workers are willing to stay away during the shutdown but are worried about losing their wages. Another buyer says it will agree to adjust delivery schedules if it receives a credible corrective-action plan.</p>
+<p>Review your answer to the opening scenario and draft a three-sentence board resolution:</p>
+<ol>
+<li><strong>What should happen today?</strong> Identify the measure that will protect workers and who will carry it out.</li>
+<li><strong>Who should verify the report, make improvements, and report back?</strong> Specify the timeline, joint action, and how workers can report concerns.</li>
+<li><strong>What evidence would justify resuming work?</strong> Explain how independent inspection findings, verification of improvements, and worker feedback will inform the decision.</li>
+</ol>
+<p>Under your resolution, add one sentence explaining which part of your original decision you changed or kept and what evidence or governance arrangement supports it.</p>
+<p>The next chapter uses the Volkswagen emissions scandal to ask what economic, legal, and ethical responsibilities a company has when it knows its decisions could harm others.</p>
+<h2 id="exercises">Exercises</h2>
+<h3 id="multiple-choice-questions">Multiple-Choice Questions</h3>
+<ol>
+<li>Which of the following is not one of the three stakeholder salience attributes?<br />
+(A) Power · (B) Legitimacy · (C) Urgency · (D) Wealth</li>
+<li>A company normally employs more than 2,000 people and falls under Germany's Codetermination Act. What share of its supervisory board seats do employee representatives generally hold?<br />
+(A) One-quarter · (B) One-third · (C) One-half · (D) Two-thirds</li>
+<li>Which of the following is not a supplier risk management tool introduced in this chapter?<br />
+(A) Supplier codes of conduct · (B) Supplier audits · (C) Shareholder dividends · (D) Supplier capacity building</li>
+<li>A supplier passed last month's audit, but today there is a credible warning of imminent danger. What is the most appropriate first step for the brand?<br />
+(A) Wait for the next routine audit · (B) Request immediate protective measures and arrange independent verification in parallel · (C) Issue a press release first · (D) Check only the delivery deadline with the procurement manager</li>
+<li>A purchasing contract gives the brand the right to require an independent inspection. What else does the brand need to exercise that right in time?<br />
+(A) Extend all delivery deadlines · (B) Provide a safe reporting channel for workers and designate someone to receive reports · (C) Cancel follow-up inspections · (D) Renew the contract every year</li>
+</ol>
+<h3 id="discussion-and-application">Discussion and Application</h3>
+<ol>
+<li>Workers have legitimate and urgent safety claims but find it difficult to influence a brand's decisions. Use the salience model to explain why and suggest two ways to improve their ability to be heard.</li>
+<li>Compare what participants in Taiwan's labor-management meetings, labor directors in Taiwanese state-owned enterprises, and employee representatives on German supervisory boards can each do. What additional arrangement would you design to help warnings reach decision-makers sooner?</li>
+<li>Residents downstream of a factory report unusual changes in water quality. Identify two types of evidence to collect, two parties that can act, and one indicator that could verify improvement.</li>
+<li>In 2024, Public Eye investigated selected Nestlé Cerelac and Nido products and reported that some tested products in low- and middle-income markets contained added sugar. In its subsequent response, Nestlé questioned how sugar content was calculated and compared, and said formulations vary by market (Nestlé, 2025; Public Eye, 2024). If you sat on the quality committee, which three types of data would you request to decide whether products sold in different markets are comparable? How could the company respond to caregivers' concerns while it waits for the data?</li>
+</ol>
+<hr />
+<h2 id="references">References</h2>
+<div class="references">
+<p>Accord on Fire and Building Safety in Bangladesh. (n.d.). <em>2020 annual report</em>.<br />
+<a href="https://internationalaccord.org/wp-content/uploads/2023/02/Accord_AR_2020-FINAL.pdf">https://internationalaccord.org/wp-content/uploads/2023/02/Accord_AR_2020-FINAL.pdf</a></p>
+<p>Drittelbeteiligungsgesetz [One-Third Participation Act], BGBl. I S. 974 (2004).<br />
+<a href="https://www.gesetze-im-internet.de/drittelbg/">https://www.gesetze-im-internet.de/drittelbg/</a></p>
+<p>European Commission. (n.d.). <em>Corporate sustainability due diligence</em>.<br />
+<a href="https://commission.europa.eu/topics/business-and-industry/company-law-and-corporate-governance/corporate-sustainability-due-diligence_en">https://commission.europa.eu/topics/business-and-industry/company-law-and-corporate-governance/corporate-sustainability-due-diligence_en</a></p>
+<p>Freeman, R. E. (1984). <em>Strategic management: A stakeholder approach</em>. Pitman.<br />
+<a href="https://iucat.iu.edu/iuk/1999948">https://iucat.iu.edu/iuk/1999948</a></p>
+<p>International Labour Organization. (2024, January 29). <em>Employment injury insurance in Bangladesh: Bridging social security in cases of tragedy</em>.<br />
+<a href="https://www.ilo.org/resource/statement/employment-injury-insurance-bangladesh-bridging-social-security-cases">https://www.ilo.org/resource/statement/employment-injury-insurance-bangladesh-bridging-social-security-cases</a></p>
+<p>Lieferkettensorgfaltspflichtengesetz [Supply Chain Due Diligence Act], BGBl. I S. 2959 (2021).<br />
+<a href="https://www.gesetze-im-internet.de/lksg/">https://www.gesetze-im-internet.de/lksg/</a></p>
+<p>Mitbestimmungsgesetz [Codetermination Act], BGBl. I S. 1153 (1976).<br />
+<a href="https://www.gesetze-im-internet.de/mitbestg/">https://www.gesetze-im-internet.de/mitbestg/</a></p>
+<p>Mitchell, R. K., Agle, B. R., &amp; Wood, D. J. (1997). Toward a theory of stakeholder identification and salience: Defining the principle of who and what really counts. <em>Academy of Management Review, 22</em>(4), 853–886.<br />
+<a href="https://doi.org/10.5465/amr.1997.9711022105">https://doi.org/10.5465/amr.1997.9711022105</a></p>
+<p>Nestlé. (2025). <em>Nestlé response to civil society organizations</em>.<br />
+<a href="https://www.nestle.com/sites/default/files/2025-11/nestle-response-civil-society-organizations.pdf">https://www.nestle.com/sites/default/files/2025-11/nestle-response-civil-society-organizations.pdf</a></p>
+<p>Public Eye. (2024). <em>How Nestlé gets children hooked on sugar in lower-income countries</em>.<br />
+<a href="https://www.publiceye.ch/en/publications/detail/how-nestle-gets-children-hooked-on-sugar-in-lower-income-countries">https://www.publiceye.ch/en/publications/detail/how-nestle-gets-children-hooked-on-sugar-in-lower-income-countries</a></p>
+<p>United Nations. (2011). <em>Guiding principles on business and human rights: Implementing the United Nations “Protect, Respect and Remedy” framework</em>.<br />
+<a href="https://www.ohchr.org/documents/publications/guidingprinciplesbusinesshr_en.pdf">https://www.ohchr.org/documents/publications/guidingprinciplesbusinesshr_en.pdf</a></p>
+<p>Labor Standards Act, art. 83 (Taiwan).<br />
+<a href="https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=N0030001">https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=N0030001</a></p>
+<p>State-Owned Enterprise Management Act, art. 35 (Taiwan).<br />
+<a href="https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=J0120001">https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=J0120001</a></p>
+</div>
+</main>
+</body>
+</html>

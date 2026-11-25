@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第5章 利害關係人理論與管理</title>
+<style>
+:root {
+  color-scheme: light;
+  color: #203246;
+  background: #eaf1f6;
+  font-family: system-ui, "Microsoft JhengHei", sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; padding: clamp(.5rem, 3vw, 2rem); line-height: 1.75; overflow-wrap: normal; word-break: normal; }
+main {
+  max-width: 66rem;
+  margin-inline: auto;
+  padding: clamp(1rem, 4vw, 3rem);
+  background: #fff;
+  border: 1px solid #d6e2ec;
+  border-radius: .8rem;
+}
+h1, h2, h3 { line-height: 1.35; }
+h1 { font-size: clamp(1.65rem, 4vw, 2.65rem); color: #142c41; margin-top: 0; }
+h2 { font-size: clamp(1.28rem, 3vw, 1.8rem); color: #124d68; margin-top: 1.9em; }
+h3 { font-size: clamp(1.08rem, 2vw, 1.3rem); margin-top: 1.6em; color: #1b4b60; }
+p, ul, ol { margin-block: .85em; }
+ul, ol { padding-inline-start: 1.5rem; }
+li + li { margin-top: .4rem; }
+a { color: #075985; text-underline-offset: .17em; overflow-wrap: anywhere; }
+blockquote {
+  margin: 1.2rem 0;
+  padding: .8rem clamp(.75rem, 3vw, 1.25rem);
+  border-inline-start: .26rem solid #247b87;
+  background: #edf7f8;
+  border-radius: .3rem;
+}
+blockquote > :first-child { margin-top: 0; }
+blockquote > :last-child { margin-bottom: 0; }
+hr { border: 0; border-top: 1px solid #d6e2ec; margin-block: 2rem; }
+.table-scroll { margin-block: 1.15rem; max-width: 100%; overflow-x: auto; }
+:focus-visible { outline: 2px solid #075985; outline-offset: 2px; }
+table { border-collapse: collapse; width: 100%; min-width: var(--table-width, 0); table-layout: fixed; font-size: .95rem; }
+th, td { padding: .6rem .75rem; text-align: start; vertical-align: top; border: 1px solid #9eafbe; overflow-wrap: break-word; }
+table :is(th, td):first-child { width: 22%; }
+th { background: #e5f0f6; }
+tbody tr:nth-child(even) { background: #f5f8fa; }
+.references p { margin-block: 1rem; }
+@media (max-width: 480px) {
+  body { padding: 0; }
+  main { border: 0; border-radius: 0; }
+  th, td { padding: .45rem .6rem; }
+}
+@media print {
+  body, main { padding: 0; background: #fff; border: 0; }
+  .table-scroll { overflow: visible; }
+  table { min-width: 0; }
+}
+
+body:has(#chapter-five-reading) {
+  --ch5-navy: #153b5b;
+  --ch5-teal: #08665e;
+  --ch5-line: #7f9bad;
+  --ch5-link: #075985;
+  --ch5-stripe: #eff5f9;
+  --ch5-note: #fff6df;
+  --ch5-note-accent: #98701d;
+  --ch5-case: #eaf4ff;
+  --ch5-case-accent: #306ca5;
+  --ch5-extension: #e8f6ee;
+  --ch5-extension-accent: #287257;
+}
+body:has(#chapter-five-reading) h1 { color: var(--ch5-navy); border-bottom: 3px solid var(--ch5-teal); padding-bottom: .35em; }
+body:has(#chapter-five-reading) h2 { color: var(--ch5-teal); }
+body:has(#chapter-five-reading) h3 { color: var(--ch5-navy); }
+body:has(#chapter-five-reading) hr { border: 0; border-top: 1px solid var(--ch5-line); }
+body:has(#chapter-five-reading) blockquote {
+  background: var(--ch5-note);
+  color: #203246;
+  border-inline-start: .28rem solid var(--ch5-note-accent);
+  border-radius: .35rem;
+  padding: .7rem 1rem;
+  margin-inline: 0;
+}
+body:has(#chapter-five-reading) blockquote:first-of-type {
+  background: var(--ch5-case);
+  border-inline-start-color: var(--ch5-case-accent);
+}
+body:has(#chapter-five-reading) blockquote:last-of-type {
+  background: var(--ch5-extension);
+  border-inline-start-color: var(--ch5-extension-accent);
+}
+body:has(#chapter-five-reading) blockquote > :first-child { margin-top: 0; }
+body:has(#chapter-five-reading) blockquote > :last-child { margin-bottom: 0; }
+body:has(#chapter-five-reading) table { border-collapse: collapse; }
+body:has(#chapter-five-reading) table :is(th, td) { border: 1px solid var(--ch5-line); }
+body:has(#chapter-five-reading) table th { background: var(--ch5-navy); color: #fff; }
+body:has(#chapter-five-reading) table tbody tr:nth-child(even) { background: var(--ch5-stripe); }
+body:has(#chapter-five-reading) a { color: var(--ch5-link); overflow-wrap: anywhere; text-underline-offset: .16em; }
+body:has(#chapter-five-reading) table:not(.table-scroll > table) { display: block; max-width: 100%; overflow-x: auto; }
+body.vscode-dark:has(#chapter-five-reading),
+body.vscode-high-contrast:has(#chapter-five-reading) {
+  --ch5-navy: #9fcaff;
+  --ch5-teal: #85ddd1;
+  --ch5-line: #7892a5;
+  --ch5-link: #8dcfff;
+  --ch5-stripe: #273848;
+}
+body:is(.vscode-dark, .vscode-high-contrast):has(#chapter-five-reading) table th { color: #142c41; }
+body:is(.vscode-dark, .vscode-high-contrast):has(#chapter-five-reading) blockquote a { color: #075985; }
+</style>
+</head>
+<body>
+<main>
+<span id="chapter-five-reading" hidden></span>
+<h1 id="section">第5章 利害關係人理論與管理</h1>
+<h2 id="rana-plaza">章首個案　Rana Plaza 倒塌前，誰能讓工廠停工？</h2>
+<p>2013 年 4 月 24 日，孟加拉達卡附近的 Rana Plaza 大樓倒塌。大樓內有五家成衣工廠。依國際勞工組織（International Labour Organization, ILO）公布的統計，事故造成至少 1,132 人死亡、逾 2,500 人受傷（ILO, 2024）。當工人察覺工作場所可能有危險，他們能向誰通報，又能否安全離開？對遠在海外的品牌商而言，工廠是否安全，也取決於現場資訊能不能傳到有權要求改善的人手中。</p>
+<blockquote>
+<p><strong>章首情境（課堂假設）｜離下一班上工只剩兩小時</strong></p>
+<p>你是一家臺灣服飾品牌的獨立董事。採購部說，南亞供應商上個月通過例行稽核。今天，一名工人傳來牆面裂縫的照片，說廠方要求大家照常上班。你的公司只占該工廠一成訂單。</p>
+<p><strong>如果你現在只能要求公司先做一件事，你會要求什麼？還要向誰查證？</strong></p>
+<p>先寫下兩句話，留到章末再看。</p>
+</blockquote>
+<p>第四章討論如何判斷企業的揭露及確信結果是否可靠。這一章從董事會收到裂縫照片的情境出發：如果工廠照常開工，或是暫停作業，誰會受到影響？</p>
+<p>照常開工，工人可能繼續暴露在危險中。暫停作業，工人的收入、廠方的營運和品牌的交期都可能受到影響。第一節先從這個決定出發，辨認利害關係人及其訴求，再看管理者為什麼容易優先注意其中一些訴求。</p>
+<p>第二節接著追蹤工人的觀察如何透過通報或代表進入決策。第三節回到董事會，討論安全、工資與交期發生衝突時，哪些條件要先滿足，哪些代價還能協商。第四節說明廠方、品牌與主管機關如何查證和行動，以及用什麼證據確認改善。第五節轉到工廠外，用同樣的方法分析下游水質異常。</p>
+<hr />
+<h2 id="section-1">第一節　誰是利害關係人？誰的訴求優先？</h2>
+<p>先問誰會受到影響。即使只有一名工人拍到裂縫，所有可能進入那棟建物工作的人，都可能承受照常開工的風險。若暫停作業，還要考慮工人的工資、廠方的營運與品牌的交期。</p>
+<h3 id="section-2">一、從一項決策找出受影響的人</h3>
+<p>Freeman (1984) 將利害關係人界定為能影響組織目標達成，或會受其影響的個人或群體。辨認受影響的人之後，再找掌握資訊的人與能改變決定的人。下表用暫停作業的例子說明這三種角色。</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="表格，可橫向捲動" style="--table-width:32rem"><table>
+<thead>
+<tr>
+<th>問題</th>
+<th>章首情境中的例子</th>
+<th>接下來要查什麼？</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>誰承受後果？</td>
+<td>工人承受建物風險，也可能因停工失去收入。品牌承擔延遲交貨的成本。</td>
+<td>分別列出維持生產和暫停生產的後果，以及各由誰承擔。</td>
+</tr>
+<tr>
+<td>誰掌握現場資訊？</td>
+<td>工人能指出裂縫出現的時間與位置。採購部握有稽核範圍與日期。</td>
+<td>問工人看到了什麼，再核對稽核有沒有檢查建物結構。</td>
+</tr>
+<tr>
+<td>誰能改變決策？</td>
+<td>廠方可以安排現場作業。品牌可以調整交期。主管機關是否能命令停工，要看所在地法規。</td>
+<td>分辨誰有權採取措施、誰能協調，以及誰必須接到通知。</td>
+</tr>
+</tbody>
+</table></div>
+<p>拍照的工人可以指出裂縫出現的時間和位置。同班工人即使沒看到裂縫，也可能承受繼續工作的風險。採購部則可以查明上次稽核的範圍。先分清誰受影響、誰能提供證據，再看哪些訴求能得到管理者注意。</p>
+<h3 id="section-3">二、管理者會先注意誰？利害關係人顯著性模型</h3>
+<p>工人手上有裂縫照片，採購主管手上有上月的稽核報告。採購主管有固定的回報管道，因此董事會可能先看到報告。利害關係人顯著性模型想解釋的就是：同時面對多個訴求時，管理者為何會優先注意其中一些？</p>
+<p>Mitchell et al. (1997) 提出三個判斷面向，稱為「屬性」：</p>
+<ol>
+<li>權力：提出訴求的一方有能力影響這項決策嗎？</li>
+<li>正當性：管理者是否認為這項訴求具有合理依據？</li>
+<li>急迫性：這項訴求對當事人有多重要，又能等多久？</li>
+</ol>
+<p>工人要求安全工作，訴求有正當性。下一班即將上工，警訊也具急迫性。假如工人無法促使廠方處理，也沒有管道讓品牌介入，他的影響力就有限。模型把這種組合稱為「依賴型」，意思是工人需要仰賴其他有影響力的人協助推動。如果工人代表能聯繫其他買方，促成聯合查驗，管理者對工人影響力的判斷也可能改變。</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="表格，可橫向捲動" style="--table-width:0"><table>
+<thead>
+<tr>
+<th>管理者察覺到的屬性</th>
+<th>模型中的類型名稱</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>權力</td>
+<td>休眠型</td>
+</tr>
+<tr>
+<td>正當性</td>
+<td>裁量型</td>
+</tr>
+<tr>
+<td>急迫性</td>
+<td>要求型</td>
+</tr>
+<tr>
+<td>權力、正當性</td>
+<td>主導型</td>
+</tr>
+<tr>
+<td>正當性、急迫性</td>
+<td>依賴型</td>
+</tr>
+<tr>
+<td>權力、急迫性</td>
+<td>危險型</td>
+</tr>
+<tr>
+<td>權力、正當性、急迫性</td>
+<td>決定型</td>
+</tr>
+</tbody>
+</table></div>
+<p>表註：每一列是一種屬性組合，對應一個類型。原文再把只有一項屬性的三種類型合稱為「潛在類」，具兩項屬性的三種類型合稱為「期待類」，三項齊備的決定型歸入「決定類」（Mitchell et al., 1997）。這些名稱描述管理者如何看待當下的關係與訴求。</p>
+<h3 id="section-4">三、企業應優先回應誰？</h3>
+<p>先用顯著性模型理解哪些警訊容易進入會議，再依法定義務、可能傷害的嚴重程度和延誤的後果判斷處理優先順序。採購部有固定的報告管道，工人的警訊可能只是一則訊息。即使兩者的影響力不同，可信的生命安全警訊仍需優先處理（United Nations, 2011, Principle 24）。</p>
+<blockquote>
+<p><strong>回到章首</strong></p>
+<p>請圈出你最想追問的一項資訊，並寫下等待查證可能讓誰承擔風險。</p>
+</blockquote>
+<blockquote>
+<p><strong>想一想</strong></p>
+<p>如果有工會可聯繫品牌、有不報復的申訴管道，或有主管機關可立即介入，工人的哪些屬性會改變？企業處理生命安全風險的優先順序又會如何？</p>
+</blockquote>
+<h2 id="section-5">第二節　工人的聲音如何進入決策？德國與臺灣的比較</h2>
+<p>如果工人昨天就看見裂縫，他能把消息告訴誰？有人可以受理申訴，有人可以要求把問題列入會議，也有人能在公司治理機關表決。這些權限會影響警訊能走多遠。下表先比較兩地如何讓勞方代表進入公司治理機關，再回到現場通報的問題。</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="表格，可橫向捲動" style="--table-width:32rem"><table>
+<thead>
+<tr>
+<th>比較面向</th>
+<th>德國：勞方監事</th>
+<th>臺灣：國營事業勞工董事或理事</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>哪些企業有法定席次？</td>
+<td>符合相關法律的企業通常僱用逾 500 人時，監事會勞方席次通常為三分之一。通常僱用逾 2,000 人且適用《共同決定法》者，勞資席次各半。特定產業另有制度（Drittelbeteiligungsgesetz, 2004, §§ 1, 4; Mitbestimmungsgesetz, 1976, §§ 1, 7）。</td>
+<td>《國營事業管理法》第 35 條規定，代表政府股份的董事或理事席次至少五分之一由主管機關聘請工會推派的代表擔任。一般民營公司沒有相同的普遍法定席次要求。</td>
+</tr>
+<tr>
+<td>代表進入哪個機關？</td>
+<td>勞方代表進入監事會。</td>
+<td>工會推派的代表進入董事會或理事會。</td>
+</tr>
+<tr>
+<td>代表如何參與決策？</td>
+<td>勞方監事可參與監督及表決。依《共同決定法》，特定平票情形下，監事會主席有第二票（Mitbestimmungsgesetz, 1976, § 29）。</td>
+<td>勞工董事或理事依其職務參與所屬機關的議事及表決。</td>
+</tr>
+</tbody>
+</table></div>
+<p>公司治理機關的席次是一種參與方式。臺灣另有勞資會議供勞資雙方協商（勞動基準法，第 83 條）。遇到裂縫這類急迫問題，還要問現場工人能否直接通報、由誰即時受理，以及何時上報。</p>
+<p>評估臺灣是否擴大勞工參與時，可以從企業規模、代表選任、資訊取得及訓練、利益衝突和表決權切入。讓員工擁有席次是一種做法，建立定期回報與即時通報也是治理設計的一部分。供應鏈工人則需要能跨過廠方、接觸品牌或獨立機構的申訴管道。</p>
+<blockquote>
+<p><strong>想一想</strong></p>
+<p>比較「勞資會議可提案」和「勞工董事可取得資料並表決」。哪一項安排更能處理慢性高工時？遇到立即危險，又需要什麼即時通報與退避機制？</p>
+</blockquote>
+<p>通報管道可以讓董事會看見問題。董事會接到照片後，接下來要判斷的是，怎麼處理安全、工資和交期之間的衝突。</p>
+<hr />
+<h2 id="section-6">第三節　股東與其他利害關係人的訴求衝突時，怎麼決定？</h2>
+<p>第一節說明了哪些警訊容易被忽略。現在假設董事會已經看到照片，問題變成：保護工人、履行訂單與維持停工期間收入，哪些條件要先確立，哪些仍可協商？</p>
+<h3 id="section-7">一、下一班工人快到廠了，交期怎麼辦？</h3>
+<p>延續章首的例子，品牌收到了工人拍攝的裂縫照片。採購部估計，若廠方暫停生產，這批貨可能趕不上出貨日。廠方擔心其他買方轉單。下一班工人還不知道品牌收到裂縫照片，也不確定離開工作場所會不會影響工資。</p>
+<p>股東價值觀點讓董事會看見延誤、違約與營運損失。利害關係人觀點也把工人的安全與生計納入決策。請先列出必須優先滿足的安全及法律條件，再比較剩下的選項。誰能改交期？誰能處理現場？停工的成本會落到誰身上？條件釐清後，品牌才有辦法談怎麼分擔成本、配合查證和改善。</p>
+<h3 id="section-8">二、先確立安全條件，再比較可行方案</h3>
+<ol>
+<li><strong>先處理可能造成嚴重且難以挽回的傷害。</strong> 若現有警訊可信，品牌應在自身權限內促請廠方採取暫時保護措施，必要時通知有權介入的機關，並同步安排獨立查證。</li>
+<li><strong>在符合安全與法規條件的方案中比較代價。</strong> 可協商延後交期、分批交付或調整其他訂單，並釐清工資安排及改善成本。記下每一方案由誰受益、由誰承擔代價。</li>
+<li><strong>指定執行者、查證期限及重新檢討的條件。</strong> 品牌董事會可要求管理階層採取採購措施並回報。廠方及主管機關各自能做什麼，須依適用法規與契約判斷。</li>
+</ol>
+<p>套回本案，合理起點是先促請廠方保護可能暴露於危險的工人，並要求獨立查證。至於延後哪批貨、各買方如何分擔成本、如何保障停工期間的收入，都還需要協商。試想兩種方案：品牌單獨延後交期，或與其他買方共同承諾調整交期。哪一種比較能讓廠方落實改善，又需要哪些承諾才可行？</p>
+<p>第三章的 Boeing 737 MAX 案也可以用同一個問題回看：當交付有壓力，第一線人員如何讓安全警訊進入決策？</p>
+<h3 id="section-9">三、品牌收到警訊後，有什麼手段可以用？</h3>
+<p>假設採購契約約定，遇到重大安全疑慮，品牌可要求供應商接受獨立查驗，並在期限內提出改善計畫。收到裂縫照片後，品牌便可依約要求查驗，再協調交期，讓廠方有時間改善。想一想：如果工人沒有安全的通報管道，品牌即使有查驗權，會知道何時該用嗎？</p>
+<h2 id="section-10">第四節　供應商通過稽核，品牌還要做什麼？</h2>
+<p>第二節介紹工人如何讓警訊進入決策，第三節則說明品牌接到警訊後可以怎麼回應。到了查驗這一步，企業還要判斷手上的資料能回答什麼，以及如何確認改善真的發生。</p>
+<p>延續第三節的例子，董事會討論安全與交期後，請採購部調出稽核報告。首頁寫著「通過」，附件只列消防設備、逃生動線與工時抽查，沒有建物結構檢查。這份報告仍可提供消防設備的抽查結果。若要回答「裂縫會不會危及下一班工人」，需要的是另一種證據：工人的現場說明與獨立的結構檢查。</p>
+<h3 id="section-11">一、把盡職調查做到能追蹤</h3>
+<p>《聯合國工商企業與人權指導原則》（United Nations Guiding Principles on Business and Human Rights, UNGPs）包含國家保護人權、企業尊重人權及取得救濟三支柱（United Nations, 2011）。</p>
+<p>企業可用人權盡職調查（Human Rights Due Diligence, HRDD）把警訊變成一連串可驗證的工作。以裂縫案為例，先訪談工人並委託獨立檢查來評估影響，再讓採購與管理部門採取行動，例如協商交期、指定改善負責人。接著追蹤缺失是否修補、獨立複驗是否通過，並用工人能理解的方式說明處理進度（United Nations, 2011, Principles 17–21）。</p>
+<p>企業若造成或促成傷害，應提供補救或合作補救（United Nations, 2011, Principle 22）。如果傷害透過商業關係與企業的營運、產品或服務直接關聯，企業應設法防止或減輕影響，例如運用採購關係促使供應商改善（United Nations, 2011, Principle 13）。</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="表格，可橫向捲動" style="--table-width:42rem"><table>
+<thead>
+<tr>
+<th>受影響的人與訴求</th>
+<th>風險證據</th>
+<th>誰能採取行動</th>
+<th>如何驗證改善</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>工人要求安全工作</td>
+<td>裂縫照片、工人訪談、獨立結構檢查</td>
+<td>廠方處理現場，主管機關依法介入，品牌調整交期並要求改善</td>
+<td>查核危險區域停用、改善項目及獨立復驗，向工人確認措施已落實</td>
+</tr>
+<tr>
+<td>工人希望通報後免受報復</td>
+<td>申訴紀錄、班表與工資資料、匿名訪談</td>
+<td>廠方及品牌建立保密通報與不報復措施，讓工人代表參與追蹤</td>
+<td>檢查是否有扣薪、調職等不利處分，並查核案件處理與申訴人回饋</td>
+</tr>
+<tr>
+<td>受傷工人與家屬需要救濟</td>
+<td>傷亡與薪資紀錄、家屬需求、補償申請資料</td>
+<td>依各方造成或促成傷害的情形，由廠方、品牌及相關機構處理或合作補救</td>
+<td>公布適當的彙總資料，追蹤補償是否送達，以及申訴能否獲得處理</td>
+</tr>
+</tbody>
+</table></div>
+<p>供應商行為準則可把要求寫進採購流程。稽核可抽查執行結果。能力建構可協助供應商取得改善所需的技術與資源。品牌也要檢視自己的交期、採購價格及未授權轉包管理。若只有一成訂單，可與其他買方合作、聘請獨立工程人員，並在權限範圍內調整訂單和交期。</p>
+<h3 id="section-12">二、分清國際準則、法規與客戶要求</h3>
+<p>採購主管若收到歐洲客戶的查核要求，可以把問題拆成三層：國際準則建議做什麼？企業是否直接受法律拘束？即使法律未直接納管，客戶是否在契約中約定配合事項？</p>
+<ul>
+<li>國際準則。聯合國指導原則提供辨識、處理及補救人權影響的架構（United Nations, 2011）。</li>
+<li>德國《供應鏈盡職調查法》。德文全名為 Lieferkettensorgfaltspflichtengesetz（LkSG），英文常譯為 Supply Chain Due Diligence Act。該法於 2021 年通過、2023 年生效。德國境內員工門檻自 2024 年起為至少 1,000 人，適用仍須一併檢視企業及據點條件（Lieferkettensorgfaltspflichtengesetz, 2021, § 1）。</li>
+<li>歐盟《企業永續盡職調查指令》（Corporate Sustainability Due Diligence Directive, CSDDD）。指令於 2024 年生效，經 2025 年及 2026 年修正。依修正後時程，成員國一般應於 2028 年 7 月 26 日前完成轉置，並自 2029 年 7 月 26 日起適用相關措施。部分報告規定另有時程。企業可依最新條文、轉置法規與適用條件判斷自身責任（European Commission, n.d.）。</li>
+</ul>
+<p>臺灣企業可以先判斷自身是否落入相關法規範圍，再查閱客戶契約。即使企業本身未達適用門檻，符合適用條件的客戶仍可能要求提供供應商據點、配合查核或追蹤改善。涉及海外工廠時，也要查明所在地的勞動與職業安全規定，以及品牌和廠方各自能採取哪些行動。</p>
+<hr />
+<h2 id="section-13">第五節　工廠之外，誰承受企業決策的後果？</h2>
+<p>第四節的工人知道廠內發生了什麼事。把視線移到廠外，最先發現異常的可能是下游居民。居民沒有採購契約，也未必有正式通報管道。這一節用水質爭議測試前面的三問，看看同一套方法如何用在社區與環境。</p>
+<blockquote>
+<p><strong>課堂延伸案例｜下游水質異常</strong></p>
+<p>同一家供應商附近，下游居民拍到排水口的水變色。廠方拿出上月合格的檢測報告。照片記錄了當下的異常，但污染來源仍待查。上月報告則只反映當時的採樣條件。</p>
+<p>如果要查清楚，你會在哪裡、什麼時候取樣？會請誰在場？</p>
+</blockquote>
+<p>下游居民與依賴河川謀生的人可能承受損害，河川水質與生態系是受影響的環境。居民可提供異常時段及位置，主管機關、研究者和環保團體則可協助取得監測資料或判讀證據。</p>
+<p>若污染的成本由下游社區承擔，而且沒有反映在產品價格中，就是本章所說的環境外部性。企業可建立通報及申訴管道，委託獨立採樣、公布可理解的結果、設定改善期限，並邀請居民參與後續追蹤。環境影響評估、排放標準及碳定價等制度各有適用範圍。第七章將進一步討論氣候風險與環境治理。</p>
+<h2 id="section-14">本章小結</h2>
+<p>回到章首的決定。照常開工，最直接承受安全風險的是進入建物的工人。暫停作業，還要處理工資、廠方營運與品牌交期。釐清影響之後，再問判斷有什麼依據：工人的照片提供查證線索，採購部可以核對既有稽核的範圍，工程人員則能進一步評估結構安全。通報管道讓這些資訊能及時送到決策者手中。</p>
+<p>最後要把決定落到行動。廠方能採取現場保護措施，品牌可運用契約與採購影響力要求查驗、協調交期，主管機關則依所在地法規行使職權。下游水質案例也能循同樣的順序，先辨認可能受影響的居民，再查證污染來源，最後釐清由誰改善與回報。回到董事會，請說明：誰會承受決定的後果？你根據什麼證據判斷？接下來由誰採取行動，又怎麼確認改善？</p>
+<hr />
+<h2 id="rana-plaza-1">章尾個案　回到 Rana Plaza：什麼條件下才能復工？</h2>
+<p>Rana Plaza 事故後，國際品牌、零售商與工會簽署具法律拘束力的《孟加拉消防與建築安全協議》。協議透過獨立檢查、安全改善、工人訓練與申訴等措施，讓工廠安全有更清楚的查核與追蹤方式。這些安排也提供一個比較基準：若工人的警訊能被具有獨立性和行動權的機構接收，品牌董事會可獲得哪些不同的資訊？（Accord on Fire and Building Safety in Bangladesh, n.d.）</p>
+<p>延續第四節的例子，品牌發現稽核未涵蓋建物結構，於是安排獨立查證。獨立工程人員初步判斷需要深入檢查，供應商希望隔天復工以履行訂單。工人願意配合停工，但擔心沒有工資。另一家買方表示，只要取得可信的改善計畫，就願意一起調整交期。</p>
+<p>請回看你在章首寫下的答案，提交一份三句話董事會決議：</p>
+<ol>
+<li><strong>今天先做什麼？</strong> 請寫出保護工人的措施與執行責任人。</li>
+<li><strong>誰應查證、改善並回報？</strong> 請交代時限、共同行動及工人通報方式。</li>
+<li><strong>憑什麼證據同意復工？</strong> 請列出獨立檢查、改善驗證及工人回饋如何進入決策。</li>
+</ol>
+<p>接著在決議下寫一句話，說明你調整或保留了哪項判斷，以及哪項證據或制度支持你的決定。</p>
+<p>下一章將透過 Volkswagen 排放造假案繼續追問：當企業已知自己的決策可能傷害他人，它負有哪些經濟、法律與倫理責任？</p>
+<h2 id="section-15">習題</h2>
+<h3 id="section-16">選擇題</h3>
+<ol>
+<li>下列何者不屬於利害關係人顯著性的三項屬性？<br />
+(A) 權力　(B) 正當性　(C) 急迫性　(D) 財富</li>
+<li>一家通常僱用逾 2,000 人且適用德國《共同決定法》的企業，勞方一般占其監事會多少席次？<br />
+(A) 四分之一　(B) 三分之一　(C) 二分之一　(D) 三分之二</li>
+<li>下列何者不屬於本章介紹的供應商風險管理工具？<br />
+(A) 供應商行為準則　(B) 供應商稽核　(C) 股東分紅　(D) 供應商能力建構</li>
+<li>供應商上月通過稽核，今天卻有可信的立即危險警訊。品牌最合宜的第一步是什麼？<br />
+(A) 等待例行稽核　(B) 要求立即採取保護措施並同步安排獨立查證　(C) 先發新聞稿　(D) 只向採購主管確認交期</li>
+<li>品牌在採購契約中取得要求獨立查驗的權利。要讓品牌及時使用這項權利，還需要哪一項安排？<br />
+(A) 延長所有交期　(B) 讓工人能安全通報，並指定人員受理　(C) 取消後續查驗　(D) 每年重簽契約</li>
+</ol>
+<h3 id="section-17">問答與應用</h3>
+<ol>
+<li>工人有正當且急迫的安全訴求，卻很難影響品牌決策。請用顯著性模型說明原因，並提出兩種改善管道。</li>
+<li>比較臺灣勞資會議、國營事業勞工董事與德國勞方監事各自能做的事。若要讓警訊更早進入決策，你還會設計什麼制度？</li>
+<li>工廠下游居民指出水質異常。請列出兩類需要取得的證據、兩個可以採取行動的角色，以及一項可用來驗證改善的指標。</li>
+<li>Public Eye 於 2024 年調查 Nestlé 部分 Cerelac 和 Nido 產品，指出部分中低收入市場受檢產品含添加糖。Nestlé 在後續回應中質疑糖含量的計算和比較，並說明配方因市場而異（Nestlé, 2025; Public Eye, 2024）。 若你是品質委員會成員，會要求補齊哪三類資料，才能判斷不同市場的產品是否可比？在取得資料前，公司可以如何回答照顧者的疑問？</li>
+</ol>
+<hr />
+<h2 id="section-18">參考文獻</h2>
+<div class="references">
+<p>Accord on Fire and Building Safety in Bangladesh. (n.d.). <em>2020 annual report</em>.<br />
+<a href="https://internationalaccord.org/wp-content/uploads/2023/02/Accord_AR_2020-FINAL.pdf">https://internationalaccord.org/wp-content/uploads/2023/02/Accord_AR_2020-FINAL.pdf</a></p>
+<p>Drittelbeteiligungsgesetz [One-Third Participation Act], BGBl. I S. 974 (2004).<br />
+<a href="https://www.gesetze-im-internet.de/drittelbg/">https://www.gesetze-im-internet.de/drittelbg/</a></p>
+<p>European Commission. (n.d.). <em>Corporate sustainability due diligence</em>.<br />
+<a href="https://commission.europa.eu/topics/business-and-industry/company-law-and-corporate-governance/corporate-sustainability-due-diligence_en">https://commission.europa.eu/topics/business-and-industry/company-law-and-corporate-governance/corporate-sustainability-due-diligence_en</a></p>
+<p>Freeman, R. E. (1984). <em>Strategic management: A stakeholder approach</em>. Pitman.<br />
+<a href="https://iucat.iu.edu/iuk/1999948">https://iucat.iu.edu/iuk/1999948</a></p>
+<p>International Labour Organization. (2024, January 29). <em>Employment injury insurance in Bangladesh: Bridging social security in cases of tragedy</em>.<br />
+<a href="https://www.ilo.org/resource/statement/employment-injury-insurance-bangladesh-bridging-social-security-cases">https://www.ilo.org/resource/statement/employment-injury-insurance-bangladesh-bridging-social-security-cases</a></p>
+<p>Lieferkettensorgfaltspflichtengesetz [Supply Chain Due Diligence Act], BGBl. I S. 2959 (2021).<br />
+<a href="https://www.gesetze-im-internet.de/lksg/">https://www.gesetze-im-internet.de/lksg/</a></p>
+<p>Mitbestimmungsgesetz [Codetermination Act], BGBl. I S. 1153 (1976).<br />
+<a href="https://www.gesetze-im-internet.de/mitbestg/">https://www.gesetze-im-internet.de/mitbestg/</a></p>
+<p>Mitchell, R. K., Agle, B. R., &amp; Wood, D. J. (1997). Toward a theory of stakeholder identification and salience: Defining the principle of who and what really counts. <em>Academy of Management Review, 22</em>(4), 853–886.<br />
+<a href="https://doi.org/10.5465/amr.1997.9711022105">https://doi.org/10.5465/amr.1997.9711022105</a></p>
+<p>Nestlé. (2025). <em>Nestlé response to civil society organizations</em>.<br />
+<a href="https://www.nestle.com/sites/default/files/2025-11/nestle-response-civil-society-organizations.pdf">https://www.nestle.com/sites/default/files/2025-11/nestle-response-civil-society-organizations.pdf</a></p>
+<p>Public Eye. (2024). <em>How Nestlé gets children hooked on sugar in lower-income countries</em>.<br />
+<a href="https://www.publiceye.ch/en/publications/detail/how-nestle-gets-children-hooked-on-sugar-in-lower-income-countries">https://www.publiceye.ch/en/publications/detail/how-nestle-gets-children-hooked-on-sugar-in-lower-income-countries</a></p>
+<p>United Nations. (2011). <em>Guiding principles on business and human rights: Implementing the United Nations “Protect, Respect and Remedy” framework</em>.<br />
+<a href="https://www.ohchr.org/documents/publications/guidingprinciplesbusinesshr_en.pdf">https://www.ohchr.org/documents/publications/guidingprinciplesbusinesshr_en.pdf</a></p>
+<p>勞動基準法，第 83 條（臺灣）。<br />
+<a href="https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=N0030001">https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=N0030001</a></p>
+<p>國營事業管理法，第 35 條（臺灣）。<br />
+<a href="https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=J0120001">https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=J0120001</a></p>
+</div>
+</main>
+</body>
+</html>

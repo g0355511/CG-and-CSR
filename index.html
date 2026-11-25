@@ -21,6 +21,13 @@ a:hover{text-decoration:underline}
 .eng-note{font-size:0.9rem;color:var(--muted);display:block;margin-top:0.1rem;}
 footer{margin-top:3rem;padding-top:1rem;border-top:1px solid var(--border);color:var(--muted);font-size:0.9rem;text-align:center}
 @media print{body{max-width:none;margin:0}a{color:var(--fg)}}
+.chapter-formats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem;margin:.65rem 0 0}
+.chapter-format{padding:.65rem .8rem;background:#fff;border:1px solid var(--border);border-radius:6px}
+.chapter-format dt{font-weight:bold;color:var(--accent)}
+.chapter-format dd{margin:0}
+.chapter-format a{display:inline-block;margin:.2rem .7rem .1rem 0;font-size:1rem;word-break:normal}
+.chapter-format a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+@media(max-width:540px){.chapter-formats{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -36,45 +43,65 @@ footer{margin-top:3rem;padding-top:1rem;border-top:1px solid var(--border);color
         <ul>
             <li>
                 <strong>第1章：公司治理是什麼？——權力、責任與問責</strong>
-                <span class="eng-note">Chapter 1: What Is Corporate Governance? — Power, Responsibility, and Accountability</span>
-                <ul>
-                    <li>
-                        <a href="ch01_v4_預覽.html">中文版教材</a> 
-                        <span class="eng-note" style="display:inline; margin-left:5px;">(Chinese Version)</span>
-                    </li>
-                    <li>
-                        <a href="ch01_v3_English_預覽.html">英文版教材</a> 
-                        <span class="eng-note" style="display:inline; margin-left:5px;">(English Version)</span>
-                    </li>
-                </ul>
+                <span class="eng-note" lang="en">Chapter 1: What Is Corporate Governance? — Power, Responsibility, and Accountability</span>
+                <dl class="chapter-formats">
+                    <div class="chapter-format">
+                        <dt>中文版</dt>
+                        <dd><a href="ch01_v4_預覽.html">網頁閱讀</a></dd>
+                    </div>
+                    <div class="chapter-format" lang="en">
+                        <dt>English</dt>
+                        <dd><a href="ch01_v3_English_預覽.html">Read online</a></dd>
+                    </div>
+                </dl>
             </li>
             <li style="margin-top: 1.5rem;">
                 <strong>第三章：誰來監督監督者？——董事會、獨董與委員會</strong>
-                <span class="eng-note">Chapter 3: Who Monitors the Monitors? — Boards, Independent Directors, and Committees</span>
-                <ul>
-                    <li>
-                        <a href="ch03_v4_預覽.html">中文版教材</a> 
-                        <span class="eng-note" style="display:inline; margin-left:5px;">(Chinese Version)</span>
-                    </li>
-                    <li>
-                        <a href="ch03_v4_English_預覽.html">英文版教材</a> 
-                        <span class="eng-note" style="display:inline; margin-left:5px;">(English Version)</span>
-                    </li>
-                </ul>
+                <span class="eng-note" lang="en">Chapter 3: Who Monitors the Monitors? — Boards, Independent Directors, and Committees</span>
+                <dl class="chapter-formats">
+                    <div class="chapter-format">
+                        <dt>中文版</dt>
+                        <dd><a href="ch03_v4_預覽.html">網頁閱讀</a></dd>
+                    </div>
+                    <div class="chapter-format" lang="en">
+                        <dt>English</dt>
+                        <dd><a href="ch03_v4_English_預覽.html">Read online</a></dd>
+                    </div>
+                </dl>
             </li>
             <li style="margin-top: 1.5rem;">
                 <strong>第四章：我們怎麼知道真相？——資訊揭露與審計</strong>
-                <span class="eng-note">Chapter 4: How Do We Know the Truth? — Information Disclosure and Audit</span>
-                <ul>
-                    <li>
-                        <a href="ch04_v2_預覽.html">中文版教材</a> 
-                        <span class="eng-note" style="display:inline; margin-left:5px;">(Chinese Version)</span>
-                    </li>
-                    <li>
-                        <a href="ch04_v2_English_預覽.html">英文版教材</a> 
-                        <span class="eng-note" style="display:inline; margin-left:5px;">(English Version)</span>
-                    </li>
-                </ul>
+                <span class="eng-note" lang="en">Chapter 4: How Do We Know the Truth? — Information Disclosure and Audit</span>
+                <dl class="chapter-formats">
+                    <div class="chapter-format">
+                        <dt>中文版</dt>
+                        <dd><a href="ch04_v2_預覽.html">網頁閱讀</a></dd>
+                    </div>
+                    <div class="chapter-format" lang="en">
+                        <dt>English</dt>
+                        <dd><a href="ch04_v2_English_預覽.html">Read online</a></dd>
+                    </div>
+                </dl>
+            </li>
+            <li style="margin-top: 1.5rem;">
+                <strong>第五章：利害關係人理論與管理</strong>
+                <span class="eng-note" lang="en">Chapter 5: Stakeholder Theory and Management</span>
+                <dl class="chapter-formats">
+                    <div class="chapter-format">
+                        <dt>中文版</dt>
+                        <dd>
+                            <a href="ch05_zh.html">網頁閱讀</a>
+                            <a href="ch05_zh.pdf" download>下載 PDF</a>
+                        </dd>
+                    </div>
+                    <div class="chapter-format" lang="en">
+                        <dt>English</dt>
+                        <dd>
+                            <a href="ch05_EN.html">Read online</a>
+                            <a href="ch05_EN.pdf" download>Download PDF</a>
+                        </dd>
+                    </div>
+                </dl>
             </li>
             <!-- 未來若有其他章節，可依此格式繼續擴充 -->
         </ul>
