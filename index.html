@@ -28,6 +28,11 @@ footer{margin-top:3rem;padding-top:1rem;border-top:1px solid var(--border);color
 .chapter-format a{display:inline-block;margin:.2rem .7rem .1rem 0;font-size:1rem;word-break:normal}
 .chapter-format a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 @media(max-width:540px){.chapter-formats{grid-template-columns:1fr}}
+.chapter-archive{margin-top:.65rem;color:var(--muted)}
+.chapter-archive summary{cursor:pointer;width:fit-content}
+.chapter-archive summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.chapter-archive ul{margin:.3rem 0 .4rem 1.25rem}
+.chapter-archive a{font-size:.95rem;word-break:normal}
 </style>
 </head>
 <body>
@@ -75,13 +80,20 @@ footer{margin-top:3rem;padding-top:1rem;border-top:1px solid var(--border);color
                 <dl class="chapter-formats">
                     <div class="chapter-format">
                         <dt>中文版</dt>
-                        <dd><a href="ch04_v2_預覽.html">網頁閱讀</a></dd>
+                        <dd><a href="ch04_v6.html">閱讀最新版（v6）</a></dd>
                     </div>
                     <div class="chapter-format" lang="en">
                         <dt>English</dt>
-                        <dd><a href="ch04_v2_English_預覽.html">Read online</a></dd>
+                        <dd><a href="ch04_v6_en.html">Read latest edition (v6)</a></dd>
                     </div>
                 </dl>
+                <details class="chapter-archive">
+                    <summary>歷史版本 <span lang="en">/ Previous editions</span></summary>
+                    <ul>
+                        <li><a href="ch04_v2_預覽.html">中文版 v2</a></li>
+                        <li><a href="ch04_v2_English_預覽.html" lang="en">English v2</a></li>
+                    </ul>
+                </details>
             </li>
             <li style="margin-top: 1.5rem;">
                 <strong>第五章：利害關係人理論與管理</strong>

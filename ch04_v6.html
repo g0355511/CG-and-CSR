@@ -1,0 +1,1140 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第4章 我們怎麼知道真相？——資訊揭露與審計</title>
+<style>
+body:has(#chapter-four-reading) {
+  --ch4-navy: #153b5b;
+  --ch4-teal: #08665e;
+  --ch4-line: #7f9bad;
+  --ch4-link: #075985;
+  --ch4-stripe: #eff5f9;
+  --ch4-note: #fff6df;
+  --ch4-note-accent: #98701d;
+  --ch4-case: #eaf4ff;
+  --ch4-case-accent: #306ca5;
+  --ch4-extension: #e8f6ee;
+  --ch4-extension-accent: #287257;
+  --ch4-paper: #ffffff;
+  --ch4-bg: #eaf1f6;
+  --ch4-text: #203246;
+  background: var(--ch4-bg);
+  color: var(--ch4-text);
+  font-family: system-ui, "Microsoft JhengHei", sans-serif;
+  line-height: 1.75;
+  margin: 0 auto;
+  max-width: 70rem;
+  padding: clamp(.75rem, 3vw, 2rem);
+}
+body:has(#chapter-four-reading) main {
+  background: var(--ch4-paper);
+  border: 1px solid #d6e2ec;
+  border-radius: .8rem;
+  padding: clamp(1rem, 4vw, 3rem);
+}
+body:has(#chapter-four-reading) :is(h1, h2, h3) { line-height: 1.35; }
+body:has(#chapter-four-reading) h1 { color: var(--ch4-navy); border-bottom: 3px solid var(--ch4-teal); padding-bottom: .35em; }
+body:has(#chapter-four-reading) h2 { color: var(--ch4-teal); margin-top: 1.65em; }
+body:has(#chapter-four-reading) h3 { color: var(--ch4-navy); margin-top: 1.45em; }
+body:has(#chapter-four-reading) hr { border: 0; border-top: 1px solid var(--ch4-line); margin-block: 2rem; }
+body:has(#chapter-four-reading) a { color: var(--ch4-link); overflow-wrap: anywhere; text-underline-offset: .16em; }
+body:has(#chapter-four-reading) blockquote {
+  background: var(--ch4-note);
+  color: #203246;
+  border-inline-start: .28rem solid var(--ch4-note-accent);
+  border-radius: .35rem;
+  margin: 1.15rem 0;
+  padding: .7rem 1rem;
+}
+body:has(#chapter-four-reading) blockquote:has(.ch4-case) { background: var(--ch4-case); border-inline-start-color: var(--ch4-case-accent); }
+body:has(#chapter-four-reading) blockquote:has(.ch4-extension) { background: var(--ch4-extension); border-inline-start-color: var(--ch4-extension-accent); }
+body:has(#chapter-four-reading) blockquote a { color: #075985; }
+body:has(#chapter-four-reading) blockquote > :first-child { margin-top: 0; }
+body:has(#chapter-four-reading) blockquote > :last-child { margin-bottom: 0; }
+body:has(#chapter-four-reading) table { display: block; max-width: 100%; overflow-x: auto; border-collapse: collapse; margin-block: 1.15rem; }
+body:has(#chapter-four-reading) table :is(th, td) { border: 1px solid var(--ch4-line); padding: .6rem .75rem; text-align: start; vertical-align: top; overflow-wrap: break-word; }
+body:has(#chapter-four-reading) th { background: var(--ch4-navy); color: #fff; }
+body:has(#chapter-four-reading) tbody tr:nth-child(even) { background: var(--ch4-stripe); }
+body:is(.vscode-dark, .vscode-high-contrast):has(#chapter-four-reading) {
+  --ch4-paper: #172432; --ch4-bg: #172432; --ch4-text: #e2eaf1;
+  --ch4-navy: #9fcaff; --ch4-teal: #85ddd1; --ch4-line: #7892a5; --ch4-link: #8dcfff; --ch4-stripe: #273848;
+}
+body:is(.vscode-dark, .vscode-high-contrast):has(#chapter-four-reading) th { color: #142c41; }
+@media print {
+  body:has(#chapter-four-reading), body:has(#chapter-four-reading) main { padding: 0; border: 0; background: white; }
+  body:has(#chapter-four-reading) table { display: table; width: 100%; }
+}
+</style>
+<style>*, *::before, *::after {box-sizing:border-box} main {min-width:0;overflow-wrap:anywhere} h1 {margin-top:0} #chapter-four-reading {display:none} @media print {* {print-color-adjust:exact}}</style>
+</head>
+<body><main><p><span id="chapter-four-reading" hidden></span></p>
+<h1 id="第4章-我們怎麼知道真相資訊揭露與審計">第4章
+我們怎麼知道真相？——資訊揭露與審計</h1>
+<h2 id="章首個案toshiba-財務造假審計委員會為何沒發現">章首個案：Toshiba
+財務造假——審計委員會為何沒發現？</h2>
+<p>2015年7月，東芝獨立調查委員會（Independent Investigation
+Committee）公布調查報告：東芝在2008-2014年間虛增利潤1,518億日圓（約新臺幣400億元），橫跨多個事業部門，是在公司層級管理階層參與下系統性地進行（Toshiba
+Independent Investigation Committee, 2015）。</p>
+<p>東芝當時有4名獨立董事（超過法規要求的2名），設有審計委員會、薪酬委員會、提名委員會。但調查報告指出：</p>
+<blockquote>
+<p><span class="ch4-case" hidden></span>「審計委員會未能發現財務造假，其監督功能形同虛設。董事會的文化是『背書』而非『質疑』。」</p>
+</blockquote>
+<p>更令人震驚的是，東芝的簽證會計師在七年間都出具了「無保留意見」——也就是認定財報「允當表達」。</p>
+<p><strong>這個案例帶出了本章的核心問題，也界定出本章的範圍。</strong></p>
+<p><strong>核心問題：</strong></p>
+<ol type="1">
+<li><strong>股東與投資人如何確保他們看到的「真相」是真實的？</strong>
+東芝的審計委員會為何沒發現——是專業不足，還是獨立性不足？</li>
+<li><strong>外部審計為什麼可能失靈？</strong>
+為什麼簽證會計師在七年間都出具「無保留意見」——是審計技術問題，還是獨立性問題？</li>
+<li><strong>如果連「專業守門人」都不可靠，我們還能相信什麼？</strong></li>
+</ol>
+<p><strong>本章定位：</strong>
+第三章確立了董事會作為監督管理當局的工具；但監督需要資訊——董事會怎麼知道管理當局是否誠實？本章把焦點從「誰來監督」轉移到「<strong>監督所依據的資訊是否可信</strong>」，探討監督所需的資訊基礎：資訊揭露、財務報導與外部審計。第四節接著討論投資人、企業和受企業活動影響的人為何需要永續資訊，以及如何判斷這些資訊是否可信。第五節說明揭露出現不實時如何追究責任。</p>
+<p><strong>學習目標：</strong></p>
+<ol type="1">
+<li>了解資訊不對稱如何傷害投資人和市場（第一節）</li>
+<li>掌握財務報導的基本原則、驗證機制與內部控制（第二節）</li>
+<li>分析外部審計失靈的原因與獨立性維持（第三節）</li>
+<li>說明不同使用者需要哪些永續資訊，並比較兩類報告的揭露及驗證方式（第四節）</li>
+<li>說明揭露不實時追究責任的目的（第五節）</li>
+</ol>
+<hr />
+<h2 id="第一節-資訊不對稱如何傷害投資人和市場">第一節
+資訊不對稱如何傷害投資人和市場？</h2>
+<p>股東無法直接監督經營者時，只能依賴公司揭露的資訊——而資訊的真假，決定了市場能否運作。本節說明資訊不對稱從何而來，又會造成什麼後果。</p>
+<h3 id="一資訊不對稱的本質">一、資訊不對稱的本質</h3>
+<p>資訊不對稱（Information
+Asymmetry）是指交易雙方掌握的資訊量或品質不同的情況。在資本市場中，管理階層掌握公司營運的詳細資訊，而外部股東與投資人只能透過公司主動揭露的資訊來了解公司狀況。</p>
+<p>Healy 與 Palepu（2001）將資訊不對稱的來源分為三種：</p>
+<p><strong>1. 內部資訊的優勢</strong></p>
+<p>管理階層每天在公司工作，清楚知道公司的真實營運狀況——包括未公開的研發進展、潛在訴訟、客戶流失風險等。這些資訊可能影響股價，但外部投資人無從得知。</p>
+<p><strong>2. 揭露成本與策略考量</strong></p>
+<p>公司揭露資訊需要成本（編製報告、律師顧問費等），而且過度揭露可能洩漏競爭機密。因此，管理階層會「策略性」地選擇揭露內容——只揭露好的資訊，隱瞞壞的資訊。</p>
+<p><strong>3. 資訊解讀的門檻</strong></p>
+<p>即使公司揭露了資訊，外部投資人也未必能正確解讀。例如，複雜的衍生性金融商品、關係人交易、或有負債等，需要專業知識才能理解其風險。</p>
+<h3 id="二資訊不對稱的後果">二、資訊不對稱的後果</h3>
+<p><strong>1. 逆選擇（Adverse Selection）</strong></p>
+<p>當投資人無法區分「好公司」與「壞公司」時，他們只願意以「平均價格」投資。這導致好公司的股價被低估，壞公司的股價被高估——最終，好公司退出市場，市場上只剩壞公司（Akerlof,
+1970）。</p>
+<blockquote>
+<p><span class="ch4-case" hidden></span>📌
+<strong>釋例</strong>：如果投資人無法判斷一家公司的財報是否真實，他們會要求更高的風險溢價（報酬率），這增加了所有公司的籌資成本——包括誠實的公司。</p>
+</blockquote>
+<p><strong>2. 道德風險（Moral Hazard）</strong></p>
+<p>當管理階層的行為難以被觀察時，他們可能追求自身利益而非股東利益。例如，管理階層可能進行「建立帝國」式的併購（擴大公司規模以提高薪酬），而非創造股東價值。</p>
+<p><strong>3. 市場流動性下降</strong></p>
+<p>當投資人對公司資訊缺乏信心時，買賣價差（bid-ask
+spread）擴大、交易成本上升，投資人因而減少交易，導致市場流動性下降、股價波動加劇。<strong>關鍵在於：流動性下降是市場層級的後果——受害的不只是資訊不透明的公司，連資訊透明的公司也被拖累，因為投資人已經無法區分兩者</strong>（Akerlof,
+1970）。</p>
+<h3 id="三解決資訊不對稱的機制">三、解決資訊不對稱的機制</h3>
+<p>解決資訊不對稱的機制可以分為<strong>兩層</strong>——<strong>公司內部機制</strong>（確保資訊在產生時就正確）與<strong>市場機制</strong>（確保資訊在揭露後被正確解讀與驗證）——<strong>並需要一個後盾：法律責任</strong>，讓前兩層真正有作用。</p>
+<p><strong>（一）公司內部機制</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>機制</th>
+<th>功能</th>
+<th>限制</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>內部控制</strong></td>
+<td>確保財務報導的可靠性與法令遵循（COSO 五要素，詳見第二節第三項）</td>
+<td>由公司自己設計與執行，獨立性有限</td>
+</tr>
+<tr class="even">
+<td><strong>內部稽核</strong></td>
+<td>在內部控制中獨立評估風險管理與治理流程（詳見第二節第四項）</td>
+<td>薪酬由管理階層決定</td>
+</tr>
+</tbody>
+</table>
+<p><strong>（二）市場機制</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>機制</th>
+<th>功能</th>
+<th>限制</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>強制性揭露</strong></td>
+<td>法規要求公司定期揭露財務資訊</td>
+<td>只能確保「最低標準」，無法保證「真實」</td>
+</tr>
+<tr class="even">
+<td><strong>外部審計</strong></td>
+<td>獨立會計師驗證財務報表的可靠性</td>
+<td>獨立性可能受質疑（詳見第三節）</td>
+</tr>
+<tr class="odd">
+<td><strong>信用評等</strong></td>
+<td>評等機構評估公司的信用風險</td>
+<td>評等機構由公司支付費用，利益衝突</td>
+</tr>
+<tr class="even">
+<td><strong>分析師</strong></td>
+<td>專業分析師研究公司並發布報告</td>
+<td>分析師可能受到「壓力」而發布樂觀報告</td>
+</tr>
+<tr class="odd">
+<td><strong>媒體與吹哨者</strong></td>
+<td>揭露公司的不當行為</td>
+<td>依賴運氣，不是制度化的機制</td>
+</tr>
+</tbody>
+</table>
+<p><strong>（三）後盾：法律責任</strong></p>
+<p>上面兩種機制要能運作，還需要「說謊有代價」作為後盾——<strong>財務報告不實的法律責任</strong>（詳見第五節及附錄二）。若沒有法律責任，揭露與審計都只是把謊言的發現時間往後延。</p>
+<p><strong>關鍵洞察：</strong>
+上面每一種機制各自都有缺陷，而且<strong>沒有任何一種單獨有效</strong>：</p>
+<ul>
+<li>強制性揭露確保「資訊存在」，但不保證「真實」——Toshiba
+的財報形式上一切合法，實際卻虛增百億利潤</li>
+<li>外部審計確保「資訊品質」，但獨立性可能被侵蝕</li>
+<li>評等與分析師有利益衝突</li>
+<li>媒體與吹哨者依賴個案</li>
+</ul>
+<p>因此，解決資訊不對稱需要<strong>三層組合</strong>：<strong>強制揭露（資訊存在）＋外部審計（資訊品質）＋法律責任（說謊有代價）</strong>。</p>
+<blockquote>
+<p><span class="ch4-extension" hidden></span>💭
+<strong>想一想</strong>：你認為哪一種機制最能有效解決資訊不對稱？為什麼？</p>
+</blockquote>
+<hr />
+<h2 id="第二節-財務報導的基本原則是什麼誰來驗證誰負責">第二節
+財務報導的基本原則是什麼？誰來驗證？誰負責？</h2>
+<p>要判斷資訊真不真，得先知道資訊長什麼樣、依什麼規則產生。財務報表是管理階層在會計準則下編製的——<strong>準則既是溝通的語言，也是管理人裁量與舞弊的空間所在</strong>。本節先介紹財報的組成與編製原則，再說明公司如何編製財報、各方如何評估與監督，最後以期末盤點差異示範實際分工。</p>
+<h3 id="一財務報表的組成">一、財務報表的組成</h3>
+<p>一套完整的財務報表包括：</p>
+<p><strong>1. 資產負債表（Balance
+Sheet）</strong>：反映公司在特定日期的財務狀況（資產 = 負債 + 權益）</p>
+<p><strong>2. 綜合損益表（Income
+Statement）</strong>：反映公司在特定期間的經營績效（收入 - 費用 =
+淨利）</p>
+<p><strong>3. 現金流量表（Cash Flow
+Statement）</strong>：反映公司在特定期間的現金流入和流出</p>
+<p><strong>4. 權益變動表（Statement of Changes in
+Equity）</strong>：反映公司在特定期間權益的變動</p>
+<p><strong>5.
+附註（Notes）</strong>：對財務報表的補充說明，包括會計政策、重大估計、關係人交易等</p>
+<blockquote>
+<p><span class="ch4-case" hidden></span>📌
+<strong>釋例</strong>：五張報表各有不同的「可被操控的脆弱點」——Toshiba
+的造假正好展示了前兩張：</p>
+</blockquote>
+<table>
+<thead>
+<tr class="header">
+<th>報表</th>
+<th>觀察重點</th>
+<th>為何重要</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>資產負債表</td>
+<td>一個時間點的體質</td>
+<td>Toshiba <strong>高估存貨</strong>，直接灌水資產</td>
+</tr>
+<tr class="even">
+<td>綜合損益表</td>
+<td>一段期間的績效</td>
+<td>Toshiba <strong>提前認列收入、遞延費用</strong>，虛增營業利益</td>
+</tr>
+<tr class="odd">
+<td>現金流量表</td>
+<td>實際金流</td>
+<td><strong>最難用會計估計操控</strong>——舞弊者往往在這裡露出破綻</td>
+</tr>
+<tr class="even">
+<td>權益變動表</td>
+<td>股東權益的變化</td>
+<td>反映盈餘分配與股本變化</td>
+</tr>
+<tr class="odd">
+<td>附註</td>
+<td>會計政策與重大估計</td>
+<td><strong>舞弊的線索往往藏在附註</strong>——估計的假設與變更都在這裡</td>
+</tr>
+</tbody>
+</table>
+<h3 id="二財務報導的基本原則">二、財務報導的基本原則</h3>
+<p><strong>1. 應計基礎（Accrual
+Basis）</strong>：交易應於發生時認列，而非於現金收付時。這使得財報更能反映經濟實質，但也給了管理階層「操縱」的空間（例如，提前認列收入、遞延認列費用）。</p>
+<p><strong>2. 繼續經營（Going
+Concern）</strong>：假設公司將持續經營下去。如果公司面臨倒閉風險，必須在財報中揭露。</p>
+<p><strong>3.
+重大性（Materiality）</strong>：重大資訊應單獨揭露，非重大資訊可以彙總揭露。但「重大」的判斷取決於管理階層的裁量。</p>
+<p><strong>4.
+保守主義（Conservatism）</strong>：在不確定情況下，應選擇對資產和收益較為保守的處理。但實務中，管理階層可能違反保守主義（例如，高估資產、低估負債）。</p>
+<p><strong>東芝個案中的四項會計處理問題</strong></p>
+<p>以下四項依東芝獨立調查委員會的調查範圍整理。閱讀時可以逐項辨認：哪一個數字有問題、錯在估計金額或入帳時點，以及當期財報受到什麼影響。</p>
+<table>
+<thead>
+<tr class="header">
+<th>東芝的會計處理問題</th>
+<th>涉及的財務報導觀念</th>
+<th>對當期財報的影響</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>長期工程低估總成本、延後認列預期損失</strong></td>
+<td>完工進度估計、收入認列與預期合約損失</td>
+<td>以成本比例估算進度時，低估總成本會高估進度與累計收入；延後認列預期損失也會高估當期獲利。</td>
+</tr>
+<tr class="even">
+<td><strong>影像產品事業延後認列營業費用</strong></td>
+<td>應計基礎、費用歸屬期間</td>
+<td>已應入帳的促銷費等費用移到後期，當期費用偏低、獲利偏高。</td>
+</tr>
+<tr class="odd">
+<td><strong>半導體事業高估期末存貨</strong></td>
+<td>存貨成本分攤、存貨評價</td>
+<td>過多成本留在期末存貨，當期銷貨成本偏低、獲利偏高；應認列的存貨跌價未反映時，資產也會高估。</td>
+</tr>
+<tr class="even">
+<td><strong>電腦零件供料與回購交易提前反映利益</strong></td>
+<td>交易經濟實質、利益認列時點</td>
+<td>零件仍將隨成品回到東芝時，先用供料價差沖減成本，會使當期獲利偏高。</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>表註</strong>　想了解各項交易實際怎麼做、正確處理應考量什麼，以及數字如何影響財報，可參閱章末<a
+href="#附錄一東芝四項會計處理問題詳解">附錄一　東芝四項會計處理問題詳解</a>。</p>
+</blockquote>
+<p><strong>這四個原則是解讀財報的工具</strong>：了解管理階層在每個原則下有多少裁量空間，才能判斷數字的可靠性——同一產業、同樣營收的兩家公司，財報可以長得完全不同。</p>
+<h3
+id="三財報如何編製公司如何防止錯誤">三、財報如何編製？公司如何防止錯誤？</h3>
+<p>前兩項說明財務報表有哪些內容，以及交易應依什麼原則入帳。接下來看這些原則如何落實。管理階層負責編製財務報表，並建立及維持相關內部控制。業務與財會單位則在日常工作中執行各項控制。</p>
+<p>以購買原料為例，採買前由有權限的人核准，收貨後由相關人員比對採購單、收貨紀錄和發票，入帳後再由負責覆核的人檢查金額與入帳月份。到了期末，財會人員會整理當期帳目並完成必要調整，這個過程稱為<strong>結帳</strong>。若原料在
+12 月已收到，公司也已負有付款義務，即使發票隔年 1 月才到，財會人員也要在
+12 月反映這筆存貨與應付款。</p>
+<p><strong>1. 內部控制（Internal Control）</strong></p>
+<p>內部控制是公司為了合理確保營運成效、報導可靠性與法令遵循而設計並執行的一套制度。美國
+Committee of Sponsoring Organizations of the Treadway
+Commission（COSO）的《內部控制整合架構》（Internal Control – Integrated
+Framework, 2013）把內部控制分為五個相互關聯的要素。</p>
+<table>
+<thead>
+<tr class="header">
+<th>組成要素</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>控制環境</strong></td>
+<td>透過誠信規範、董事會監督與權責分工，建立執行控制的基礎。</td>
+</tr>
+<tr class="even">
+<td><strong>風險評估</strong></td>
+<td>辨識可能出錯的環節，例如年底已收貨的交易可能漏記。</td>
+</tr>
+<tr class="odd">
+<td><strong>控制活動</strong></td>
+<td>採取具體措施，例如核准採購、比對單據與覆核入帳。</td>
+</tr>
+<tr class="even">
+<td><strong>資訊與溝通</strong></td>
+<td>讓需要處理交易的人及時取得資訊，例如倉庫把收貨紀錄交給財會人員。</td>
+</tr>
+<tr class="odd">
+<td><strong>監督活動</strong></td>
+<td>持續或定期確認控制是否有效運作，並追蹤缺失的改善情形。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>2. 管理階層的責任</strong></p>
+<p>管理階層對財報編製及內部控制負首要責任。管理階層要安排各單位的權責，掌握重大錯誤與控制缺失，並督促更正或改善。美國《沙賓法案》（Sarbanes-Oxley
+Act, SOX）第 302 節與第 404
+節，以及臺灣《公開發行公司建立內部控制制度處理準則》，是本章用來說明財報認證與內控責任的制度例子。財報不實涉及的法律責任，見第五節及附錄二。</p>
+<h3
+id="四誰評估內控監督財報與執行查核">四、誰評估內控、監督財報與執行查核？</h3>
+<p>等公司建立了控制程序，就可以追問三件事：程序有沒有落實？發現重大問題時，由誰追問與追蹤？公司對外公布的財報，又由誰查核？</p>
+<p><strong>1. 內部稽核（Internal Audit）評估控制是否有效</strong></p>
+<p>內部稽核獨立評估公司內部的風險管理、控制與治理流程。以採購為例，稽核人員可抽查收貨紀錄，檢視財會人員有沒有按規定比對單據，以及發現差異後有沒有追蹤處理。稽核發現缺失後，會提出報告並追蹤改善。</p>
+<p><strong>2. 審計委員會（Audit Committee）監督財務報導</strong></p>
+<p>審計委員會可聽取內部稽核的報告，向管理階層詢問重大錯誤如何發生、是否已更正，以及誰負責改善。委員會也可與外部會計師討論重大查核事項，掌握管理階層的說明與查核結果之間是否存在需要追問的差異。</p>
+<p><strong>3. 外部會計師執行財務報表查核（External Audit）</strong></p>
+<p>外部會計師取得查核證據，對財務報表在所有重大方面是否依適用的財務報導架構允當表達出具獨立意見。讀查核報告時，可以先看意見類型，再看形成該意見的理由。</p>
+<table>
+<thead>
+<tr class="header">
+<th>意見類型</th>
+<th>意思</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>無保留意見</strong></td>
+<td>會計師認為財務報表在所有重大方面允當表達。</td>
+</tr>
+<tr class="even">
+<td><strong>保留意見</strong></td>
+<td>已發現重大但未廣泛影響財報的不實表達，或因證據不足而無法排除有同等程度的影響。</td>
+</tr>
+<tr class="odd">
+<td><strong>否定意見</strong></td>
+<td>會計師認定財務報表的不實表達具有重大且廣泛的影響。</td>
+</tr>
+<tr class="even">
+<td><strong>無法表示意見</strong></td>
+<td>會計師無法取得充分適當的證據，可能的影響既重大又廣泛，因此無法形成意見。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="五期末盤點少了-100-件誰要做什麼">五、期末盤點少了 100
+件，誰要做什麼？</h3>
+<p>假設年底財會帳上記有 1,000 件原料，倉庫實際只盤到 900 件。這 100
+件可能已領用但漏記，也可能是盤點時漏算。公司要先釐清原因，才能決定是否調整財報。</p>
+<table>
+<thead>
+<tr class="header">
+<th>需要回答的問題</th>
+<th>由誰處理？</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>帳要不要調整？</strong></td>
+<td>倉庫與財會人員重新盤點、比對領料紀錄與帳載資料，找出差異來源。管理階層依查明的事實，確保財報作必要調整。</td>
+</tr>
+<tr class="even">
+<td><strong>差異為什麼到年底才發現？</strong></td>
+<td>內部稽核檢查領料紀錄、入帳與定期核對程序是否有效。若差異反映重大控制缺失，審計委員會可要求管理階層說明原因、提出改善措施，並追蹤進度。</td>
+</tr>
+<tr class="odd">
+<td><strong>差異會影響查核意見嗎？</strong></td>
+<td>外部會計師就存貨數量及相關金額取得查核證據，評估財報是否已適當調整，以及尚未更正的差異或證據不足是否重大。影響須依查核證據與重大性判斷。</td>
+</tr>
+</tbody>
+</table>
+<p>回到章首的東芝個案，公司設有審計委員會，外部會計師也曾出具無保留意見，重大不實仍未及時被發現。接下來的第三節就從外部會計師的工作出發，說明哪些情況會影響查核獨立性，以及即使會計師保持獨立，查核仍有哪些限制。</p>
+<hr />
+<h2 id="第三節-外部審計為什麼可能失靈">第三節
+外部審計為什麼可能失靈？</h2>
+<p>第二節用期末盤點差異說明，外部會計師必須獨立取得證據，才能判斷財報是否需要調整。要理解查核為何可能失靈，可以沿著兩個問題讀下去。會計師能否在客戶施壓時維持專業判斷？即使做到了，手上的證據又能支持多強的結論？</p>
+<h3
+id="一會計師為什麼可能受到客戶影響">一、會計師為什麼可能受到客戶影響？</h3>
+<p>假設公司暗示：「如果出具保留意見，我們就換事務所。」查核結果關係到公司的對外報導，續聘與公費也關係到事務所的收入。會計師需要在這些壓力下，依證據形成意見。以下從四種情境看獨立性會如何受到威脅（DeFond
+&amp; Zhang, 2014）。</p>
+<p><strong>1. 自我利益威脅（Self-Interest Threat）</strong></p>
+<p>會計師與客戶有財務利益關係。例如，會計師事務所同時提供審計服務與非審計服務（諮詢、稅務等），非審計服務的收入可能超過審計收入，導致會計師「不敢」得罪客戶。</p>
+<blockquote>
+<p><span class="ch4-case" hidden></span>📌
+<strong>釋例</strong>：在安隆案中，安達信（Arthur
+Andersen）同時收取高額審計費與諮詢費。當安隆的財務問題浮現時，安達信選擇「配合」安隆的會計處理，而非堅持獨立性。最終，安達信因銷毀審計工作底稿而被起訴，全球五大會計師事務所從此變為四大。</p>
+</blockquote>
+<p><strong>2. 自我審查威脅（Self-Review Threat）</strong></p>
+<p>會計師查核自己或非審計服務的工作。例如，如果事務所為公司設計內部控制制度，然後再審計這些制度的有效性，就產生了自我審查威脅。</p>
+<p><strong>3. 熟悉威脅（Familiarity Threat）</strong></p>
+<p>會計師與客戶關係過於密切。例如，審計合夥人在同一客戶服務超過十年，可能與管理階層建立私人關係，影響其獨立性。</p>
+<p><strong>4. 脅迫威脅（Intimidation Threat）</strong></p>
+<p>客戶對會計師施加壓力。例如，客戶暗示「如果出具保留意見，我們將更換事務所」。</p>
+<h3
+id="二制度如何維護會計師的獨立性">二、制度如何維護會計師的獨立性？</h3>
+<p>如果公司以更換事務所施壓，單靠會計師個人堅持，能抵擋多少壓力？制度設計可以從誰參與聘任、事務所能提供哪些服務，以及外部能看到哪些資訊著手。</p>
+<table>
+<thead>
+<tr class="header">
+<th>制度措施</th>
+<th>所回應的威脅</th>
+<th>如何發揮作用</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>審計合夥人輪替</td>
+<td>熟悉威脅</td>
+<td>定期更換負責同一客戶的合夥人，讓新任合夥人重新檢視過往判斷。</td>
+</tr>
+<tr class="even">
+<td>限制特定非審計服務</td>
+<td>自我利益、自我審查</td>
+<td>降低對額外服務收入的依賴，並避免事務所查核自己先前設計或編製的成果。</td>
+</tr>
+<tr class="odd">
+<td>查核與非查核公費揭露</td>
+<td>自我利益</td>
+<td>讓審計委員會與投資人有資訊可以追問，事務所與客戶的其他商業往來是否影響獨立性。</td>
+</tr>
+<tr class="even">
+<td>審計委員會參與聘任及監督</td>
+<td>脅迫、自我利益</td>
+<td>由審計委員會參與會計師的聘任與監督，降低受查核的管理階層以更換事務所左右查核判斷的空間。</td>
+</tr>
+</tbody>
+</table>
+<p>同業評鑑等品質監督措施，著重在檢視事務所的品質管理和案件執行。這類措施能促進查核品質，也讓獨立性要求在實際工作中受到檢視。</p>
+<h3
+id="三即使會計師保持獨立為什麼仍可能漏掉重大不實">三、即使會計師保持獨立，為什麼仍可能漏掉重大不實？</h3>
+<p>回到第二節的盤點情境。帳上有 1,000 件原料，倉庫只盤到 900
+件。如果公司僅提供自行整理的盤點表，會計師還會問：盤點當天究竟有多少存貨？差異是否來自漏記領料？視風險與重大性，會計師可觀察盤點、抽盤，或將盤點紀錄與領料單及帳冊相互比對。</p>
+<p>查核通常會針對風險選取項目測試。抽樣可能漏掉部分問題，管理階層若串通偽造文件，也可能讓不同紀錄看起來彼此一致。涉及存貨跌價等估計時，會計師還要評估假設與證據是否合理。查核通常在一定期間內完成。如果證據不足，會計師須考慮能否採用其他程序，以及證據缺口如何影響查核意見。</p>
+<p>財報查核提供的是<strong>合理確信</strong>，也就是以充分適當的證據，把財報存在重大不實而會計師仍出具不適當意見的風險降到可接受的低水準。這是一種高度確信，仍有查核風險。</p>
+<p>如果要查證的資訊從倉庫存貨轉為供應商的排放量，使用者為何需要這個數字？公司又從哪裡取得可查證的資料？第四節從這兩個問題出發。</p>
+<hr />
+<h2 id="第四節-為什麼需要永續資訊如何判斷它是否可信">第四節
+為什麼需要永續資訊？如何判斷它是否可信？</h2>
+<p>前三節討論如何讓投資人與董事會取得可信的財務資訊。到了永續揭露，首先要問的是：<strong>現有的財務資訊之外，哪些事實會改變人們的決策？</strong></p>
+<p>想像兩家公司今年的獲利相近，其中一家高度依賴缺水地區的一座工廠。投資人與債權人若要判斷未來現金流量或還款能力，就需要了解工廠用水量、限水時能否維持生產，以及公司是否已有替代水源。董事會也會用這些資訊決定是否投資節水設備或調整產能。這類風險可能在損失反映到財報之前，就已影響決策。</p>
+<p>同一座工廠的取水與排放也可能影響當地居民。居民需要知道公司取用多少水、排放如何監測、發現異常後如何處理，才能判斷生活用水或環境是否受到影響。供應鏈也有類似情形。品牌公司需要知道代工廠的安全缺失才能決定如何改善，工人則需要知道危害是否已排除。</p>
+<p>這些需求之所以需要透過揭露來回應，是因為資料往往掌握在企業或供應商手中，外部使用者很難自行取得。同一個指標也可能因納入的據點、期間或估算方式不同而難以比較。永續揭露因此要回答三件事：<strong>哪些資訊需要公開、數字以什麼方式編製，以及使用者可以用什麼證據判斷它是否可信。</strong>
+後面的報導準則、重大性與確信，分別處理這些問題。</p>
+<p><strong>永續報告書是什麼？</strong>
+它是企業針對環境（Environmental）、社會（Social）、治理（Governance）三個面向——合稱
+ESG——所編製的非財務報告，說明公司「對環境與社會做了什麼」，而不只是「賺了多少錢」。它的內容涵蓋三個面向：</p>
+<ul>
+<li><strong>環境</strong>：碳排放、能源使用、水資源、廢棄物、生物多樣性</li>
+<li><strong>社會</strong>：員工勞動條件、供應鏈責任、社區參與、顧客保護</li>
+<li><strong>治理</strong>：董事會運作、誠信與反腐、風險管理、人權盡職調查</li>
+</ul>
+<p>它和財報的差別不只在格式，而在<strong>資訊的性質</strong>：財報是量化的、回顧歷史的金融資訊；永續報告書則同時包含量化與質化的資訊，既回顧過去，也展望未來。</p>
+<p>問題是：為財務報告設計的語言與驗證機制，能否直接套用？<strong>新的揭露領域，會產生新的漂綠手法</strong>。本節比較兩者的差異，並指出永續報告書獨有的挑戰。</p>
+<h3 id="一財務報告-vs-永續報告書">一、財務報告 vs. 永續報告書</h3>
+<table>
+<thead>
+<tr class="header">
+<th>面向</th>
+<th>財務報告</th>
+<th>永續報告書</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>目的</strong></td>
+<td>反映財務績效與財務狀況</td>
+<td>反映環境、社會、治理（ESG）績效</td>
+</tr>
+<tr class="even">
+<td><strong>強制性</strong></td>
+<td>強制性（法規要求）</td>
+<td>部分強制、部分自願（2025 年起台灣上市櫃公司全面強制）</td>
+</tr>
+<tr class="odd">
+<td><strong>編製準則</strong></td>
+<td>IFRS（國際財務報導準則）</td>
+<td>GRI、SASB、TCFD、ISSB 等（多種框架並存）</td>
+</tr>
+<tr class="even">
+<td><strong>確信／審計要求</strong></td>
+<td>強制外部審計（合理確信）</td>
+<td>多為「確信」，且以有限確信為主（見本節第二項）</td>
+</tr>
+<tr class="odd">
+<td><strong>主要使用者</strong></td>
+<td>投資人、債權人</td>
+<td>所有利害關係人（員工、客戶、社區、NGO 等）</td>
+</tr>
+<tr class="even">
+<td><strong>重大性定義</strong></td>
+<td>財務重大性</td>
+<td>財務重大性（ISSB）或雙重重大性（ESRS，見本節第五項）</td>
+</tr>
+<tr class="odd">
+<td><strong>時間取向</strong></td>
+<td>歷史資訊（過去績效）</td>
+<td>歷史 + 未來（未來目標、風險評估）</td>
+</tr>
+<tr class="even">
+<td><strong>量化程度</strong></td>
+<td>高度量化</td>
+<td>部分量化、部分質化</td>
+</tr>
+</tbody>
+</table>
+<h3
+id="二確信的程度與財務審計的差異">二、確信的程度：與財務審計的差異</h3>
+<p>永續報告書與財務報告最根本的差異之一，是<strong>保證程度</strong>。財務報表適用「審計」（audit），永續報告書目前多適用「確信」（assurance）——兩者提供的保證層級不同。</p>
+<p>要理解這個差異，先掌握兩件事：查核者<strong>願意對資訊的正確性提供多少承諾</strong>（保證程度），以及他<strong>用什麼方式把承諾寫出來</strong>（結論形式）。</p>
+<p><strong>1. 合理確信（Reasonable
+Assurance）──財務報表使用</strong></p>
+<ul>
+<li><strong>含意</strong>：查核者執行了足夠的查核程序，能支持一個正面結論——「未發現重大不實」。</li>
+<li><strong>結論形式</strong>：<strong>積極保證</strong>。查核者直接陳述：「本事務所認為，財務報表於所有重大方面係依……允當表達。」</li>
+<li><strong>程序</strong>：必須瞭解並測試內部控制，再執行實質查核程序——函證、盤點、驗證單據、評估會計估計。</li>
+<li><strong>代價</strong>：成本高、時間長，因為它要求證據多到足以支持正面結論。</li>
+</ul>
+<p><strong>2. 有限確信（Limited
+Assurance）──永續報告書多為這種</strong></p>
+<ul>
+<li><strong>含意</strong>：查核者執行的程序較少，只能支持「未發現可疑之處」，<strong>不能</strong>支持「資訊正確」。</li>
+<li><strong>結論形式</strong>：<strong>消極保證</strong>。查核者陳述：「依本事務所之審閱，並未發現任何事項使我們相信該資訊未依……編製。」</li>
+<li><strong>程序</strong>：以詢問與分析性程序為主，較少執行實質驗證。</li>
+<li><strong>關鍵差異</strong>：「<strong>我們沒有發現問題</strong>」<strong>不等於</strong>「<strong>沒有問題</strong>」——它只代表「在有限範圍的程序下，沒有看到可疑之處」。</li>
+</ul>
+<p><strong>3. 兩種層級對照</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>面向</th>
+<th>合理確信（審計）</th>
+<th>有限確信（審閱／確信）</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>結論形式</strong></td>
+<td>積極保證：「我們認為……允當表達」</td>
+<td>消極保證：「我們並未發現……不實」</td>
+</tr>
+<tr class="even">
+<td><strong>證據要求</strong></td>
+<td>足夠且適切，足以支持正面結論</td>
+<td>僅需支持「未發現可疑」</td>
+</tr>
+<tr class="odd">
+<td><strong>查核程序</strong></td>
+<td>控制測試＋實質程序（函證、盤點、驗證單據）</td>
+<td>詢問、分析性程序為主</td>
+</tr>
+<tr class="even">
+<td><strong>查核範圍</strong></td>
+<td>全面性、系統性，涵蓋所有重大項目</td>
+<td>有限範圍，聚焦重大事項</td>
+</tr>
+<tr class="odd">
+<td><strong>成本</strong></td>
+<td>高——程序多、時間長</td>
+<td>低——程序少、速度快</td>
+</tr>
+<tr class="even">
+<td><strong>何時使用</strong></td>
+<td>法規強制（財報）</td>
+<td>多為自願或局部強制（永續）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>4. 為什麼永續報告書多半只能做到有限確信</strong></p>
+<ul>
+<li><strong>成本</strong>：合理確信需要大量實質程序；企業若不願支付高額確信費用，只能退而求其次。</li>
+<li><strong>證據本質</strong>：許多永續數據沒有獨立來源可以驗證——供應商的勞動條件、價值鏈上游的碳排放，都缺乏可核對的單據。</li>
+<li><strong>可行性</strong>：合理確信要求證據足以支持正面結論，但質化敘述（例如「我們重視員工權益」）根本無法這樣驗證。</li>
+</ul>
+<blockquote>
+<p><span class="ch4-case" hidden></span>📌
+<strong>釋例</strong>：台灣上市櫃公司的永續報告書須取得確信，但多數為有限確信；而財務報告為強制審計（合理確信）。兩者不能相提並論——有限確信提供的保證程度，遠低於審計。</p>
+</blockquote>
+<p><strong>關鍵洞察：</strong>
+報告書上每一組永續數據，都必須能分辨它是「經過合理確信的數字」還是「未經實質驗證的數字」。一個有限確信報告書裡的碳排放數字，與審計過的財報數字，保證程度相差極大——<strong>而兩者在版面上可能長得完全一樣</strong>。</p>
+<h3 id="三永續報告書的挑戰">三、永續報告書的挑戰</h3>
+<p><strong>1. 缺乏統一標準</strong></p>
+<p>目前有多種永續報告框架並存（GRI、SASB、TCFD、ISSB
+等），公司可以選擇對自己有利的框架，導致跨公司比較困難。</p>
+<blockquote>
+<p><span class="ch4-case" hidden></span>📌
+<strong>釋例</strong>：一家公司使用 GRI
+框架揭露碳排放數據，另一家公司使用 SASB
+框架，兩者的數據定義與範圍可能不同，無法直接比較。</p>
+</blockquote>
+<p>框架並存不會是永遠的狀態：如果出現一個全球共通的準則，這個困難就可能化解。這樣的統一努力已經在進行，見本節第四項。</p>
+<p><strong>2. 資料品質參差不齊</strong></p>
+<p>永續數據的品質通常不如財務數據。例如，碳排放數據可能依賴「估計」而非「實際測量」，供應鏈數據可能依賴「自我申報」而非「獨立驗證」。</p>
+<p><strong>3. 漂綠（Greenwashing）風險</strong></p>
+<p>公司可能在永續報告書中誇大其環保表現，或選擇性揭露正面資訊、隱瞞負面資訊。</p>
+<blockquote>
+<p><span class="ch4-case" hidden></span>📌
+<strong>釋例</strong>：DWS（德意志銀行資產管理部門）在 2025
+年被德國檢方處以 2,500 萬歐元罰款，原因是其在 ESG
+行銷中誇大其實——聲稱是「ESG 領導者」，但實際上只有少部分資產應用嚴格 ESG
+標準（完整討論見本章章尾個案）。</p>
+</blockquote>
+<p>還有一種更根本的選擇性揭露：<strong>某些議題根本不落在「重大」的定義之內，因此連揭露都不必</strong>——那不是「揭露了卻不實」，而是「從頭就不揭露」。這個決定的是揭露的<strong>範圍</strong>，見本節第五項。</p>
+<h3 id="四issb-的統一努力與四大支柱">四、ISSB 的統一努力與四大支柱</h3>
+<p>上面指出「缺乏統一標準」是永續報告書最難解決的問題——公司各選框架，數據無法比較。國際永續準則委員會（ISSB）嘗試一次解決這個困難：2023
+年發布 IFRS S1（一般永續揭露）與 IFRS
+S2（氣候揭露），目標是成為全球永續報導的統一標準。其架構源自原本的
+TCFD，分為四大支柱：</p>
+<table>
+<thead>
+<tr class="header">
+<th>支柱</th>
+<th>內容</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>治理</strong></td>
+<td>監督永續相關風險與機會的治理流程與控制</td>
+</tr>
+<tr class="even">
+<td><strong>策略</strong></td>
+<td>永續相關風險與機會對商業模式、策略與財務規劃的影響</td>
+</tr>
+<tr class="odd">
+<td><strong>風險管理</strong></td>
+<td>辨識、評估與管理永續相關風險的流程</td>
+</tr>
+<tr class="even">
+<td><strong>指標與目標</strong></td>
+<td>追蹤永續相關風險與機會的指標與目標（含溫室氣體排放）</td>
+</tr>
+</tbody>
+</table>
+<p>至 2026 年，已有奈及利亞（2024 年起）、智利（2026
+年起）、巴西等國強制採用 ISSB 準則；墨西哥則自 2025
+年會計年度開始適用、2026 年提出首份報告。台灣規劃自 2026
+年會計年度起分三階段接軌：2026 年資本額達新臺幣 100 億元以上者先行，2027
+年擴及資本額 50 億至 100 億元者，2028
+年適用其餘所有上市櫃公司。（金融監督管理委員會，2023）</p>
+<h3 id="五雙重重大性double-materiality">五、雙重重大性（Double
+Materiality）</h3>
+<p>語言與驗證之外，兩者還有一個更根本的差異——<strong>「重大」的定義不同</strong>。這不是技術細節，而是<strong>決定了公司究竟揭露什麼</strong>：</p>
+<ul>
+<li>若只問「這件事會不會影響公司賺錢」，公司排放多少二氧化碳、供應商的勞動條件如何，可能被完全略過</li>
+<li>若也問「公司對環境與社會造成什麼衝擊」，揭露的範圍就完全不同</li>
+</ul>
+<p>換句話說，這個定義決定了<strong>誰的利益算數</strong>——是只有投資人，還是也包括受公司活動影響的人：</p>
+<table>
+<thead>
+<tr class="header">
+<th>重大性類型</th>
+<th>定義</th>
+<th>主要使用者</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>財務重大性</strong></td>
+<td>永續議題對「公司財務績效」的影響</td>
+<td>投資人、債權人</td>
+</tr>
+<tr class="even">
+<td><strong>衝擊重大性</strong></td>
+<td>公司活動對「環境與社會」的衝擊</td>
+<td>員工、社區、NGO、監理機關</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>ISSB（IFRS
+S1／S2）</strong>：以「財務重大性」為主——因為其主要使用者是投資人</li>
+<li><strong>歐盟
+ESRS（CSRD）</strong>：採「雙重重大性」——同時評估財務重大性與衝擊重大性</li>
+</ul>
+<p><strong>關鍵洞察：</strong>
+採用哪一種重大性，決定了公司「揭露什麼」——在純粹財務重大性之下，公司對社會與環境的衝擊可能完全不被揭露。<strong>這也是第三項「漂綠」更根本的根源：問題不只在揭露不實，更在於根本不揭露。</strong></p>
+<blockquote>
+<p><span class="ch4-extension" hidden></span>💭
+<strong>想一想</strong>：你認為永續報告書的重大性應該以「財務重大性」或「衝擊重大性」為主？為什麼？</p>
+</blockquote>
+<hr />
+<h2 id="第五節-揭露不實時如何追究責任">第五節
+揭露不實時，如何追究責任？</h2>
+<p>第一節把法律責任視為揭露制度的後盾。到了這裡，可以用全章兩個案例來看它為何重要。東芝案涉及誤導財報使用者的會計處理。章尾的
+DWS
+案涉及資產管理公司對外說明的永續投資流程，與其實際執行之間的落差。兩案都值得追問：誰作出陳述？誰依賴了這些資訊？哪些紀錄能用來查明落差？</p>
+<p>追究責任，要先辨認不實資訊出現在什麼文件或對外陳述中，再依適用規範判斷誰負有編製、認證、查核或揭露義務，以及行為、損害與證據是否符合相關要件。民事賠償可在符合要件時填補損害，監理處分或刑事責任則依各自的適用條件追究，並提高違規的代價。</p>
+<blockquote>
+<p>想了解臺灣與美國財報不實及相關認證規範，可參閱<a
+href="#附錄二財務報導責任的法規對照">附錄二　財務報導責任的法規對照</a>。</p>
+</blockquote>
+<hr />
+<h2 id="本章小結">本章小結</h2>
+<p><strong>本章的要旨：</strong></p>
+<p>資訊不對稱是資本市場的固有問題，而<strong>沒有任何單一機制可以獨自解決它</strong>。揭露確保資訊存在、審計確保資訊品質、法律責任確保說謊有代價——三者缺一，機制就會被規避。Toshiba
+的財報形式上一切合法、外部審計也年年出具無保留意見，卻仍虛增百億利潤，正是最好的證明。</p>
+<p><strong>三個核心問題的答案：</strong></p>
+<ol type="1">
+<li><strong>如何確保「真相」是真實的？</strong>
+靠三層機制的組合——強制揭露、外部審計、法律責任。三者相互依賴，沒有哪一層可以單獨成立。</li>
+<li><strong>外部審計為什麼可能失靈？</strong>
+獨立性在實務上不斷受到威脅（自我利益、自我審查、熟悉、脅迫），而即使獨立性完整，抽樣、舞弊、估計不確定性與時間壓力仍構成審計的極限。<strong>審計提供的是合理確信，不是保證。</strong></li>
+<li><strong>揭露擴展到永續，語言與驗證還能套用嗎？</strong>
+還不能。永續報告書缺乏統一標準、資料品質參差不齊、確信程度低於審計，而且「重大」的定義本身就是一個尚未解決的選擇——<strong>這正是下一輪制度競爭的焦點</strong>。</li>
+</ol>
+<p><strong>關鍵術語：</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>術語</th>
+<th>英文</th>
+<th>定義</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>資訊不對稱</td>
+<td>Information Asymmetry</td>
+<td>交易雙方掌握的資訊量或品質不同的情況</td>
+</tr>
+<tr class="even">
+<td>逆選擇</td>
+<td>Adverse Selection</td>
+<td>資訊不對稱導致市場驅逐良品、留下劣品的現象</td>
+</tr>
+<tr class="odd">
+<td>道德風險</td>
+<td>Moral Hazard</td>
+<td>交易一方在合約簽訂後採取損害另一方利益的行為</td>
+</tr>
+<tr class="even">
+<td>外部審計</td>
+<td>External Audit</td>
+<td>由獨立會計師事務所對財務報表進行查核</td>
+</tr>
+<tr class="odd">
+<td>內部稽核</td>
+<td>Internal Audit</td>
+<td>獨立、客觀的確認和諮詢活動</td>
+</tr>
+<tr class="even">
+<td>永續報告書</td>
+<td>Sustainability Report</td>
+<td>企業揭露其在環境、社會和治理面向的政策、策略、目標和績效</td>
+</tr>
+<tr class="odd">
+<td>漂綠</td>
+<td>Greenwashing</td>
+<td>誇大或虛構永續表現的行為</td>
+</tr>
+<tr class="even">
+<td>確信</td>
+<td>Assurance</td>
+<td>對資訊品質提供的保證程度（低於審計）</td>
+</tr>
+<tr class="odd">
+<td>會計師</td>
+<td>Certified Public Accountant (CPA)</td>
+<td>執行財務報表查核的專門職業人員；台灣用法，「審計師」為中國及日本用語</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="參考文獻">參考文獻</h2>
+<p>本章內容主要依據以下學術文獻與實務報告：</p>
+<p><strong>Akerlof, G. A. (1970).</strong> The market for "lemons":
+Quality uncertainty and the market mechanism. <em>Quarterly Journal of
+Economics, 84</em>(3), 488–500. [<a
+href="https://doi.org/10.2307/1879431](https://doi.org/10.2307/1879431)">https://doi.org/10.2307/1879431](https://doi.org/10.2307/1879431)</a></p>
+<p><strong>Committee of Sponsoring Organizations of the Treadway
+Commission (COSO). (2013).</strong> <em>Internal control – integrated
+framework.</em> COSO. [<a
+href="https://www.coso.org/internal-control](https://www.coso.org/internal-control)">https://www.coso.org/internal-control](https://www.coso.org/internal-control)</a></p>
+<p><strong>DeFond, M., &amp; Zhang, J. (2014).</strong> A review of
+archival auditing research. <em>Journal of Accounting and Economics,
+58</em>(2-3), 275–326. [<a
+href="https://doi.org/10.1016/j.jacceco.2014.09.002](https://doi.org/10.1016/j.jacceco.2014.09.002)">https://doi.org/10.1016/j.jacceco.2014.09.002](https://doi.org/10.1016/j.jacceco.2014.09.002)</a></p>
+<p><strong>Healy, P. M., &amp; Palepu, K. G. (2001).</strong>
+Information asymmetry, corporate disclosure, and the capital markets: A
+review of the empirical disclosure literature. <em>Journal of Accounting
+and Economics, 31</em>(1-3), 405–440. [<a
+href="https://doi.org/10.1016/S0165-4101(01)00018-0](https://doi.org/10.1016/S0165-4101(01)00018-0)">https://doi.org/10.1016/S0165-4101(01)00018-0](https://doi.org/10.1016/S0165-4101(01)00018-0)</a></p>
+<p><strong>ISSB. (2023).</strong> <em>IFRS S1 General Requirements for
+Disclosure of Sustainability-related Financial Information.</em> IFRS
+Foundation. [<a
+href="https://www.ifrs.org/issued-standards/ifrs-sustainability-standards-navigator/ifrs-s1-general-requirements/](https://www.ifrs.org/issued-standards/ifrs-sustainability-standards-navigator/ifrs-s1-general-requirements/)">https://www.ifrs.org/issued-standards/ifrs-sustainability-standards-navigator/ifrs-s1-general-requirements/](https://www.ifrs.org/issued-standards/ifrs-sustainability-standards-navigator/ifrs-s1-general-requirements/)</a></p>
+<p><strong>ISSB. (2023).</strong> <em>IFRS S2 Climate-related
+Disclosures.</em> IFRS Foundation. [<a
+href="https://www.ifrs.org/issued-standards/ifrs-sustainability-standards-navigator/ifrs-s2-climate-related-disclosures/](https://www.ifrs.org/issued-standards/ifrs-sustainability-standards-navigator/ifrs-s2-climate-related-disclosures/)">https://www.ifrs.org/issued-standards/ifrs-sustainability-standards-navigator/ifrs-s2-climate-related-disclosures/](https://www.ifrs.org/issued-standards/ifrs-sustainability-standards-navigator/ifrs-s2-climate-related-disclosures/)</a></p>
+<p><strong>Sarbanes-Oxley Act of 2002, Pub. L. No. 107-204, §§302, 404,
+906.</strong></p>
+<p><strong>Toshiba Independent Investigation Committee. (2015).</strong>
+<em>Investigation Report.</em> Toshiba Corporation. [<a
+href="https://www.global.toshiba/content/dam/toshiba/migration/corp/irAssets/about/ir/en/news/20150725_1.pdf](https://www.global.toshiba/content/dam/toshiba/migration/corp/irAssets/about/ir/en/news/20150725_1.pdf)">https://www.global.toshiba/content/dam/toshiba/migration/corp/irAssets/about/ir/en/news/20150725_1.pdf](https://www.global.toshiba/content/dam/toshiba/migration/corp/irAssets/about/ir/en/news/20150725_1.pdf)</a></p>
+<p><strong>金融監督管理委員會. (2023).</strong>
+我國接軌國際財務報導準則（IFRS）永續揭露準則藍圖. 金融監督管理委員會.
+[<a
+href="https://www.fsc.gov.tw/ch/home.jsp?id=96&amp;parentpath=0%2C2&amp;mcustomize=news_view.jsp&amp;dataserno=202308170002&amp;dtable=News](https://www.fsc.gov.tw/ch/home.jsp?id=96&amp;parentpath=0%2C2&amp;mcustomize=news_view.jsp&amp;dataserno=202308170002&amp;dtable=News)">https://www.fsc.gov.tw/ch/home.jsp?id=96&amp;parentpath=0%2C2&amp;mcustomize=news_view.jsp&amp;dataserno=202308170002&amp;dtable=News](https://www.fsc.gov.tw/ch/home.jsp?id=96&amp;parentpath=0%2C2&amp;mcustomize=news_view.jsp&amp;dataserno=202308170002&amp;dtable=News)</a></p>
+<p><strong>法規與政策參考資源</strong>（供讀者查閱與核實）</p>
+<p><em>台灣</em></p>
+<ul>
+<li>金融監督管理委員會. (2023).
+我國接軌國際財務報導準則（IFRS）永續揭露準則藍圖. [<a
+href="https://www.fsc.gov.tw/ch/home.jsp?id=96&amp;parentpath=0%2C2&amp;mcustomize=news_view.jsp&amp;dataserno=202308170002&amp;dtable=News](https://www.fsc.gov.tw/ch/home.jsp?id=96&amp;parentpath=0%2C2&amp;mcustomize=news_view.jsp&amp;dataserno=202308170002&amp;dtable=News)">https://www.fsc.gov.tw/ch/home.jsp?id=96&amp;parentpath=0%2C2&amp;mcustomize=news_view.jsp&amp;dataserno=202308170002&amp;dtable=News](https://www.fsc.gov.tw/ch/home.jsp?id=96&amp;parentpath=0%2C2&amp;mcustomize=news_view.jsp&amp;dataserno=202308170002&amp;dtable=News)</a></li>
+<li>金融監督管理委員會. (2023). 上市櫃公司永續發展行動方案（2023 年）.
+台灣證券交易所公司治理中心. [<a
+href="https://cgc.twse.com.tw/responsibilityPlan/listCh](https://cgc.twse.com.tw/responsibilityPlan/listCh)">https://cgc.twse.com.tw/responsibilityPlan/listCh](https://cgc.twse.com.tw/responsibilityPlan/listCh)</a></li>
+<li>《證券交易法》（財務報導相關條文見附錄二）. [<a
+href="https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=G0400001](https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=G0400001)">https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=G0400001](https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=G0400001)</a></li>
+<li>《公開發行公司建立內部控制制度處理準則》. [<a
+href="https://law.fsc.gov.tw/LawContent.aspx?id=FL021141](https://law.fsc.gov.tw/LawContent.aspx?id=FL021141)">https://law.fsc.gov.tw/LawContent.aspx?id=FL021141](https://law.fsc.gov.tw/LawContent.aspx?id=FL021141)</a></li>
+<li>《公開發行公司獨立董事設置及應遵循事項辦法》. [<a
+href="https://law.fsc.gov.tw/LawContent.aspx?id=FL038791](https://law.fsc.gov.tw/LawContent.aspx?id=FL038791)">https://law.fsc.gov.tw/LawContent.aspx?id=FL038791](https://law.fsc.gov.tw/LawContent.aspx?id=FL038791)</a></li>
+<li>《公開發行公司審計委員會行使職權辦法》. [<a
+href="https://law.fsc.gov.tw/LawContent.aspx?id=FL038790](https://law.fsc.gov.tw/LawContent.aspx?id=FL038790)">https://law.fsc.gov.tw/LawContent.aspx?id=FL038790](https://law.fsc.gov.tw/LawContent.aspx?id=FL038790)</a></li>
+</ul>
+<p><em>國際</em></p>
+<ul>
+<li>IFRS Foundation. (2023). <em>IFRS S1 General Requirements for
+Disclosure of Sustainability-related Financial
+Information</em>／<em>IFRS S2 Climate-related Disclosures</em>. [<a
+href="https://www.ifrs.org/issued-standards/ifrs-sustainability-standards-navigator/](https://www.ifrs.org/issued-standards/ifrs-sustainability-standards-navigator/)">https://www.ifrs.org/issued-standards/ifrs-sustainability-standards-navigator/](https://www.ifrs.org/issued-standards/ifrs-sustainability-standards-navigator/)</a></li>
+<li>European Commission. (2024). <em>Corporate Sustainability Reporting
+Directive (CSRD)／European Sustainability Reporting Standards
+(ESRS)</em>. [<a
+href="https://finance.ec.europa.eu/financial-markets/company-reporting-and-auditing/company-reporting/corporate-sustainability-reporting_en](https://finance.ec.europa.eu/financial-markets/company-reporting-and-auditing/company-reporting/corporate-sustainability-reporting_en)">https://finance.ec.europa.eu/financial-markets/company-reporting-and-auditing/company-reporting/corporate-sustainability-reporting_en](https://finance.ec.europa.eu/financial-markets/company-reporting-and-auditing/company-reporting/corporate-sustainability-reporting_en)</a></li>
+<li>U.S. Securities and Exchange Commission. (2024). <em>The Enhancement
+and Standardization of Climate-Related Disclosures for Investors</em>
+(Release No. 33-11275). [<a
+href="https://www.sec.gov/rules-regulations/2024/03/s7-10-22](https://www.sec.gov/rules-regulations/2024/03/s7-10-22)">https://www.sec.gov/rules-regulations/2024/03/s7-10-22](https://www.sec.gov/rules-regulations/2024/03/s7-10-22)</a></li>
+<li>Committee of Sponsoring Organizations of the Treadway Commission
+(COSO). (2013). <em>Internal Control – Integrated Framework</em>. [<a
+href="https://www.coso.org/internal-control](https://www.coso.org/internal-control)">https://www.coso.org/internal-control](https://www.coso.org/internal-control)</a></li>
+<li>Sarbanes-Oxley Act of 2002, Pub. L. No. 107-204, §§302, 404,
+906.</li>
+</ul>
+<p><em>本章所引用的法規命令與政策文件，均於「法規與政策參考資源」提供查閱連結；Sarbanes-Oxley
+Act 為美國成文法，以法案名稱引用。</em></p>
+<hr />
+<h2 id="習題">習題</h2>
+<h3 id="選擇題">選擇題</h3>
+<ol type="1">
+<li>下列何者不是資訊不對稱的後果？
+<ul>
+<li>(A) 逆選擇</li>
+<li>(B) 道德風險</li>
+<li>(C) 市場流動性上升</li>
+<li>(D) 籌資成本提高</li>
+</ul></li>
+<li>財務報表中，反映公司在特定日期財務狀況的是：
+<ul>
+<li>(A) 綜合損益表</li>
+<li>(B) 資產負債表</li>
+<li>(C) 現金流量表</li>
+<li>(D) 權益變動表</li>
+</ul></li>
+<li>會計師對財務報表查核後，認定「除特定事項外，財務報表允當表達」，這稱為：
+<ul>
+<li>(A) 無保留意見</li>
+<li>(B) 保留意見</li>
+<li>(C) 否定意見</li>
+<li>(D) 無法表示意見</li>
+</ul></li>
+<li>下列何者不是審計獨立性的威脅？
+<ul>
+<li>(A) 自我利益威脅</li>
+<li>(B) 自我審查威脅</li>
+<li>(C) 公義威脅</li>
+<li>(D) 脅迫威脅</li>
+</ul></li>
+<li>台灣上市櫃公司全面編製永續報告書的年份是：
+<ul>
+<li>(A) 2023年</li>
+<li>(B) 2024年</li>
+<li>(C) 2025年</li>
+<li>(D) 2027年</li>
+</ul></li>
+</ol>
+<h3 id="問答題">問答題</h3>
+<ol type="1">
+<li>請說明資訊不對稱的來源與後果，並分析解決資訊不對稱的機制。</li>
+<li>外部審計為什麼可能失靈？請以 Toshiba 案或安隆案為例說明。</li>
+<li>比較財務報告與永續報告書的差異，並說明永續報告書面臨的挑戰。</li>
+<li>你認為永續報告書應該像財務報告一樣強制審計嗎？為什麼？</li>
+</ol>
+<h3 id="情境題">情境題</h3>
+<p><strong>情境</strong>：你是一家台灣上市櫃公司的獨立董事。公司最近被媒體報導，其永續報告書中的碳排放數據與實際排放量有顯著差異。媒體質疑公司「漂綠」。</p>
+<p><strong>問題</strong>：</p>
+<ol type="1">
+<li>這個情境涉及本章哪些重要概念？（提示：至少列出三個）</li>
+<li>你會如何回應媒體的質疑？你會要求什麼樣的調查？</li>
+<li>你認為公司應該如何改善其永續報告書的品質？</li>
+</ol>
+<hr />
+<h2
+id="章尾個案dws-漂綠資訊揭露的真實性與-esg-數據的審計挑戰">章尾個案：DWS
+漂綠——資訊揭露的真實性與 ESG 數據的審計挑戰</h2>
+<blockquote>
+<p><span class="ch4-case" hidden></span><strong>核心問題：當揭露的範圍超出財務報告，誰來驗證？</strong></p>
+</blockquote>
+<h3 id="個案摘要">個案摘要</h3>
+<p>DWS Group 為德意志銀行（Deutsche
+Bank）旗下的資產管理公司，總部位於德國法蘭克福，為歐洲最大的資產管理公司之一，2020
+年管理資產規模約 8,000 億歐元。</p>
+<p><strong>事件經過</strong></p>
+<p>2020 年，DWS 在年度報告中聲稱其半數資產（約 4,000 億歐元）採用 ESG
+標準進行投資。但 2021 年，前永續長 Desiree Fixler 向德國金融監管機構
+BaFin 舉報，DWS 誇大其 ESG
+投資規模——實際上只有少部分資產真正應用了嚴格的 ESG 標準。Fixler
+因而被解僱，她隨後向美國證券交易委員會（SEC）和德國監管機構申訴。</p>
+<p>2022 年 5 月，德國警方搜索 DWS
+總部與德意志銀行辦公室，調查是否涉及「說明書詐欺」。</p>
+<p>2023 年，SEC 對 DWS 達成和解：DWS 在<strong>未承認也未否認</strong>
+SEC 調查結果的前提下，就其 2018 年至 2021 年間對 ESG
+投資流程的誤導性陳述，同意支付 <strong>1,900
+萬美元</strong>罰款（同一命令另就洗錢防制缺失處以 600 萬美元，合計 2,500
+萬美元）。</p>
+<p>2025 年 4 月，德國法蘭克福檢察官辦公室做出更嚴厲的處分：DWS 被處以
+2,500 萬歐元罰款，原因是其在 ESG 行銷中誇大其實。DWS
+在聲明中表示：「我們承認，過去我們的行銷有時過於熱情。」</p>
+<p><strong>資訊揭露的啟示</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>問題</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>揭露與真實的落差</strong></td>
+<td>DWS 的揭露「符合」其內部方法論，但方法論本身過於寬鬆</td>
+</tr>
+<tr class="even">
+<td><strong>吹哨者的角色</strong></td>
+<td>前永續長 Fixler 因舉報而被解僱，顯示吹哨者保護的重要性</td>
+</tr>
+<tr class="odd">
+<td><strong>監理機構的回應</strong></td>
+<td>SEC 與德國檢方都對 DWS 做出處分，但罰款金額是否足夠？</td>
+</tr>
+<tr class="even">
+<td><strong>永續數據的驗證</strong></td>
+<td>DWS 案顯示，永續數據的驗證機制仍不完善</td>
+</tr>
+</tbody>
+</table>
+<p>表格整理出四個面向，但它們指向同一個結論：<strong>當揭露的範圍擴展到永續，驗證機制也必須跟著升級</strong>——監理機關對
+ESG 揭露的審查，已從「告知」轉向「驗證」。</p>
+<h3 id="討論問題">討論問題</h3>
+<ol type="1">
+<li><strong>資訊品質比較</strong>：DWS 的「漂綠」與 Toshiba
+的「財務造假」有何不同？哪一種更難發現？哪一種對投資人的傷害更大？</li>
+<li><strong>資訊不對稱與驗證機制</strong>：與章首的 Toshiba
+案比較，兩個案例的「資訊不對稱」與「審計／驗證」機制有何不同？Toshiba
+是「管理階層對董事會隱瞞」，DWS 是「公司對投資人隱瞞」。為什麼 Toshiba
+的外部會計師沒發現造假，而 DWS
+的「漂綠」被發現了？你認為哪一種資訊不對稱更嚴重？</li>
+<li><strong>獨立董事的角色</strong>：如果你是 DWS
+的獨立董事，你會如何回應 Fixler
+的舉報？你會支持「遵循公司內部方法論」還是「遵循嚴格 ESG 標準」？</li>
+<li><strong>永續數據的真實性</strong>：DWS
+案顯示，永續報告書的「揭露」本身可能被操縱。你認為應該如何確保永續數據的真實性？你會要求什麼樣的驗證機制？</li>
+<li><strong>ISSB 的極限</strong>：你認為 ISSB
+的統一標準能否解決漂綠問題？為什麼？</li>
+</ol>
+<h3 id="主要參考文獻">主要參考文獻</h3>
+<ul>
+<li>U.S. Securities and Exchange Commission. (2023). <em>Deutsche Bank
+subsidiary DWS to pay $25 million for anti-money laundering violations
+and misstatements regarding ESG investments</em> (Release No. 2023-194).
+[<a
+href="https://www.sec.gov/newsroom/press-releases/2023-194](https://www.sec.gov/newsroom/press-releases/2023-194)">https://www.sec.gov/newsroom/press-releases/2023-194](https://www.sec.gov/newsroom/press-releases/2023-194)</a></li>
+<li>Frankfurt Public Prosecutor's Office. (2025, April). <em>Fine
+against DWS for greenwashing.</em></li>
+<li>ESG Today. (2025). <em>Deutsche Bank's DWS fined $27 million for
+greenwashing.</em> [<a
+href="https://www.esgtoday.com/deutsche-banks-dws-fined-27-million-for-greenwashing](https://www.esgtoday.com/deutsche-banks-dws-fined-27-million-for-greenwashing)">https://www.esgtoday.com/deutsche-banks-dws-fined-27-million-for-greenwashing](https://www.esgtoday.com/deutsche-banks-dws-fined-27-million-for-greenwashing)</a></li>
+</ul>
+<blockquote>
+<p><span class="ch4-extension" hidden></span><strong>本章承後</strong>：本章討論了監督所需的資訊。第五章將把問責對象從股東擴展到所有利害關係人——資訊揭露不只是股東的權利，也是所有利害關係人的權利。</p>
+</blockquote>
+<hr />
+<p><span id="附錄一東芝四項會計處理問題詳解"></span></p>
+<h2
+id="附錄一-東芝四項會計處理問題詳解">附錄一　東芝四項會計處理問題詳解</h2>
+<p>本附錄依第二節表格的順序說明。案例事實取自東芝獨立調查委員會（2015）調查報告第
+3 至第 6
+章。以下金額均為教學試算，方便讀者看出各項會計處理如何改變當期收益、費用或資產。
+<a
+href="https://www.global.toshiba/content/dam/toshiba/migration/corp/irAssets/about/ir/en/news/20151208_2.pdf">東芝獨立調查委員會調查報告（英文版）</a></p>
+<h3
+id="一長期工程如何因低估成本而高估收入">一、長期工程如何因低估成本而高估收入？</h3>
+<p>東芝部分長期工程採用完工百分比法。調查發現，有些工程的總成本估計未反映最新成本資訊，或把缺乏具體依據的節省金額算進去。有些案件也未在已可預見合約將虧損時及時認列損失。這涉及兩個不同的判斷：工程完成多少，以及整份合約預計會不會虧損。</p>
+<p>假設合約金額為 120，期末累計已投入成本為
+40。在本例以成本比例衡量進度，且其他條件相同時：</p>
+<table>
+<thead>
+<tr class="header">
+<th>期末採用的估計</th>
+<th>累計已投入成本 ÷ 預估總成本</th>
+<th>累計應認列收入</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>有依據的總成本 100</td>
+<td>40 ÷ 100 = 40%</td>
+<td>120 × 40% = 48</td>
+</tr>
+<tr class="even">
+<td>偏低的總成本 80</td>
+<td>40 ÷ 80 = 50%</td>
+<td>120 × 50% = 60</td>
+</tr>
+</tbody>
+</table>
+<p>工程的投入沒有改變，僅僅把分母從 100 改成 80，就會讓累計收入多出
+12。若另有一份合約的最新估計顯示總成本將超過合約收入，也要依適用會計規定，在應認列的期間反映預期損失。延後入帳會讓當期損益看起來較好。</p>
+<h3
+id="二促銷費為什麼在付款前也可能要入帳">二、促銷費為什麼在付款前也可能要入帳？</h3>
+<p>調查發現，影像產品事業為達成損益目標，曾把應在本期認列的營業費用或應提列的金額留待以後處理。促銷活動提供了一個容易理解的例子。</p>
+<p>假設賣場在 12 月已依約完成促銷，公司到次年 1 月才收到請款單並付款
+10。若年底已發生付款義務且金額可以合理估計，公司應在 12 月認列費用 10
+與相應負債。到 1 月付款時，現金和負債各減少 10。若把整筆費用留到 1
+月才入帳，12 月所在年度的費用與負債各少列 10，稅前利益多列
+10。應計基礎要求公司依義務和費用發生的期間入帳。</p>
+<h3 id="三期末存貨為什麼會影響損益">三、期末存貨為什麼會影響損益？</h3>
+<p>半導體製程會把成本分配到已售產品及期末仍在製造或尚未出售的產品。調查指出，部分製程調整標準成本時，後段製程的標準成本未同步更新，使過多成本留在期末存貨。另有部分停產後為客戶支援保留的存貨，其處置或跌價處理不當。</p>
+<p>假設本期可供分配的成本共 100。若期末存貨應為 30，當期銷貨成本就是
+70。若公司把期末存貨列成 40，銷貨成本就只剩
+60。同一筆成本多留在資產負債表 10，損益表就少認列成本 10，毛利也多出
+10。至於應跌價的存貨，重點是帳面金額能否由其可回收價值支持，必要時須認列跌價損失。</p>
+<h3
+id="四電腦零件交給代工廠為什麼價差還不能算成當期利益">四、電腦零件交給代工廠，為什麼價差還不能算成當期利益？</h3>
+<p>東芝透過集團公司買進關鍵零件，以高於採購成本的供料價格交給代工廠，代工廠把零件裝進電腦後，再把成品交回東芝。較高的供料價原本可用來遮蔽實際採購成本。調查指出，問題出在東芝於供料時先用價差沖減製造成本，並未在期末妥善消除相關未實現利益，因而高估當期獲利。</p>
+<p>假設東芝以 50 買進零件，以 80 供料給代工廠，之後再以 100
+買回成品，其中含 80 的零件供料價與 20
+的加工費。在這個簡化例子裡，東芝原始零件成本加加工費共
+70。若期末成品還未對外出售，先把 80 與 50 之間的價差 30
+當成當期成本減項，就會憑供料與回購安排提前反映利益。分析這類交易時，要把供料、回購與最終對外銷售連在一起看。</p>
+<p>四項問題都可能讓當期獲利偏高，但查證時要找的資料各不相同。長期工程要看期末可取得的成本估計，促銷費要看活動何時完成，半導體存貨要看成本如何分攤及是否應跌價，電腦零件則要把供料與成品回購的交易條件放在一起核對。</p>
+<hr />
+<p><span id="附錄二財務報導責任的法規對照"></span></p>
+<h2
+id="附錄二-財務報導責任的法規對照">附錄二　財務報導責任的法規對照</h2>
+<table>
+<thead>
+<tr class="header">
+<th>法規</th>
+<th>閱讀重點</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>臺灣《證券交易法》第 20 條第 2 項</td>
+<td>發行人依法申報或公告的財務報告及財務業務文件，內容不得虛偽或隱匿。</td>
+</tr>
+<tr class="even">
+<td>臺灣《證券交易法》第 20 條之 1</td>
+<td>財務報告等文件的主要內容如有虛偽或隱匿，在符合條文要件時可能產生民事賠償責任。條文明定相關責任人、會計師的專業責任及過失責任分配。</td>
+</tr>
+<tr class="odd">
+<td>臺灣《證券交易法》第 171 條、第 174 條</td>
+<td>分別涉及不同類型的證券違法行為與刑事責任，應依具體行為及適用條款判斷。</td>
+</tr>
+<tr class="even">
+<td>美國《沙賓法案》第 302 節</td>
+<td>說明主要執行與財務主管對定期報告所負的認證責任。</td>
+</tr>
+<tr class="odd">
+<td>美國《沙賓法案》第 404 節</td>
+<td>涉及管理階層對財務報導內部控制的評估，以及適用時的外部會計師查核要求。</td>
+</tr>
+<tr class="even">
+<td>美國《沙賓法案》第 906 節</td>
+<td>涉及特定定期報告的書面認證與違反認證規定時的刑事責任。</td>
+</tr>
+<tr class="odd">
+<td>美國《陶德－法蘭克法案》第 922 節</td>
+<td>涉及證券違法通報的吹哨者獎勵與反報復保護，有助於理解違規如何進入監理程序。</td>
+</tr>
+</tbody>
+</table>
+<p><a
+href="https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=G0400001">臺灣《證券交易法》</a>
+· <a
+href="https://www.govinfo.gov/content/pkg/PLAW-107publ204/pdf/PLAW-107publ204.pdf">美國《沙賓法案》</a>
+· <a
+href="https://www.govinfo.gov/content/pkg/PLAW-111publ203/pdf/PLAW-111publ203.pdf">美國《陶德－法蘭克法案》</a></p>
+</main></body>
+</html>
