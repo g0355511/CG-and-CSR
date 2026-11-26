@@ -66,6 +66,12 @@ body:is(.vscode-dark, .vscode-high-contrast):has(#chapter-four-reading) th { col
   body:has(#chapter-four-reading), body:has(#chapter-four-reading) main { padding: 0; border: 0; background: white; }
   body:has(#chapter-four-reading) table { display: table; width: 100%; }
 }
+@counter-style subsection-numbering {
+  system: extends decimal;
+  prefix: "(";
+  suffix: ") ";
+}
+ol.subsection-items { list-style-type: subsection-numbering; }
 </style>
 <style>*, *::before, *::after {box-sizing:border-box} main {min-width:0;overflow-wrap:anywhere} h1 {margin-top:0} #chapter-four-reading {display:none} @media print {* {print-color-adjust:exact}}</style>
 </head>
@@ -143,22 +149,22 @@ while outside shareholders and investors depend on what the company
 discloses.</p>
 <p>Healy and Palepu (2001) distinguish three sources of information
 asymmetry.</p>
-<p><strong>1. The advantage of inside information.</strong> Managers see
+<p><strong>(1) The advantage of inside information.</strong> Managers see
 day-to-day operations and know about unpublished R&amp;D progress,
 potential litigation, and the risk of losing customers. These facts can
 affect share prices while remaining invisible to outside investors.</p>
-<p><strong>2. Disclosure costs and strategic considerations.</strong>
+<p><strong>(2) Disclosure costs and strategic considerations.</strong>
 Preparing reports and obtaining legal advice costs money, and extensive
 disclosure can expose commercially sensitive information. Management may
 disclose favorable information selectively and withhold unfavorable
 information.</p>
-<p><strong>3. Difficulty interpreting information.</strong> Even when
+<p><strong>(3) Difficulty interpreting information.</strong> Even when
 companies disclose information, understanding the risks in complex
 derivatives, related-party transactions, and contingent liabilities may
 require specialist knowledge.</p>
 <h3 id="2-consequences-of-information-asymmetry">2. Consequences of
 Information Asymmetry</h3>
-<p><strong>1. Adverse selection.</strong> When investors cannot
+<p><strong>(1) Adverse selection.</strong> When investors cannot
 distinguish higher-quality companies from lower-quality ones, they will
 pay a price reflecting average quality. That undervalues stronger firms
 and overvalues weaker ones. Eventually, stronger firms may withdraw,
@@ -169,11 +175,11 @@ investors cannot tell whether financial statements are reliable, they
 may demand a higher risk premium. This raises financing costs even for
 companies that report honestly.</p>
 </blockquote>
-<p><strong>2. Moral hazard.</strong> When managers' actions are hard to
+<p><strong>(2) Moral hazard.</strong> When managers' actions are hard to
 observe, they may pursue personal benefits at shareholders' expense. An
 example is empire-building through acquisitions that increase management
 compensation without creating shareholder value.</p>
-<p><strong>3. Lower market liquidity.</strong> A lack of confidence in
+<p><strong>(3) Lower market liquidity.</strong> A lack of confidence in
 company disclosures can widen bid–ask spreads and increase trading
 costs. Investors trade less, liquidity falls, and share prices become
 more volatile. This can harm transparent companies as well, because
@@ -184,7 +190,7 @@ for Addressing Information Asymmetry</h3>
 <p>Companies can improve the reliability of information as they produce
 it, and market mechanisms can help users interpret and verify it after
 disclosure. Legal liability supports both.</p>
-<p><strong>(a) Internal mechanisms</strong></p>
+<p><strong>(1) Internal mechanisms</strong></p>
 <table>
 <thead>
 <tr class="header">
@@ -209,7 +215,7 @@ See Section 2.4.</td>
 </tr>
 </tbody>
 </table>
-<p><strong>(b) Market mechanisms</strong></p>
+<p><strong>(2) Market mechanisms</strong></p>
 <table>
 <thead>
 <tr class="header">
@@ -248,7 +254,7 @@ statements. See Section 3.</td>
 </tr>
 </tbody>
 </table>
-<p><strong>(c) Legal liability as a backstop.</strong> Liability for
+<p><strong>(3) Legal liability as a backstop.</strong> Liability for
 financial misstatements gives companies and individuals a reason to
 report honestly. Section 5 and Appendix 2 explain how accountability
 works. Disclosure and auditing alone may leave false statements
@@ -283,7 +289,7 @@ responsibilities.</p>
 <h3 id="1-components-of-financial-statements">1. Components of Financial
 Statements</h3>
 <p>A complete set includes:</p>
-<ol type="1">
+<ol type="1" class="subsection-items">
 <li><strong>Balance sheet.</strong> Shows financial position at a
 particular date (assets = liabilities + equity).</li>
 <li><strong>Statement of comprehensive income.</strong> Shows
@@ -341,7 +347,7 @@ misreporting.</td>
 </table>
 <h3 id="2-basic-principles-of-financial-reporting">2. Basic Principles
 of Financial Reporting</h3>
-<ol type="1">
+<ol type="1" class="subsection-items">
 <li><strong>Accrual basis.</strong> Transactions are recognized when
 they occur, regardless of when cash changes hands. This better reflects
 their economic substance but leaves room for manipulation, such as
@@ -358,52 +364,65 @@ depart from this principle by overstating assets or understating
 liabilities.</li>
 </ol>
 <p><strong>Four accounting issues in the Toshiba case</strong></p>
-<p>These issues follow the scope of Toshiba's independent investigation.
-For each one, identify the affected figure, whether the error concerns
-measurement or timing, and its effect on the current period's financial
-statements.</p>
+<blockquote>
+<p><strong>Worked case | What does Toshiba’s overstated project revenue tell us?</strong></p>
+<p>In the Toshiba case, estimated total costs were understated on some long-term projects. Suppose a contract has revenue of 100 and costs incurred to date of 40. Evidence supports estimated total costs of 80, yet the company uses 64. These figures are illustrative. If a cost-based measure of progress is appropriate, the estimates produce cumulative revenue of 50 and 62.5, respectively.</p>
+<ol>
+<li><strong>Accrual basis: How much revenue should be recognized by period-end?</strong> Revenue on this project is recognized as work progresses. Supported progress is 40 ÷ 80 = 50%, so cumulative revenue is 50. When the customer pays is a separate question.</li>
+<li><strong>Conservatism (prudence): What supports the cost estimate?</strong> A reduction in estimated total costs to 64 calls for evidence of expected savings, such as lower purchase prices or fewer labor hours. Understating total costs raises reported progress from 50% to 62.5%. Prudence means using evidence to address uncertainty and avoiding unsupported understatement of assets or income as well.</li>
+<li><strong>Materiality: Whose judgment could the overstatement of 12.5 affect?</strong> Consider the amount in the context of the financial statements as a whole. If the correction turns reported profit into a loss, investors may reassess the company’s performance. Consider the size, nature, and circumstances of this and other misstatements, both individually and together. Apply this question to every row below.</li>
+<li><strong>Going concern: After correction, should we investigate the company’s ability to keep operating?</strong> Review cash-flow forecasts, debt maturities, and available financing. If higher project costs mean the company may be unable to repay debts as they fall due, assess whether material uncertainty exists, what disclosure is needed, and whether the going concern basis remains appropriate. The revenue difference alone cannot resolve these questions.</li>
+</ol>
+</blockquote>
+<p>Read across the table. Use the second column to identify the accounting problem, the third to trace its effect on reported figures, and the last to consider how much the correction could matter to users.</p>
 <table>
 <thead>
 <tr class="header">
 <th>Toshiba's accounting issue</th>
-<th>Reporting concepts</th>
+<th>Connection to financial reporting principles</th>
 <th>Effect on the current period</th>
+<th>Materiality assessment</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td><strong>Underestimated total costs and delayed recognition of
 expected losses on long-term projects</strong></td>
-<td>Measure of progress, revenue recognition, and expected contract
-losses</td>
+<td><strong>Accrual basis and conservatism (prudence).</strong> Recognize revenue using a supportable measure of progress and recognize expected contract losses when required.</td>
 <td>When progress is measured using costs, understating total costs
 overstates progress and cumulative revenue. Delaying recognition of
 expected losses also overstates current profit.</td>
+<td>Could correcting revenue and contract losses change users’ assessment of project profitability or the period’s profit or loss?</td>
 </tr>
 <tr class="even">
 <td><strong>Deferred operating expenses in the visual products
 business</strong></td>
-<td>Accrual accounting and period allocation</td>
+<td><strong>Accrual basis.</strong> Recognize promotional expenses in the period to which they relate once the service has been provided and the obligation incurred.</td>
 <td>Moving promotional and other expenses to later periods understates
 current expenses and overstates profit.</td>
+<td>Could recognizing the expenses in the proper period change users’ assessment of current profit or the earnings trend?</td>
 </tr>
 <tr class="odd">
 <td><strong>Overstated closing inventory in the semiconductor
 business</strong></td>
-<td>Inventory cost allocation and valuation</td>
+<td><strong>Conservatism (prudence).</strong> Check cost allocation and assess whether inventory's carrying amount is supportable or requires a write-down.</td>
 <td>Leaving too much cost in closing inventory understates cost of sales
 and overstates profit. Omitting required write-downs can also overstate
 assets.</td>
+<td>Could correcting inventory and the related costs or write-downs change users’ assessment of asset values or gross profit?</td>
 </tr>
 <tr class="even">
 <td><strong>Recognized profit too early on computer parts supply and
 repurchase transactions</strong></td>
-<td>Economic substance and the timing of profit recognition</td>
+<td><strong>Accrual basis.</strong> Use the economic substance of the combined supply and repurchase arrangement to determine when to recognize any profit.</td>
 <td>Using the markup on parts to reduce costs before the parts return in
 finished goods overstates current profit.</td>
+<td>Could reversing the prematurely recognized profit change users’ assessment of current earnings or the PC business’s performance?</td>
 </tr>
 </tbody>
 </table>
+<p><strong>Materiality.</strong> The last column identifies judgments each misstatement could affect. Assess the size, nature, and circumstances of the misstatements, individually and in aggregate, to determine whether they could influence financial statement users’ decisions.</p>
+<p><strong>Going concern.</strong> These four accounting errors alone cannot establish whether Toshiba faced material uncertainty about its ability to continue operating at the time. Examine the corrected financial position, debt maturities, available funds, and financing arrangements to assess whether the basis of preparation remains appropriate and whether any material uncertainty needs disclosure.</p>
 <blockquote>
 <p><strong>Table note.</strong> See <a
 href="#appendix-1-toshibas-four-accounting-issues-in-detail">Appendix 1:
@@ -432,7 +451,7 @@ accounts and make necessary adjustments as part of <strong>closing the
 books</strong>. If the company received the materials and incurred the
 payment obligation in December, it records the inventory and payable in
 December even if the invoice arrives in January.</p>
-<p><strong>1. Internal control</strong></p>
+<p><strong>(1) Internal control</strong></p>
 <p>Internal control comprises the processes a company designs and
 operates to provide reasonable assurance about operational
 effectiveness, reporting reliability, and compliance. The Committee of
@@ -475,7 +494,7 @@ follow up on deficiencies.</td>
 </tr>
 </tbody>
 </table>
-<p><strong>2. Management's responsibilities</strong></p>
+<p><strong>(2) Management's responsibilities</strong></p>
 <p>Management is primarily responsible for financial reporting and
 internal control. It assigns responsibilities, identifies material
 errors and control deficiencies, and sees that they are corrected.
@@ -490,19 +509,19 @@ Who Assesses Controls, Oversees Reporting, and Audits the
 Statements?</h3>
 <p>Once controls are in place, who checks that they work, follows up on
 significant problems, and audits the published statements?</p>
-<p><strong>1. Internal audit assesses control effectiveness.</strong>
+<p><strong>(1) Internal audit assesses control effectiveness.</strong>
 Internal audit independently evaluates risk management, controls, and
 governance processes. In procurement, auditors could sample receiving
 records to check whether finance staff matched documents as required and
 followed up on discrepancies. They report deficiencies and monitor
 remedial action.</p>
-<p><strong>2. The audit committee oversees financial reporting.</strong>
+<p><strong>(2) The audit committee oversees financial reporting.</strong>
 The committee can review internal audit findings and ask management how
 material errors arose, whether they were corrected, and who will address
 the underlying deficiencies. It can also discuss significant audit
 matters with the external auditor and follow up on differences between
 management's explanations and audit findings.</p>
-<p><strong>3. The external auditor audits the financial
+<p><strong>(3) The external auditor audits the financial
 statements.</strong> The auditor obtains evidence and expresses an
 independent opinion on whether the statements are fairly presented, in
 all material respects, under the applicable reporting framework. Readers
@@ -597,7 +616,7 @@ public reporting, while reappointment and fees matter to the firm.
 Auditors must form an opinion based on evidence under these pressures.
 Four situations illustrate threats to independence (DeFond &amp; Zhang,
 2014).</p>
-<p><strong>1. Self-interest threat.</strong> An auditor has a financial
+<p><strong>(1) Self-interest threat.</strong> An auditor has a financial
 interest in the client relationship. A firm that provides consulting or
 tax services alongside its audit may earn more from those services than
 from the audit and hesitate to challenge the client.</p>
@@ -609,14 +628,14 @@ treatment. Andersen was ultimately indicted in connection with the
 destruction of audit workpapers, and the global Big Five accounting
 firms became the Big Four.</p>
 </blockquote>
-<p><strong>2. Self-review threat.</strong> An auditor examines the
+<p><strong>(2) Self-review threat.</strong> An auditor examines the
 firm's own work or work performed as a non-audit service. One example is
 auditing internal controls that the firm designed for the client.</p>
-<p><strong>3. Familiarity threat.</strong> A close relationship can
+<p><strong>(3) Familiarity threat.</strong> A close relationship can
 impair independence. A partner who has served a client for more than a
 decade may develop personal relationships with management that affect
 professional judgment.</p>
-<p><strong>4. Intimidation threat.</strong> A client pressures the
+<p><strong>(4) Intimidation threat.</strong> A client pressures the
 auditor, for example by threatening to replace the firm if it issues a
 qualified opinion.</p>
 <h3 id="2-how-do-institutions-safeguard-auditor-independence">2. How Do
@@ -806,7 +825,7 @@ Levels of Assurance and How They Differ from a Financial Audit</h3>
 undergo other assurance engagements. To understand the difference,
 consider the level of assurance the practitioner provides and how the
 practitioner expresses the conclusion.</p>
-<p><strong>1. Reasonable assurance — used in financial statement
+<p><strong>(1) Reasonable assurance — used in financial statement
 audits</strong></p>
 <ul>
 <li><strong>Meaning.</strong> The practitioner performs enough
@@ -822,7 +841,7 @@ document checks, and evaluation of estimates.</li>
 <li><strong>Cost.</strong> Obtaining sufficient evidence for a positive
 opinion takes time and resources.</li>
 </ul>
-<p><strong>2. Limited assurance — common in sustainability
+<p><strong>(2) Limited assurance — common in sustainability
 reporting</strong></p>
 <ul>
 <li><strong>Meaning.</strong> The practitioner performs less extensive
@@ -838,7 +857,7 @@ procedures, with less extensive substantive verification.</li>
 practitioner found within the procedures performed. It provides a lower
 level of assurance.</li>
 </ul>
-<p><strong>3. Comparing the two levels</strong></p>
+<p><strong>(3) Comparing the two levels</strong></p>
 <table>
 <thead>
 <tr class="header">
@@ -882,7 +901,7 @@ disclosures</td>
 </tr>
 </tbody>
 </table>
-<p><strong>4. Why limited assurance is more common for sustainability
+<p><strong>(4) Why limited assurance is more common for sustainability
 reports</strong></p>
 <ul>
 <li><strong>Cost.</strong> Reasonable assurance requires substantial
@@ -908,7 +927,7 @@ financial figure on the page, although the assurance they carry is quite
 different.</p>
 <h3 id="3-challenges-in-sustainability-reporting">3. Challenges in
 Sustainability Reporting</h3>
-<p><strong>1. Multiple reporting standards.</strong> Companies use
+<p><strong>(1) Multiple reporting standards.</strong> Companies use
 frameworks such as the Global Reporting Initiative (GRI), the
 Sustainability Accounting Standards Board (SASB) Standards, the Task
 Force on Climate-related Financial Disclosures (TCFD) recommendations,
@@ -921,11 +940,11 @@ companies reporting emissions under GRI and SASB may use different
 definitions or boundaries. A common global baseline could improve
 comparability. Section 4.4 discusses the effort to develop one.</p>
 </blockquote>
-<p><strong>2. Uneven data quality.</strong> Sustainability data is often
+<p><strong>(2) Uneven data quality.</strong> Sustainability data is often
 less consistent than financial data. Emissions may be estimated instead
 of measured, and supply chain data may depend on suppliers' own reports
 without independent verification.</p>
-<p><strong>3. Greenwashing risk.</strong> Companies may exaggerate
+<p><strong>(3) Greenwashing risk.</strong> Companies may exaggerate
 environmental performance or selectively disclose favorable
 information.</p>
 <blockquote>
@@ -1231,44 +1250,39 @@ cited by its statutory title.</em></p>
 <ol type="1">
 <li>Which of the following is <strong>not</strong> a consequence of
 information asymmetry?
-<ul>
-<li>(A) Adverse selection</li>
-<li>(B) Moral hazard</li>
-<li>(C) Higher market liquidity</li>
-<li>(D) Higher financing costs</li>
-</ul></li>
+<ol type="a"><li>Adverse selection</li>
+<li>Moral hazard</li>
+<li>Higher market liquidity</li>
+<li>Higher financing costs</li>
+</ol></li>
 <li>Which statement shows a company's financial position at a particular
 date?
-<ul>
-<li>(A) Statement of comprehensive income</li>
-<li>(B) Balance sheet</li>
-<li>(C) Statement of cash flows</li>
-<li>(D) Statement of changes in equity</li>
-</ul></li>
+<ol type="a"><li>Statement of comprehensive income</li>
+<li>Balance sheet</li>
+<li>Statement of cash flows</li>
+<li>Statement of changes in equity</li>
+</ol></li>
 <li>What type of opinion does an auditor issue when the statements are
 fairly presented except for the effects of a specified matter?
-<ul>
-<li>(A) Unmodified opinion</li>
-<li>(B) Qualified opinion</li>
-<li>(C) Adverse opinion</li>
-<li>(D) Disclaimer of opinion</li>
-</ul></li>
+<ol type="a"><li>Unmodified opinion</li>
+<li>Qualified opinion</li>
+<li>Adverse opinion</li>
+<li>Disclaimer of opinion</li>
+</ol></li>
 <li>Which of the following is <strong>not</strong> a threat to auditor
 independence?
-<ul>
-<li>(A) Self-interest threat</li>
-<li>(B) Self-review threat</li>
-<li>(C) Fairness threat</li>
-<li>(D) Intimidation threat</li>
-</ul></li>
+<ol type="a"><li>Self-interest threat</li>
+<li>Self-review threat</li>
+<li>Fairness threat</li>
+<li>Intimidation threat</li>
+</ol></li>
 <li>In what year did sustainability reports become mandatory for all
 listed companies in Taiwan?
-<ul>
-<li>(A) 2023</li>
-<li>(B) 2024</li>
-<li>(C) 2025</li>
-<li>(D) 2027</li>
-</ul></li>
+<ol type="a"><li>2023</li>
+<li>2024</li>
+<li>2025</li>
+<li>2027</li>
+</ol></li>
 </ol>
 <h3 id="short-answer-questions">Short-answer questions</h3>
 <ol type="1">
